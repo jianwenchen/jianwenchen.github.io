@@ -334,7 +334,7 @@
 5. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.\\
 6. $A \cup A^c = S$, $A \cap A^c = \emptyset$.\\
 7. $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$,$C\setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$.\\ 
-7'. $(A \cup B)^c = A^c \cap B^c$, $(A \cap B)^c = A^c \cup B^c$.\\
+7'. $(A \cap B)^c = A^c \cup B^c$, $(A \cup B)^c = A^c \cap B^c$.\\
   \end{Thm}
 \end{frame}
 \begin{frame}
@@ -380,7 +380,7 @@
 5. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.\\
 6. $A \cup A^c = S$, $A \cap A^c = \emptyset$.\\
 7. $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$,$C\setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$.\\ 
-7'. $(A \cup B)^c = A^c \cap B^c$, $(A \cap B)^c = A^c \cup B^c$.\\
+7'. $(A \cap B)^c = A^c \cup B^c$, $(A \cup B)^c = A^c \cap B^c$.\\
   \end{Thm3.1}
 \end{frame}
 
@@ -584,7 +584,7 @@
   \begin{Ex}
     如果$I=\mathbb{N}$，则$\bigcup_{\alpha \in I}A_{\alpha} =A_0\cup A_1\cup A_2\cup\cdots=\bigcup_{\alpha=0}^{\infty}A_{\alpha}$；
     
-    如果$I=\mathbb{N}$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_0\cap A_1\cap A_2\cup\cdots=\bigcap_{\alpha=0}^{\infty}A_{\alpha}$。
+    如果$I=\mathbb{N}$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_0\cap A_1\cap A_2\cap\cdots=\bigcap_{\alpha=0}^{\infty}A_{\alpha}$。
   \end{Ex}
 \end{frame}
 \begin{frame}
@@ -595,7 +595,7 @@
   \begin{Ex}
     如果$I=\mathbb{Z}^+$，则$\bigcup_{\alpha \in I}A_{\alpha} =A_1\cup A_2\cup A_3\cup\cdots=\bigcup_{\alpha=1}^{\infty}A_{\alpha}$；
     
-    如果$I=\mathbb{Z}^+$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_1\cap A_2\cap A_3\cup\cdots=\bigcap_{\alpha=1}^{\infty}A_{\alpha}$。
+    如果$I=\mathbb{Z}^+$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_1\cap A_2\cap A_3\cap\cdots=\bigcap_{\alpha=1}^{\infty}A_{\alpha}$。
   \end{Ex}
 \end{frame}
 \begin{frame}
@@ -650,7 +650,7 @@
   \pause
   \begin{equation*}
     \begin{split}
-      &x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})\\
+      \forall x&x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})\\
       \Leftrightarrow &x \in C \land x \notin \bigcap_{\alpha \in I}A_{\alpha}\\
       \Leftrightarrow &x \in C \land \lnot (x \in \bigcap_{\alpha \in I}A_{\alpha})\\
       \Leftrightarrow &x \in C \land \lnot (\forall \alpha \alpha \in I \to x \in A_{\alpha})\\
