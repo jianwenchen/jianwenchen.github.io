@@ -259,20 +259,20 @@
 2. $(A \cup B) \cup C = A \cup (B \cup C)$,$(A \cap B) \cap C = A \cap (B \cap C)$.\\
 %3. $A \cup A = A$,$A \cap A = A$.\\
 %4. $(A \cup B) \cap A = A$,$(A \cap B) \cup A = A$.\\
-4. $A \cup \emptyset = A$, $A \cap \emptyset = \emptyset$.\\
-5. $A \cup S = S$, $A \cap S = A$.\\
-6. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.\\
-7. $A \cup A^c = S$, $A \cap A^c = \emptyset$.\\
-8. $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$, $C\setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$.\\ 
-8'. $(A \cup B)^c = A^c \cap B^c$, $(A \cap B)^c = A^c \cup B^c$.\\
+3. $A \cup \emptyset = A$, $A \cap \emptyset = \emptyset$.\\
+4. $A \cup S = S$, $A \cap S = A$.\\
+5. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$, $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.\\
+6. $A \cup A^c = S$, $A \cap A^c = \emptyset$.\\
+7. $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$, $C\setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$.\\ 
+7'.  $(A \cap B)^c = A^c \cup B^c$, $(A \cup B)^c = A^c \cap B^c$.\\
 \end{Thm}
-  以下只证明结论6和结论8，其他结论的证明留给读者自己完成。
+  以下只证明结论5和结论7，其他结论的证明留给读者自己完成。
 
-  首先证明结论6的第一条,我们先在草稿纸上做如下的分析：
+  首先证明结论5的第一条,我们先在草稿纸上做如下的分析：
   \begin{equation*}
     \begin{split}
-      \forall x &x \in A \cup (B \cap C) \\
-      \Leftrightarrow& x \in A \lor x \in (B \cap C)\\
+      \forall x &x \in A \cup (B \cap C)\\
+      \Leftrightarrow& x \in A \lor x \in B \cap C\\
       \Leftrightarrow& x \in A \lor (x \in B \land x \in C)\\
       \Leftrightarrow& (x \in A \lor x \in B) \land (x \in A \lor x \in C)\\
       \Leftrightarrow& x \in A \cup B \land x \in A \cup C\\
@@ -283,7 +283,7 @@
 \begin{proof}[证明]
   先证$A \cup (B \cap C) \subseteq (A \cup B) \cap (A \cup C)$。
 
-  对任意的$x$，如果$x \in A \cup (B \cap C)$，则 $x \in A$或者$x \in (B \cap C)$，从而$x \in A$，或者$x \in B$并且$ x \in C$，
+  对任意的$x$，如果$x \in A \cup (B \cap C)$，则 $x \in A$或者$x \in B \cap C$，从而$x \in A$，或者$x \in B$并且$ x \in C$，
   因此，$x \in A$或者$x \in B$，并且$x \in A$或者$ x \in C$，即，$x \in A \cup B$ 并且$x \in A \cup C$，于是，$x \in (A \cup B) \cap (A \cup C)$。
 
   再证$(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)$。
@@ -292,7 +292,7 @@
   因此，$x \in A$，或者$x \in B$并且$ x \in C$，即，$x \in A$或者$x \in (B \cap C)$，于是，$x \in A \cup (B \cap C)$。
 
 \end{proof}
-接下来证明结论8的第一条，我们先在草稿纸上做如下的分析：
+接下来证明结论7的第一条，我们先在草稿纸上做如下的分析：
 \begin{equation*}
   \begin{split}
     \forall x &x \in C\setminus (A\cap B)\\
@@ -317,9 +317,11 @@
   对任意的$x$，如果$x\in (C\setminus A) \cup (C \setminus B)$，　则$x\in C\setminus A$或者$x\in C\setminus B$，从而$x \in C$并且$x\notin A$或者$x\notin B$,因此，$x \in C$并且$x \notin A\cap B$，于是$x \in C\setminus (A\cap B)$。
 \end{proof}
 \begin{Example}
-  （P16-10）下列等式是否成立？
+下列等式是否成立？
 
   $(A\setminus B)\cup C = A\setminus (B\setminus C)$
+
+  若成立，请给出证明。若不成立，请说明理由。
 
   
 \end{Example}
@@ -446,7 +448,19 @@
     集族$\{A_{\alpha}\}_{\alpha \in I}$中所有集合的交集$\bigcap_{\alpha \in I}A_{\alpha}$定义为
 \[ \bigcap_{\alpha \in I}A_{\alpha} = \{x|\forall \alpha \in I x \in A_{\alpha}\}\]
   \end{Def}
+\begin{Example}
+  如果$I=\{1,2,3\}$，则$\bigcup_{\alpha \in I}A_{\alpha} =A_1\cup A_2\cup A_3$；
 
+    如果$I=\{1,2,3\}$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_1\cap A_2\cap A_3$；
+
+    如果$I=\mathbb{N}$，则$\bigcup_{\alpha \in I}A_{\alpha} =A_0\cup A_1\cup A_2\cup\cdots=\bigcup_{\alpha=0}^{\infty}A_{\alpha}$；
+    
+    如果$I=\mathbb{N}$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_0\cap A_1\cap A_2\cap\cdots=\bigcap_{\alpha=0}^{\infty}A_{\alpha}$；
+
+    如果$I=\mathbb{Z}^+$，则$\bigcup_{\alpha \in I}A_{\alpha} =A_1\cup A_2\cup A_3\cup\cdots=\bigcup_{\alpha=1}^{\infty}A_{\alpha}$；
+    
+    如果$I=\mathbb{Z}^+$，则$\bigcap_{\alpha \in I}A_{\alpha} =A_1\cap A_2\cap A_3\cap\cdots=\bigcap_{\alpha=1}^{\infty}A_{\alpha}$。
+\end{Example}
   \begin{Example}
     设$I=\{x \in \mathbb{R} | 0 < x \leq 1\}$，$\forall x \in \mathbb{R}, A_x=\{y\in \mathbb{R}|0 < y < x\}$，
     则
@@ -479,7 +493,7 @@
 
   \begin{equation*}
     \begin{split}
-      &x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})\\
+      \forall x&x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})\\
       \Leftrightarrow &x \in C \land x \notin \bigcap_{\alpha \in I}A_{\alpha}\\
       \Leftrightarrow &x \in C \land \lnot (x \in \bigcap_{\alpha \in I}A_{\alpha})\\
       \Leftrightarrow &x \in C \land \lnot (\forall \alpha \alpha \in I \to x \in A_{\alpha})\\
@@ -494,11 +508,13 @@
   \end{equation*}
   然后将上面的分析转化为证明如下：  
   \begin{proof}[证明]
-    设全集为$S$。如果$x \in (\bigcup_{\alpha \in I}A_{\alpha})^c$，则$x\in S$，且$x \notin \bigcup_{\alpha \in I}A_{\alpha}$，从而对任意的$\alpha \in I$，$x\notin A_{\alpha}$。于是，对任意的$\alpha \in I$都有$x\in A_{\alpha}^c$。因此，$x \in \bigcap_{\alpha \in I} A_{\alpha}^c$，故$(\bigcup_{\alpha \in I}A_{\alpha})^c\subseteq \bigcap_{\alpha\in I}A_{\alpha}^c$。
+    先证明$C\setminus(\bigcap_{\alpha \in I}A_{\alpha})\subseteq \bigcup_{\alpha\in I}(C\setminus A_{\alpha})$。
 
-    其次，如果$x\in \bigcap_{\alpha\in I}A_{\alpha}^c$，则对任意的$\alpha \in I$都有$x\in A_{\alpha}^c$。因此，对任意的$\alpha \in I$都有$x\in S$且$x\notin A_{\alpha}$，故$x\notin \bigcup_{\alpha \in I}A_{\alpha}$。于是，$x \in (\bigcup_{\alpha \in I}A_{\alpha})^c$。所以，$\bigcap_{\alpha\in I}A_{\alpha}^c\subseteq (\bigcup_{\alpha \in I}A_{\alpha})^c$。
+  对任意的$x$，如果$x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})$，则$x\in C$，且$x \notin \bigcap_{\alpha \in I}A_{\alpha}$，从而$x\in C$，且存在$\alpha \in I$，$x\notin A_{\alpha}$。于是，存在$\alpha \in I$，$x\in C\setminus A_{\alpha}$。因此，$x \in \bigcup_{\alpha \in I}( C\setminus A_{\alpha})$，故$C\setminus (\bigcap_{\alpha \in I}A_{\alpha})\subseteq \bigcup_{\alpha\in I}(C\setminus A_{\alpha})$。
 
-    由集合相等的定义便知，$(\bigcup_{\alpha \in I}A_{\alpha})^c=\bigcap_{\alpha\in I}A_{\alpha}^c$。
+    其次，对任意的$x$，如果$x\in \bigcup_{\alpha\in I}(C\setminus A_{\alpha})$，则存在$\alpha \in I$，$x\in C\setminus A_{\alpha}$。因此，存在$\alpha \in I$，$x\in C$且$x\notin A_{\alpha}$，故$x\in C$且$x\notin \bigcap_{\alpha \in I}A_{\alpha}$。于是，$x \in C\setminus (\bigcap_{\alpha \in I}A_{\alpha})$。所以，$\bigcup_{\alpha\in I}(C\setminus A_{\alpha})\subseteq C\setminus (\bigcap_{\alpha \in I}A_{\alpha})$。
+
+    由集合相等的定义便知，$C\setminus (\bigcap_{\alpha \in I}A_{\alpha})=\bigcup_{\alpha\in I}(C\setminus A_{\alpha})$。
   \end{proof}
 将以上定理中的集合$C$替换为全集$S$，我们可以得到如下结论：
   \begin{Thm}
