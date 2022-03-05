@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \begin{document}
 \begin{CJK}{UTF8}{gbsn}
@@ -9,53 +10,150 @@
   写出方程$x^2+2x+1=0$的根所构成的集合。
 \end{Exercise}
 \begin{proof}[解]
+  \{-1\}
 \end{proof}
 \begin{Exercise}
   设有$n$个集合$A_1$，$A_2$，$\ldots$，$A_n$，且$A_1\subseteq A_2\subseteq \ldots \subseteq A_n \subseteq A_1$，试证
   \[A_1 = A_2 = \ldots = A_n\]
 \end{Exercise}
 \begin{proof}[证明]
+  用数学归纳法证明，施归纳于$n$。
+  
+  １．当$n=2$时，$A_1\subseteq A_2 \subseteq A_1$，$A_1=A_2$显然成立。
+
+  ２．假设当$n=k(k\geq 2)$时结论成立，往证当$n=k+1$时结论也成立。
+
+  设$A_1\subseteq A_2\subseteq \ldots \subseteq A_{k} \subseteq A_{k+1} \subseteq A_1$，则由$A_{k} \subseteq A_{k+1} \subseteq A_1$知$A_{k} \subseteq A_1$,
+  于是$A_1\subseteq A_2\subseteq \ldots \subseteq A_{k} \subseteq A_1$，由归纳假设,$A_1 = A_2 = \ldots = A_k$。
+
+  由$A_1=A_k$，$A_{k+1}\subseteq A_1$知$A_{k+1} \subseteq A_k$，再由$A_{k}\subseteq A_{k+1}$知，$A_k=A_{k+1}$。
+  
+  于是$A_1=A_2=\ldots = A_k = A_{k+1}$，结论得证。
 \end{proof}
 
+
 \begin{Exercise}
-  设集合$S=\{\phi, \{\phi\}\}$，则$2^S=\underline{\quad\quad\quad}$。
+  设集合$S=\{\phi, \{\phi\}\}$，则$2^S=\underline{\{\phi, \{\phi\},\{\{\phi\}\},\{\phi, \{\phi\}\}\}}$。
 \end{Exercise}
 \begin{Exercise}
   设集合$S$有$n$个元素，证明$2^S$有$2^n$个元素。
 \end{Exercise}
 \begin{proof}[证明]
+  用数学归纳法证明，施归纳于$n$：
+
+  1.当$n=0$时，$S=\phi$，$2^{\phi} = \{\phi\}$有$1$个元素，结论成立。
+
+  2.假设当$n=k(k\geq
+  0)$时结论成立，往证当$n=k+1$时结论也成立。设集合$S$中有$k+1$个元
+  素$s_1$，$s_2$，$\ldots$，$s_k$，$s_{k+1}$，记
+  \begin{align*}
+    S_1&=2^{S\setminus \{s_{k+1}\}}\\
+    S_2&=\{X\cup \{s_{k+1}\}|X\subseteq S\setminus \{s_{k+1}\}\}
+  \end{align*}
+  则$2^S = S_1\cup S_2$。
+
+  考虑映射$f:S_1\to S_2$，对任意的$X\in S_1$，$f(X)=X\cup \{s_{k+1}\}$。易验证$f$为从$S_1$到$S_2$的双射，从而$|S_1|=|S_2|$。
+
+  显然$S_1\cap S_2=\phi$，再由归纳假设，$|S_1|=2^k$，从而$|2^S|=|S_1|+|S_2|=2^k+2^k=2^{k+1}$。
+
 \end{proof}
 \begin{Exercise}
   设$A$，$B$为集合，试证
   \[(A\setminus B)\cup B = (A\cup B)\setminus B \Leftrightarrow B = \phi\]
 \end{Exercise}
 \begin{proof}[证明]
+  如果$B = \phi$，显然$(A\setminus B)\cup B = (A\cup B)\setminus B$。
+
+  由$(A\setminus B)\cup B = (A\cup B)\setminus B$,往证$B=\phi$。用反证法，假设$B\neq \phi$，则存在$x\in B$，于是$x\in(A\setminus B)\cup B$，但是$x\notin (A\cup B)\setminus B$，这与$(A\setminus B)\cup B = (A\cup B)\setminus B $矛盾。
 \end{proof}
 \begin{Exercise}
   设$A$，$B$为集合，试证$A=\phi \Leftrightarrow B= A\bigtriangleup B$。
 \end{Exercise}
-\begin{proof}[证明]
+\begin{proof}[证法一]
+  当$A=\phi$时，显然$B= A\bigtriangleup B$。
+
+  设$B= A\bigtriangleup B$，往证$A=\phi$。用反证法。设$A\neq \phi$，则存在$x\in A$。此时，如果$x\in B$，则$x\notin A\bigtriangleup B = B$，矛盾；如果$x\notin B$，则$x\in A\bigtriangleup B=B$，也矛盾。
 \end{proof}
+
+\begin{proof}[证法二]
+  \begin{equation*}
+    \begin{split}
+      &B= A\bigtriangleup B \\
+      \Leftrightarrow& B \bigtriangleup B = (A\bigtriangleup B)\bigtriangleup B\\
+      \Leftrightarrow& \phi = A\bigtriangleup (B\bigtriangleup B)\\
+            \Leftrightarrow& \phi = A\bigtriangleup \phi   \\
+      \Leftrightarrow& \phi = A   
+    \end{split}
+  \end{equation*}
+\end{proof}
+
 \begin{Exercise}
   设$A$，$B$为集合，证明$A\setminus (B\cup C) = A\setminus B \setminus C$。
 \end{Exercise}
 \begin{proof}[证明]
+  先证$A\setminus (B\cup C) \subseteq A\setminus B \setminus C$。
+
+  对任意的$x\in A\setminus (B\cup C)$，则$x\in A$并且$x\notin B\cup C$，即$x\in A$并且$x\notin B$，$x\notin C$，故$x\in A\setminus B \setminus C$。
+  
+  再证$A\setminus B \setminus C\subseteq A\setminus (B\cup C) $。
+
+  对任意的$x\in A\setminus B \setminus C$，则$x\in A$并且$x\notin B$，$x\notin C$，于是$x\in A$并且$x\notin B\cup C$，故$A\setminus (B\cup C)$。
+
 \end{proof}
 \begin{Exercise}
   设$A,B,C$为集合，证明$(A\cup B)\setminus C = (A\setminus C) \cup (B\setminus C)$。
 \end{Exercise}
 \begin{proof}[证明]
+  先证$(A\cup B)\setminus C \subseteq (A\setminus C) \cup (B\setminus C)$。
+
+  对任意的$x\in (A\cup B)\setminus C$，则$x\in A\cup B$并且$x\notin C$，从而$x\in A$或者$x\in B$，并且$x\notin C$，于是，$x\in A$并且$x\notin C$，或者$x\in B$并且$x\notin C$，
+  即$x\in A\setminus C$或者$x\in B\setminus C$，因此$x\in (A\setminus C) \cup (B\setminus C)$。
+
+  再证$(A\cup B)\setminus C \subseteq (A\setminus C) \cup (B\setminus C)$。
+
+  对任意的$(A\setminus C) \cup (B\setminus C)$，则$x\in A\setminus C$或者$x\in B\setminus C$，即$x\in A$并且$x\notin C$，或者$x\in B$并且$x\notin C$，从而$x\in A$或者$x\in B$，并且$x\notin C$，于是$x\in A\cup B$并且$x\notin C$，因此$x\in (A\cup B)\setminus C$。
 \end{proof}
 \begin{Exercise}
   设$A,B,C$为集合，证明$(A\cap B)\setminus C = (A\setminus C) \cap (B\setminus C)$。
 \end{Exercise}
 \begin{proof}[证明]
+  先证$(A\cap B)\setminus C \subseteq (A\setminus C) \cap (B\setminus C)$。
+
+对任意的$x\in (A\cap B)\setminus C$，则$x\in A\cap B$并且$x\notin C$，于是$x\in A$，$x\in B$，并且$x\notin C$，从而$x\in A\setminus C$并且$x\in B\setminus C$，因此$x\in (A\setminus C) \cap (B\setminus C)$。
+
+
+  再证$(A\setminus C) \cap (B\setminus C) \subseteq (A\cap B)\setminus C$。
+
+  对任意的$x\in (A\setminus C) \cap (B\setminus C)$，则$x\in A\setminus C$并且$x\in B\setminus C$，于是$x\in A$，$x\in B$，并且$x\notin C$，从而$x\in A\cap B$并且$x\notin C$，因此$x\in (A\cap B)\setminus C$。
+
 \end{proof}
 \begin{Exercise}
   设$A,B,C$都是集合，若$A\cup B = A\cup C$且$A\cap B = A\cap C$，试证$B=C$。
 \end{Exercise}
-\begin{proof}[证明]
+\begin{proof}[证法一]
+  先证$B\subseteq C$。
+
+  对任意的$x \in B$，分两种情况讨论：
+
+  1)若$x \in A$:此时$x \in A\cap B$，由$A\cap B = A\cap C$知$x \in A\cap C$，从而$x \in C$。
+
+  2)若$x \notin A$:此时由$x\in B$知$x\in A\cup B$，再由$A\cup B = A\cup C$知$x \in A\cup C$，再由$x \notin A$知$x \in C$。
+
+  综合以上两种情况知对任意的$x$,当$x\in B$时$x\in C$，即$B \subseteq C$。
+  
+
+  由$B$和$C$的对称性知$C \subseteq B$，因此$B=C$。
 \end{proof}
+
+\begin{proof}[证法二]
+  $B= B\cap (A\cup B) = B \cap (A \cup C) = (B \cap A) \cup (B \cap C) = (A \cap B) \cup (B \cap C) = (A \cap C) \cup (B \cap C) = (C \cap A) \cup (C \cap B) = C \cap (A \cup B) = C \cap (A \cup C) = C$
+  
+\end{proof}
+
+\begin{proof}[证法三]
+由已知条件知$(A\cup B)\setminus (A\cap B) = (A\cup C)\setminus (A\cap C)$，从而$A\bigtriangleup B = A \bigtriangleup C$，于是$A \bigtriangleup (A\bigtriangleup B) =A \bigtriangleup (A \bigtriangleup C)$, 由对称差运算的结合律知$(A \bigtriangleup A)\bigtriangleup B =(A \bigtriangleup A) \bigtriangleup C$，即$\phi \bigtriangleup B = \phi \bigtriangleup C$，从而$B = C$。
+\end{proof}
+
 \begin{Exercise}
   下列等式是否成立？如果成立，请给出证明；如果不成立，请说明理由。
 
@@ -66,9 +164,14 @@
   c)$A\setminus (B\cup C) = (A\cup B)\setminus C$。
 \end{Exercise}
 \begin{proof}[解]
+  a)结论不成立。这是因为设$A=\phi$，$B=\phi$，$C=\{1\}$，则$(A\setminus B)\cup C=\{1\}$，而$A\setminus (B\setminus C)=\phi$，$(A\setminus B)\cup C \neq A\setminus (B\setminus C)$。
+
+  b)结论不成立。这是因为设$A=\{1\}$，$B=\phi$，$C=\{1\}$，则$A\cup(B\setminus C)=\{1\}$，而$(A\cup B)\setminus C=\phi$，$A\cup(B\setminus C) \neq (A\cup B)\setminus C$。
+
+  c)结论不成立。这是因为设$A=\phi$，$B=\{1\}$，$C=\phi$，则$A\setminus (B\cup C)=\phi$，$(A\cup B)\setminus C=\{1\}$，$A\setminus (B\cup C) \neq (A\cup B)\setminus C$
 \end{proof}
 \begin{Exercise}
-  下列命题中哪个是真的？(    )
+  下列命题中哪个是真的？(  B  )
 
 A. 对任意集合$A$，$B$，$2^{A\cup B} = 2^A \cup 2^B$。
 
@@ -82,16 +185,16 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
 \begin{Exercise}
   填空：设$A$，$B$为两个集合。
 
-  a) $x\notin A\cup B\Leftrightarrow \underline{\quad\quad\quad\quad\quad\quad\quad\quad\quad}$
+  a) $x\notin A\cup B\Leftrightarrow \underline{x\notin A \land x\notin B}$
 
-  b) $x\notin A\cap B\Leftrightarrow \underline{\quad\quad\quad\quad\quad\quad\quad\quad\quad}$
+  b) $x\notin A\cap B\Leftrightarrow \underline{x\notin A \lor x\notin B}$
 
-  c) $x\notin A\setminus B\Leftrightarrow \underline{\quad\quad\quad\quad\quad\quad\quad\quad\quad}$
+  c) $x\notin A\setminus B\Leftrightarrow \underline{x\notin A \lor x\in B}$
 
-  d) $x\notin A\bigtriangleup B\Leftrightarrow \underline{\quad\quad\quad\quad\quad\quad\quad\quad\quad}$
+  d) $x\notin A\bigtriangleup B\Leftrightarrow \underline{(x\in A \land x\in B)\lor(x\notin A \lor x\notin B)}$
 \end{Exercise}
 \begin{Exercise}
-  设$A$，$B$，$C$为任意三个集合，下列集合表达式中哪一个等于$A\setminus (B\cap C)$？(   )
+  设$A$，$B$，$C$为任意三个集合，下列集合表达式中哪一个等于$A\setminus (B\cap C)$？( B  )
 
   A. $(A\setminus B)\cap (A\setminus C)$
 
@@ -104,7 +207,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
 
 
 \begin{Exercise}
-  设$A,B,C$为集合，并且$A\cup B=A\cup C$，则下列哪个等式成立？(  )
+  设$A,B,C$为集合，并且$A\cup B=A\cup C$，则下列哪个等式成立？(D)
 
   A.$B=C$
 
@@ -128,13 +231,45 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
     \end{split}
   \end{equation*}
 \end{Exercise}
-\begin{proof}[解]
+\begin{proof}[解法一]
+设全集为$S$，则
+
+原式$\cup (A^c\cap B^c \cap C^c)=S$
+
+原式$\cap (A^c\cap B^c \cap C^c)=\phi$
+
+
+从而原式$=(A^c\cap B^c \cap C^c)^c =A\cup B\cup C$。
+\end{proof}
+\begin{proof}[解法二]
+  \begin{align*}
+    \text{原式}&=((A\cap B)\cap(C\cup C^c))\cup ((A^c\cap B)\cap (C\cup C^c)) \cup ((A\cap B^c)\cap (C\cup C^c)) \cup (A^c\cap B^c \cap C)\\
+  &=(A\cap B)\cup (A^c\cap B) \cup (A\cap B^c) \cup (A^c\cap B^c \cap C)\\
+    &=(A\cap (B\cup B^c))\cup (A^c\cap B)  \cup (A^c\cap B^c \cap C)\\
+    &=A\cup (A^c\cap B)  \cup (A^c\cap B^c \cap C)\\
+    &=((A\cup A^c)\cap (A\cup B))  \cup (A^c\cap B^c \cap C)\\
+    &=(A\cup B)  \cup (A^c\cap B^c \cap C)\\
+    &=(A\cup B\cup A^c)  \cap  (A\cup B\cup B^c)\cap (A\cup B \cup C)\\
+    &=A\cup B\cup C
+\end{align*}
 \end{proof}
 \begin{Exercise}
   设$V$为一个集合，证明：$\forall S,T,W \in 2^V$有$S \subseteq T \subseteq W$当且仅当$S \bigtriangleup T \subseteq S \bigtriangleup W$且$S \subseteq W$。
 \end{Exercise}
 \begin{proof}[证明]
+  首先，$\forall S,T,W \in 2^V$由$S \subseteq T \subseteq W$往证$S \bigtriangleup T \subseteq S \bigtriangleup W$且$S \subseteq W$。
+
+  由$S \subseteq T \subseteq W$知$S \bigtriangleup T = T\setminus S$，$S \bigtriangleup W = W\setminus S$，由$T\subseteq W$知$T\setminus S \subseteq W\setminus S$，从而$S \bigtriangleup T \subseteq S \bigtriangleup W$。$S \subseteq W$显然成立。
+
+  接下来，$\forall S,T,W \in 2^V$由$S \bigtriangleup T \subseteq S \bigtriangleup W$且$S \subseteq W$往证$S \subseteq T \subseteq W$。
+
+  由$S\subseteq W$知$S\bigtriangleup W = W\setminus S$。
+  
+  先证$S\subseteq T$。用反证法，假设$S\subseteq T$不成立,则存在$x$，$x\in S$但$x \notin T$，于是$x\in S\setminus T\subseteq S\bigtriangleup T \subseteq S\bigtriangleup W = W\setminus S$，这与$x\in S$矛盾。
+
+  再证$T\subseteq W$。用反证法，假设$T\subseteq W$不成立,则存在$x$，$x\in T$但$x \notin W$，由$S\subseteq W$知$x\notin S$，于是$x \in T\setminus S \subseteq S\bigtriangleup T \subseteq S\bigtriangleup W = W\setminus S$，这与$x\notin W$矛盾。
 \end{proof}
+
 \begin{Exercise}
   设$A=\{a,b,c\}, B=\{e,f,g,h\}, C=\{x,y,z\}$。求$A\times B, B\times A, A\times C, A\times B \times C, A^2\times B$。
 \end{Exercise}
@@ -159,9 +294,10 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
 \begin{proof}[证明]
 \end{proof}
 \begin{Exercise}
-  设$A$有$m$个元素，$B$有$n$个元素，则$A\times B$是多少个序对组成的？$A\times B$有多少个不同的元素？
+  设$A$有$m$个元素，$B$有$n$个元素，则$A\times B$是多少个序对组成的？$A\times B$有多少个不同的子集？
 \end{Exercise}
 \begin{proof}[解]
+  $A\times B$是$mn$个序对组成的，$A\times B$有$2^{mn}$个不同的子集。
 \end{proof}
 \begin{Exercise}
   设$A,B$为集合，$B\neq \phi$。试证：如果$A\times B= B\times B$，则$A=B$。
@@ -172,16 +308,21 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   某班学生中有$45\%$正在学德文，$65\%$正在学法文，问此班中至少有百分之几的学生正在同时学德文和法文？
 \end{Exercise}
 \begin{proof}[解]
+  此班中至少有$10\%$的学生正在同时学德文和法文。
 \end{proof}
 \begin{Exercise}
-  设$A,B$为两个有穷集合，则$|2^{2^{A\times B}}|=\underline{\quad\quad\quad}$。
+  设$A,B$为两个有穷集合，则$|2^{2^{A\times B}}|=\underline{2^{2^{|A|\dot|B|}}}$。
 \end{Exercise}
 
 \begin{Exercise}
   毕业舞会上，小伙子与姑娘跳舞。已知每个小伙子至少与一个姑娘跳过舞，但未能与所有的姑娘跳过舞。同样的，每个姑娘也至少与一个小伙子跳过舞，但也未能与所有的小伙子跳过舞。证明：在所有参加舞会的小伙子与姑娘中，必可找到两个小伙子与两个姑娘，这两个小伙子中的每一个只与这两个姑娘中的一个跳过舞，而这两个姑娘中的每一个也只与这两个小伙子中的一个跳过舞。
 \end{Exercise}
-\begin{proof}[证明]
+\begin{proof}[证法一]设小伙子的集合为$B=\{b_1,b_2,\cdots,b_m\}$，姑娘的集合为$G=\{g_1,g_2,\cdots,g_n\}$， $G_{b_i}$为与小伙子$b_i$跳过舞的姑娘的集合，则由假设$G_{b_i}\neq G$，$i=1,2,\cdots,m$。如果存在$i, j$，$i \neq j$，使得$G_{b_i}\nsubseteq G_{b_j}$且$G_{b_j}\nsubseteq G_{b_i}$，则问题得证。否则，对任意的$i$，$j$，或者$G_{b_i}\subseteq G_{b_j}$，或者$G_{b_j}\subseteq G_{b_i}$，于是有\[G_{b_{i_1}}\subseteq G_{b_{i_2}}\subseteq \cdots \subseteq G_{b_{i_m}}\]但由假设，$\bigcup_{i=1}^mG_{b_i} = G$，即$G_{b_{i_m}}=G$，所以$b_{i_m}$与所有的姑娘都跳过舞，矛盾。
+  
 \end{proof}
+\begin{proof}[证法二]设$b_1$为与姑娘跳舞最多的小伙子。由$b_1$未能与所有的姑娘跳过舞知，存在一个姑娘$g_2$，$b_1$未能与$g_2$跳过舞。由每个姑娘至少与一个小伙子跳过舞知，存在一个小伙子$b_2$与$g_2$跳过舞。在与小伙子$b_1$跳过舞的姑娘中，必存在一个姑娘$g_1$未能与小伙子$b_2$跳过舞，否则与$b_1$为与姑娘跳舞最多的小伙子矛盾。于是，$b_1$与$g_1$跳过舞，但未与$g_2$跳过舞；$b_2$与$g_2$跳过舞，但未与$g_1$跳过舞，结论得证。  
+\end{proof}
+
 \end{CJK}
 \end{document}
 
