@@ -286,12 +286,40 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   设$A$，$B$，$C$，$D$为任意四个集合，证明
   \[(A\cap B) \times (C \cap D) = (A\times C)\cap (B \times D)\]
 \end{Exercise}
+先在草稿纸上分析如下：
+\begin{equation*}
+  \begin{split}
+  \forall x \forall y&(x,y) \in (A\cap B) \times (C \cap D)\\
+  \Leftrightarrow&x \in A \cap B \land y \in C \cap D\\
+  \Leftrightarrow&x \in A \land x \in B \land y \in C \land y \in D\\
+  \Leftrightarrow&x \in A \land y \in C \land x \in B \land y \in D\\
+  \Leftrightarrow&(x,y) \in A \times C \land (x,y) \in B \times D\\
+  \Leftrightarrow&(x,y) \in (A\times C)\cap (B \times D)
+  \end{split}
+\end{equation*}
+然后转换称用自然语言描述的证明过程如下：
 \begin{proof}[证明]
+  先证$(A\times C)\cap (B \times D)\subseteq (A\cap B) \times (C \cap D)$。
+
+  对任意的$x$和$y$，如果$(x,y)\in (A\times C)\cap (B \times D)$，则$(x,y)\in A\times C$，并且$(x,y)\in B \times D$，从而$x\in A,y\in C, x \in B, y\in D$，即$x\in A$， $x \in B$，$ y\in C$， $y\in D$，于是$x \in A\cap B$并且$y \in C \cap D$，因此$(x,y) \in (A\cap B) \times (C \cap D)$。
+  
+  再证$(A\cap B) \times (C \cap D) \subseteq (A\times C)\cap (B \times D)$。
+  
+    对任意的$x$和$y$，$(x,y) \in (A\cap B) \times (C \cap D)$，则$x\in A\cap B$并且$y \in C \cap D$，从而$x\in A$， $x \in B$，$ y\in C$， $y\in D$， 即$x\in A,y\in C, x \in B, y\in D$，
+  于是$(x,y)\in A\times C$，并且$(x,y)\in B \times D$，因此$(x,y)\in (A\times C)\cap (B \times D)$。
+  
 \end{proof}
 \begin{Exercise}
   设$A,B,C$为集合，证明：$A\times(B\bigtriangleup C) = (A\times B)\bigtriangleup(A\times C)$。
 \end{Exercise}
 \begin{proof}[证明]
+  \begin{align*}
+    &A\times(B\bigtriangleup C)\\
+    =&A\times((B\setminus C) \cup (C\setminus B))\\
+    =&(A\times (B\setminus C)) \cup (A\times (C\setminus B))\\
+    =&((A\times B)\setminus (A\times C)) \cup ((A\times C)\setminus (A\times B))\\
+    =&(A\times B)\bigtriangleup(A\times C)\\
+  \end{align*}
 \end{proof}
 \begin{Exercise}
   设$A$有$m$个元素，$B$有$n$个元素，则$A\times B$是多少个序对组成的？$A\times B$有多少个不同的子集？
