@@ -274,13 +274,60 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   设$A=\{a,b,c\}, B=\{e,f,g,h\}, C=\{x,y,z\}$。求$A\times B, B\times A, A\times C, A\times B \times C, A^2\times B$。
 \end{Exercise}
 \begin{proof}[解]
+  \begin{align*}
+    &A\times B\\
+    =\{&(a,e),(a,f),(a,g),(a,h),\\
+    &(b,e),(b,f),(b,g),(b,h)\\
+    &(c,e),(c,f),(c,g),(c,h)\\
+      &\}\\ 
+      &B\times A\\
+      =\{&(e,a),(e,b),(e,c),
+      (f,a),(f,b),(f,c),\\
+      &(g,a),(g,b),(g,c),
+      (h,a),(h,b),(h,c)\\
+        &\}\\   
+        &A\times C\\
+        =\{&(a,x),(a,y),(a,z),
+        (b,x),(b,y),(b,z),  
+      (c,x,),(c,y),(c,z) 
+        \}\\ 
+        &A\times B\times C\\ 
+        =\{ & (a,e,x),(a,e,y),(a,e,z),\\ 
+        &(a,f,x),(a,f,y),(a,f,z),\\ 
+        &(a,g,x),(a,g,y),(a,g,z),\\ 
+        &(a,h,x),(a,h,y),(a,h,z),\\ 
+        & (b,e,x),(b,e,y),(b,e,z),\\ 
+        &(b,f,x),(b,f,y),(b,f,z),\\ 
+        &(b,g,x),(b,g,y),(b,g,z),\\ 
+        &(b,h,x),(b,h,y),(b,h,z),\\ 
+        & (c,e,x),(c,e,y),(c,e,z),\\ 
+        &(c,f,x),(c,f,y),(c,f,z),\\ 
+        &(c,g,x),(c,g,y),(c,g,z),\\ 
+        &(c,h,x),(c,h,y),(c,h,z),\\ 
+        &\}\\
+        &A^2\times B\\ 
+        =\{ & ((a,a),x), ((a,a), y), ((a,a),z),\\ 
+        &((a,b),x), ((a,b), y), ((a,b), z), \\ 
+        &((a,c), x), ((a,c), y), ((a, c), z), \\ 
+        & ((b,a),x), ((b,a), y), ((b,a),z),\\ 
+        &((b,b),x), ((b,b), y), ((b,b), z), \\ 
+        &((b,c), x), ((b,c), y), ((b, c), z), \\ 
+        & ((c,a),x), ((c, a), y), ((c,a),z),\\ 
+        &((c,b),x), ((c,b), y), ((c,b), z), \\ 
+        &((c,c), x), ((c,c), y), ((c, c), z) \\
+        &\}\\
+  \end{align*}
 \end{proof}
 \begin{Exercise}
   设$A,B$为集合，试证：$A\times B= B\times A$的充分必要条件是下列三个条件至少一个成立：
 
-  (1) $A=\phi$;(2) $B=\phi$;3 $A=B$。
+  (1) $A=\phi$;(2) $B=\phi$;(3) $A=B$。
 \end{Exercise}
 \begin{proof}[证明]
+  如果 (1) $A=\phi$;(2) $B=\phi$;(3) $A=B$中的一条成立，易验证$A\times B= B\times A$成立。
+
+  设$A\times B= B\times A$成立。如果$A\neq \phi$并且$B\neq \phi$，以下证明必有$A=B$成立。
+  由$A\neq \phi$并且$B\neq \phi$知存在$a\in A$，$b\in B$。对任意的$x\in A$，则$(x,b)\in A\times B = B\times A$，从而$x\in B$；对任意的$x\in B$，则$(x,a)\in B\times A = A\times B$，从而$x\in A$。
 \end{proof}
 \begin{Exercise}
   设$A$，$B$，$C$，$D$为任意四个集合，证明
@@ -331,6 +378,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   设$A,B$为集合，$B\neq \phi$。试证：如果$A\times B= B\times B$，则$A=B$。
 \end{Exercise}
 \begin{proof}[证明]
+  由$B\neq \phi$知，存在$b$，$b\in B$。对任意的$x\in A$，则$(x,b)\in A\times B=B\times B$，从而$x\in B$；对任意的$x\in B$，则$(x,b)\in B\times B = A\times B$，从而$x\in A$。这证明了$A=B$。
 \end{proof}
 \begin{Exercise}
   某班学生中有$45\%$正在学德文，$65\%$正在学法文，问此班中至少有百分之几的学生正在同时学德文和法文？
