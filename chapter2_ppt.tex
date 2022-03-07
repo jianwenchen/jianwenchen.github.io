@@ -147,7 +147,26 @@
   \begin{Ex}
     $n^2+1$个士兵站成一排，则可以使其中的至少$n+1$个士兵向前走一步站成一个按身高从小到大的队列，或站成一个按身高从大到小的队列。
   \end{Ex}
-  
+  \begin{proof}[证明]
+    \justifying\let\raggedright\justifying
+    \pause从左到右依次用$h_1, h_2, \cdots, h_{n^2+1}$表示此队列中各士兵的身高，\pause于是，\pause我们得到了一个$n^2+1$项的数列
+    \begin{equation}\label{soldier}
+      h_1,h_2,\cdots, h_{n^2+1}
+    \end{equation}
+    \pause 我们的问题就是要证明此数列中或者有一个长（项数）至少为$n+1$的不减子序列，\pause 或者有一个长至少为$n+1$的不增子序列。
+
+      \end{proof}
+\end{frame}
+\begin{frame}
+  \justifying\let\raggedright\justifying
+  \pause假设本题结论不成立，\pause 则数列\eqref{soldier}中每个不减子序列的长度至多为$n$，\pause每个不增子序列的长度也至多为$n$。\pause令$m_i$为以$h_i$为首项的\eqref{soldier}的最长不减子序列的长度，\pause $i=1,2,\cdots, n^2+1$。\pause 于是得到$n^2+1$个数$m_1,m_2,\cdots,m_{n^2+1}$，\pause 其中每个数$m_i$满足$1\leq m_i \leq n$。\pause 现在把这$n^2+1$个数放到$n$个盒子$1,2,\cdots,n$中，\pause 数$m_i$放到第$k$个盒子中当且仅当$m_i=k$，\pause 则必有某个盒子中至少含有$n+1$个数。\pause 由上述方法可知，\pause 在这同一个盒子中的至少$n+1$个数，\pause 它们是相等的。\pause 设这些数为$m_{i_1},m_{i_2},\cdots, m_{i_k}$，\pause $i_1<i_2<\cdots<i_k\leq n^2+1$,$k>n$。\pause 相应的，\pause 我们有\eqref{soldier}的子序列
+  \begin{equation}\label{subseq}
+  h_{i_1}, h_{i_2}, \cdots, h_{i_k}      
+  \end{equation}
+ \pause  这是一个不增子序列。\pause 实际上，\pause 如若不然，\pause 例如$h_{i_1} < h_{i_2}$，\pause 则由于以$h_{i_2}$为首项的最长不减子序列的长为$m_{i_2}$,\pause 所以前面加一项$h_{i_1}$，\pause 就得到了一个以$h_{i_1}$为首项长度大于$m_{i_1}$的不减子序列，\pause 这是不可能的。
+
+ \pause  于是，\pause 我们得到了一个长度至少为$n+1$的不增子序列\eqref{subseq}，\pause 这又与假设相矛盾。\pause 所以，\pause 本题结论成立。
+
 \end{frame}
 \begin{frame}
   \frametitle{2. 抽屉原理}
