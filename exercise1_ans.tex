@@ -109,7 +109,7 @@
   对任意的$x\in (A\cup B)\setminus C$，则$x\in A\cup B$并且$x\notin C$，从而$x\in A$或者$x\in B$，并且$x\notin C$，于是，$x\in A$并且$x\notin C$，或者$x\in B$并且$x\notin C$，
   即$x\in A\setminus C$或者$x\in B\setminus C$，因此$x\in (A\setminus C) \cup (B\setminus C)$。
 
-  再证$(A\cup B)\setminus C \subseteq (A\setminus C) \cup (B\setminus C)$。
+  再证$(A\setminus C) \cup (B\setminus C) \subseteq (A\cup B)\setminus C$。
 
   对任意的$(A\setminus C) \cup (B\setminus C)$，则$x\in A\setminus C$或者$x\in B\setminus C$，即$x\in A$并且$x\notin C$，或者$x\in B$并且$x\notin C$，从而$x\in A$或者$x\in B$，并且$x\notin C$，于是$x\in A\cup B$并且$x\notin C$，因此$x\in (A\cup B)\setminus C$。
 \end{proof}
@@ -191,7 +191,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
 
   c) $x\notin A\setminus B\Leftrightarrow \underline{x\notin A \lor x\in B}$
 
-  d) $x\notin A\bigtriangleup B\Leftrightarrow \underline{(x\in A \land x\in B)\lor(x\notin A \lor x\notin B)}$
+  d) $x\notin A\bigtriangleup B\Leftrightarrow \underline{(x\in A \land x\in B)\lor(x\notin A \land x\notin B)}$
 \end{Exercise}
 \begin{Exercise}
   设$A$，$B$，$C$为任意三个集合，下列集合表达式中哪一个等于$A\setminus (B\cap C)$？( B  )
@@ -277,20 +277,18 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   \begin{align*}
     &A\times B\\
     =\{&(a,e),(a,f),(a,g),(a,h),\\
-    &(b,e),(b,f),(b,g),(b,h)\\
-    &(c,e),(c,f),(c,g),(c,h)\\
-      &\}\\ 
+    &(b,e),(b,f),(b,g),(b,h),\\
+    &(c,e),(c,f),(c,g),(c,h)\}\\ 
       &B\times A\\
       =\{&(e,a),(e,b),(e,c),
       (f,a),(f,b),(f,c),\\
       &(g,a),(g,b),(g,c),
-      (h,a),(h,b),(h,c)\\
-        &\}\\   
+      (h,a),(h,b),(h,c)\}\\   
         &A\times C\\
         =\{&(a,x),(a,y),(a,z),
         (b,x),(b,y),(b,z),  
       (c,x,),(c,y),(c,z) 
-        \}\\ 
+  \}\\ 
         &A\times B\times C\\ 
         =\{ & (a,e,x),(a,e,y),(a,e,z),\\ 
         &(a,f,x),(a,f,y),(a,f,z),\\ 
@@ -303,8 +301,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
         & (c,e,x),(c,e,y),(c,e,z),\\ 
         &(c,f,x),(c,f,y),(c,f,z),\\ 
         &(c,g,x),(c,g,y),(c,g,z),\\ 
-        &(c,h,x),(c,h,y),(c,h,z),\\ 
-        &\}\\
+        &(c,h,x),(c,h,y),(c,h,z)\}\\
         &A^2\times B\\ 
         =\{ & ((a,a),x), ((a,a), y), ((a,a),z),\\ 
         &((a,b),x), ((a,b), y), ((a,b), z), \\ 
@@ -314,8 +311,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
         &((b,c), x), ((b,c), y), ((b, c), z), \\ 
         & ((c,a),x), ((c, a), y), ((c,a),z),\\ 
         &((c,b),x), ((c,b), y), ((c,b), z), \\ 
-        &((c,c), x), ((c,c), y), ((c, c), z) \\
-        &\}\\
+        &((c,c), x), ((c,c), y), ((c, c), z) \}\\
   \end{align*}
 \end{proof}
 \begin{Exercise}
@@ -344,7 +340,7 @@ D. 对任意集合$A$，$B$，$2^{A\bigtriangleup B} = 2^A \bigtriangleup 2^B$�
   \Leftrightarrow&(x,y) \in (A\times C)\cap (B \times D)
   \end{split}
 \end{equation*}
-然后转换称用自然语言描述的证明过程如下：
+然后转换成用自然语言描述的证明过程如下：
 \begin{proof}[证明]
   先证$(A\times C)\cap (B \times D)\subseteq (A\cap B) \times (C \cap D)$。
 
