@@ -169,10 +169,74 @@
 
 \end{frame}
 \begin{frame}
+  \begin{Exercise}
+    毕业舞会上，小伙子与姑娘跳舞。已知每个小伙子至少与一个姑娘跳过舞，但未能与所有的姑娘跳过舞。同样的，每个姑娘也至少与一个小伙子跳过舞，但也未能与所有的小伙子跳过舞。证明：在所有参加舞会的小伙子与姑娘中，必可找到两个小伙子与两个姑娘，这两个小伙子中的每一个只与这两个姑娘中的一个跳过舞，而这两个姑娘中的每一个也只与这两个小伙子中的一个跳过舞。
+  \end{Exercise}\pause
+  \begin{proof}[证法一]
+    \pause设小伙子的集合为$B=\{b_1,b_2,\cdots,b_m\}$，\pause姑娘的集合为$G=\{g_1,g_2,\cdots,g_n\}$， \pause $G_{b_i}$为与小伙子$b_i$跳过舞的姑娘的集合，\pause 则由假设$G_{b_i}\neq G$，\pause $i=1,2,\cdots,m$。\pause 如果存在$i, j$，\pause $i \neq j$，\pause 使得$G_{b_i}\nsubseteq G_{b_j}$且$G_{b_j}\nsubseteq G_{b_i}$，\pause则问题得证。\pause否则，\pause对任意的$i$，$j$，\pause或者$G_{b_i}\subseteq G_{b_j}$，\pause或者$G_{b_j}\subseteq G_{b_i}$，\pause于是有\[G_{b_{i_1}}\subseteq G_{b_{i_2}}\subseteq \cdots \subseteq G_{b_{i_m}}\]\pause但由假设，\pause $\bigcup_{i=1}^mG_{b_i} = G$，\pause 即$G_{b_{i_m}}=G$，\pause 所以$b_{i_m}$与所有的姑娘都跳过舞，\pause矛盾。
+  \end{proof}
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    毕业舞会上，小伙子与姑娘跳舞。已知每个小伙子至少与一个姑娘跳过舞，但未能与所有的姑娘跳过舞。同样的，每个姑娘也至少与一个小伙子跳过舞，但也未能与所有的小伙子跳过舞。证明：在所有参加舞会的小伙子与姑娘中，必可找到两个小伙子与两个姑娘，这两个小伙子中的每一个只与这两个姑娘中的一个跳过舞，而这两个姑娘中的每一个也只与这两个小伙子中的一个跳过舞。
+  \end{Exercise}\pause
+  \begin{proof}[证法二]\pause设$b_1$为与姑娘跳舞最多的小伙子。\pause由$b_1$未能与所有的姑娘跳过舞知，\pause存在一个姑娘$g_2$，\pause $b_1$未能与$g_2$跳过舞。\pause 由每个姑娘至少与一个小伙子跳过舞知，\pause 存在一个小伙子$b_2$与$g_2$跳过舞。\pause 在与小伙子$b_1$跳过舞的姑娘中，\pause 必存在一个姑娘$g_1$未能与小伙子$b_2$跳过舞，\pause 否则与$b_1$为与姑娘跳舞最多的小伙子矛盾。\pause于是，\pause $b_1$与$g_1$跳过舞，\pause但未与$g_2$跳过舞；\pause $b_2$与$g_2$跳过舞，\pause但未与$g_1$跳过舞，\pause结论得证。  
+  \end{proof}
+  
+\end{frame}
+\begin{frame}
+  \begin{Exercise}\justifying\let\raggedright\justifying
+          设$X$为一个非空集合，$A_n\subseteq X$, $A_{n+1}\subseteq A_n$，$n=1,2,3,\cdots$。试证对任意的自然数$n$，
+      \[A_n=\bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m\]
+    \end{Exercise}\pause\centering    
+      \begin{tikzpicture}[thick, scale=0.3]
+    \draw (-8, -8) rectangle (8, 8);
+    \draw (0,0) circle [radius=7.5cm];
+    \draw (0,0) circle [radius=5.5cm];
+    \draw (0,0) circle [radius=3.5cm];
+    \draw (0,0) circle [radius=1cm];
+    \draw (0,6.5) node {$A_n$};
+    \draw (0,4.5) node {$A_{n+1}$};
+    \draw (0,2.5) node {$\vdots$};
+    \draw (-7,7) node {$X$};
+  \end{tikzpicture}
+  \end{frame}
+  
+  \begin{frame}
+  \begin{Exercise}\justifying\let\raggedright\justifying
+          设$X$为一个非空集合，$A_n\subseteq X$, $A_{n+1}\subseteq A_n$，$n=1,2,3,\cdots$。试证对任意的自然数$n$，
+      \[A_n=\bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m\]
+    \end{Exercise}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+  
+        \pause先证$A_n\subseteq \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$：
+      
+      \pause对任意的$x\in A_n$，\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，则$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$；
+      \pause如果$x\notin \bigcap_{m=n}^{\infty}A_m$，\pause则存在$i$，$i\geq n$且$x\notin A_i$，\pause取最小的$j$，使得$j\geq n$且$x\notin A_j$，\pause由$x\in A_n$知$j \neq n$，\pause于是$x\in A_{j-1}$但$x\notin A_j$，这里$j>n$，\pause从而$x\in \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)$，\pause此时亦有$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$。
+      
+      \pause再证$\bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m \subseteq A_n$：
+  
+      \pause对任意的$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$，\pause如果$x\in \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)$，\pause则存在$i$，$i\geq n$，$x\in A_i\cap A_{i+1}^c$，\pause由已知条件易知$A_i\subseteq A_n$，\pause从而$x\in A_n$；\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，\pause则显然$x\in A_n$。
+  \end{proof}
+  \end{frame}
+\begin{frame}
+  \begin{Ex}
+    设$a_1, a_2, \cdots, a_n$为$n$个实数且$a_1<a_2<\cdots <a_n$。$\varphi$为从$A=\{a_1,a_2,\cdots,a_n\}$到$A$的一一对应。试证：如果$a_1+\varphi(a_1)<a_2+\varphi(a_2)<\cdots < a_n+\varphi(a_n)$，则$\varphi = I_A$。
+  \end{Ex}
+  \pause
+  \begin{proof}[证明]
+    \pause设$\varphi(a_1)\neq a_1$，\pause则由$\varphi$为双射知存在$j$，\pause $j>1$，\pause $\varphi(a_j)=a_1$。\pause于是，\pause 对任意的正整数$i<j$，\pause $a_i+\varphi(a_i)<a_j+\varphi(a_j)=a_j+a_1$，\pause 由$a_i\geq a_1$知$\varphi(a_i)< a_j$，\pause 从而$\varphi(a_i)=a_k,k<j$。\pause 于是，\pause 对任意的$i$，\pause $i<j$，\pause $\varphi(a_i)\in \{a_2,\ldots,a_{j-1}\}$，\pause 由鸽笼原理，\pause 必存在$i_1<i_2<j$，\pause $\varphi(i_1)=\varphi(i_2)$，\pause 这与$\varphi$为双射矛盾。\pause 类似可证，\pause $\varphi(a_2)=a_2,\ldots,\varphi(a_n)=a_n$，\pause 即$\varphi = I_A$。
+  \end{proof}  
+\end{frame}  
+\begin{frame}
   \frametitle{2. 抽屉原理}
   \begin{Exercise}
     在一个半径为$16$的圆内任意放入$650$个点。给你一个形似垫圈的圆环，此圆环的外半径为$3$，内半径为$2$。现在要求你用这个垫圈盖住这$650$个点中的至少$10$个点，这可能吗？证明你的结论。
   \end{Exercise}
+  \pause
+  \begin{proof}[答]
+    \pause 用这个垫圈可以盖住$650$个点中的至少$10$个点。\pause以圆内的650个点中的每个点为圆心放一个圆环，\pause则所有圆环的面积之和为$S_1 = 650 * \pi * (3^2 - 2^2) = 3250\pi$。\pause所有圆环所覆盖的区域被包含在一个面积为$\pi * (16 + 3)^2= 361\pi$的圆$C$内。\pause此时必存在$10$个圆环$R_1,R_2,\ldots, R_{10}$有公共的重叠区域，\pause否则所有圆环的面积之和$S_1$将小于圆$C$之面积的$9$倍，\pause即$3250\pi < 9 * 361\pi = 3249\pi$，\pause矛盾。\pause任取圆环$R_1,R_2,\ldots, R_{10}$的公共重叠区域中的一点，\pause在该点上放一个圆环，\pause将覆盖住$R_1,R_2,\ldots,R_{10}$的圆心，\pause这$10$个圆心都是圆内$650$个点中的点，\pause结论得证。 
+  \end{proof}
 \end{frame}
 \section{映射的一般性质}
 \begin{frame}
