@@ -211,12 +211,12 @@
   
         \pause先证$A_n\subseteq \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$：
       
-      \pause对任意的$x\in A_n$，\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，则$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$；
+      \pause对任意的$x\in A_n$，\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，则$x\in  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$；
       \pause如果$x\notin \bigcap_{m=n}^{\infty}A_m$，\pause则存在$i$，$i\geq n$且$x\notin A_i$，\pause取最小的$j$，使得$j\geq n$且$x\notin A_j$，\pause由$x\in A_n$知$j \neq n$，\pause于是$x\in A_{j-1}$但$x\notin A_j$，这里$j>n$，\pause从而$x\in \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)$，\pause此时亦有$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$。
       
       \pause再证$\bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m \subseteq A_n$：
   
-      \pause对任意的$x\subseteq  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$，\pause如果$x\in \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)$，\pause则存在$i$，$i\geq n$，$x\in A_i\cap A_{i+1}^c$，\pause由已知条件易知$A_i\subseteq A_n$，\pause从而$x\in A_n$；\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，\pause则显然$x\in A_n$。
+      \pause对任意的$x\in  \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m$，\pause如果$x\in \bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)$，\pause则存在$i$，$i\geq n$，$x\in A_i\cap A_{i+1}^c$，\pause由已知条件易知$A_i\subseteq A_n$，\pause从而$x\in A_n$；\pause如果$x\in \bigcap_{m=n}^{\infty}A_m$，\pause则显然$x\in A_n$。
   \end{proof}
   \end{frame}
 \begin{frame}
