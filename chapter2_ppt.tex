@@ -12,6 +12,7 @@
 \begin{CJK*}{UTF8}{gbsn}
 
 \newtheorem{Thm}{定理}[section]
+\newtheorem*{Thm5.4}{定理5.4}
 \newtheorem{Cor}{推论}[section]
 \theoremstyle{definition}
 \newtheorem{Def}{定义}[section]
@@ -329,15 +330,45 @@
     设$f:X\to Y$为一个映射，如果存在一个映射 $g:Y\to X$ 使 得 $g\circ f = I_X$，
     则称$f$为\alert{左可逆}的，$g$称为$f$的\alert{左逆映射}；如果存在一个映射
     $h:Y\to X$ 使 得 $f\circ h=I_Y$，则称$f$为\alert{右可逆}的，$h$称为$f$的\alert{右逆映射}。
-  \end{Def}\pause
+  \end{Def}
+\end{frame}
+
+\begin{frame}
+  \frametitle{5. 逆映射}
   \begin{Thm}
     设$f:X\to Y$为一个映射，则
     \begin{enumerate}
     \item $f$左可逆当且仅当$f$为单射；
     \item $f$右可逆当且仅当$f$为满射。
     \end{enumerate}
-  \end{Thm}
+  \end{Thm}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+  \pause  先证(1)。
+
+\pause设$f$为左可逆的，\pause则存在一个映射 $g:Y\to X$ 使 得 $g\circ f = I_X$。\pause对任意的$x_1\in X$，$x_2\in X$，\pause如果$f(x_1)=f(x_2)$，\pause则$g(f(x_1))=g(f(x_2))$，\pause再由$g\circ f = I_{X}$知$x_1=x_2$，\pause从而$f$为单射。
+
+\pause设$f$为单射，\pause则$f$为从集合$X$到$Im(f)$的双射。\pause于是，\pause存在$g:Im(f)\to X$使得$g\circ f = I_X$。\pause扩充$g$到$Y$上：\pause对任意的$y\in Y$，\pause若$y\in Im(f)$，\pause则$g(y)$不变，\pause而当$y\in Y\setminus Im(f)$时，\pause规定$g(y)$为$X$中任意一个固定的元素$x_0$，\pause则$g$为从集合$Y$到集合$X$的映射，\pause且$g\circ f = I_X$。\pause所以，$f$为左可逆的。
+
+  \end{proof}
 \end{frame}
+\begin{frame}
+  \frametitle{5. 逆映射}
+  \begin{Thm5.4}
+    设$f:X\to Y$为一个映射，则
+    \begin{enumerate}
+    \item $f$左可逆当且仅当$f$为单射；
+    \item $f$右可逆当且仅当$f$为满射。
+    \end{enumerate}
+  \end{Thm5.4}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause再证(2)。
+
+    \pause设$f$为右可逆的，\pause则存在一个映射$g:Y\to X$ 使 得 $f\circ g=I_Y$。\pause对任意的$y\in Y$，\pause由$f\circ g = I_{Y}$知$f(g(y))=y$，\pause从而$f$为满射。
+    
+    \pause设$f$为满射，\pause则对任意的$y\in Y$，\pause $f^{-1}(\{y\})\neq \phi$。\pause令$g:Y\to X$，\pause其定义为，\pause对任意的$y\in Y$，\pause $g(y)=x$，\pause其中$x$为$f^{-1}(\{y\})$中一个特定元素。\pause于是，\pause对任意的$y\in Y$，\pause设$g(y)=x$，\pause则$f(x)=y$，\pause从而$(f\circ g)(y) = f(g(y)) = f(x) = y = I_Y(y)$。\pause所以$f\circ g=I_Y$，\pause即$f$为右可逆的。    
+  \end{proof}
+\end{frame}
+
 \section{置换}
 \begin{frame}
   \frametitle{6. 置换}
@@ -347,6 +378,7 @@
 \justifying\let\raggedright\justifying
 设$S=\{1,2,\ldots,n\}$，$\sigma:S\to S$为$S$上的一个置换，$\sigma(1) = k_1$， $\sigma(2) = k_2$，$\ldots$，$\sigma(n) = k_n$，我们用如下的一个表来表示置换$\sigma$:
 \[\sigma=\begin{pmatrix}1&2&\ldots&n\\k_1&k_2&\ldots&k_n\end{pmatrix}\]
+$S$上所有的$n$次置换构成的集合记为$S_n$。
 \small{\begin{Ex}
   设$S=\{1,2,3,4\}$，$\sigma(1) = 3$，　$\sigma(2) = 2$，　$\sigma(3) = 4$，　$\sigma(4) = 1$，则$\sigma$可以表示为
   \[\sigma=\begin{pmatrix}1&2&3&4\\3&2&4&1\end{pmatrix}\]
@@ -412,13 +444,18 @@
   \begin{Def}
     能被分解为偶数个对换的乘积的置换称为\alert{偶置换}；能被分解为奇数个对换的乘积的置换称为\alert{奇置换}。
   \end{Def}
-  \pause
+ \end{frame}
+ \begin{frame}
   \begin{Thm}
     当$n \geq 2$时， $n$次奇置换的个数与$n$次偶置换的个数相等，都等于$\frac{n!}{2}$。
   \end{Thm}
+  \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause设$A$为所有的$n$次奇置换所构成的集合，\pause$B$为所有的$n$次偶置换所构成的集合，\pause则$S_n=A\cup B$且$A\cap B=\phi$。\pause所以，\pause$|S_n|=|A| + |B|=n!$。
+  
+    \pause以下证明$|A|=|B|$。\pause构造映射$f:A\to B$，\pause对任意的$\sigma\in A$，\pause$f(\sigma) = \sigma(12)$。\pause易验证$f$为单射，\pause这是因为对任意的$\sigma_1\in A$，\pause$\sigma_2\in A$，\pause如果$f(\sigma_1)=f(\sigma_2)$，\pause则$\sigma_1(1,2)=\sigma_2(1,2)$，\pause从而$\sigma_1(1,2)(1,2)=\sigma_2(1,2)(1,2)$，\pause即$\sigma_1=\sigma_2$。\pause同时，\pause易验证$f$为满射，\pause这是因为对任意的$\tau \in B$，\pause$f(\tau(1,2))=\tau(1,2)(1,2)=\tau$。\pause从而$f$为双射，\pause这证明了$|A|=|B|$。\pause再由$|A|+|B|=n!$知，\pause$|A|=|B|=\frac{n!}{2}$。
+  \end{proof}  
  \end{frame}
-
- 
 \section{代数运算}
 \begin{frame}
   \frametitle{7. 代数运算}
@@ -443,19 +480,19 @@
  
 \end{frame}
 
-\begin{frame}
-    \begin{enumerate}
-  \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
-  \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
-  \end{enumerate}
-\end{frame}
-\begin{frame}
-    另外，实数集还具有如下性质：
+% \begin{frame}
+%     \begin{enumerate}
+%   \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
+%   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
+%   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+%   \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
+%   \end{enumerate}
+% \end{frame}
+% \begin{frame}
+%     另外，实数集还具有如下性质：
 
-  设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
-\end{frame}
+%   设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+% \end{frame}
 \section{代数运算}
 \begin{frame}
   \frametitle{7. 代数运算}
@@ -469,7 +506,7 @@
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}

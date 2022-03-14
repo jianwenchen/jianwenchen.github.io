@@ -413,12 +413,18 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
     于是，我们得到了一个长度至少为$n+1$的不增子序列\eqref{subseq}，这又与假设相矛盾。所以，本题结论成立。
   \end{proof}
-
+  \begin{Exercise}
+    设$a_1, a_2, \cdots, a_n$为$n$个实数且$a_1<a_2<\cdots <a_n$。$\varphi$为从$A=\{a_1,a_2,\cdots,a_n\}$到$A$的一一对应。试证：如果$a_1+\varphi(a_1)<a_2+\varphi(a_2)<\cdots < a_n+\varphi(a_n)$，则$\varphi = I_A$。
+   \end{Exercise}
+  \begin{proof}[证明]
+    设$\varphi(a_1)\neq a_1$，则由$\varphi$为双射知存在$j$，$j>1$，$\varphi(a_j)=a_1$。于是，对任意的正整数$i<j$，$a_i+\varphi(a_i)<a_j+\varphi(a_j)=a_j+a_1$，由$a_i\geq a_1$知$\varphi(a_i)< a_j$，从而$\varphi(a_i)=a_k,k<j$。于是，对任意的$i$，$i<j$，$\varphi(a_i)\in \{a_2,\ldots,a_{j-1}\}$，由鸽笼原理，必存在$i_1<i_2<j$，$\varphi(i_1)=\varphi(i_2)$，这与$\varphi$为双射矛盾。类似可证，$\varphi(a_2)=a_2,\ldots,\varphi(a_n)=a_n$，即$\varphi = I_A$。
+  
+  \end{proof}
     \begin{Exercise}
     在一个半径为$16$的圆内任意放入$650$个点。给你一个形似垫圈的圆环，此圆环的外半径为$3$，内半径为$2$。现在要求你用这个垫圈盖住这$650$个点中的至少$10$个点，这可能吗？证明你的结论。
   \end{Exercise}
 \begin{proof}[答]
-  用这个垫圈可以盖住$650$个点中的至少$10$个点。以圆内的650个点中的每个点为圆心放一个圆环，则所有圆环的面积之和为$S_1 = 650 * \pi * (3^2 - 2^2) = 3250\pi$。所有圆环所覆盖的区域被包含在一个面积为$\pi * (16 + 3)^2= 361\pi$的圆$C$内。此时必存在$10$个圆环$R_1,R_2,\ldots, R_{10}$有公共的重叠区域，否则所有圆环的面积之和$S_1$将小于圆$C$之面积的$9$倍，即$3250\pi < 9 * 361\pi = 3249\pi$，矛盾。任取圆环$R_1,R_2,\ldots, R_{10}$的公共重叠区域中的一点，在该点上放一个圆环，将覆盖住$R_1,R_2,\ldots,R_{10}$的圆心，这些$10$个圆心都是圆内$650$个点中的点，结论得证。 
+  用这个垫圈可以盖住$650$个点中的至少$10$个点。以圆内的650个点中的每个点为圆心放一个圆环，则所有圆环的面积之和为$S_1 = 650 * \pi * (3^2 - 2^2) = 3250\pi$。所有圆环所覆盖的区域被包含在一个面积为$\pi * (16 + 3)^2= 361\pi$的圆$C$内。此时必存在$10$个圆环$R_1,R_2,\ldots, R_{10}$有公共的重叠区域，否则所有圆环的面积之和$S_1$将小于圆$C$之面积的$9$倍，即$3250\pi < 9 * 361\pi = 3249\pi$，矛盾。任取圆环$R_1,R_2,\ldots, R_{10}$的公共重叠区域中的一点，在该点上放一个圆环，将覆盖住$R_1,R_2,\ldots,R_{10}$的圆心，这$10$个圆心都是圆内$650$个点中的点，结论得证。 
 \end{proof}
 
 
@@ -489,13 +495,13 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
    以下先假设$g$满足定义\ref{inverse1}，往证$g$满足定义\ref{inverse2}。
 
-   假设$f$为从集合$X$到集合$Y$的双射，$g$为从集合$Y$到集合$X$的映射，$g=\{(y,x)|(x,y)\in f\}$，易验证$f\circ g = I_{Y}$且$g\circ f = I_{X}$。
+   假设$f$为从集合$X$到集合$Y$的双射，$g$为从集合$Y$到集合$X$的映射，$g=\{(y,x)|(x,y)\in f\}$，则$(y,x)\in g$等价于$(x,y)\in f$，即$g(y)=x$等价于$f(x)=y$，易验证$f\circ g = I_{Y}$且$g\circ f = I_{X}$。
 
    接下来，假设$g$满足定义\ref{inverse2}，往证$g$满足定义\ref{inverse1}。
 
    假设$f$为从集合$X$到集合$Y$的映射，存在一个映射$g:Y\to X$使得$f\circ g = I_{Y}$且$g\circ f = I_{X}$,往证$f$为双射，且$g=\{(y,x)|(x,y)\in f\}$。
 
-   对任意的$x_1\in X$，$x_2\in X$，如果$f(x_1)=f(x_2)$，则$g(f(x_1)=g(f(x_2))$，再由$g\circ f = I_{X}$知$x_1=x_2$，从而$f$为单射。对任意的$y\in Y$，由$f\circ g = I_{Y}$知$f(g(y))=y$，从而$f$为满射。这证明了$f$为双射。
+   对任意的$x_1\in X$，$x_2\in X$，如果$f(x_1)=f(x_2)$，则$g(f(x_1))=g(f(x_2))$，再由$g\circ f = I_{X}$知$x_1=x_2$，从而$f$为单射。对任意的$y\in Y$，由$f\circ g = I_{Y}$知$f(g(y))=y$，从而$f$为满射。这证明了$f$为双射。
 
    以下证明$g=\{(y,x)|(x,y)\in f\}$，这就是要证明左边的集合等于右边的集合。
 
@@ -527,13 +533,13 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
 设$f$为左可逆的，则存在一个映射 $g:Y\to X$ 使 得 $g\circ f = I_X$。对任意的$x_1\in X$，$x_2\in X$，如果$f(x_1)=f(x_2)$，则$g(f(x_1))=g(f(x_2))$，再由$g\circ f = I_{X}$知$x_1=x_2$，从而$f$为单射。
 
-设$f$为单射，则$f$为从集合$X$到$Im(f)$的双射。于是，有$g:Im(f)\to X$使得$g\circ f = I_X$。扩充$g$到$Y$上：对任意的$y\in Y$，若$y\in Y\setminus Im(f)$，则$g(y)$不变，而当$y\in Im(f)$时，规定$g(y)$为$X$中任意一个固定的元素$x_0$，则$g$为从集合$Y$到集合$X$的映射，且$g\circ f = I_X$。所以，$f$为左可逆的。
+设$f$为单射，则$f$为从集合$X$到$Im(f)$的双射。于是，存在$g:Im(f)\to X$使得$g\circ f = I_X$。扩充$g$到$Y$上：对任意的$y\in Y$，若$y\in  Im(f)$，则$g(y)$不变，而当$y\in Y\setminus Im(f)$时，规定$g(y)$为$X$中任意一个固定的元素$x_0$，则$g$为从集合$Y$到集合$X$的映射，且$g\circ f = I_X$。所以，$f$为左可逆的。
 
 再证(2)。
 
 设$f$为右可逆的，则存在一个映射$g:Y\to X$ 使 得 $f\circ g=I_Y$。对任意的$y\in Y$，由$f\circ g = I_{Y}$知$f(g(y))=y$，从而$f$为满射。
 
-设$f$为满射，则对任意的$y\in Y$，$f^{-1}(\{y\})\neq \phi$。令$g:Y\to X$，其定义为，对任意的$y\in Y$，$g(y)=x$，其中$x$为$f^{-1}(\{y\})$中一个特定元素。于是，对任意的$y\in Y$，设$g(y)=x$，则$f(x)=y$，从而$(fg)(y) = f(g(y)) = f(x) = y = I_Y(y)$。所以$fg=I_Y$，即$f$为右可逆的。
+设$f$为满射，则对任意的$y\in Y$，$f^{-1}(\{y\})\neq \phi$。令$g:Y\to X$，其定义为，对任意的$y\in Y$，$g(y)=x$，其中$x$为$f^{-1}(\{y\})$中一个特定元素。于是，对任意的$y\in Y$，设$g(y)=x$，则$f(x)=y$，从而$(f\circ g)(y) = f(g(y)) = f(x) = y = I_Y(y)$。所以$f\circ g=I_Y$，即$f$为右可逆的。
   \end{proof}
 
   \begin{Def}
@@ -541,6 +547,7 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
   \end{Def}
 设$S=\{1,2,\ldots,n\}$，$\sigma:S\to S$为$S$上的一个置换，$\sigma(1) = k_1$， $\sigma(2) = k_2$，$\ldots$，$\sigma(n) = k_n$，我们用如下的一个表来表示置换$\sigma$:
 \[\sigma=\begin{pmatrix}1&2&\ldots&n\\k_1&k_2&\ldots&k_n\end{pmatrix}\]
+$S$上所有的$n$次置换构成的集合记为$S_n$。
 \begin{Example}
   设$S=\{1,2,3,4\}$，$\sigma(1) = 3$，　$\sigma(2) = 2$，　$\sigma(3) = 4$，　$\sigma(4) = 1$，则$\sigma$可以表示为
   \[\sigma=\begin{pmatrix}1&2&3&4\\3&2&4&1\end{pmatrix}\]
@@ -585,9 +592,7 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
   \begin{proof}[证明]
     设$\sigma$为一个$n$次置换。$\sigma$的符号$sign(\sigma)$定义为$(-1)^{|\{(x,y)|x < y \land (x)\sigma > (y)\sigma \}|}$。
 
-设$\alpha = \beta (i,j)$，$i < j$，此时如果$(i)\beta> (j)\beta$,则$(i)\alpha < (j)\alpha$；反之，如果$(i)\beta< (j)\beta$,则$(i)\alpha > (j)\alpha$。
-
-易知，$sign(\alpha) = -sign(\beta)$。
+设$\alpha = \beta (i,j)$，则$sign(\alpha) = -sign(\beta)$。
 
 于是，如果置换$\sigma$可以分解为$m$个对换的乘积$\sigma = I(i_1,k_1)(i_2,k_2)\cdots (i_m,k_m)$，其中$I$为恒等置换，由$sign(I)=1$知$sign(\sigma) = (-1)^m$。而$sign(\sigma)$只能为$1$和$-1$两者之一，因此如果$\sigma$能分解成偶数个对换的乘积，则只能分解成偶数个对换的乘积；如果$\sigma$能分解成奇数个对换的乘积，则只能分解成奇数个对换的乘积。
   \end{proof}
@@ -622,19 +627,19 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
 
-    在实数集$R$上还定义了小于关系$<$，满足如下性质：
+  %   在实数集$R$上还定义了小于关系$<$，满足如下性质：
        
 
-  \begin{enumerate}
-  \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
-  \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
-  \end{enumerate}
+  % \begin{enumerate}
+  % \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
+  % \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
+  % \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+  % \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
+  % \end{enumerate}
 
-  另外，实数集还具有如下性质：
+  % 另外，实数集还具有如下性质：
 
-  设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+  % 设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
   \begin{Def}
     设$X$，$Y$，$Z$为任意三个非空集合。一个 从 $X\times Y$到$Z$的映射 $\phi$ 称 为 $X$与$Y$到$Z$的一个二元（代数）运算。当$X=Y=Z$时，则称$\phi$为$X$上的二元(代数)运算。
   \end{Def}
