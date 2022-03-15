@@ -453,7 +453,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
   \begin{proof}[证明]\justifying\let\raggedright\justifying
     \pause设$A$为所有的$n$次奇置换所构成的集合，\pause$B$为所有的$n$次偶置换所构成的集合，\pause则$S_n=A\cup B$且$A\cap B=\phi$。\pause所以，\pause$|S_n|=|A| + |B|=n!$。
   
-    \pause以下证明$|A|=|B|$。\pause构造映射$f:A\to B$，\pause对任意的$\sigma\in A$，\pause$f(\sigma) = \sigma(12)$。\pause易验证$f$为单射，\pause这是因为对任意的$\sigma_1\in A$，\pause$\sigma_2\in A$，\pause如果$f(\sigma_1)=f(\sigma_2)$，\pause则$\sigma_1(1,2)=\sigma_2(1,2)$，\pause从而$\sigma_1(1,2)(1,2)=\sigma_2(1,2)(1,2)$，\pause即$\sigma_1=\sigma_2$。\pause同时，\pause易验证$f$为满射，\pause这是因为对任意的$\tau \in B$，\pause$f(\tau(1,2))=\tau(1,2)(1,2)=\tau$。\pause从而$f$为双射，\pause这证明了$|A|=|B|$。\pause再由$|A|+|B|=n!$知，\pause$|A|=|B|=\frac{n!}{2}$。
+    \pause以下证明$|A|=|B|$。\pause构造映射$f:A\to B$，\pause对任意的$\sigma\in A$，\pause$f(\sigma) = \sigma(12)$。\pause易验证$f$为单射，\pause这是因为对任意的$\sigma_1\in A$，\pause$\sigma_2\in A$，\pause如果$f(\sigma_1)=f(\sigma_2)$，\pause则$\sigma_1(12)=\sigma_2(12)$，\pause从而$\sigma_1(12)(12)=\sigma_2(12)(12)$，\pause即$\sigma_1=\sigma_2$。\pause同时，\pause易验证$f$为满射，\pause这是因为对任意的$\tau \in B$，\pause$f(\tau(12))=\tau(12)(12)=\tau$。\pause从而$f$为双射，\pause这证明了$|A|=|B|$。\pause再由$|A|+|B|=n!$知，\pause$|A|=|B|=\frac{n!}{2}$。
   \end{proof}  
  \end{frame}
 \section{代数运算}
@@ -473,7 +473,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -530,7 +530,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -556,7 +556,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -583,7 +583,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -609,7 +609,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -635,7 +635,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -662,7 +662,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
@@ -688,7 +688,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
    \item   $x * y = y * x$
    \item   $(x * y) * z = x * (y *z)$
    \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
+   \item   $x^{-1} * x = x * x^{-1} = 1(x\neq 0)$
    \item   $x* (y + z) = x * y + x * z$
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
