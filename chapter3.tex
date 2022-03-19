@@ -100,7 +100,7 @@
     6&7 &1 \\
   \end{tabular}
 
-[Hopcroft, 1974]E. F. Codd. A Relational Model of Data for Large Shared Data Banks.
+[Codd, 1974]E. F. Codd. A Relational Model of Data for Large Shared Data Banks.
 Information Retrieval, 13(6): 1970.
 
 %     \begin{thebibliography}{99}
@@ -191,6 +191,19 @@ Information Retrieval, 13(6): 1970.
 %  \item 设集合$X = \{0,1\}$, $2^X$上的二元关系$\subseteq$
   \end{enumerate}
 \end{Example}
+\begin{Exercise}
+  设$R$为集合$X$上的反自反的和传递的二元关系，证明：$R$为反对称的二元关系。  
+  \end{Exercise}
+  \begin{proof}[证法一]对任意的$x\in X$，$y\in Y$，如果$(x,y)\in R$并且$(y,x)\in R$，则由$R$为传递的知$(x,x)\in R$，这与$R$为反自反的矛盾，从而$(x,y)\in R$并且$(y,x)\in R$不可能成立。即如果$(x,y)\in R$并且$(y,x)\in R$，则$x=y$成立，这证明了$R$为反对称的。
+    
+  \end{proof}
+  \begin{proof}[证法二]
+   对任意的$x\in X$，$y\in X$，如果$(x,y)\in R$并且$x\neq y$，以下证明$(y,x)\notin R$。用反证法，假设$(y,x)\in R$，则由$R$为传递的知$(x,x)\in R$，这与$R$为反自反的矛盾 
+  \end{proof}
+  \begin{proof}[证法三]
+    用反证法。假设$R$不是反对称的二元关系，则存在$x\in X$，$y\in X$，$(x,y)\in R$，$(y,x)\in R$并且$x\neq y$，由$R$为传递的知，$(x,x)\in R$，这与$R$为反自反的矛盾。
+  \end{proof}
+
 \begin{Def}
     设$R$为从集合$A$到集合$B$的二元关系，$R$的逆$R^{-1}$定义为从集合$B$到集合$A$的二元关系
     \[R^{-1}=\{(y,x)|(x,y)\in R\}\]
@@ -267,7 +280,7 @@ Information Retrieval, 13(6): 1970.
 
 
    \begin{Def}
-    设$B$，$C$是两个布尔矩阵，$B$与$C$的逻辑乘为$B$与$C$的对应元素进行逻辑乘，所得到的布尔矩阵记为$B \land C$，即
+    设$B$，$C$为两个布尔矩阵，$B$与$C$的逻辑乘为$B$与$C$的对应元素进行逻辑乘，所得到的布尔矩阵记为$B \land C$，即
     \begin{equation*}
       B \land C = (b_{ij} \land c_{ij})
     \end{equation*}
@@ -390,7 +403,7 @@ Information Retrieval, 13(6): 1970.
     \li \Then
     \For $j \gets 1$ \To $n$
     \li \Do
-    $a_{ij} = a_{ij} \lor (a_{ik} \land a_{kj})$
+    $a_{ij} = a_{ij} \lor a_{kj}$
     \End
     \End
     \End

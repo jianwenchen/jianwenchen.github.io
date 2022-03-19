@@ -44,13 +44,13 @@
   设集合$X=\{1,2\}$，则$2^X$上的二元关系$\subseteq$可以定义为一个从$2^X\times
   2^X$到$\{T,F\}$的映射，
 
-  $\subseteq(\{\phi\},\{\phi\})=T,\subseteq(\{\phi\},\{1\})=T,\subseteq(\{\phi\},\{2\})=T,\subseteq(\{\phi\},\{1,2\})=T,$
+  $\subseteq(\phi,\phi)=T,\subseteq(\phi,\{1\})=T,\subseteq(\phi,\{2\})=T,\subseteq(\phi,\{1,2\})=T,$
 
-    $\subseteq(\{1\},\{\phi\})=F,\subseteq(\{1\},\{1\})=T,\subseteq(\{1\},\{2\})=F,\subseteq(\{1\},\{1,2\})=T,$
+    $\subseteq(\{1\},\phi)=F,\subseteq(\{1\},\{1\})=T,\subseteq(\{1\},\{2\})=F,\subseteq(\{1\},\{1,2\})=T,$
 
-      $\subseteq(\{2\},\{\phi\})=F,\subseteq(\{2\},\{1\})=F,\subseteq(\{2\},\{2\})=T,\subseteq(\{2\},\{1,2\})=T,$
+      $\subseteq(\{2\},\phi)=F,\subseteq(\{2\},\{1\})=F,\subseteq(\{2\},\{2\})=T,\subseteq(\{2\},\{1,2\})=T,$
 
-        $\subseteq(\{1,2\},\{\phi\})=F,\subseteq(\{1,2\},\{1\})=F,\subseteq(\{1,2\},\{2\})=F,\subseteq(\{1,2\},\{1,2\})=T$
+        $\subseteq(\{1,2\},\phi)=F,\subseteq(\{1,2\},\{1\})=F,\subseteq(\{1,2\},\{2\})=F,\subseteq(\{1,2\},\{1,2\})=T$
 \end{Ex}
 \end{frame}
 \begin{frame}
@@ -67,7 +67,7 @@
   \begin{equation*}
     \begin{split}
  \subseteq =& \{
- (\{\phi\},\{\phi\}),(\{\phi\},\{1\}),(\{\phi\},\{2\}),(\{\phi\},\{1,2\}),\\
+ (\phi,\phi),(\phi,\{1\}),(\phi,\{2\}),(\phi,\{1,2\}),\\
  &(\{1\},\{1\}),(\{1\},\{1,2\}),
  (\{2\},\{2\}),(\{2\},\{1,2\}),\\&(\{1,2\},\{1,2\})
 \}
@@ -481,7 +481,7 @@
     \li \Then
     \For $j \gets 1$ \To $n$
     \li \Do
-    $a_{ij} = a_{ij} \lor (a_{ik} \land a_{kj})$
+    $a_{ij} = a_{ij} \lor a_{kj}$
     \End
     \End
     \End
