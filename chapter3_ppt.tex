@@ -346,14 +346,23 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
   \begin{Thm}
     设$R$为集合$X$上的一个二元关系，则$R$为传递的当且仅当$R\circ R \subseteq R$。
   \end{Thm}
-  
+  \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause 由$R$为传递的往证$R\circ R\subseteq R$。
+
+    \pause 对任意的$a\in X$，$c\in X$，\pause如果$(a,c)\in R\circ R$，\pause则存在$b\in X$，\pause$(a,b)\in R$并且$(b,c)\in R$，\pause由$R$为传递的知$(a,c)\in R$。
+
+    \pause 由$R\circ R\subseteq R$往证$R$为传递的。
+
+    \pause 对任意的$a\in X$，$b\in X$，$c\in X$，\pause如果$(a,b)\in R$，\pause $(b,c)\in R$，\pause则$(a,c)\in R\circ R$，\pause由$R\circ R\subseteq R$知$(a,c)\in R$。
+  \end{proof}
 \end{frame}
 \section{关系矩阵}
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
   \begin{Def}\justifying\let\raggedright\justifying
     设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$Y=\{y_1, y_2,
-    \cdots, y_n\}$为一个包含$n$个元素的集合。令$R$为从$X$到$Y$的一个二元关系。
+    \cdots, y_n\}$为一个包含$n$个元素的集合，$R$为从$X$到$Y$的一个二元关系。
     由$R$定义一个$m \times n$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times Y$，
 \[
     b_{ij}=
@@ -368,12 +377,55 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
   \begin{Ex}
-    设$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系$S=\{(1,3),  (2, 5)\}$，则$S$的关系矩阵为?
+    设$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系$R=\{(1,3),  (2, 5)\}$，则关系$R$的矩阵为?
   \end{Ex}
   \pause
+  \pause
+  关系$R$的矩阵为
+      \[B=\begin{bmatrix}
+          1&0&0\\
+          0&0&1\\
+        \end{bmatrix}
+      \]
+\end{frame}
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Def}\justifying\let\raggedright\justifying
+    设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$R$为从$X$上的一个二元关系。
+    由$R$定义一个$m \times n$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times X$，
+\[
+    b_{ij}=
+      \begin{cases}
+        1,&\text{如果}x_iRy_j\\
+        0,&\text{如果}x_iR\!\!\! / y_j
+      \end{cases}
+\]
+    则矩阵$B$称为关系$R$的矩阵。
+  \end{Def}
+\end{frame}
+
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
   \begin{Ex}
-    设$X = \{1,2,3,4\}$，$R = \{(1,1),(1,2),(1,3),(1,4),(2,2),(2,4),(3,3),(4,2),(4,4)\}$，则$R$的关系矩阵为?
+  设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+    则关系$R$的矩阵为？
   \end{Ex}
+   \pause
+  关系$R$的矩阵为
+      \[B=\begin{bmatrix}
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&0&0&0&0&1
+        \end{bmatrix}
+      \]
 \end{frame}
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
@@ -385,19 +437,6 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
   \item $R$为对称的，当且仅当$B$是对称矩阵；
   \item $R$为反对称的，当且仅当$i \neq j$时$b_{ij}$与$b_{ji}$不同时为1;
   \item $R$为传递的，当且仅当如果$b_{ij}=1$且$b_{jk}=1$，则$b_{ik}=1$。
-  \end{enumerate}
-\end{Thm}
-\end{frame}
-\begin{frame}
-  \frametitle{4. 关系矩阵和关系图}
-  \begin{Thm}
-  设$R$为集合$X$上的二元关系，则
-  \begin{enumerate}[(1)]
-  \item $R$为自反的，当且仅当$R$的图的每个顶点均有一个环；
-  \item $R$为反自反的，当且仅当$R$的图中没有环；
-  \item $R$为对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则必有两条方向相反的矢线；
-  \item $R$为反对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则不能有两条方向相反的矢线;
-  \item $R$为传递的，当且仅当如果从某顶点沿矢线经两条矢线可到另一顶点，则从该顶点到另一顶点有一条矢线。
   \end{enumerate}
 \end{Thm}
 \end{frame}
@@ -436,14 +475,179 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
       c_{ij} &= (a_{i1}\land b_{1j}) \lor (a_{i2} \land b_{2j}) \lor \cdots \lor (a_{ip} \land b_{pj}), \\
       i &= 1,2,\cdots, m, j = 1,2,\cdots, n
     \end{align*}
-  \end{Def}\pause
+  \end{Def}
+\end{frame}
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
   \begin{Thm}
     设$X, Y, Z$为有穷集合， $|X| =m$，$|Y|=p$，$|Z| = n$。$R$为从$X$到$Y$的二元
     关系， $S$为从$Y$到$Z$的二元关系，$R$，$S$，$R \circ S$的矩阵分别为$B_{R}$，$B_{S}$，$B_{R\circ S}$，则$B_{R\circ S} = B_R \circ B_S$。
   \end{Thm}
+  \pause
+  \begin{proof}[证明]
+    \pause 设$B_{R}=(a_{ij})$，$B_{S}=(b_{ij})$，$B_{R\circ S}=(c_{ij})$，
+
+    \pause \hspace{0.5cm}$c_{ij}=1$
+    
+    \pause$\Leftrightarrow(x_i,z_j)\in R\circ S$
+    
+    \pause$\Leftrightarrow\exists y_k\in Y (x_i,y_k)\in R\land (y_k,z_j)\in S$
+
+    \pause$\Leftrightarrow(a_{i1}=1\land b_{1j}=1)\lor (a_{i2}=1\land b_{2j}=1)\lor \cdots \lor (a_{ip}=1\land a_{pj}=1)$
+    
+    \pause$\Leftrightarrow(a_{i1}\land b_{1j})\lor (a_{i2}\land b_{2j})\lor \cdots \lor (a_{ip}\land a_{pj}) = 1$
+
+  \end{proof}
 \end{frame}
 
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Def}\justifying\let\raggedright\justifying
+    关系除了用矩阵表示外，还可以用图来表示。设$X$和$Y$为有穷集
+合，$R$为从$X$到$Y$的二元关系。当用图表示$R$时，先把$X$与$Y$的元素在纸
+上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
+从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
+组成的“有向图”，称为关系$R$的图。
+  \end{Def}
+\end{frame}
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Ex}
+    设$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系$R=\{(1,3),  (2, 5)\}$，则关系$R$的图为?
+  \end{Ex}
+  \pause
+  关系$R$的图为
+
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,1)  {$1$};
+   \node[specification] (B) at (0,0)  {$2$};
+   \node[specification] (C)  at (1,1)  {$3$};
+   \node[specification] (D)  at (1,0)  {$4$};
+   \node[specification] (E)  at (1,-1)  {$5$};
+   
+   \draw[thick, ->] (A) to (C);
+   \draw[thick, ->] (B) to (E);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Def}\justifying\let\raggedright\justifying
+    设$X$为有穷集
+合，$R$为集合$X$上的二元关系。当用图表示$R$时，先把$X$的元素在纸
+上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
+从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
+组成的“有向图”，称为关系$R$的图。注意，如果$(x,x)\in R$，则在代表$x$的点画一条又指向此点的矢线，称为环。
+  \end{Def}
+\end{frame}
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Ex}
+  设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+    则关系$R$的图为？
+  \end{Ex}
+   \pause
+  关系$R$的图为
+
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (1,2)  {$5$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$4$};
+   \node[specification] (F)  at (6,0)  {$6$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{4. 关系矩阵和关系图}
+  \begin{Thm}
+  设$R$为集合$X$上的二元关系，则
+  \begin{enumerate}[(1)]
+  \item $R$为自反的，当且仅当$R$的图的每个顶点均有一个环；
+  \item $R$为反自反的，当且仅当$R$的图中没有环；
+  \item $R$为对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则必有两条方向相反的矢线；
+  \item $R$为反对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则不能有两条方向相反的矢线;
+  \item $R$为传递的，当且仅当如果从某顶点沿矢线经两条矢线可到另一顶点，则从该顶点到另一顶点有一条矢线。
+  \end{enumerate}
+\end{Thm}
+\end{frame}
+
+
 \section{关系的闭包}
+\begin{frame}
+  集合$X$上的二元关系$R$称为传递的，如果对$X$的任意元素$x$，$y$，$z$，只要$xRy$且$yRz$，就有$xRz$。
+
+设集合$X=\{1,2,3\}$，$R=\{(1,2),(2,3),(3,1)\}$，要使得$R$变成传递的二元关系，至少需要添加（　）个有序对？
+
+\pause
+
+$R^2=\{(1,3),(2,1),(3,2)\}$
+
+\pause
+
+$R^3=\{(1,1),(2,2),(3,3)\}$
+
+\pause 
+
+$R^4=...$
+
+$(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)\in R$，$(x_2,x_3)\in R$，$(x_3,y)\in R$
+\end{frame}
+
+\begin{frame}
+  \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) [label=-135:$v_1$] at (0,0)  {};
+   \node[specification] (B) [label=135:$v_2$] at (0,2)  {};
+   \node[specification] (C) [label=45:$v_3$] at (2,2)  {};
+   \node[specification] (D) [label=-45:$v_4$] at (2,0)  {};
+   \draw[thick, ->] (A) to  (B);
+   \draw[thick, ->] (C) to  (B);
+   \draw[thick, ->] (C) to  (D);
+   \draw[thick, ->] (D) to  (A);
+   \draw[thick, ->] (A) to  (C);
+\end{tikzpicture}
+\pause
+\[
+  \begin{bmatrix}
+    1&1&1&0\\
+    0&1&0&0\\
+    0&1&1&1\\
+    1&0&0&1\\
+  \end{bmatrix}
+\]
+\end{frame}
 \begin{frame}
   \frametitle{5. 关系的闭包}
   \begin{Def}
@@ -452,11 +656,21 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
       R^+ = \bigcap_{R \subseteq R' \text{且} R'\text{是传递的}}R'
     \end{equation*}
   \end{Def}
-  \pause
+\end{frame}
+\begin{frame}
+  \frametitle{5. 关系的闭包}
   \begin{Thm}
     设$R$为集合Ｘ上的一个二元关系，则关系$R$的传递闭包$R^+$为包含$R$的传递关系。
   \end{Thm}
+  \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause 由定义$R^+ = \bigcap_{R \subseteq R' \text{且} R'\text{是传递的}}R'$，\pause显然$R\subseteq R^+$。
+
+    \pause 对任意的$x\in X$，$y\in Y$，$z\in X$，\pause $(x,y)\in R^+$并且$(y,z)\in R^+$，\pause 则对任意的$R'$，$R\subseteq R'$且$R'$是传递的
+，\pause $(x,y)\in R'$并且$(y,z)\in R'$，\pause 由$R'$为传递的知$(x,z)\in R'$，\pause 从而$(x,z)\in R^+$，\pause这证明了$R^+$为传递的。
+  \end{proof}
 \end{frame}
+
 \begin{frame}
   \frametitle{5. 关系的闭包}
   \begin{Thm}
@@ -480,14 +694,30 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
       R^+ = \bigcup_{n=1}^\infty R^n = R \cup R^2 \cup R^3 \cup \cdots 
     \end{equation*}
   \end{Thm}
+  \vspace{-1cm}
+  \begin{proof}[证明]\justifying\let\raggedright\justifying \small{
+    \pause 首先证明$ R^+ \subseteq \bigcup_{n=1}^\infty R^n$。
+
+    \pause由$R^+$的定义，\pause只需证$\bigcup_{n=1}^\infty R^n$为包含$R$的传递关系即可。
+    \pause $R\subseteq \bigcup_{n=1}^\infty R^n$是显然的。\pause 以下证明$\bigcup_{n=1}^\infty R^n$为传递的。
+    \pause 对任意的$a\in X$，$b\in X$，$c\in X$，\pause 如果$(a,b)\in \bigcup_{n=1}^\infty R^n$并且$(b,c)\in \bigcup_{n=1}^\infty R^n$，\pause则存在正整数
+    $m$和$n$使得$(a,b)\in R^m$且$(b,c)\in R^n$。\pause于是$(a,c)\in R^m\circ R^n = R^{m+n}$，\pause从而$(a,c)\in \bigcup_{n=1}^\infty R^n$。\pause所以，
+   \pause $\bigcup_{n=1}^\infty R^n$是传递的。
+
+    \pause其次证明$  \bigcup_{n=1}^\infty R^n\subseteq R^+$。\pause对任意的$a\in X$，$b\in X$，\pause如果$(a,b)\in \bigcup_{n=1}^\infty R^n$，\pause则存在某个正整数$m$，\pause使得$(a,b)\in R^m$。
+    \pause如果$m=1$，\pause则$(a,b)\in R\subseteq R^+$；\pause如果$m>1$，\pause则存在$b_1,b_2,\cdots, b_{m-1}\in X$使得
+    $(a,b_1)\in R$，$(b_1,b_2)\in R$，$\ldots$，$(b_{m-1},b)\in R$。\pause由$R\subseteq R^+$知$(a,b_1)\in R^+$，$(b_1,b_2)\in R^+$，$\ldots$，$(b_{m-1},b)\in R^+$。\pause又因为$R^+$为传递的，\pause所以$(a,b)\in R^+$。\pause于是，\pause$ \bigcup_{n=1}^\infty R^n\subseteq R^+$。
+
+    \pause因此，\pause$ R^+ = \bigcup_{n=1}^\infty R^n$。}
+  \end{proof}
 \end{frame}
 \begin{frame}
   \frametitle{5. 关系的闭包}
   \begin{Thm}
     设$R$为集合$X$上的一个二元关系，$|X| = n$，则\[R^+ = \bigcup_{i=1}^nR^i = R \cup R^2  \cup \cdots \cup R^n \]。
-  \end{Thm}
+  \end{Thm}\pause
   \begin{proof}[证明]\justifying\let\raggedright\justifying\small{
-      只须证明对任一自然数$k > n$，有$R^k \subseteq \bigcup_{i=1}^nR^i$。\pause
+      只需证明对任一自然数$k > n$，有$R^k \subseteq \bigcup_{i=1}^nR^i$。\pause
       为此，设$(a,b) \in R^k$，则存在$b_1, b_2, \cdots, b_{k-1} \in
       X$使得$(a,b_1) \in R$, $(b_1, b_2) \in R, \cdots, (b_{k-2}, b_{k-1})\in R,
       (b_{k-1}, b) \in R$。记$b_0 = a, b_k = b$。 \pause $b_1,b_2, \cdots,
@@ -509,10 +739,7 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
       B^+ = B \lor B^{(2)} \lor \cdots \lor B^{(n)}
     \end{equation*}
   \end{Thm}
-\end{frame}
-
-\begin{frame}
-  \frametitle{5. 关系的闭包}
+  \pause
   \begin{codebox}
     \Procname{$\proc{Transitive-Closure}(B)$}
     \zi \Comment $B$ is the zero-one $n \times n$ matrix for relation $R$
@@ -525,7 +752,44 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
     \End
     \li \Return A \Comment $A$ is the zero-one matrix for $R^+$
   \end{codebox}
-  
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{5. 关系的闭包}
+  \begin{codebox}
+    \Procname{$\proc{Warshall}(B)$}
+    \zi \Comment $B$ is the zero-one $n \times n$ matrix for relation $R$
+    \li $A \gets B$
+    \li \For $k \gets 1$ \To $n$
+    \li \Do
+    \For $i \gets 1$ \To $n$
+    \li \Do
+    \For $j \gets 1$ \To $n$
+    \li \Do
+    $a_{ij} = a_{ij} \lor (a_{ik} \land a_{kj})$
+    \End
+    \End
+    \End
+    \li \Return A \Comment $A$ is the zero-one matrix for $R^+$
+  \end{codebox}  
+  \pause
+
+  $X=\{x_1,x_2,\cdots,x_n\}$
+
+  \pause
+
+  $a_{ij}^{(0)}=a_{ij}$
+
+  \pause
+
+  $a_{ij}^{(k)}= a_{ij}^{(k-1)}\lor (a_{ik}^{(k-1)}\land a_{kj}^{(k-1)}) (k\geq 1)$
+
+  \pause
+
+  其中$a_{ij}^{(k)}=1$当且仅当存在$x_{i_1},x_{i_2},\ldots,x_{i_m}\in \{x_1,x_2,\ldots,x_k\}$使得$(x_i,x_{i_1})\in R$，$(x_{i_1},x_{i_2})\in R$，$\cdots$，$(x_{i_m},x_j)\in R$。
 \end{frame}
 
 \begin{frame}
@@ -546,7 +810,14 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
     \End
     \li \Return A \Comment $A$ is the zero-one matrix for $R^+$
   \end{codebox}  
+  \pause
+  $a_{ik} = a_{ik} \lor (a_{ik} \land a_{kk})$
+
+  \pause
+
+  $a_{kj} = a_{kj} \lor (a_{kk} \land a_{kj})$
 \end{frame}
+
 
 \begin{frame}
   \frametitle{5. 关系的闭包}
