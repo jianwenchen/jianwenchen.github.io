@@ -243,14 +243,53 @@
     到集合$A$的二元关系
     \[R^{-1}=\{(y,x)|(x,y)\in R\}\]
   \end{Def}\pause
+  \begin{Ex}
+    设$X=\{1,2,3\}, R=\{(1,2),(2,3),(1,3)\}$，则$R^{-1}=\{(2,1),(3,2),(3,1)\}$。
+  \end{Ex}
+\end{frame}
+\begin{frame}
+  \frametitle{3. 关系的运算}
     \begin{Thm}
     设$R$为集合$X$上的二元关系，则$R$为对称的当且仅当$R^{-1}\subseteq R$。
-  \end{Thm}  
-\pause
+  \end{Thm} \pause 
+\begin{proof}[证明]\justifying\let\raggedright\justifying
+\pause由$R$为对称的往证$R^{-1}\subseteq R$。
+
+\pause对任意的$x\in X$，$y\in X$，\pause如果$(x,y)\in R^{-1}$，\pause则$(y,x)\in R$，\pause由$R$为对称的知，\pause$(x,y)\in R$。
+
+\pause由$R^{-1}\subseteq R$往证$R$为对称的。
+
+\pause对任意的$x\in X$，$y\in X$，\pause如果$(x,y)\in R$，\pause则$(y,x)\in R^{-1}$，\pause由$R^{-1}\subseteq R$知$(y,x)\in R$。
+
+\end{proof}
+\end{frame}
+\begin{frame}
+  \frametitle{3. 关系的运算}
   \begin{Thm}
     设$R$为集合$X$上的二元关系，则$R$为对称的当且仅当$R=R^{-1}$。
   \end{Thm}  
+  \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause只需证$R^{-1}\subseteq R$当且仅当$R=R^{-1}$。
+
+    \pause 如果$R=R^{-1}$，\pause则显然$R^{-1}\subseteq R$。
+
+    \pause 由$R^{-1}\subseteq R$往证$R=R^{-1}$，\pause此时只需证$R\subseteq R^{-1}$。
+
+    \pause对任意的$x\in X$，\pause $y\in X$，\pause如果$(x,y)\in R$，\pause则$(y,x)\in R^{-1}$，\pause 由$R^{-1}\subseteq R$知$(y,x)\in R$，\pause从而$(x,y)\in R^{-1}$。
+  \end{proof}
+\pause
+  \begin{Thm}
+    设$R$和$S$为集合$X$上的二元关系，$R\subseteq S$，则$R^{-1}\subseteq S^{-1}$。
+  \end{Thm}  
+\pause
+  \begin{Thm}
+    设$R$和$S$为集合$X$上的二元关系，则$(R^{-1})^{-1}=R$。
+  \end{Thm}  
 \end{frame}
+
+
+
 \begin{frame}
   \frametitle{3. 关系的运算}
   \begin{Def}\justifying\let\raggedright\justifying
@@ -258,15 +297,57 @@
     $R\circ S$定义为从集合$A$到集合$C$的一个二元关系
     \[R\circ S = \{(x,z)\in A \times C |  \exists y \in B \text{使得} xRy \text{且} ySz\}\]
   \end{Def}\pause
-    \begin{Thm}
+\begin{Ex}
+  设$X=\{1,2,3\}, R=\{(1,2),(2,3),(3,1)\}$，则$R\circ R=?$
+\pause
+  $R\circ R=\{(1,3),(2,1),(3,2)\}$
+\end{Ex}
+\pause
+设$R$为集合$X$上的一个二元关系，$R$的非负整数次幂递归的定义如下：
+\[R^0=I_X,R^1=R,R^{n+1}=R^{n}\circ R\]
+\pause
+在上例中，$R^0=?$，$R^3=?$
+\pause
+
+$R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
+\end{frame}
+
+\begin{frame}
+  \begin{Thm}
     设$R_1$，$R_2$，$R_3$分别为从集合$A$到集合$B$，从集合$B$到集合$C$，从集合$C$到集合$D$的二元关系，则
     \[(R_1 \circ R_2)\circ R_3 = R_1 \circ (R_2 \circ R_3)\]
   \end{Thm}\pause
+  \begin{proof}[证明]
+    \pause
+    \hspace{0.5cm}$\forall a\in A\forall d\in D$
+
+    \pause
+    \hspace{0.5cm}$(a,d)\in (R_1\circ R_2)\circ R_3$
+
+    \pause
+   $\Leftrightarrow \exists c\in C((a,c)\in R_1\circ R_2 \land (c,d)\in R_3)$
+
+   \pause
+   $\Leftrightarrow \exists c\in C(\exists b\in B ((a,b)\in R_1 \land (b,c)\in R_2) \land (c,d)\in R_3)$
+
+   \pause
+   $\Leftrightarrow \exists b\in B( (a,b)\in R_1 \land \exists c\in C ((b,c)\in R_2 \land (c,d)\in R_3))$
+
+   \pause
+   $\Leftrightarrow \exists b\in B( (a,b)\in R_1 \land (b,d)\in R_2\circ R_3)$
+
+   \pause
+   $\Leftrightarrow (a,d)\in R_1 \circ (R_2 \circ R_3)$
+   % \pause
+  %  $(a,d)\in R_1\circ(R_2\circ R_3)$
+  \end{proof}
+\end{frame}
+\begin{frame} 
   \begin{Thm}
     设$R$为集合$X$上的一个二元关系，则$R$为传递的当且仅当$R\circ R \subseteq R$。
-  \end{Thm}\pause
+  \end{Thm}
+  
 \end{frame}
-
 \section{关系矩阵}
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
