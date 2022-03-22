@@ -16,6 +16,7 @@
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
+  \newtheorem*{Thm4.4}{定理4.4}
 \newtheorem{Thm}{定理}[section]
 \newtheorem{Cor}{推论}[section]
 \theoremstyle{definition}
@@ -476,6 +477,68 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
       i &= 1,2,\cdots, m, j = 1,2,\cdots, n
     \end{align*}
   \end{Def}
+  \pause
+  设布尔矩阵
+  \[B=\begin{bmatrix}
+    0&1&0\\
+    0&0&1\\
+    1&0&0\\
+  \end{bmatrix}
+\]
+\pause
+则
+
+$B\circ B=\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+\circ
+\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+=$
+\pause
+$\begin{bmatrix}
+  0&0&1\\
+  1&0&0\\
+  0&1&0\\
+\end{bmatrix}$
+\end{frame}
+\begin{frame}
+  \begin{Thm4.4}
+    设$X, Y, Z$为有穷集合， $|X| =m$，$|Y|=p$，$|Z| = n$。$R$为从$X$到$Y$的二元
+    关系， $S$为从$Y$到$Z$的二元关系，$R$，$S$，$R \circ S$的矩阵分别为$B_{R}$，$B_{S}$，$B_{R\circ S}$，则$B_{R\circ S} = B_R \circ B_S$。
+  \end{Thm4.4}
+  \pause
+  设集合$X=\{1,2,3\}$，$R=\{(1,2),(2,3),(3,1)\}$，关系$R$的矩阵为
+  \[B_R=\begin{bmatrix}
+    0&1&0\\
+    0&0&1\\
+    1&0&0\\
+  \end{bmatrix}
+\]
+\pause
+则关系$R\circ R$的矩阵为
+\[B_{R\circ R}=B_R\circ B_R=\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+\circ
+\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+=\begin{bmatrix}
+  0&0&1\\
+  1&0&0\\
+  0&1&0\\
+\end{bmatrix}
+\]
 \end{frame}
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
@@ -534,8 +597,7 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
   \begin{Def}\justifying\let\raggedright\justifying
-    设$X$为有穷集
-合，$R$为集合$X$上的二元关系。当用图表示$R$时，先把$X$的元素在纸
+    设$X$为有穷集合，$R$为集合$X$上的二元关系。当用图表示$R$时，先把$X$的元素在纸
 上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
 从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
 组成的“有向图”，称为关系$R$的图。注意，如果$(x,x)\in R$，则在代表$x$的点画一条又指向此点的矢线，称为环。

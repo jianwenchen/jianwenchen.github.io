@@ -258,21 +258,6 @@ Information Retrieval, 13(6): 1970.
   \end{enumerate}
 \end{Thm}
 
-关系除了用矩阵表示外，还可以用图来表示。设$X$和$Y$为有穷集
-合，$R$为从$X$到$Y$的二元关系。当用图表示$R$时，先把$X$与$Y$的元素在纸
-上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
-从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
-组成的“有向图”，称为关系$R$的图。注意，如果$(x,x)\in R$，则在代表$x$的点画一条又指向此点的矢线，称为环。
-  \begin{Thm}
-  设$R$为集合$X$上的二元关系，则
-  \begin{enumerate}
-  \item $R$为自反的，当且仅当$R$的图的每个顶点均有一个环；
-  \item $R$为反自反的，当且仅当$R$的图中没有环；
-  \item $R$为对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则必有两条方向相反的矢线；
-  \item $R$为反对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则不能有两条方向相反的矢线;
-  \item $R$为传递的，当且仅当在$R$的图中如果从某顶点沿矢线经两条矢线可到另一顶点，则从该顶点到另一顶点有一条矢线。
-  \end{enumerate}
-\end{Thm}
 
   \begin{Thm}
     设$B$为集合$X$上二元关系$R$的矩阵，则$R^{-1}$的矩阵为$B^{T}$。
@@ -302,10 +287,148 @@ Information Retrieval, 13(6): 1970.
       i &= 1,2,\cdots, m, j = 1,2,\cdots, n
     \end{align*}
   \end{Def}
+  设布尔矩阵
+  \[B=\begin{bmatrix}
+    0&1&0\\
+    0&0&1\\
+    1&0&0\\
+  \end{bmatrix}
+\]
+则
+\[B\circ B=\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+\circ
+\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+=\begin{bmatrix}
+  0&0&1\\
+  1&0&0\\
+  0&1&0\\
+\end{bmatrix}\]
+
   \begin{Thm}
     设$X, Y, Z$为有穷集合， $|X| =m$，$|Y|=p$，$|Z| = n$。$R$为从$X$到$Y$的二元
     关系， $S$为从$Y$到$Z$的二元关系，$R$，$S$，$R \circ S$的矩阵分别为$B_{R}$，$B_{S}$，$B_{R\circ S}$，则$B_{R\circ S} = B_R \circ B_S$。
   \end{Thm}
+  设集合$X=\{1,2,3\}$，$R=\{(1,2),(2,3),(3,1)\}$，关系$R$的矩阵为
+  \[B_R=\begin{bmatrix}
+    0&1&0\\
+    0&0&1\\
+    1&0&0\\
+  \end{bmatrix}
+\]
+则关系$R\circ R$的矩阵为
+\[B_{R\circ R}=B_R\circ B_R=\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+\circ
+\begin{bmatrix}
+  0&1&0\\
+  0&0&1\\
+  1&0&0\\
+\end{bmatrix}
+=\begin{bmatrix}
+  0&0&1\\
+  1&0&0\\
+  0&1&0\\
+\end{bmatrix}
+\]
+\begin{proof}[证明]
+  设$B_{R}=(a_{ij})$，$B_{S}=(b_{ij})$，$B_{R\circ S}=(c_{ij})$，
+\begin{align*}
+  &c_{ij}=1\\
+  \Leftrightarrow&(x_i,z_j)\in R\circ S\\
+  \Leftrightarrow&\exists y_k\in Y (x_i,y_k)\in R\land (y_k,z_j)\in S\\
+\Leftrightarrow&(a_{i1}=1\land b_{1j}=1)\lor (a_{i2}=1\land b_{2j}=1)\lor \cdots \lor (a_{ip}=1\land a_{pj}=1)\\
+  \Leftrightarrow&(a_{i1}\land b_{1j})\lor (a_{i2}\land b_{2j})\lor \cdots \lor (a_{ip}\land a_{pj}) = 1\\
+\end{align*}
+\end{proof}
+
+关系除了用矩阵表示外，还可以用图来表示。设$X$和$Y$为有穷集
+合，$R$为从$X$到$Y$的二元关系。当用图表示$R$时，先把$X$与$Y$的元素在纸
+上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
+从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
+组成的“有向图”，称为关系$R$的图。
+
+
+  设$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系$R=\{(1,3),  (2, 5)\}$，则关系$R$的图为
+{\centering
+\begin{tikzpicture}[auto,
+  specification/.style ={circle, draw, thick}]
+ \node[specification] (A)  at (0,1)  {$1$};
+ \node[specification] (B) at (0,0)  {$2$};
+ \node[specification] (C)  at (1,1)  {$3$};
+ \node[specification] (D)  at (1,0)  {$4$};
+ \node[specification] (E)  at (1,-1)  {$5$};
+ 
+ \draw[thick, ->] (A) to (C);
+ \draw[thick, ->] (B) to (E);
+\end{tikzpicture}
+}
+
+设$X$为有穷集合，$R$为集合$X$上的二元关系。当用图表示$R$时，先把$X$的元素在纸
+上用点表示，并在其旁边标上这个元素的名字。然后把$R$的任一序对$(x,y)$用
+从代表$x$的点画一条指向代表$y$的点的矢线表示。这样就得到了一个由点、线
+组成的“有向图”，称为关系$R$的图。注意，如果$(x,x)\in R$，则在代表$x$的点画一条又指向此点的矢线，称为环。
+
+设集合$X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+    则关系$R$的图为
+{\centering
+    \begin{tikzpicture}[auto,
+      specification/.style ={circle, draw, thick}]
+     \node[specification] (A)  at (0,0)  {$1$};
+     \node[specification] (B) at (2,0)  {$3$};
+     \node[specification] (C)  at (1,2)  {$5$};
+     \node[specification] (D)  at (4,0)  {$2$};
+     \node[specification] (E)  at (4,2)  {$4$};
+     \node[specification] (F)  at (6,0)  {$6$};
+     
+     \draw[thick, ->] (A) to [bend left = 10]  (B);
+     \draw[thick, ->] (B) to [bend left = 10]  (A);
+  
+     \draw[thick, ->] (C) to [bend left = 10]  (B);
+     \draw[thick, ->] (B) to [bend left = 10]  (C);
+     
+     
+     \draw[thick, ->] (A) to [bend left = 10] (C);
+     \draw[thick, ->] (C) to [bend left = 10] (A);
+     
+     \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+     \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+     \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+  
+     \draw[thick, ->] (D) to [bend left = 10] (E);
+     \draw[thick, ->] (E) to [bend left = 10] (D);
+     \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+     \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+     \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+  
+  \end{tikzpicture}
+}  
+
+  \begin{Thm}
+  设$R$为集合$X$上的二元关系，则
+  \begin{enumerate}
+  \item $R$为自反的，当且仅当$R$的图的每个顶点均有一个环；
+  \item $R$为反自反的，当且仅当$R$的图中没有环；
+  \item $R$为对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则必有两条方向相反的矢线；
+  \item $R$为反对称的，当且仅当$R$的图中任意两个不同顶点间有矢线，则不能有两条方向相反的矢线;
+  \item $R$为传递的，当且仅当在$R$的图中如果从某顶点沿矢线经两条矢线可到另一顶点，则从该顶点到另一顶点有一条矢线。
+  \end{enumerate}
+\end{Thm}
+
   \begin{Def}
     设$R$为集合$X$上的一个二元关系。$X$上的一切包含$R$的传递关系的交称为$R$的传递闭包，用$R^+$表示。即
     \begin{equation*}
