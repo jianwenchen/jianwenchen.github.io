@@ -392,7 +392,7 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
   \frametitle{4. 关系矩阵和关系图}
   \begin{Def}\justifying\let\raggedright\justifying
     设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$R$为从$X$上的一个二元关系。
-    由$R$定义一个$m \times n$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times X$，
+    由$R$定义一个$m \times m$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times X$，
 \[
     b_{ij}=
       \begin{cases}
@@ -666,7 +666,7 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
   \begin{proof}[证明]\justifying\let\raggedright\justifying
     \pause 由定义$R^+ = \bigcap_{R \subseteq R' \text{且} R'\text{是传递的}}R'$，\pause显然$R\subseteq R^+$。
 
-    \pause 对任意的$x\in X$，$y\in Y$，$z\in X$，\pause $(x,y)\in R^+$并且$(y,z)\in R^+$，\pause 则对任意的$R'$，$R\subseteq R'$且$R'$是传递的
+    \pause 对任意的$x\in X$，$y\in X$，$z\in X$，\pause $(x,y)\in R^+$并且$(y,z)\in R^+$，\pause 则对任意的$R'$，$R\subseteq R'$且$R'$是传递的
 ，\pause $(x,y)\in R'$并且$(y,z)\in R'$，\pause 由$R'$为传递的知$(x,z)\in R'$，\pause 从而$(x,z)\in R^+$，\pause这证明了$R^+$为传递的。
   \end{proof}
 \end{frame}

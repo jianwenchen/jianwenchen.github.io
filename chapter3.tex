@@ -227,7 +227,7 @@ Information Retrieval, 13(6): 1970.
 
    \begin{Def}
     设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$Y=\{y_1, y_2,
-    \cdots, y_n\}$为一个包含$n$个元素的集合。令$R$为从$X$到$Y$的一个二元关系。
+    \cdots, y_n\}$为一个包含$n$个元素的集合，$R$为从$X$到$Y$的一个二元关系。
     由$R$定义一个$m \times n$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times Y$，
 \[
     b_{ij}=
@@ -336,6 +336,21 @@ Information Retrieval, 13(6): 1970.
       R^+ = \bigcup_{n=1}^\infty R^n = R \cup R^2 \cup R^3 \cup \cdots 
     \end{equation*}
   \end{Thm}
+  \begin{proof}[证明]
+    首先证明$ R^+ \subseteq \bigcup_{n=1}^\infty R^n$。
+
+    由$R^+$的定义，只需证$\bigcup_{n=1}^\infty R^n$为包含$R$的传递关系即可。
+    $R\subseteq \bigcup_{n=1}^\infty R^n$是显然的。以下证明$\bigcup_{n=1}^\infty R^n$为传递的。
+    对任意的$a\in X$，$b\in X$，$c\in X$，如果$(a,b)\in \bigcup_{n=1}^\infty R^n$并且$(b,c)\in \bigcup_{n=1}^\infty R^n$，则存在正整数
+    $m$和$n$使得$(a,b)\in R^m$且$(b,c)\in R^n$。于是$(a,c)\in R^m\circ R^n = R^{m+n}$，从而$(a,c)\in \bigcup_{n=1}^\infty R^n$。所以，
+    $\bigcup_{n=1}^\infty R^n$是传递的。
+
+    其次证明$  \bigcup_{n=1}^\infty R^n\subseteq R^+$。对任意的$a\in X$，$b\in X$，如果$(a,b)\in \bigcup_{n=1}^\infty R^n$，则存在某个正整数$m$，使得$(a,b)\in R^m$。
+    如果$m=1$，则$(a,b)\in R\subseteq R^+$；如果$m>1$，则存在$b_1,b_2,\cdots, b_{m-1}\in X$使得
+    $(a,b_1)\in R$，$(b_1,b_2)\in R$，$\ldots$，$(b_{m-1},b)\in R$。由$R\subseteq R^+$知$(a,b_1)\in R^+$，$(b_1,b_2)\in R^+$，$\ldots$，$(b_{m-1},b)\in R^+$。又因为$R^+$为传递的，所以$(a,b)\in R^+$。于是，$ \bigcup_{n=1}^\infty R^n\subseteq R^+$。
+
+    因此，$ R^+ = \bigcup_{n=1}^\infty R^n$。
+  \end{proof}
   \begin{Thm}
     设$R$为集合$X$上的一个二元关系，$|X| = n$，则\[R^+ = \bigcup_{i=1}^nR^i = R \cup R^2  \cup \cdots \cup R^n \]。
   \end{Thm}
