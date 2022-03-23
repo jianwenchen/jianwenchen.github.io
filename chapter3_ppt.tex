@@ -16,6 +16,7 @@
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
+  \newtheorem*{Thm6.3}{定理6.3}
   \newtheorem*{Thm4.4}{定理4.4}
 \newtheorem{Thm}{定理}[section]
 \newtheorem{Cor}{推论}[section]
@@ -392,7 +393,7 @@ $R^0=\{(1,1),(2,2),(3,3)\}$，\pause$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
 \begin{frame}
   \frametitle{4. 关系矩阵和关系图}
   \begin{Def}\justifying\let\raggedright\justifying
-    设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$R$为从$X$上的一个二元关系。
+    设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$R$为$X$上的一个二元关系。
     由$R$定义一个$m \times m$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times X$，
 \[
     b_{ij}=
@@ -935,14 +936,29 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     整数集$\mathbb{Z}$上的模$n$同余关系是$\mathbb{Z}$上的等价关系。
   \end{Ex}\pause
     \begin{proof}[证明]
-    只需验证整数集$\mathbb{Z}$上的模$n$同余关系满足自反性，对称性和传递性。
+    \pause只需验证整数集$\mathbb{Z}$上的模$n$同余关系满足自反性，\pause对称性\pause和传递性。
 
-    (1) 自反性成立，这是因为对任意的$m\in \mathbb{Z}$，$m\equiv m \pmod{n}$。(注：我们用$m\equiv k \pmod{n}$表示$m$与$k$模$n$同余,即$n | (m-k)$)
+    \pause(1) 自反性成立，\pause这是因为对任意的$m\in \mathbb{Z}$，\pause$m\equiv m \pmod{n}$。\pause(注：我们用$m\equiv k \pmod{n}$表示$m$与$k$模$n$同余,即$n | (m-k)$)
 
-    (2) 对称性成立，这是因为对任意的$m\in \mathbb{Z}$，$k\in \mathbb{Z}$，如果$m\equiv k \pmod{n}$，则$n | (m-k)$，于是$n | (k-m)$，即$k\equiv m \pmod{n}$。
+    \pause(2) 对称性成立，\pause这是因为对任意的$m\in \mathbb{Z}$，\pause$k\in \mathbb{Z}$，\pause如果$m\equiv k \pmod{n}$，\pause则$n | (m-k)$，\pause于是$n | (k-m)$，\pause即$k\equiv m \pmod{n}$。
 
-    (3) 传递性成立，这是因为对任意的$m\in \mathbb{Z}$，$k\in \mathbb{Z}$，$l\in \mathbb{Z}$，如果$m\equiv k \pmod{n}$并且$k\equiv l \pmod{n}$，则$n | (m-k)$并且$n | (k-l)$，从而$n | ((m-k) + (k-l))$，即$n | (m-l)$，因此$m\equiv l \pmod{n}$。
+   \pause (3) 传递性成立，\pause这是因为对任意的$m\in \mathbb{Z}$，\pause$k\in \mathbb{Z}$，\pause$l\in \mathbb{Z}$，\pause如果$m\equiv k \pmod{n}$并且$k\equiv l \pmod{n}$，\pause则$n | (m-k)$并且$n | (k-l)$，\pause从而$n | ((m-k) + (k-l))$，\pause即$n | (m-l)$，\pause因此$m\equiv l \pmod{n}$。
   \end{proof}
+\end{frame}
+
+\begin{frame}
+  下列关系是否为整数集$Z$上的等价关系？
+
+  整数集$Z$上的二元关系$R1=\{(x,y)|x+y$为偶数$\}$
+
+  整数集$Z$上的二元关系$R2=\{(x,y)|x+y$为奇数$\}$
+
+  \pause关系$R_1$为传递的，\pause这是因为对任意的$x\in Z$，$y\in Z$，$z\in Z$，\pause如果$x+y$为偶数，\pause$y+z$为偶数，
+  \pause则$(x+y)+(y+z)=x+2y+z$为偶数，\pause从而$x+z$为偶数。
+
+  \pause关系$R_2$不是传递的，\pause这是因为对任意的$x\in Z$，$y\in Z$，$z\in Z$，\pause如果$x+y$为奇数，\pause$y+z$为奇数，
+  \pause则$(x+y)+(y+z)=x+2y+z$为偶数，\pause此时$x+z$为偶数。
+
 \end{frame}
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
@@ -955,6 +971,120 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \end{align*}
   \end{Ex}
   则$R$为$X$上的等价关系。  
+
+  \pause 方法一. 直接根据定义进行验证。
+\end{frame}
+
+\begin{frame}
+  \frametitle{6. 等价关系与集合的划分}
+    设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+  则$R$为$X$上的等价关系。  
+
+  \pause 方法二. 画出$R$的关系图进行判断。
+
+  \pause
+        \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (1,2)  {$5$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$4$};
+   \node[specification] (F)  at (6,0)  {$6$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{6. 等价关系与集合的划分}
+    设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+  则$R$为$X$上的等价关系。  
+
+  \pause 方法三. 画出$R$的关系图进行判断。
+
+  关系$R$的矩阵表示为
+      \[B=\begin{bmatrix}
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&0&0&0&0&1
+        \end{bmatrix}
+      \]   
+\end{frame}
+
+\begin{frame}
+  关系$R$的矩阵表示为
+      \[B=\begin{bmatrix}
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&1&0&1&0&0\\
+          1&0&1&0&1&0\\
+          0&0&0&0&0&1
+        \end{bmatrix}
+      \]
+
+      \pause
+      传递性的验证：
+
+      \pause{\small
+      \[B\circ B=\begin{bmatrix}
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&0&0&0&0&1
+      \end{bmatrix}\circ\begin{bmatrix}
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&0&0&0&0&1
+      \end{bmatrix}=\begin{bmatrix}
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&1&0&1&0&0\\
+        1&0&1&0&1&0\\
+        0&0&0&0&0&1
+      \end{bmatrix}
+    \]}
+    由$B\circ B$中的每个元素小于等于$B$中的每个元素知$R$为传递的。
+  
 \end{frame}
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
@@ -965,10 +1095,37 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
       [x] = \{y \in X | x \cong y\}
     \end{equation*}
   \end{Def}
-    \begin{Def}
+  \vspace{-0.5cm}
+  {\small\pause
+  \begin{Ex}
+    我们已经知道模$4$同余关系为等价关系，试写出其所有等价类所构成的集合。
+  \end{Ex}\pause
+  \begin{proof}[解]
+    模$4$同余关系所有等价类所构成的集合为$\{[0],[1],[2],[3]\}$,其中
+    \begin{align*}
+      [0]&=\{\cdots,-8,-4,0,4,8,\cdots\}\\
+      [1]&=\{\cdots,-7,-3,1,5,9,\cdots\}\\
+      [2]&=\{\cdots,-6,-2,2,6,10,\cdots\}\\
+      [3]&=\{\cdots,-5,-1,3,7,11,\cdots\}
+    \end{align*}
+  \end{proof}
+  }
+    
+\end{frame}
+
+\begin{frame}
+  \begin{Def}
     设$\cong$为$X$上的等价关系，$\cong$的所有等价类之集称为$X$对$\cong$的商集，记为$X/\cong$。即
     \[X/\cong = \{[x]|x\in X,[x]\text{为}x\text{关于}\cong \text{的等价类}\}\]
   \end{Def}
+\pause
+  整数集$Z$关于模4同余关系的商集为$\{[1],[2],[3],[4]\}$，其中
+  \begin{align*}
+    [0]&=\{\cdots,-8,-4,0,4,8,\cdots\}\\
+    [1]&=\{\cdots,-7,-3,1,5,9,\cdots\}\\
+    [2]&=\{\cdots,-6,-2,2,6,10,\cdots\}\\
+    [3]&=\{\cdots,-5,-1,3,7,11,\cdots\}
+  \end{align*}
 \end{frame}
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
@@ -1011,10 +1168,44 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
 \end{frame}
 
 \begin{frame}
+  \begin{Ex}
+    设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+      $R$为$X$上的等价关系，试写出其所有等价类所构成的集合。
+    \end{Ex}
+    \pause
+    {\small
+    \begin{proof}[解]
+      集合$X$上每个元素关于关系$R$的等价类：
+      \begin{align*}
+        [1]&=\{1,3,5\}\\
+        [2]&=\{2,4\}\\
+        [3]&=\{1,3,5\}\\
+        [4]&=\{2,4\}\\
+        [5]&=\{1,3,5\}\\
+        [6]&=\{6\}
+      \end{align*}
+      于是关系$R$的所有等价类所构成的集合为$\{[1],[2],[6]\}$, 即$\{\{1,3,5\},\{2,4\},\{6\}\}$。
+    \end{proof}
+    }
+\end{frame}
+\begin{frame}
   \frametitle{6. 等价关系与集合的划分}
     \begin{Thm}
       设$\cong$为集合$X$上的一个等价关系，对任意的$x\in X$，$y\in X$，$x\cong y$当且仅当$[x]=[y]$。
     \end{Thm}  
+    \pause
+    \begin{proof}[证明]\justifying\let\raggedright\justifying
+
+    \pause对任意的$x\in X$，\pause$y\in X$，\pause由$x\cong y$往证$[x]=[y]$。\pause这里是要证明两个集合相等。\pause对任意的$z\in [x]$，\pause则$x\cong z$，\pause由$\cong$的对称性知$z\cong x$，\pause再由$\cong$的传递性及$x\cong y$知$z\cong y$，\pause由$\cong$的对称性知$y\cong z$，\pause从而$z\in [y]$。\pause对任意的$z\in [y]$，\pause则$y\cong z$，\pause由$\cong$的传递性及$x\cong y$知$x\cong z$，\pause从而$z\in [x]$。\pause这证明了$[x]=[y]$。
+
+      \pause对任意的$x\in X$，\pause$y\in X$，\pause由$[x]=[y]$往证$x\cong y$。\pause由$\cong$的自反性知$x\cong x$，\pause从而$x\in [x]$，\pause再由$[x]=[y]$知$x\in [y]$，\pause从而$y\cong x$，\pause由$\cong$的对称性得$x\cong y$。
+    \end{proof}
+
 \end{frame}
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
@@ -1025,6 +1216,25 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
       \item $\bigcup_{A \in \mathscr{A}} = X$
     \end{enumerate}
   \end{Def}
+{\small\pause
+  \begin{Ex}
+    集合
+    \begin{equation*}
+      \begin{split}
+      \{&\{\cdots,-8,-4,0,4,8,\cdots\},\\
+      &\{\cdots,-7,-3,1,5,9,\cdots\},\\
+      &\{\cdots,-6,-2,2,6,10,\cdots\},\\
+      &\{\cdots,-5,-1,3,7,11,\cdots\}\}
+    \end{split}
+  \end{equation*}
+构成了整数集$\mathbb{Z}$的一个划分。
+\end{Ex}
+\pause
+  \begin{Ex}
+    集合$\{\{1,3,5\},\{2,4\},\{6\}\}$
+构成了集合$X=\{1,2,3,4,5,6\}$的一个划分。
+  \end{Ex}
+}
 \end{frame}
 
 \begin{frame}
@@ -1033,6 +1243,20 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     设$\cong$为集合$X$上的一个等价关系，则$\cong$的所有等价类的集合构成$X$的一个划分。
   \end{Thm}
   \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause这就是要证明$\{[x]|x\in X\}$构成了集合$X$的一个划分。
+
+    \pause对任意的$x\in X$，\pause由$\cong$的自反性知$x\cong x$，\pause从而$x\in [x]$，\pause这证明了$[x]$非空。
+
+    \pause对任意的$x\in X$,\pause$y\in X$，\pause如果$[x]\neq [y]$，\pause以下证明$[x]\cap [y]=\phi$。\pause用反证法，\pause假设$[x]\cap [y]\neq \phi$，\pause则存在$z\in [x]\cap [y]$，\pause于是$z\in [x]$并且$z\in [y]$。\pause由$z\in [x]$知$x\cong z$，\pause由$z\in [y]$知$y\cong z$。\pause由$\cong$的对称性可得$z\cong y$，\pause再由$\cong$的传递性可得$x\cong y$，\pause从而$[x]=[y]$，\pause矛盾。
+
+    \pause由对任意的$x\in X$，\pause$x\in [x]$易知$\bigcup_{x\in X}[x]=X$。
+
+    \pause综上，\pause我们证明了$\{[x]|x\in X\}$构成了集合$X$的一个划分。
+  \end{proof}
+  
+\end{frame}
+\begin{frame}
   \begin{Thm}
     设$\mathscr{A}$为集合$X$的一个划分。令
     \begin{equation*}
@@ -1040,7 +1264,40 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \end{equation*}
     则$\cong$是$X$上的一个等价关系且$\mathscr{A}$就是$\cong$的等价类之集。
   \end{Thm}
+  \pause
+  \begin{equation*}
+    \begin{split}
+      &\bigcup_{A\in \mathscr{A}}A\times A\\
+      =&(\{1,3,5\} \times \{1,3,5\}) \cup (\{2,4\}\times \{2,4\}) \cup (\{6\}\times \{6\})\\
+      =&\{(1,1),(1,3),(1,5),(3,1),(3,3),(3,5),(5,1),(5,3),(5,5),(2,2),(2,4),(4,2),(4,4),(6,6)\}
+    \end{split}
+  \end{equation*}
+  为集合$X$上的一个等价关系。
+
 \end{frame}
+
+\begin{frame}
+  \small
+  \begin{Thm6.3}
+    设$\mathscr{A}$为集合$X$的一个划分。令
+    \begin{equation*}
+      \cong = \bigcup_{A\in \mathscr{A}}A\times A
+    \end{equation*}
+    则$\cong$是$X$上的一个等价关系。
+  \end{Thm6.3}
+  \pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause这就是要验证$\cong$满足自反性、\pause对称性\pause和传递性。
+
+    \pause（１）对任意的$x\in X$，\pause由$\mathscr{A}$为集合$X$的一个划分知存在$A\in \mathscr{A}$使得$x\in A$，\pause从而$(x,x) \in A\times A$,\pause于是， \pause$(x,x)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause这说明$\cong$满足自反性。
+
+    \pause（２）对任意的$x\in X$，\pause$y\in X$，\pause如果$(x,y)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause那么存在$A\in \mathscr{A}$使得$(x,y)\in A\times A$，\pause从而$(y,x)\in A\times A$，\pause于是$(y,x)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause这说明$\cong$满足对称性。
+
+  \pause  （３）对任意的$x\in X$，\pause$y\in X$，\pause$z\in X$，\pause如果$(x,y)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause并且$(y,z)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause那么存在$A\in \mathscr{A}$使得$(x,y)\in A\times A$，\pause并且存在$B\in \mathscr{A}$使得$(y,z)\in B\times B$。\pause于是，\pause$x\in A$，\pause$y\in A$，\pause$y\in B$，\pause$z\in B$。\pause此时，\pause必有$A=B$，\pause否则$A\cap B=\phi$，\pause这与$y\in A$并且$y\in B$矛盾。\pause从而，\pause$x\in A$，\pause$z\in A$，\pause因此，\pause$(x,z)\in A\times A$,\pause于是$(x,z)\in \bigcup_{A\in \mathscr{A}}A\times A$，\pause这说明$\cong$满足传递性。
+    
+  \end{proof}
+\end{frame}
+
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
   \begin{Thm}
@@ -1056,6 +1313,33 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
   
 \end{frame}
 
+\begin{frame}
+  设集合$X=\{1,2,3\}$，试写出集合$X$上的所有等价关系构成的集合。
+\pause
+  \begin{minipage}[t]{0.33\linewidth}
+  \begin{equation*}
+    \begin{split}
+      \mathbb{A}=\{&\{\{1\},\{2\},\{3\}\},\\
+      &\{\{1,2\},\{3\}\},\\
+      &\{\{1,3\},\{2\}\},\\
+      &\{\{2,3\},\{1\}\},\\
+      &\{\{1,2,3\}\}\}
+    \end{split}
+  \end{equation*}\pause
+\end{minipage}
+\begin{minipage}[t]{0.52\linewidth}
+  \begin{equation*}
+    \begin{split}
+      \mathbb{R}=\{&\{(1,1),(2,2),(3,3)\},\\
+      &\{(1,1),(1,2),(2,1),(2,2),(3,3)\},\\
+      &\{(1,1),(1,3),(3,1),(3,3),(2,2)\},\\
+      &\{(2,2),(2,3),(3,2),(3,3),(1,1)\},\\
+      &\{(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),\\
+      &(3,1),(3,2),(3,3)\}\}      
+    \end{split}
+  \end{equation*}
+\end{minipage}  
+\end{frame}
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
   \begin{proof}[证明]
@@ -1077,8 +1361,15 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
   \frametitle{6. 等价关系与集合的划分}
   \begin{Exercise}
     设集合$X=\{1,2,3,4,5,6\}$，$\cong$为集合$X$的等价关系，$X/\cong=\{\{1,2\},\{3,5\},\{4,6\}\}$，试求$\cong$。
-  \end{Exercise}
-  
+  \end{Exercise}\pause
+  \begin{proof}[解]
+    \begin{align*}
+      &\cong\\
+      =&\{(1,1),(1,2),(2,1),(2,2),\\
+      &(3,3),(3,5),(5,3),(5,5),\\
+      &(4,4),(4,6),(6,4),(6,6)\}
+    \end{align*}
+  \end{proof}
 \end{frame}
 \begin{frame}
       设$x, y, z \in \mathbb{R}$，则
