@@ -15,7 +15,7 @@
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-
+  \newtheorem*{Thm6.2}{定理6.2}
   \newtheorem*{Thm6.3}{定理6.3}
   \newtheorem*{Thm4.4}{定理4.4}
 \newtheorem{Thm}{定理}[section]
@@ -1030,7 +1030,7 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \end{align*}
   则$R$为$X$上的等价关系。  
 
-  \pause 方法三. 画出$R$的关系图进行判断。
+  \pause 方法三. 写出$R$的矩阵进行判断。
 
   关系$R$的矩阵表示为
       \[B=\begin{bmatrix}
@@ -1236,6 +1236,31 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
   \end{Ex}
 }
 \end{frame}
+\begin{frame}
+  \frametitle{6. 等价关系与集合的划分}
+  \small
+  \begin{Thm6.2}
+    设$\cong$为集合$X$上的一个等价关系，则$\cong$的所有等价类的集合构成$X$的一个划分。
+  \end{Thm6.2}
+  \pause
+    设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+      $R$为$X$上的等价关系，集合$X$上每个元素关于关系$R$的等价类为：
+      \begin{align*}
+        [1]&=\{1,3,5\}\\
+        [2]&=\{2,4\}\\
+        [3]&=\{1,3,5\}\\
+        [4]&=\{2,4\}\\
+        [5]&=\{1,3,5\}\\
+        [6]&=\{6\}
+      \end{align*}
+      关系$R$的所有等价类所构成的集合为$\{[1],[2],[6]\}$, 即$\{\{1,3,5\},\{2,4\},\{6\}\}$。
+
+\end{frame}
 
 \begin{frame}
   \frametitle{6. 等价关系与集合的划分}
@@ -1262,9 +1287,10 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \begin{equation*}
       \cong = \bigcup_{A\in \mathscr{A}}A\times A
     \end{equation*}
-    则$\cong$是$X$上的一个等价关系且$\mathscr{A}$就是$\cong$的等价类之集。
+    则$\cong$是$X$上的一个等价关系。
   \end{Thm}
   \pause
+  设集合$X=\{1,2,3,4,5,6\}$，$\mathscr{A}=\{\{1,3,4\},\{2,4\},\{6\}\}$，则
   \begin{equation*}
     \begin{split}
       &\bigcup_{A\in \mathscr{A}}A\times A\\
