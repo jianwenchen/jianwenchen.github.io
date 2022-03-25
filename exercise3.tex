@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem{Exercise}{习题}
+\begin{Exercise}
+给出一个既不是自反的又不是反自反的二元关系？
+\end{Exercise}
+\vspace{3cm}
+\begin{Exercise}
+是否存在一个同时不满足自反性、反自反性、对称性、反对称性和传递性的二元关系？
+\end{Exercise}
+\vspace{3cm}
+\begin{Exercise}
+设$R$和$S$为集合$X$上的二元关系，下列命题哪些成立：
+
+a)如果$R$与$S$为自反的，则$R\cup S$和$R\cap S$也为自反的；
+
+b)如果$R$与$S$为反自反的，则$R\cup S$和$R\cap S$也为反自反的；
+
+c)如果$R$与$S$为对称的，则$R\cup S$和$R\cap S$也为对称的；
+
+d)如果$R$与$S$为反对称的，则$R\cup S$和$R\cap S$也为反对称的；
+
+e)如果$R$与$S$为传递的，则$R\cup S$和$R\cap S$也为传递的；
+
+f)如果$R$与$S$不是自反的，则$R\cup S$不是自反的；
+
+g)如果$R$为自反的，则$R^c$为反自反的；
+
+h)如果$R$与$S$为传递的，则$R\setminus S$为传递的。
+\end{Exercise}
+\vspace{2cm}
+\begin{Exercise}
+  设$R$与$S$为集合$X$上的二元关系，证明：
+
+  a) $(R^{-1})^{-1}=R$；
+
+  b)$(R\cup S)^{-1}=R^{-1}\cup S^{-1}$；
+
+  c)$(R\cap S)^{-1}=R^{-1}\cap S^{-1}$;
+
+  d)如果$R\subseteq S$，则$R^{-1}\subseteq S^{-1}$。
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+  设$R$为集合$X$上的二元关系。证明：$R\cup R^{-1}$为集合$X$上对称的二元关系。
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+  设$f:X\to Y$，$A\subseteq X$，$B\subseteq Y$。以下四个小题中，每个小题均有四个命题，这四个命题有且仅有一个正确。请找出正确的哪一个。
+
+  （１）(a) 若$f(x)\in f(A)$，则$x$可能属于$A$，也可能不属于$A$;
+
+  (b)若$f(x)\in f(A)$，则$x\in A$；
+
+  (c)若$f(x)\in f(A)$，则$x\notin A$；
+
+  (d)若$f(x)\in f(A)$，则$x\in A^c$。
+
+  （２）(a) $f(f^{-1}(B))=B$；
+
+  (b) $f(f^{-1}(B))\subseteq B$；
+
+  (c) $f(f^{-1}(B))\supseteq B$；
+
+  (d)$f(f^{-1}(B))= B^c$。
+
+  （３）(a)$f^{-1}(f(A))=A$；
+
+  (b) $f^{-1}(f(A))\subseteq A$；
+
+  (c)$f^{-1}(f(A))\supseteq A$；
+
+  (d)以上三个均不对。
+
+  （４）(a)$f(A)\neq \phi$；
+
+  (b)$f^{-1}(B) \neq \phi$；
+
+  (c)若$y\in Y$，则$f^{-1}(\{y\})\in X$；
+
+  (d)若$y\in Y$，则$f^{-1}(\{y\})\subseteq X$。
+\end{Exercise}
+\begin{Exercise}
+  设$X=\{a,b,c\}$，$Y=\{0,1\}$，$Z=\{2,3\}$。$f:X\to Y$，$f(a)=f(b)=0$，$f(c)=1$；$g:Y\to Z$，$g(0)=2,g(1)=3$。试求$g\circ f$。
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+  设$N=\{1,2,\cdots\}$，试构造两个从集合$N$到集合$N$的映射$f$与$g$，使得$fg=I_N$，但$gf\neq I_N$。
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+设$f:X\to Y$。
+
+（１）如果存在唯一的一个映射$g:Y\to X$，使得$gf=I_X$，那么$f$是否可逆呢？
+
+（２）如果存在唯一的一个映射$g:Y\to X$，使得$fg=I_Y$，那么$f$是否可逆呢？
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+设$f:X\to Y$，$X$与$Y$为有穷集合,
+
+（１）如果$f$是左可逆的，那么$f$有多少个左逆映射？
+
+（２）如果$f$是右可逆的，那么$f$有多少个右逆映射？
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+是否有一个从$X$到$X$的一一对应$f$，使得$f=f^{-1}$，但$f\neq I_X$？
+\end{Exercise}
+\vspace{5cm}
+\begin{Exercise}
+ 设$\sigma_1=\begin{pmatrix}1&2&3&4&5\\4&3&2&1&5\end{pmatrix}$，$\sigma_2=\begin{pmatrix}1&2&3&4&5\\3&2&5&1&4\end{pmatrix}$。求$\sigma_1\sigma_2$，$\sigma_2\sigma_1$，$\sigma_1^{-1}$，$\sigma_2^{-1}$。
+\end{Exercise}
+\vspace{10cm}
+\begin{Exercise}
+  将置换$\sigma=\begin{pmatrix}1&2&3&4&5&6&7&8&9\\7&9&1&6&5&2&3&4&8\end{pmatrix}$分解成对换的乘积。
+\end{Exercise}
+
+
+
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
