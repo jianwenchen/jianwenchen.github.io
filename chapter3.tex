@@ -208,23 +208,88 @@ Information Retrieval, 13(6): 1970.
     设$R$为从集合$A$到集合$B$的二元关系，$R$的逆$R^{-1}$定义为从集合$B$到集合$A$的二元关系
     \[R^{-1}=\{(y,x)|(x,y)\in R\}\]
   \end{Def}
+  \begin{Example}
+    设$X=\{1,2,3\}, R=\{(1,2),(2,3),(1,3)\}$，则$R^{-1}=\{(2,1),(3,2),(3,1)\}$。
+  \end{Example}
+
+  \begin{Thm}
+    设$R$为集合$X$上的二元关系，则$R$为对称的当且仅当$R^{-1}\subseteq R$。
+  \end{Thm} 
+\begin{proof}[证明]
+由$R$为对称的往证$R^{-1}\subseteq R$。
+
+对任意的$x\in X$，$y\in X$，如果$(x,y)\in R^{-1}$，则$(y,x)\in R$，由$R$为对称的知，$(x,y)\in R$。
+
+由$R^{-1}\subseteq R$往证$R$为对称的。
+
+对任意的$x\in X$，$y\in X$，如果$(x,y)\in R$，则$(y,x)\in R^{-1}$，由$R^{-1}\subseteq R$知$(y,x)\in R$。
+
+\end{proof}
   \begin{Thm}
     设$R$为集合$X$上的二元关系，则$R$为对称的当且仅当$R=R^{-1}$。
   \end{Thm}  
+  \begin{proof}[证明]
+    只需证$R^{-1}\subseteq R$当且仅当$R=R^{-1}$。
+
+    如果$R=R^{-1}$，则显然$R^{-1}\subseteq R$。
+
+    由$R^{-1}\subseteq R$往证$R=R^{-1}$，此时只需证$R\subseteq R^{-1}$。
+
+    对任意的$x\in X$，$y\in X$，如果$(x,y)\in R$，则$(y,x)\in R^{-1}$，由$R^{-1}\subseteq R$知$(y,x)\in R$，从而$(x,y)\in R^{-1}$。
+  \end{proof}
+  \begin{Thm}
+    设$R$和$S$为集合$X$上的二元关系，$R\subseteq S$，则$R^{-1}\subseteq S^{-1}$。
+  \end{Thm}  
+  \begin{Thm}
+    设$R$和$S$为集合$X$上的二元关系，则$(R^{-1})^{-1}=R$。
+  \end{Thm}  
+
 
     \begin{Def}
     设$R$为从集合$A$到集合$B$，$S$为从集合$B$到集合$C$的二元关系。$R$与$S$的合成
     $R\circ S$定义为从集合$A$到集合$C$的一个二元关系
     \[R\circ S = \{(x,z)\in A \times C |  \exists y \in B \text{使得} xRy \text{且} ySz\}\]
   \end{Def}
+
+  \begin{Example}
+    设$X=\{1,2,3\}, R=\{(1,2),(2,3),(3,1)\}$，则$R\circ R=\{(1,3),(2,1),(3,2)\}$。
+  \end{Example}
+  
+
+  设$R$为集合$X$上的一个二元关系，$R$的非负整数次幂递归的定义如下：
+  \[R^0=I_X,R^1=R,R^{n+1}=R^{n}\circ R\]
+
+  在上例中，$R^0=\{(1,1),(2,2),(3,3)\}$，$R^3=R^2\circ R=\{(1,1),(2,2),(3,3)\}$。
+
+
     \begin{Thm}
     设$R_1$，$R_2$，$R_3$分别为从集合$A$到集合$B$，从集合$B$到集合$C$，从集合$C$到集合$D$的二元关系，则
     \[(R_1 \circ R_2)\circ R_3 = R_1 \circ (R_2 \circ R_3)\]
   \end{Thm}
+  \begin{proof}[证明]
+  \begin{align*}
+    &\forall a\in A\forall d\in D\\
+    &(a,d)\in (R_1\circ R_2)\circ R_3\\
+    \Leftrightarrow&\exists c\in C((a,c)\in R_1\circ R_2 \land (c,d)\in R_3)\\
+   \Leftrightarrow&\exists c\in C(\exists b\in B ((a,b)\in R_1 \land (b,c)\in R_2) \land (c,d)\in R_3)\\
+   \Leftrightarrow&\exists b\in B( (a,b)\in R_1 \land \exists c\in C ((b,c)\in R_2 \land (c,d)\in R_3))\\
+   \Leftrightarrow&\exists b\in B( (a,b)\in R_1 \land (b,d)\in R_2\circ R_3)\\
+   \Leftrightarrow&(a,d)\in R_1 \circ (R_2 \circ R_3)\\
+  \end{align*}
+  \end{proof}
+
   \begin{Thm}
     设$R$为集合$X$上的一个二元关系，则$R$为传递的当且仅当$R\circ R \subseteq R$。
   \end{Thm}
+  \begin{proof}[证明]
+    由$R$为传递的往证$R\circ R\subseteq R$。
 
+    对任意的$a\in X$，$c\in X$，如果$(a,c)\in R\circ R$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in R$，由$R$为传递的知$(a,c)\in R$。
+
+    由$R\circ R\subseteq R$往证$R$为传递的。
+
+    对任意的$a\in X$，$b\in X$，$c\in X$，如果$(a,b)\in R$，$(b,c)\in R$，则$(a,c)\in R\circ R$，由$R\circ R\subseteq R$知$(a,c)\in R$。
+  \end{proof}
    \begin{Def}
     设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$Y=\{y_1, y_2,
     \cdots, y_n\}$为一个包含$n$个元素的集合，$R$为从$X$到$Y$的一个二元关系。
@@ -240,11 +305,43 @@ Information Retrieval, 13(6): 1970.
   \end{Def}
 
   \begin{Example}
-    设集合$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系\[S=\{(1,3), (2, 5)\}\]，则$S$的关系矩阵为?
+    设集合$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系\[S=\{(1,3), (2, 5)\}\]，则$S$的关系矩阵为
+    \[B=\begin{bmatrix}
+      1&0&0\\
+      0&0&1\\
+    \end{bmatrix}
+  \]
   \end{Example}
+  \begin{Def}
+    设$X=\{x_1, x_2, \ldots, x_m\}$为一个包含$m$个元素的集合，$R$为$X$上的一个二元关系。
+    由$R$定义一个$m \times m$矩阵$B = (b_{ij})$如下： $\forall (x_i, y_j) \in X \times X$，
+\[
+    b_{ij}=
+      \begin{cases}
+        1,&\text{如果}x_iRy_j\\
+        0,&\text{如果}x_iR\!\!\! / y_j
+      \end{cases}
+\]
+    则矩阵$B$称为关系$R$的矩阵。
+  \end{Def}
   
   \begin{Example}
-    设集合$X = \{1,2,3,4\}$，$R = \{(1,1),(1,2),(1,3),(1,4),(2,2),(2,4),(3,3),(4,2),(4,4)\}$，则$R$的关系矩阵为?
+    设集合
+    $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
+    \begin{align*}
+      R=&\{(1,1),(1,3),(1,5),(2,2),(2,4),(3,1),(3,3),(3,5),(4,2),\\
+      &(4,4),(5,1),(5,3),(5,5),(6,6)\},
+    \end{align*}
+    则关系$R$的矩阵为
+    \[B=\begin{bmatrix}
+      1&0&1&0&1&0\\
+      0&1&0&1&0&0\\
+      1&0&1&0&1&0\\
+      0&1&0&1&0&0\\
+      1&0&1&0&1&0\\
+      0&0&0&0&0&1
+    \end{bmatrix}
+  \]
   \end{Example}
 
   \begin{Thm}
@@ -347,8 +444,8 @@ Information Retrieval, 13(6): 1970.
   &c_{ij}=1\\
   \Leftrightarrow&(x_i,z_j)\in R\circ S\\
   \Leftrightarrow&\exists y_k\in Y (x_i,y_k)\in R\land (y_k,z_j)\in S\\
-\Leftrightarrow&(a_{i1}=1\land b_{1j}=1)\lor (a_{i2}=1\land b_{2j}=1)\lor \cdots \lor (a_{ip}=1\land a_{pj}=1)\\
-  \Leftrightarrow&(a_{i1}\land b_{1j})\lor (a_{i2}\land b_{2j})\lor \cdots \lor (a_{ip}\land a_{pj}) = 1\\
+\Leftrightarrow&(a_{i1}=1\land b_{1j}=1)\lor (a_{i2}=1\land b_{2j}=1)\lor \cdots \lor (a_{ip}=1\land b_{pj}=1)\\
+  \Leftrightarrow&(a_{i1}\land b_{1j})\lor (a_{i2}\land b_{2j})\lor \cdots \lor (a_{ip}\land b_{pj}) = 1\\
 \end{align*}
 \end{proof}
 
@@ -360,7 +457,8 @@ Information Retrieval, 13(6): 1970.
 
 
   设$X=\{1,2\}$，$Y=\{3,4,5\}$， 从$X$到$Y$的关系$R=\{(1,3),  (2, 5)\}$，则关系$R$的图为
-{\centering
+
+  {\centering
 \begin{tikzpicture}[auto,
   specification/.style ={circle, draw, thick}]
  \node[specification] (A)  at (0,1)  {$1$};
@@ -385,6 +483,7 @@ Information Retrieval, 13(6): 1970.
       &(4,4),(5,1),(5,3),(5,5),(6,6)\},
     \end{align*}
     则关系$R$的图为
+
 {\centering
     \begin{tikzpicture}[auto,
       specification/.style ={circle, draw, thick}]
@@ -438,9 +537,12 @@ Information Retrieval, 13(6): 1970.
   \begin{Thm}
     设$R$为集合Ｘ上的一个二元关系，则关系$R$的传递闭包$R^+$为包含$R$的传递关系。
   \end{Thm}
+\begin{proof}[证明]
+    由定义$R^+ = \bigcap_{R \subseteq R' \text{且} R'\text{是传递的}}R'$，显然$R\subseteq R^+$。对任意的$x\in X$，$y\in X$，$z\in X$，$(x,y)\in R^+$并且$(y,z)\in R^+$，则对任意的$R'$，$R\subseteq R'$且$R'$是传递的
+，$(x,y)\in R'$并且$(y,z)\in R'$，由$R'$为传递的知$(x,z)\in R'$，从而$(x,z)\in R^+$，这证明了$R^+$为传递的。
+  \end{proof}
 
-  设$R$为集合$X$上的一个二元关系，$R$的非负整数次幂递归的定义如下：
-  \[R^0=I_X,R^1=R,R^{n+1}=R^{n}\circ R\]
+
 
     \begin{Thm}
     设$R$为集合$X$上的一个二元关系，$a \in X$，$b \in X$，$n \geq 2$，则$(a,b) \in R^n$当且仅当存在$x_1\in X$，$x_2\in X$，$\ldots$，$x_{n-1}\in X$，使得$(a, x_1) \in R$，$(x_1, x_2)\in R$，  $\ldots$， $(x_{n-1}, b)\in R$。
@@ -528,6 +630,20 @@ Information Retrieval, 13(6): 1970.
     \End
     \li \Return A \Comment $A$ is the zero-one matrix for $R^+$
   \end{codebox}  
+
+  $X=\{x_1,x_2,\cdots,x_n\}$
+
+  $a_{ij}^{(0)}=a_{ij}$
+
+
+  $a_{ij}^{(k)}= a_{ij}^{(k-1)}\lor (a_{ik}^{(k-1)}\land a_{kj}^{(k-1)}) (k\geq 1)$
+
+  其中$a_{ij}^{(k)}=1$当且仅当存在$x_{i_1},x_{i_2},\ldots,x_{i_m}\in \{x_1,x_2,\ldots,x_k\}$使得$(x_i,x_{i_1})\in R$，$(x_{i_1},x_{i_2})\in R$，$\cdots$，$(x_{i_m},x_j)\in R$。
+
+
+  $a_{ik} = a_{ik} \lor (a_{ik} \land a_{kk})$
+
+  $a_{kj} = a_{kj} \lor (a_{kk} \land a_{kj})$
 
     \begin{codebox}
     \Procname{$\proc{Warshall}(B)$}
@@ -890,19 +1006,20 @@ Information Retrieval, 13(6): 1970.
     \begin{Def}
     设$\leq$为集合$X$上的偏序关系，如果$\forall x, y \in X$，$x \leq y$与$y \leq x$至少有一个成立，则称$\leq$为$X$上的全序关系。相应的，二元组$(X,\leq)$称为全序集。
   \end{Def}
+  我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
 
   \begin{Def}
-    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$使得$\forall x \in A$有$x \leq s$，则称$s$为$A$的{\bfseries 最大元素}；如果存在一个元素$t\in A$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的{\bfseries 最小元素}。
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$使得$\forall x \in A$有$s\geq x$，则称$s$为$A$的{\bfseries 最大元素}；如果存在一个元素$t\in A$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的{\bfseries 最小元素}。
   \end{Def}
 
-  我们用$x<y$表示$x\leq y$且$x\neq y$。
+  
     \begin{Def}
     设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$,在$A$中没
-    有元素$x$使得$s < x$，则称$s$为$A$的{\bfseries 极大元素}；如果存在一个元素$t\in A$，在$A$中没有元素$x$使得$x < t$，则称$t$为$A$的{\bfseries 极小元素}。
+    有元素$x$使得$x > s$，则称$s$为$A$的{\bfseries 极大元素}；如果存在一个元素$t\in A$，在$A$中没有元素$x$使得$x < t$，则称$t$为$A$的{\bfseries 极小元素}。
   \end{Def}
 
     \begin{Def}
-    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in X$使得$\forall x \in A$有$x \leq s$，则称$s$为$A$的一个{\bfseries 上界}；如果存在一个元素$t\in X$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的一个{\bfseries 下界}。
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in X$使得$\forall x \in A$有$s\geq x$，则称$s$为$A$的一个{\bfseries 上界}；如果存在一个元素$t\in X$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的一个{\bfseries 下界}。
   \end{Def}
     \begin{Def}
       设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果$A$有上界且$A$的一切上界之集有最小元素，则这个最小上界称为$A$的{\bfseries 上确界}，记为$\sup A$；如果$A$有下界且$A$的一切下界之集有最大元素，则这个最大下界称为$A$的{\bfseries 下确界}，记为$\inf A$。

@@ -1119,7 +1119,7 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \[X/\cong = \{[x]|x\in X,[x]\text{为}x\text{关于}\cong \text{的等价类}\}\]
   \end{Def}
 \pause
-  整数集$Z$关于模4同余关系的商集为$\{[1],[2],[3],[4]\}$，其中
+  整数集$Z$关于模4同余关系的商集为$\{[0],[1],[2],[3]\}$，其中
   \begin{align*}
     [0]&=\{\cdots,-8,-4,0,4,8,\cdots\}\\
     [1]&=\{\cdots,-7,-3,1,5,9,\cdots\}\\
@@ -1295,7 +1295,8 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     \begin{split}
       &\bigcup_{A\in \mathscr{A}}A\times A\\
       =&(\{1,3,5\} \times \{1,3,5\}) \cup (\{2,4\}\times \{2,4\}) \cup (\{6\}\times \{6\})\\
-      =&\{(1,1),(1,3),(1,5),(3,1),(3,3),(3,5),(5,1),(5,3),(5,5),(2,2),(2,4),(4,2),(4,4),(6,6)\}
+      =&\{(1,1),(1,3),(1,5),(3,1),(3,3),(3,5),(5,1),(5,3),(5,5),\\
+      &(2,2),(2,4),(4,2),(4,4),(6,6)\}
     \end{split}
   \end{equation*}
   为集合$X$上的一个等价关系。
@@ -1423,35 +1424,246 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
     }
 \end{frame}
 
+% \begin{frame}
+%       设$x, y, z \in \mathbb{R}$，则
+%    \begin{enumerate}
+%    \item   $x + y = y + x$
+%    \item   $(x + y) + z = x + (y + z)$
+%    \item   $0 + x = x + 0 = x$
+%    \item   $(-x) + x =x + (-x) = 0$
+%    \item   $x * y = y * x$
+%    \item   $(x * y) * z = x * (y *z)$
+%    \item   $1 * x = x * 1 = x$
+%    \item   $x^{-1} * x = x * x^{-1} = 1$
+%    \item   $x* (y + z) = x * y + x * z$
+%    \item   $(y + z) * x = y * x + z * x$
+%     \end{enumerate}
+%   \end{frame}
+
+%   \begin{frame}
+%         \begin{enumerate}
+%   \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
+%   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
+%   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+%   \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
+%   \end{enumerate}
+% \end{frame}
+% \begin{frame}
+%       另外，实数集还具有如下性质：
+
+%   设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+% \end{frame}
+
 \begin{frame}
-      设$x, y, z \in \mathbb{R}$，则
-   \begin{enumerate}
-   \item   $x + y = y + x$
-   \item   $(x + y) + z = x + (y + z)$
-   \item   $0 + x = x + 0 = x$
-   \item   $(-x) + x =x + (-x) = 0$
-   \item   $x * y = y * x$
-   \item   $(x * y) * z = x * (y *z)$
-   \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1$
-   \item   $x* (y + z) = x * y + x * z$
-   \item   $(y + z) * x = y * x + z * x$
+  
+    集合$X$上的二元关系$R$称为\alert{等价关系}，如果$R$同时满足以下三个性质：
+    \begin{enumerate}[(1)]
+    \item $R$是自反的，即对$X$中的任意元素$x$，$xRx$;
+    \item $R$是对称的，即对$X$中的任意元素$x$，$y$，如果$xRy$，则$yRx$;
+    \item $R$是传递的，即对$X$中的任意元素$x$，$y$，$z$，如果$xRy$且$yRz$，则$xRz$。
     \end{enumerate}
-  \end{frame}
+\end{frame}
 
-  \begin{frame}
-        \begin{enumerate}
-  \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
-  \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
-  \end{enumerate}
+\begin{frame}
+  设集合$X=\{1,2,3,4,5,6 \}$，$R1$和$R2$为集合$X$上的二元关系，
+  \begin{align*}
+    R1=&\{(1,1),(1,3),(1,4),(2,2),(2,5),(3,1),(3,3),(3,4),\\
+    &(4,1),(4,3),(4,4),(5,2),(5,5),(6,6)\},\\
+    R2=&\{(1,1),(1,3),(1,4),(1,5),(2,2),(2,6),(3,1),(3,3),(3,4),\\
+    &(4,1),(4,3),(4,4),(4,5),(5,1),(5,3),(5,4),(5,5),(6,2),(6,6)\},
+  \end{align*}
+  $R1$和$R2$是否为集合$X$的二元关系？
+
+  A. 都是
+
+  B. $R1$是，$R2$不是
+
+  C. $R2$是，$R1$不是
+
+  D. 都不是
+\end{frame}
+
+\begin{frame}
+  \begin{align*}
+    R1=&\{(1,1),(1,3),(1,4),(2,2),(2,5),(3,1),(3,3),(3,4),\\
+    &(4,1),(4,3),(4,4),(5,2),(5,5),(6,6)\},
+  \end{align*}
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (1,2)  {$4$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$5$};
+   \node[specification] (F)  at (6,0)  {$6$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \begin{align*}
+    R2=&\{(1,1),(1,3),(1,4),(1,5),(2,2),(2,6),(3,1),(3,3),(3,4),\\
+    &(4,1),(4,3),(4,4),(4,5),(5,1),(5,3),(5,4),(5,5),(6,2),(6,6)\},
+  \end{align*}
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (2,2)  {$4$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$6$};
+   \node[specification] (F)  at (0,2)  {$5$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+   \draw[thick, ->] (A) to [bend left = 10]  (F);
+   \draw[thick, ->] (F) to [bend left = 10]  (A);
+
+   \draw[thick, ->] (F) to [bend left = 10]  (B);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (F);
+   \draw[thick, ->] (F) to [bend left = 10]  (C);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  设集合$X=\{1,2,3,4,5,6 \}$，$R1$和$R2$为集合$X$上的二元关系，
+  \begin{align*}
+    R1=&\{(1,1),(1,3),(1,4),(1,5),(2,2),(2,6),(3,1),(3,3),(3,4),(3,5)\\
+    &(4,1),(4,3),(4,4),(4,5),(5,1),(5,3),(5,4),(5,5),(6,2),(6,6)\},\\
+    R2=&\{(1,1),(1,3),(1,4),(2,2),(2,5),(3,1),(3,3),\\
+    &(4,1),(4,3),(4,4),(5,2),(5,5),(6,6)\},
+  \end{align*}
+  $R1$和$R2$是否为集合$X$的二元关系？
+
+  A. 都是
+
+  B. $R1$是，$R2$不是
+
+  C. $R2$是，$R1$不是
+
+  D. 都不是
 \end{frame}
 \begin{frame}
-      另外，实数集还具有如下性质：
+  \begin{align*}
+    R1=&\{(1,1),(1,3),(1,4),(1,5),(2,2),(2,6),(3,1),(3,3),(3,4),\\
+    &(4,1),(4,3),(4,4),(4,5),(5,1),(5,3),(5,4),(5,5),(6,2),(6,6)\},
+  \end{align*}
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (2,2)  {$4$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$6$};
+   \node[specification] (F)  at (0,2)  {$5$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+   \draw[thick, ->] (A) to [bend left = 10]  (F);
+   \draw[thick, ->] (F) to [bend left = 10]  (A);
 
-  设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+   \draw[thick, ->] (F) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (F);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (F);
+   \draw[thick, ->] (F) to [bend left = 10]  (C);
+
+   \draw[thick, ->] (C) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
 \end{frame}
+
+\begin{frame}
+  \begin{align*}
+    R2=&\{(1,1),(1,3),(1,4),(2,2),(2,5),(3,1),(3,3)\\
+    &(4,1),(4,3),(4,4),(5,2),(5,5),(6,6)\},
+  \end{align*}
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {$1$};
+   \node[specification] (B) at (2,0)  {$3$};
+   \node[specification] (C)  at (1,2)  {$4$};
+   \node[specification] (D)  at (4,0)  {$2$};
+   \node[specification] (E)  at (4,2)  {$5$};
+   \node[specification] (F)  at (6,0)  {$6$};
+   
+   \draw[thick, ->] (A) to [bend left = 10]  (B);
+   \draw[thick, ->] (B) to [bend left = 10]  (A);
+
+  \draw[thick, ->] (B) to [bend left = 10]  (C);
+   
+   
+   \draw[thick, ->] (A) to [bend left = 10] (C);
+   \draw[thick, ->] (C) to [bend left = 10] (A);
+   
+   \draw[thick, ->] (A) .. controls +(left:10mm) and +(down:10mm) ..  (A);
+   \draw[thick, ->] (B) .. controls +(right:10mm) and +(down:10mm) ..  (B);
+   \draw[thick, ->] (C) .. controls +(left:10mm) and  +(up:10mm) ..  (C);
+
+   \draw[thick, ->] (D) to [bend left = 10] (E);
+   \draw[thick, ->] (E) to [bend left = 10] (D);
+   \draw[thick, ->] (D) .. controls +(left:10mm) and +(down:10mm) ..  (D);
+   \draw[thick, ->] (E) .. controls +(left:10mm) and +(up:10mm) ..  (E);
+   \draw[thick, ->] (F) .. controls +(left:10mm) and +(up:10mm) ..  (F);
+
+\end{tikzpicture}
+\end{frame}
+
+
 \section{偏序关系}
 \begin{frame}
   \frametitle{7. 偏序关系与偏序集}
@@ -1489,7 +1701,14 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
   \end{Ex}
   则$R$为$X$上的偏序关系。
 \end{frame}
-
+\begin{frame}
+  \frametitle{7. 偏序关系与偏序集}
+  \begin{align*}
+    &x<y: x\leq y \land x \neq y\\
+    &x\geq y: y \leq x\\
+    &x > y: x\geq y \land x \neq y\\
+  \end{align*}
+\end{frame}
 \begin{frame}
 \frametitle{7. 偏序关系与偏序集}
   \begin{Def}\justifying\let\raggedright\justifying
@@ -1499,17 +1718,17 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
 \begin{frame}
   \frametitle{7. 偏序关系与偏序集}
   \begin{Def}
-    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$使得$\forall x \in A$有$x \leq s$，则称$s$为$A$的\alert{最大元素}；如果存在一个元素$t\in A$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的\alert{最小元素}。
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$使得$\forall x \in A$有$s \geq x$，则称$s$为$A$的\alert{最大元素}；如果存在一个元素$t\in A$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的\alert{最小元素}。
   \end{Def}
     \begin{Def}
     设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in A$,在$A$中没
-    有元素$x$使得$s < x$，则称$s$为$A$的\alert{极大元素}；如果存在一个元素$t\in A$，在$A$中没有元素$x$使得$x < t$，则称$t$为$A$的\alert{极小元素}。
+    有元素$x$使得$x > s$，则称$s$为$A$的\alert{极大元素}；如果存在一个元素$t\in A$，在$A$中没有元素$x$使得$x < t$，则称$t$为$A$的\alert{极小元素}。
   \end{Def}
 \end{frame}
 \begin{frame}
   \frametitle{7. 偏序关系与偏序集}
   \begin{Def}
-    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in X$使得$\forall x \in A$有$x \leq s$，则称$s$为$A$的一个\alert{上界}；如果存在一个元素$t\in X$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的一个\alert{下界}。
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果存在一个元素$s\in X$使得$\forall x \in A$有$s\geq x$，则称$s$为$A$的一个\alert{上界}；如果存在一个元素$t\in X$使得$\forall x \in A$有$t \leq x$，则称$t$为$A$的一个\alert{下界}。
   \end{Def}
     \begin{Def}
       设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果$A$有上界且$A$的一切上界之集有最小元素，则这个最小上界称为$A$的\alert{上确界}，记为$\sup A$；如果$A$有下界且$A$的一切下界之集有最大元素，则这个最大下界称为$A$的\alert{下确界}，记为$\inf A$。
