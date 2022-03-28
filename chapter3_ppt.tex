@@ -18,8 +18,8 @@
   \newtheorem*{Thm6.2}{定理6.2}
   \newtheorem*{Thm6.3}{定理6.3}
   \newtheorem*{Thm4.4}{定理4.4}
-\newtheorem{Thm}{定理}[section]
-\newtheorem{Cor}{推论}[section]
+\newtheorem*{Thm}{定理}[section]
+\newtheorem*{Cor}{推论}[section]
 \theoremstyle{definition}
 \newtheorem{Def}{定义}[section]
 \theoremstyle{example}
@@ -2345,23 +2345,465 @@ $(x,y)\in R^4$当且仅当存在$x_1,x_2,x_3\in X$，$(x,x_1)\in R$，$(x_1,x_2)
 
 \begin{frame}
   \frametitle{7. 偏序关系与偏序集}
-  \begin{Def}\justifying\let\raggedright\justifying
+  \justifying\let\raggedright\justifying
     设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果对任意的$a,b\in A$，$a\leq b$与$b\leq a$必有一个成立，则称$A$为$X$中的链；如果对$A$中任两个不同的元素$a$与$b$，$a\leq b$与$b\leq a$均不成立，则称$A$为$X$中的反链。$|A|$称为链（反链）的长度。
-  \end{Def}
+
+  \pause
+  \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+   \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+   \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+   \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+   \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+   \node[specification] (E)   at (-2,2)  {};
+   \node at (-1.3,2) {\{1,2\}};  
+   \node[specification] (F)   at (0,2)  {};
+   \node at (0.7,2) {\{1,3\}};  
+   \node[specification] (G)  at (2,2)  {};
+   \node at (2.7,2) {\{2,3\}};  
+   \node[specification] (H)   at (0,3)  {};
+   \node at (1,3) {\{1,2,3\}};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (A) to  (C);
+   \draw[thick] (A) to  (D);
+   \draw[thick] (B) to  (E);
+   \draw[thick] (B) to  (F);
+   \draw[thick] (C) to  (E);
+   \draw[thick] (C) to  (G);
+   \draw[thick] (D) to  (F);
+   \draw[thick] (D) to  (G);
+   \draw[thick] (E) to  (H);
+   \draw[thick] (F) to  (H);
+   \draw[thick] (G) to  (H);
+  \end{tikzpicture}
+
 \end{frame}
+\begin{frame}
+  \frametitle{7. 偏序关系与偏序集}
+  \justifying\let\raggedright\justifying
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果对任意的$a,b\in A$，$a\leq b$与$b\leq a$必有一个成立，则称$A$为$X$中的链；如果对$A$中任两个不同的元素$a$与$b$，$a\leq b$与$b\leq a$均不成立，则称$A$为$X$中的反链。$|A|$称为链（反链）的长度。
+
+  \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+   \node[specification, draw=red] (A)  [label=0:$\phi$] at (0,0)  {};
+   \node[specification, draw=red] (B) [label=0:$\{1\}$] at (-2,1)  {};
+   \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+   \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+   \node[specification, draw=red] (E)   at (-2,2)  {};
+   \node at (-1.3,2) {\{1,2\}};  
+   \node[specification] (F)   at (0,2)  {};
+   \node at (0.7,2) {\{1,3\}};  
+   \node[specification] (G)  at (2,2)  {};
+   \node at (2.7,2) {\{2,3\}};  
+   \node[specification, draw=red] (H)   at (0,3)  {};
+   \node at (1,3) {\{1,2,3\}};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (A) to  (C);
+   \draw[thick] (A) to  (D);
+   \draw[thick] (B) to  (E);
+   \draw[thick] (B) to  (F);
+   \draw[thick] (C) to  (E);
+   \draw[thick] (C) to  (G);
+   \draw[thick] (D) to  (F);
+   \draw[thick] (D) to  (G);
+   \draw[thick] (E) to  (H);
+   \draw[thick] (F) to  (H);
+   \draw[thick] (G) to  (H);
+  \end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{7. 偏序关系与偏序集}
+  \justifying\let\raggedright\justifying
+    设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果对任意的$a,b\in A$，$a\leq b$与$b\leq a$必有一个成立，则称$A$为$X$中的链；如果对$A$中任两个不同的元素$a$与$b$，$a\leq b$与$b\leq a$均不成立，则称$A$为$X$中的反链。$|A|$称为链（反链）的长度。
+
+  \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+   \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+   \node[specification] (B) [label=0:$\{1\}$] at (-2,1)  {};
+   \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+   \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+   \node[specification, draw=red] (E)   at (-2,2)  {};
+   \node at (-1.3,2) {\{1,2\}};  
+   \node[specification, draw=red] (F)   at (0,2)  {};
+   \node at (0.7,2) {\{1,3\}};  
+   \node[specification, draw=red] (G)  at (2,2)  {};
+   \node at (2.7,2) {\{2,3\}};  
+   \node[specification] (H)   at (0,3)  {};
+   \node at (1,3) {\{1,2,3\}};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (A) to  (C);
+   \draw[thick] (A) to  (D);
+   \draw[thick] (B) to  (E);
+   \draw[thick] (B) to  (F);
+   \draw[thick] (C) to  (E);
+   \draw[thick] (C) to  (G);
+   \draw[thick] (D) to  (F);
+   \draw[thick] (D) to  (G);
+   \draw[thick] (E) to  (H);
+   \draw[thick] (F) to  (H);
+   \draw[thick] (G) to  (H);
+  \end{tikzpicture}
+
+\end{frame}
+\begin{frame}
+  \frametitle{7. 偏序关系与偏序集}
+  \begin{Thm}
+    设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+  \end{Thm}
+  \pause
+  \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+   \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+   \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+   \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+   \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+   \node[specification] (E)   at (-2,2)  {};
+   \node at (-1.3,2) {\{1,2\}};  
+   \node[specification] (F)   at (0,2)  {};
+   \node at (0.7,2) {\{1,3\}};  
+   \node[specification] (G)  at (2,2)  {};
+   \node at (2.7,2) {\{2,3\}};  
+   \node[specification] (H)   at (0,3)  {};
+   \node at (1,3) {\{1,2,3\}};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (A) to  (C);
+   \draw[thick] (A) to  (D);
+   \draw[thick] (B) to  (E);
+   \draw[thick] (B) to  (F);
+   \draw[thick] (C) to  (E);
+   \draw[thick] (C) to  (G);
+   \draw[thick] (D) to  (F);
+   \draw[thick] (D) to  (G);
+   \draw[thick] (E) to  (H);
+   \draw[thick] (F) to  (H);
+   \draw[thick] (G) to  (H);
+  \end{tikzpicture}
+  \end{frame}
+  \begin{frame}
+    \frametitle{7. 偏序关系与偏序集}
+    \begin{Thm}
+      设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+    \end{Thm}
+    \centering
+  \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+   \node[specification, draw=red] (A)  [label=0:$\phi$] at (0,0)  {};
+   \node[specification, draw=red] (B) [label=0:$\{1\}$] at (-2,1)  {};
+   \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+   \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+   \node[specification, draw=red] (E)   at (-2,2)  {};
+   \node at (-1.3,2) {\{1,2\}};  
+   \node[specification] (F)   at (0,2)  {};
+   \node at (0.7,2) {\{1,3\}};  
+   \node[specification] (G)  at (2,2)  {};
+   \node at (2.7,2) {\{2,3\}};  
+   \node[specification, draw=red] (H)   at (0,3)  {};
+   \node at (1,3) {\{1,2,3\}};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (A) to  (C);
+   \draw[thick] (A) to  (D);
+   \draw[thick] (B) to  (E);
+   \draw[thick] (B) to  (F);
+   \draw[thick] (C) to  (E);
+   \draw[thick] (C) to  (G);
+   \draw[thick] (D) to  (F);
+   \draw[thick] (D) to  (G);
+   \draw[thick] (E) to  (H);
+   \draw[thick] (F) to  (H);
+   \draw[thick] (G) to  (H);
+  \end{tikzpicture}
+    \end{frame}
+    \begin{frame}
+      \frametitle{7. 偏序关系与偏序集}
+      \begin{Thm}
+        设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+      \end{Thm}
+      \centering
+      \begin{tikzpicture}[auto,
+        specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+       \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+       \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+       \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+       \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+       \node[specification] (E)   at (-2,2)  {};
+       \node at (-1.3,2) {\{1,2\}};  
+       \node[specification] (F)   at (0,2)  {};
+       \node at (0.7,2) {\{1,3\}};  
+       \node[specification] (G)  at (2,2)  {};
+       \node at (2.7,2) {\{2,3\}};  
+       \node[specification] (H)   at (0,3)  {};
+       \node at (1,3) {\{1,2,3\}};
+       \draw[thick] (A) to  (B);
+       \draw[thick] (A) to  (C);
+       \draw[thick] (A) to  (D);
+       \draw[thick] (B) to  (E);
+       \draw[thick] (B) to  (F);
+       \draw[thick] (C) to  (E);
+       \draw[thick] (C) to  (G);
+       \draw[thick] (D) to  (F);
+       \draw[thick] (D) to  (G);
+       \draw[thick] (E) to  (H);
+       \draw[thick] (F) to  (H);
+       \draw[thick] (G) to  (H);
+      \end{tikzpicture}
+      \end{frame}
+      \begin{frame}
+        \frametitle{7. 偏序关系与偏序集}
+        \begin{Thm}
+          设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+        \end{Thm}
+        \centering
+        \begin{tikzpicture}[auto,
+          specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+         \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+         \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+         \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+         \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+         \node[specification] (E)   at (-2,2)  {};
+         \node at (-1.3,2) {\{1,2\}};  
+         \node[specification] (F)   at (0,2)  {};
+         \node at (0.7,2) {\{1,3\}};  
+         \node[specification] (G)  at (2,2)  {};
+         \node at (2.7,2) {\{2,3\}};  
+         \node[specification] (H)   at (0,3)  {};
+         \node at (1,3) {\{1,2,3\}};
+         \draw[thick] (A) to  (B);
+         \draw[thick] (A) to  (C);
+         \draw[thick] (A) to  (D);
+         \draw[thick] (B) to  (E);
+         \draw[thick] (B) to  (F);
+         \draw[thick] (C) to  (E);
+         \draw[thick] (C) to  (G);
+         \draw[thick] (D) to  (F);
+         \draw[thick] (D) to  (G);
+         \draw[draw=red] (0,3) ellipse (2 and 0.3);
+        \end{tikzpicture}
+        \end{frame}
+
+        \begin{frame}
+          \frametitle{7. 偏序关系与偏序集}
+          \begin{Thm}
+            设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+          \end{Thm}
+          \centering
+          \begin{tikzpicture}[auto,
+            specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+           \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+           \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+           \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+           \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+           \node[specification] (E)   at (-2,2)  {};
+           \node at (-1.3,2) {\{1,2\}};  
+           \node[specification] (F)   at (0,2)  {};
+           \node at (0.7,2) {\{1,3\}};  
+           \node[specification] (G)  at (2,2)  {};
+           \node at (2.7,2) {\{2,3\}};  
+           \node[specification] (H)   at (0,3)  {};
+           \node at (1,3) {\{1,2,3\}};
+           \draw[thick] (A) to  (B);
+           \draw[thick] (A) to  (C);
+           \draw[thick] (A) to  (D);
+         \draw[draw=red] (0,3) ellipse (2 and 0.3);
+
+           \draw[draw=red] (0.5,2) ellipse (3 and 0.3);
+          \end{tikzpicture}
+          \end{frame}
+
+          \begin{frame}
+            \frametitle{7. 偏序关系与偏序集}
+            \begin{Thm}
+              设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+            \end{Thm}
+            \centering
+            \begin{tikzpicture}[auto,
+              specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+             \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+             \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+             \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+             \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+             \node[specification] (E)   at (-2,2)  {};
+             \node at (-1.3,2) {\{1,2\}};  
+             \node[specification] (F)   at (0,2)  {};
+             \node at (0.7,2) {\{1,3\}};  
+             \node[specification] (G)  at (2,2)  {};
+             \node at (2.7,2) {\{2,3\}};  
+             \node[specification] (H)   at (0,3)  {};
+             \node at (1,3) {\{1,2,3\}};
+             \draw[draw=red] (0,3) ellipse (2 and 0.3);
+
+             \draw[draw=red] (0.5,2) ellipse (3 and 0.3);
+  
+             \draw[draw=red] (0.5,1) ellipse (3 and 0.3);
+            \end{tikzpicture}
+            \end{frame}
+            \begin{frame}
+              \frametitle{7. 偏序关系与偏序集}
+              \begin{Thm}
+                设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
+              \end{Thm}
+              \centering
+              \begin{tikzpicture}[auto,
+                specification/.style ={circle, draw, thick, inner sep = 0pt, minimum size=2mm}]
+               \node[specification] (A)  [label=0:$\phi$] at (0,0)  {};
+               \node[specification] (B)  [label=0:$\{1\}$] at (-2,1)  {};
+               \node[specification] (C)  [label=0:$\{2\}$] at (0,1)  {};
+               \node[specification] (D) [label=0:$\{3\}$] at (2,1)  {};
+               \node[specification] (E)   at (-2,2)  {};
+               \node at (-1.3,2) {\{1,2\}};  
+               \node[specification] (F)   at (0,2)  {};
+               \node at (0.7,2) {\{1,3\}};  
+               \node[specification] (G)  at (2,2)  {};
+               \node at (2.7,2) {\{2,3\}};  
+               \node[specification] (H)   at (0,3)  {};
+               \node at (1,3) {\{1,2,3\}};
+               \draw[draw=red] (0,3) ellipse (2 and 0.3);
+  
+               \draw[draw=red] (0.5,2) ellipse (3 and 0.3);
+    
+               \draw[draw=red] (0.5,1) ellipse (3 and 0.3);
+               \draw[draw=red] (0.5,0) ellipse (2 and 0.3);
+              \end{tikzpicture}
+              \end{frame}
+  
 
 \begin{frame}
   \frametitle{7. 偏序关系与偏序集}
   \begin{Thm}
     设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
-  \end{Thm}\pause
+  \end{Thm}\pause{\small
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause用数学归纳法证明，\pause施归纳于$n$。
+
+    \pause当$n=1$时，\pause$X$中最长链的长度为$1$，\pause所以$X$中任意两个不同的元素不能比较，\pause从而，
+    \pause$X$就是反链，\pause故定理的结论成立。
+
+    \pause假设当$n=k(k\geq 1)$时结论成立，\pause往证当$n=k+1$时结论也成立。\pause设$(X,\leq)$中最长链的长度为$k+1$，
+    \pause则$X$中有极大元。\pause令$M$为$X$的所有极大元之集，\pause则$M\neq \phi$且$M\neq X$。\pause易证$X\setminus M$中最长链的长度为$k$。
+    \pause由归纳假设，\pause$X\setminus M$可分解成$k$个不相交反链之并。\pause$M$也是一个反链，\pause所以$X$被分解成$k+1$个反链之并。
+  \end{proof}}
+  \end{frame}
+\begin{frame}
   \begin{Cor}
     设$(X,\leq)$为一个偏序集，$|X|=mn+1$，则$X$中或存在一个长至少为$n+1$的链，或存在一个长至少为$m+1$的反链。
   \end{Cor}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause用反证法。\pause假设结论不成立，\pause则$X$中每个链的长度$\leq n$，\pause并且每个反链的长度$\leq m$。
+    \pause设$X$中最长链的长度为$k$，\pause则$X$能被分成$k$个不相交反链之并。\pause这里$k\leq n$，\pause再由每个反链的长度$\leq m$，
+     \pause可以得到\[|X|\leq km \leq mn\]
+     \pause这与假设$|X|=mn+1$矛盾。
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
   \begin{Ex}
     证明：每个由$n^2+1$个实数组成的序列$a_1,a_2,\cdots,a_{n^2+1}$中必有长至少为$n+1$的不减子序列，或有一个长至少为$n+1$的不增子序列。
-  \end{Ex}
+  \end{Ex}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause记$A=\{a_1,a_2,\ldots, a_{n^2+1}\}$，\pause在$A$上定义二元关系$\leq'$为：\pause$a_i\leq'a_j$当且仅当$a_i\leq a_j$并且$i\leq j$，
+    \pause这里$\leq$为实数间通常的小于等于关系。
+  
+    \pause易验证$\leq'$为自反的，\pause反对称的\pause和传递的，\pause从而为集合$A$上的偏序关系。
+  
+    \pause$A$中或有长至少为$n+1$的链，\pause或有长至少为$n+1$的反链。\pause$A$中长至少为$n+1$的链，\pause就是
+    序列$a_1,a_2,\ldots,a_{n^2+1}$的不减子序列。\pause而$A$的长至少为$n+1$的反链，\pause就是
+    序列$a_1,a_2,\ldots,a_{n^2+1}$的不增子序列。\pause设反链中元素按下标递增顺序排列成
+  
+   \pause \[a_{i_1},a_{i_2},\ldots, a_{i_{n+1}}(i_1<i_2<\ldots<i_{n+1})\]
+  
+   \pause 因为$a_{i_k}\leq'a_{i_{k+1}}$不成立，\pause而$i_k<i_{k+1}$，\pause所以$a_{i_k}\leq a_{i_{k+1}}$不成立，\pause从而$a_{i_k}\geq a_{i_{k+1}}$，
+    \pause于是\pause
+   \vspace{-0.5cm} \[a_{i_1}\geq a_{i_2}\geq \ldots\geq a_{i_{n+1}}\]
+  
+  \end{proof}
 \end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$R$为集合$X$上的自反且传递的二元关系。
+
+  a)给出$R$的一个实例。
+
+  b)在$X$上定义二元关系$\sim$如下：$x\sim y$当且仅当$x R y$且$y R x$。　证明$\sim$为$X$上的等价关系。
+
+  c)在商集$X/\sim$上定义二元关系$\leq$：$[a]\leq [b]$当且仅当$aRb$。
+  证明$\leq$为$X/\sim$上的偏序关系。  
+\end{Exercise}
+
+\justifying\let\raggedright\justifying
+\pause a) 设集合$X=\{1,2,3\}$，
+\pause$2^X=\{\phi,\{1\},\{2\},\{3\},\{1,2\},\{1,3\},\{2,3\},$ $\{1,2,3\}\}$，
+ \pause$R\subseteq 2^X\times 2^X$，\pause 对任意的$A\in 2^X,B\in 2^X$，\pause$(A,B)\in R$当且仅当在$A$与$B$之间存在一个单射，\pause则$R$为集合$X$上的自反且传递的二元关系。
+
+\pause $R$为自反的，\pause这是因为对任意的$A\in 2^X$，\pause从$A$到$A$存在一个单射，\pause例如从$A$到$A$的恒等映射就是一个单射。
+
+\pause $R$为传递的，\pause这是因为对任意的$A\in 2^X, B\in 2^X, C\in 2^X$，\pause如果从$A$到$B$存在一个单射$f$，\pause从$B$到$C$存在一个单射$g$，
+\pause则从$A$到$C$存在一个单射$g\circ f$。\pause $g\circ f$为单射，\pause这是因为对任意的$x_1\in A,x_2\in A$，\pause如果$g\circ f(x_1)=g\circ f(x_2)$，
+\pause则由$g$为单射知$f(x_1)=f(x_2)$，\pause由$f$为单射知$x_1=x_2$。
+
+
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$R$为集合$X$上的自反且传递的二元关系。
+
+  a)给出$R$的一个实例。
+
+  b)在$X$上定义二元关系$\sim$如下：$x\sim y$当且仅当$x R y$且$y R x$。　证明$\sim$为$X$上的等价关系。
+
+  c)在商集$X/\sim$上定义二元关系$\leq$：$[a]\leq [b]$当且仅当$aRb$。
+  证明$\leq$为$X/\sim$上的偏序关系。  
+\end{Exercise}
+
+\justifying\let\raggedright\justifying\pause
+b)证明：\pause只需证明$\sim$为自反的，\pause对称的，\pause传递的二元关系。
+
+  \pause对任意的$x\in X$，\pause由$R$为自反的知$xRx$，\pause从而$x\sim x$，\pause这说明$\sim$为自反的。
+
+  \pause对任意的$x\in X$，\pause对任意的$y\in X$，\pause如果$x\sim y$，\pause则$xRy$且$yRx$，\pause即$yRx$且$xRy$，\pause从而$y\sim x$，\pause这说明$\sim$为对称的。
+
+  \pause对任意的$x\in X$，\pause对任意的$y\in X$，\pause对任意的$z\in X$，\pause如果$x\sim y$且$y\sim z$，\pause则$xRy$且$yRx$，\pause $yRz$且$zRy$，\pause由$R$为传递的知$xRz$且$zRx$，\pause从而$x\sim z$，\pause这说明$\sim$为传递的。
+
+  \pause综上验证了$\sim$为$X$上的等价关系。
+
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$R$为集合$X$上的自反且传递的二元关系。
+
+  a)给出$R$的一个实例。
+
+  b)在$X$上定义二元关系$\sim$如下：$x\sim y$当且仅当$x R y$且$y R x$。　证明$\sim$为$X$上的等价关系。
+
+  c)在商集$X/\sim$上定义二元关系$\leq$：$[a]\leq [b]$当且仅当$aRb$。
+  证明$\leq$为$X/\sim$上的偏序关系。  
+\end{Exercise}
+
+\justifying\let\raggedright\justifying
+\pause
+c) 证明：
+
+\pause首先验证关于$\leq$的定义的合理性：\pause对任意的$a_1,a_2,b_1,b_2$，\pause如果$[a_1]\leq [b_1]$，
+\pause$a_1\sim a_2$，\pause$b_1\sim b_2$，\pause则$a_2 R a_1, a_1 R b_1, b_1 R b_2$，\pause由$R$的传递性知$a_2 R b_2$，\pause从而$[a_2]\leq [b_2]$。
+
+\pause以下证明$\leq$为自反的，\pause反对称的，\pause传递的二元关系。
+
+  \pause对任意的$x\in X$，\pause由$R$为自反的知$xRx$，\pause从而$[x]\leq [x]$，\pause这说明$\leq$为自反的。
+
+  \pause对任意的$x\in X$, \pause$y\in X$，\pause如果$[x]\leq [y]$并且$[y]\leq [x]$，\pause则$xRy$并且$yRx$，\pause从而$x\sim y$，\pause于是$[x]=[y]$，\pause这说明$\leq$为反对称的。
+
+  \pause对任意的$x\in X$，\pause$y\in X$，\pause$z\in X$，\pause如果$[x] \leq [y]$并且$[y] \leq [z]$，\pause则$xRy$并且$yRz$，\pause于是$xRz$，\pause即$[x]\leq [z]$，\pause这说明$\leq$为传递的。
+
+  \pause综上验证了$\leq$为$X/\sim$上的偏序关系。
+
+\end{frame}
+
+
 % \begin{frame}
 %   \frametitle{7. 偏序关系与偏序集}
 %    设$x, y, z \in \mathbb{R}$，则
