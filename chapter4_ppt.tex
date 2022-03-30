@@ -26,7 +26,7 @@
   \titlepage
 \end{frame}  
 \section{可数集}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Def}
     如果从集合$X$到集合$Y$存在一个双射，则称$X$与$Y$\alert{对等}，记为$X \sim Y$。
@@ -38,45 +38,44 @@
   \begin{Thm}
     集合$A$为可数集的充分必要条件是$A$的全部元素可以排成无重复项的序列
     \[a_1, a_2, \ldots, a_n, \cdots\]
-    因此，$A$可写成$A = \{a_1, a_2, a_3, \cdots\}$。
   \end{Thm}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
     可数集的任一无限子集也是可数集。
   \end{Thm}
 \end{frame}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
    设$A$为可数集合，$B$为有穷集合，则$A\cup B$为可数集。
   \end{Thm}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
     设$A$与$B$为两个可数集，则$A\cup B$为可数集。
   \end{Thm}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
     设$A_1, A_2, \cdots, A_n, \cdots$为可数集合的一个无穷序列，则$\bigcup_{n=1}^{\infty}A_n$是可数集。即可数多个可数集之并是可数集。
   \end{Thm}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
     设$A$与$B$为两个可数集，则$A\times B$为可数集。
   \end{Thm}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{1. 可数集}
   \begin{Thm}
     全体有理数之集$\mathbb{Q}$为可数集。
@@ -85,11 +84,46 @@
 
 
 \section{连续统集}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{2 连续统集}
   \begin{Thm}
     区间$[0,1]$中的所有实数构成的集合为不可数集。
   \end{Thm}
+\end{frame}
+\begin{frame}
+  \frametitle{2 连续统集}
+   设$x, y, z \in \mathbb{R}$，则
+   \begin{enumerate}
+   \item   $x + y = y + x$
+   \item   $(x + y) + z = x + (y + z)$
+   \item   $0 + x = x + 0 = x$
+   \item   $(-x) + x = x + (-x) = 0$
+   \item   $x * y = y * x$
+   \item   $(x * y) * z = x * (y *z)$
+   \item   $1 * x = x * 1 = x$
+   \item   $\forall x \in \mathbb{R} x \neq 0 \to x^{-1} * x = x * x^{-1} = 1$
+   \item   $x* (y + z) = x * y + x * z$
+   \item   $(y + z) * x = y * x + z * x$
+    \end{enumerate}
+  \end{frame}
+  \begin{frame}
+  \frametitle{2 连续统集}
+    \begin{enumerate}
+      \item 对任意的$x\in R$，$x\leq x$。
+      \item 对任意的$x\in R$，$y\in R$，如果$x\leq y$并且$y\leq x$，则$x=y$。 
+     \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x\leq y$并且$y\leq z$，则$x\leq z$。
+     
+     我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
+     
+     \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+     \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。 
+  \end{enumerate}
+\end{frame}
+\begin{frame}
+  \frametitle{2 连续统集}
+    另外，实数集还具有如下性质：
+
+  设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
 \end{frame}
 
 \begin{frame}
@@ -349,38 +383,6 @@
   \item $\forall n \in \mathbb{N} \forall m \in \mathbb{N} n \neq m \rightarrow n ++ \neq m ++$；
     \item $(P(0) \land \forall n \in \mathbb{N} p(n) \rightarrow p(n++) )\rightarrow \forall n p(n)$。 
   \end{enumerate}
-\end{frame}
-\begin{frame}
-  \frametitle{5 公理集合论}
-   设$x, y, z \in \mathbb{R}$，则
-   \begin{enumerate}
-   \item   $x + y = y + x$
-   \item   $(x + y) + z = x + (y + z)$
-   \item   $0 + x = x + 0 = x$
-   \item   $(-x) + x = x + (-x) = 0$
-   \item   $x * y = y * x$
-   \item   $(x * y) * z = x * (y *z)$
-   \item   $1 * x = x * 1 = x$
-   \item   $\forall x \in \mathbb{R} x \neq 0 \to x^{-1} * x = x * x^{-1} = 1$
-   \item   $x* (y + z) = x * y + x * z$
-   \item   $(y + z) * x = y * x + z * x$
-   
-    \end{enumerate}
-  \end{frame}
-  \begin{frame}
-  \frametitle{5 公理集合论}
-    \begin{enumerate}
-  \item 对任意的$x\in R$，$y\in R$，$x<y$,$x=y$,$y<x$中有且仅有一个成立。 
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$并且$y<z$，则$x<z$。
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
-  \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
-  \end{enumerate}
-
-\end{frame}
-\begin{frame}
-    另外，实数集还具有如下性质：
-
-  设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
 \end{frame}
 
 \begin{frame}
