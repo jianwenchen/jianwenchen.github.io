@@ -8,11 +8,11 @@
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
 
-\newtheorem{Thm}{定理}[section]
-\newtheorem{Cor}{推论}[section]
+\newtheorem*{Thm}{定理}
+\newtheorem*{Cor}{推论}
 \newtheorem{Ax}{公理}[section]
 \theoremstyle{definition}
-\newtheorem{Def}{定义}[section]
+\newtheorem*{Def}{定义}
 \newtheorem*{Defofset}{集合的定义}
 
 \theoremstyle{example}
@@ -25,6 +25,31 @@
 \begin{frame}
   \titlepage
 \end{frame}  
+\begin{frame}
+  设集合$X=\{1,2,3\}$，$Y=\{4,5,6\}$，则下列不是双射的是？
+
+  A. $\{(1,4),(2,5),(3,6)\}$
+
+  B. $\{(1,6),(2,4),(3,5)\}$
+
+  C. $\{(1,4),(2,4),(3,6)\}$
+
+  D. $\{(1,5),(2,4),(3,6)\}$
+\end{frame}
+
+\begin{frame}
+  下列说法错误的是？
+
+  A. 所有的$n$次奇置换构成的集合与所有的$n$次偶置换构成的集合之间存在一个双射。
+
+  B. 设$X$为集合，则$X$上的所有等价关系构成的集合与$X$的所有划分构成的集合之间存在一个双射。
+
+  C. 整数集合与偶数集合之间存在一个双射。
+
+  D. 设$A$与$B$为两个互不相交的集合，则在$A$与$A\cup B$之间不可能存在双射。
+\end{frame}
+
+
 \section{可数集}
 \begin{frame}[t]
   \frametitle{1. 可数集}
@@ -90,7 +115,7 @@
     区间$[0,1]$中的所有实数构成的集合为不可数集。
   \end{Thm}
 \end{frame}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{2 连续统集}
    设$x, y, z \in \mathbb{R}$，则
    \begin{enumerate}
@@ -106,7 +131,7 @@
    \item   $(y + z) * x = y * x + z * x$
     \end{enumerate}
   \end{frame}
-  \begin{frame}
+  \begin{frame}[t]
   \frametitle{2 连续统集}
     \begin{enumerate}
       \item 对任意的$x\in R$，$x\leq x$。
@@ -119,28 +144,51 @@
      \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。 
   \end{enumerate}
 \end{frame}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{2 连续统集}
     另外，实数集还具有如下性质：
 
   设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{2 连续统集}
   \begin{Def}
     凡与集合$[0,1]$存在一个一一对应的集合称为具有“连续统的势”的集合，简称\alert{连续统}。
   \end{Def}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]
   \frametitle{2 连续统集}
   \begin{Thm}
     无穷集合必包含有可数子集。
-  \end{Thm}\pause
+  \end{Thm}
+\end{frame}
+\begin{frame}[t]
   \begin{Thm}
     设$M$为一个无穷集合，$A$为至多可数集合，则$M \sim M \cup A$。
   \end{Thm}\pause
+  \begin{proof}[证明]
+    因为$M$为一个无穷集合，所以$M$中必有一个可数子集$D$。令$P=M\setminus D$，则
+    \[M=P\cup D, M\cup A = P\cup (D\cup A)\]
+    由$P\sim P$，$D\sim D\cup A$，得到$M\sim M\cup A$。
+  \end{proof}
+\end{frame}
+\begin{frame}[t]
+  \begin{Thm}
+    设$M$为一个无穷集合，$A$为至多可数集合，则$M \sim M \cup A$。
+  \end{Thm}
+  \begin{proof}[证明]
+    先考虑$A\cap M=\phi$的情况。
+    因为$M$为一个无穷集合，所以$M$中必有一个可数子集$D$。令$P=M\setminus D$，则
+    \[M=P\cup D, M\cup A = P\cup (D\cup A)\]
+    由$P\sim P$，$D\sim D\cup A$，得到$M\sim M\cup A$。
+
+    再考虑$A\cap M\neq \phi$的情况，此时$A\setminus M$为至多可数集合，从而$M\sim M\cup(A\setminus M)=M\cup A$。
+  \end{proof}
+\end{frame}
+
+\begin{frame}[t]
   \begin{Thm}
     设$M$为无穷集合，$A$为$M$的至多可数子集，$M\setminus A$为无穷集合，则$M \sim M\setminus A$。
   \end{Thm}
