@@ -44,7 +44,6 @@
   \begin{Thm}
     集合$A$为可数集的充分必要条件为$A$的全部元素可以排成无重复项的序列
     \[a_1, a_2, \ldots, a_n, \cdots\]
-    因此，$A$可写成$A = \{a_1, a_2, a_3, \cdots\}$。
   \end{Thm}
     \begin{Thm}
        可数集的任一无限子集也是可数集。
@@ -78,9 +77,12 @@
     设$M$为一个无穷集合，$A$为至多可数集合，则$M \sim M \cup A$。
   \end{Thm}
   \begin{proof}[证明]
+    先考虑$A\cap M=\phi$的情况。
     因为$M$为一个无穷集合，所以$M$中必有一个可数子集$D$。令$P=M\setminus D$，则
-    \[M=P\cup D, M\cup A = P\cup (D\cup (A\setminus P))\]
-    由$P\sim P$，$D\sim D\cup (A\setminus P)$，得到$M\sim M\cup A$。
+    \[M=P\cup D, M\cup A = P\cup (D\cup A)\]
+    由$P\sim P$，$D\sim D\cup A$，得到$M\sim M\cup A$。
+
+    再考虑$A\cap M\neq \phi$的情况，此时$A\setminus M$为至多可数集合，从而$M\sim M\cup(A\setminus M)=M\cup A$。
   \end{proof}
   \begin{Thm}
     设$M$为无穷集合，$A$为$M$的至多可数子集，$M\setminus A$为无穷集合，则$M \sim M\setminus A$。
@@ -149,7 +151,7 @@
       \end{cases}
     \]
     其中$g^{-1}$为视$g$为$B$到$g(B)$的一一对应时$g$的逆，易见$h$为一一对应。所以$A$与$B$的基数相等。
-  \end{proof}。
+  \end{proof}
 
   \begin{proof}[证法二]
      We separate $A$ into two disjoint sets $A_1$ and $A_2$. We let $A_1$ consist of all $x\in A$ such that, when we lift back $x$ by a succession of inverse maps,
@@ -280,7 +282,8 @@
    \item 对任意的$x\in R$，$x\leq x$。
    \item 对任意的$x\in R$，$y\in R$，如果$x\leq y$并且$y\leq x$，则$x=y$。 
   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x\leq y$并且$y\leq z$，则$x\leq z$。
-  
+  \item 对任意的$x\in R$，$y\in R$，$x\leq y$和$y\leq x$两者中必有其一成立。
+ 
   我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
   
   \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
