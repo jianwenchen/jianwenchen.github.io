@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem{Exercise}{习题}
+\begin{Exercise}
+设$A$为由序列$a_1,a_2,\cdots,a_n,\cdots$的所有项组成的集合，则$A$是否是可数的？为什么？
+\end{Exercise}
+解：$A$不一定可数，例如当$a_1=a_2=\cdots=1$时，$A=\{1\}$为有穷集合。
+\begin{Exercise}
+  证明：直线上互不相交的开区间的全体所构成的集合至多是可数集。
+\end{Exercise}
+\begin{proof}[证明]
+  设$A$为直线上某个互不相交的开区间构成的集合，在每个开区间中取一个有理数，
+  则$A$与有理数集合的一个子集之间存在一一对应的关系，于是$A$为至多可数集。
+\end{proof}
+\begin{Exercise}
+  证明：单调函数的不连续点的集合至多是可数集。
+\end{Exercise}
+
+实数集合可以用如下公理系统刻画：
+
+设$x, y, z \in \mathbb{R}$，则
+\begin{enumerate}
+\item   $x + y = y + x$
+\item   $(x + y) + z = x + (y + z)$
+\item   $0 + x = x + 0 = x$
+\item   $(-x) + x =x + (-x) = 0$
+\item   $x * y = y * x$
+\item   $(x * y) * z = x * (y *z)$
+\item   $1 * x = x * 1 = x$
+\item   $x^{-1} * x = x * x^{-1} = 1 (x \neq 0)$
+\item   $x* (y + z) = x * y + x * z$
+\item   $(y + z) * x = y * x + z * x$
+\item 对任意的$x\in R$，$x\leq x$。
+\item 对任意的$x\in R$，$y\in R$，如果$x\leq y$并且$y\leq x$，则$x=y$。 
+\item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x\leq y$并且$y\leq z$，则$x\leq z$。
+\item 对任意的$x\in R$，$y\in R$，$x\leq y$和$y\leq x$两者中必有其一成立。
+
+我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
+
+\item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+\item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
+\item 设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+\end{enumerate}
+
+
+我们在以上公理系统的基础上证明：
+
+设$A$为$R$的任意一个非空子集，如果$A$有上界，则$A$有上确界。
+
+\begin{proof}[证明]
+  设$b$为$A$的一个上届，由$A$非空知，存在$a\in A$。
+
+  将闭区间$[a,b]$二等分，得到两个小的闭区间$I_1=[a,\frac{a+b}{2}]$和$I_2=[\frac{a+b}{2}, b]$。
+  如果$I_2$中存在$A$中的点，则记$A_1=I_2$；否则，$I_1$中必存在$A$中的点，记$A_1=I_1$。
+  这样得到的闭区间$A_1$中必存在$A$中的点，并且其右边界为$A$的上界。
+
+  按照同样的方法将$A_1$二等分，这样依次可以得到闭区间$A_2,A_3,\cdots$，每个闭区间中存在$A$中的点，
+  并且其右边界为$A$的上界。
+
+  $\cap_{i=0}^{\infty}A_i$非空，取$x\in \cap_{i=0}^{\infty}A_i$，以下证明$x$为$A$的上确界。
+
+  首先证明$x$为$A$的上界。用反证法，假设$x$不是$A$的上界，则存在$y\in A$，$y> x$。
+  由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在正整数$N$，$A_N$的右边界$-x<A_N$的长度$<y-x$，从而$A_N$的右边界$<y$，这与$A_N$的右边界为$A$的上界矛盾。
+
+  其次证明$x$为$A$的最小上界。用反证法，假设$x$不是$A$的最小上界，则存在上界$x'$，$x'<x$。
+  由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在整数$M$，$x-A_M$的左边界$<A_M$的长度$<x-x'$，从而$A_M$的左边界$>x'$，而$A_M$中存在$A$中的点$z$，$z>x'$，与$x'$为$A$的上界矛盾。
+\end{proof}
+
+接下来，我们来看结论中涉及的一些基本概念。
+
+设$f:R\to R$为一个函数。如果对任意的$x_1\in R$，$x_2\in R$，$x_1< x_2$，那么$f(x_1) \leq f(x_2)$，则称$f$为单调函数。
+
+设$x_0\in R$，$L\in R$，如果对任意的$\varepsilon\in R$， $\varepsilon> 0$，存在$\delta \in R$，　$\delta > 0$，只要$|x-x_0|<\delta$，就有$|f(x) - L|<\varepsilon$，则称函数$f$在$x_0$处的极限为$L$，记为$\lim_{x\to x_0}f(x)=L$。
+
+如果$\lim_{x\to x_0}f(x)=f(x_0)$，则称函数$f$在$x_0$处连续，$x_0$为函数$f$的连续点；如果函数$f$在$x_0$处不连续，则称$x_0$为函数$f$的不连续点。
+
+
+\begin{proof}[证明]
+  对任意的$x_0\in R$，由单调函数的定义知，集合$\{f(x)|x<x_0\}$有上界$f(x_0)$，从而有上确界，定义$L(x_0)=sup \{f(x)|x<x_0\}$；集合$\{f(x)|x>x_0\}$有下界$f(x_0)$，从而有下确界，定义$U(x_0)=inf \{f(x)|x>x_0\}$。如果$x_1<x_2$，那么$U(x_1)\leq f(\frac{x_1+x_2}{2}) \leq L(x_2)$。另外，如果$x_0$为$f$的不连续点，可以证明$L(x_0) <  U(x_0)$。因此，集合$S=\{(L(x),U(x))|x\text{为函数}$f$\text{的不连续点}\}$中的开区间两两不相交。在$S$中的每个开区间中取一个有理数，则所有这些有理数的集合与函数$f$的所有不连续点构成的集合是对等的，从而$f$的所有不连续点所构成的集合为至多可数的。
+
+  设$x_0$为$f$的不连续点，以下证明$L(x_0) <  U(x_0)$。由$L(x_0)\leq f(x_0) \leq U(x_0)$知 $L(x_0) \leq U(x_0)$，因此只需证$L(x_0)\neq U(x_0)$。用反证法，假设$L(x_0)=U(x_0)$，则$L(x_0)=U(x_0)=f(x_0)$。对任意的$\varepsilon >0$，由$L(x_0)$的定义知存在$x'<x_0$使得$f(x')>L(x_0)-\varepsilon=f(x_0)-\varepsilon$；由$U(x_0)$的定义知存在$x''>x_0$使得$f(x'')<U(x_0) + \varepsilon=f(x_0) + \varepsilon$。设$\delta = \min (|x'-x_0|, |x''-x_0|)$，那么当$|x-x_0|< \delta$时，就有$|f(x)-f(x_0)|<\varepsilon$，从而$\lim_{x\to x_0}=f(x_0)$，函数$f$在$x_0$处连续，这与$x_0$为$f$的不连续点矛盾。
+\end{proof}
+
+
+\begin{Exercise}
+  任一可数集$A$的所有有限子集构成的集族是可数集族。
+\end{Exercise}
+\begin{proof}[证明]
+  因为A为可数集合，所以A中元素可以排成无重复项的序列：
+
+  $a_1,a_2,\ldots,a_n,\ldots$
+
+令$S=\{B|B\subseteq A,B\text{为有穷集}\}$，Q为有理数集，
+定义映射$\phi:S\to Q$，对任意的$B\in S$,$\phi(B)=0.b_1b_2\ldots b_n\ldots$，
+这里
+\[
+b_i=\begin{cases}
+  1&\text{如果}$a_i\in B$\\
+  0&\text{如果}$a_i\notin B$\\
+\end{cases}  
+\]
+则对任意的$B_1\in S, B_2\in S$,如果$B_1\neq B_2$,则$\phi(B_1)\neq \phi(B_2)$，即$\phi$为从S到Q的单射。$\phi(S)$为可数集Q的无限子集，从而也为可数集。$\phi$为从S到$\phi(S)$的双射,因此S为可数集。
+\end{proof}
+\begin{Exercise}
+  判断下列命题之真伪：
+
+ a) 若$f:X\to Y$且$f$是满射，则只要$X$是可数集，那么$Y$是至多可数的；
+
+ b) 若$f:X\to Y$且$f$是单射，则只要$Y$是可数集，则$X$也是可数集；
+
+ c) 可数集在任一映射下的像也是可数集。
+\end{Exercise}
+\begin{proof}[解]
+a)真，b)c)伪。
+\end{proof}
+\begin{Exercise}
+  设$\sum$为一个有限字母表，$\sum$上所有字（包括空字$\epsilon$)之集记为$\sum^*$。证明$\sum^*$是可数集。
+  （$n$元组$(c_1,c_2,\cdots,c_n)$称为$\sum$上的一个字，这里$c_i\in \sum, 1\leq i\leq n$，$\epsilon=()$称为$\sum$上的一个空字）。
+\end{Exercise}
+\begin{proof}[证明]
+$\sum^*=\bigcup_{i=0}^{\infty}\sum^n$，其中$\sum^0=\{\epsilon\}$。对任意的自然数$i$,$\sum^i$为有穷集合。
+于是$\sum^*$可以排成无重复项的序列：
+先排$\sum^0$中的元素，再排$\sum^1$中的元素，再排$\sum^2$中的元素，$\cdots$。
+\end{proof}
+\begin{Exercise}
+  利用康托的对角线法证明所有0，1的无穷序列是不可数集。
+\end{Exercise}
+\begin{proof}[证明]
+  用反证法。设所有0,1的无穷序列构成的集合$A$为可数集，
+  则$A$中元素可以排成无重复项的序列：
+
+  \begin{align*}
+    a_{11}a_{12}a_{13}\cdots\\
+    a_{21}a_{22}a_{23}\cdots\\
+    a_{31}a_{32}a_{33}\cdots\\
+    \cdots\\
+    a_{n1}a_{n2}a_{n3}\cdots\\
+    \cdots
+  \end{align*}
+  其中$a_{ij}=0$或$1$。
+
+  构造0,1序列
+\[b_1,b_2,b_3,\cdots\]
+
+其中
+\[b_n=
+\begin{cases}
+  0&\text{如果}a_{nn}=1\\
+  1&\text{如果}a_{nn}=0
+\end{cases}\]
+则所构造的0,1序列$b_1,b_2,b_3,\cdots$与前述序列中的任意一个$0,1$序列都不相同，矛盾。
+\end{proof}
+\begin{Exercise}
+  证明：如果$A$是可数集，则$2^A$不是可数集。
+\end{Exercise}
+\begin{proof}[证明]
+  由$A$为可数集知$A$中的元素可以排成无重复项的序列
+  \[a_1,a_2,a_3,\cdots\]
+  构造从$2^A$到所有的0,1序列构成的集合之间的映射f：
+
+  对任意的$B\in 2^A$，f(B)为如下的0,1序列：
+  \[b_1,b_2,b_3,\cdots\]
+
+  其中
+
+  \[b_i=\begin{cases}
+    1& \text{如果}a_i\in B\\
+    0& \text{如果}a_i\notin B
+  \end{cases}\]
+  
+  则$f$为从$2^A$到所有的0,1序列构成的集合之间的双射，
+  而所有的0,1序列构成的集合为不可数集，从而$2^A$为不可数集。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
