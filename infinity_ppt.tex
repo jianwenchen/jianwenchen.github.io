@@ -408,42 +408,68 @@
 %   \end{enumerate}    
 %   \end{Thm}
 % \end{frame}
-\section{公理集合论}
 \begin{frame}
+  设$X=\{1,2,3\}$，以下为从$X$到$X$的映射的是（）。
+
+  A. $\{(1,1),(2,3)\}$
+
+  B. $\{(1,1),(1,2),(2,3),(3,1)\}$
+
+  C. $\{(1,1),(2,3),(3,2)\}$
+
+  D. $\{(1,2),(2,3),(3,1),(3,2)\}$
+\end{frame}
+\begin{frame}
+  判断题：
+  映射是关系。
+  
+\end{frame}
+\section{公理集合论}
+\begin{frame}[t]
   \frametitle{5 公理集合论}
   \begin{Ax}[外延公理]
     \begin{equation*}
       \forall A \forall B (\forall x (x \in A \leftrightarrow x\in B)\rightarrow A = B)
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[空集公理]
     \begin{equation*}
       \exists \phi \forall x (x \notin \phi)
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[对公理]
     \begin{equation*}
       \forall u \forall v \exists B \forall x (x \in B \leftrightarrow x = u \lor x = v)
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[并集公理]
     \begin{equation*}
      \forall A \exists B \forall x (x \in B \leftrightarrow (\exists b \in A) x \in b)
     \end{equation*}
   \end{Ax}
 \end{frame}
-\begin{frame}
+\begin{frame}[t]
   \frametitle{5 公理集合论}
     \begin{Ax}[幂集公理]
     \begin{equation*}
       \forall a \exists B \forall x ( x \in B \leftrightarrow x \subseteq a)
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[子集公理]
     \begin{equation*}
       \forall c \exists B \forall x (x \in B \leftrightarrow x \in c \land \varphi(x))
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[无穷公理]
     \begin{equation*}
       \begin{split}
@@ -453,8 +479,7 @@
     \end{equation*}
   \end{Ax}
 \end{frame}
-
-\begin{frame}
+\begin{frame}[t]
   \frametitle{5 公理集合论}
     \begin{Ax}[代换公理]
     \begin{equation*}
@@ -464,11 +489,15 @@
     \end{split}
   \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[正则公理]
     \begin{equation*}
       (\forall A \neq \phi) (\exists m \in A) m \cap A = \phi
     \end{equation*}
   \end{Ax}
+\end{frame}
+\begin{frame}[t]
   \begin{Ax}[选择公理]
     \begin{equation*}
       (\forall \text{relation} R)
@@ -628,6 +657,88 @@
     从而$x_n-\frac{2}{x_n}\geq \frac{2}{x}-x$，这也与$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$矛盾。    
 \end{proof}
 \end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$f:X\to Y$。试证：$f$为满射当且仅当对任意的$E\in 2^Y$，$f(f^{-1}(E))=E$。
+ \end{Exercise}
+ \pause
+ \begin{proof}[证明]\justifying\let\raggedright\justifying
+   设$f$为满射，对任意的$E\in 2^Y$往证$f(f^{-1}(E))=E$。
+   \pause
+ 
+   
+   对任意的$y$，$y\in f(f^{-1}(E))$，\pause 则存在$x$，$x\in f^{-1}(E)$并且$y=f(x)$，\pause 于是存在$x$，$f(x) \in E$并且$y=f(x)$，\pause 从而$y\in E$。
+ 
+  \pause  
+   对任意的$y$，$y\in E$，\pause 由$f$为满射知存在$x\in X$，$y=f(x)$，\pause 从而$f(x)\in E$，\pause 即$x\in f^{-1}(E)$，\pause 由$y=f(x)$知$y\in f(f^{-1}(E))$。
+ 
+   \pause
+   设对任意的$E\in 2^Y$，$f(f^{-1}(E))=E$，往证$f$为满射。
+ 
+   \pause
+   对任意的$y\in Y$，\pause 则$f(f^{-1}(\{y\}))=\{y\}$，\pause 于是$f^{-1}(\{y\})\neq \phi$，\pause 从而存在$x\in X$，$x\in f^{-1}(\{y\})$, \pause 即$f(x)\in \{y\}$，\pause 等价的，$f(x)=y$，\pause 故$f$为满射。
+ \end{proof}
+   
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$f:X\to Y$。
+    
+    （１）如果存在唯一的一个映射$g:Y\to X$，使得$gf=I_X$，那么$f$是否可逆呢？
+    
+    （２）如果存在唯一的一个映射$g:Y\to X$，使得$fg=I_Y$，那么$f$是否可逆呢？
+    \end{Exercise}
+    \begin{proof}[解]{\small
+    
+      \pause(1)\pause当$|X|=1$时，\pause$f$不一定可逆，\pause举例如下：
+    
+      \pause设集合$X=\{1\}$，\pause$Y=\{1,2\}$，\pause$f:X\to Y$，\pause$f(1)=1$。\pause则存在唯一的一个映射$g:Y\to X$，\pause$g(1)=1,g(2)=1$,\pause使得$gf=I_X$，\pause但$f$不可逆。
+    
+      \pause当$|X|>1$时，\pause$f$一定可逆，\pause证明如下：
+    
+      \pause由$gf=I_X$知$f$为单射，\pause以下证明$f$为满射。\pause用反证法，\pause假设$f$不为满射，\pause则存在$y_0\in Y$，\pause对任意的$x\in X$，\pause$f(x)\neq y_0$。
+      \pause由于$|X|>1$，\pause可取$x_0\in X$，\pause使得$g(y_0)\neq x_0$。
+    
+      \pause令$h:Y\to X$，
+      \[h(y)=\begin{cases}
+          g(y) &\text{如果} y \neq y_0,\\
+          x_0 &\text{如果} y = y_0\\
+        \end{cases}
+      \]
+      \pause则$hf=I_X$，\pause且$h\neq g$，\pause与存在唯一的一个映射$g:Y\to X$使得$gf=I_X$矛盾。}
+      \end{proof}
+
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    是否存在一个偏序关系$\leq$，使$(X,\leq)$中有唯一极大元素，但没有最大元素？如果存在，请给出一个具体例子；如果不存在，请证明之。
+  \end{Exercise}\pause
+  \begin{proof}[解]
+    存在。偏序集$(R\cup \{i\},\leq)$上有唯一极大元素$i$，但没有最大元素。
+  
+    这里$\leq$为实数集上的小于等于关系，复数$i$与任意实数都不可比较，因此没有元素比它大，它就是极大元。
+  \end{proof}  
+\end{frame}
+
+\begin{frame}
+  \begin{Exercise}
+    设有穷偏序集$(X,\leq)$中有唯一极大元素$x$，则$x$为$X$的最大元素。
+    \end{Exercise}\pause
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause用数学归纳法证明，\pause施归纳于$X$中元素的个数$n$。
+
+    \pause（1）当$n=1$时，\pause$X=\{x\}$，\pause则显然$x$为$X$的最大元素。
+    
+    \pause（2）假设当$n=k(k\geq 1)$时结论成立，\pause往证当$n=k+1$时结论也成立。
+    \pause设$|X|=k+1$，\pause$x$为$X$的唯一极大元素，\pause以下证明$x$为$X$的最大元素。
+    \pause对任意的$y\in X$，\pause如果$y=x$，\pause则显然$y\leq x$。\pause当$y\neq x$时，\pause由$x$为$X$的唯一极大元素知$y$不是$X$的极大元素，\pause从而存在$z\in Z$，\pause$z>y$。
+    \pause关系$\{(x,y)|x\in X\setminus \{y\}, y\in X\setminus \{y\}, x\leq y\}$\pause构成集合$X\setminus \{y\}$上的一个偏序关系。\pause$|X\setminus \{y\}|=k$。
+    
+    \pause此时，\pause$x$必为$X\setminus \{y\}$的唯一极大元。\pause否则，\pause如果存在元素$a$为$X\setminus \{y\}$的极大元，\pause$a\neq x$，\pause由$a$不是$X$的极大元知$a\leq y$,\pause再由$z>y$知$z>a$，\pause矛盾。
+    \pause由归纳假设，\pause$x$为$X\setminus \{y\}$的最大元。\pause由$z\leq x$及$z>y$知，\pause$y\leq x$。
+  \end{proof}  
+\end{frame}
+
 
 % \begin{frame}
 %   \frametitle{5 公理集合论}
@@ -641,6 +752,8 @@
 % \end{frame}
 
 \begin{frame}
+
+
   \begin{Exercise}[P20-5]
     设$X$为一个非空集合，$A_n\subseteq X$, $A_{n+1}\subseteq A_n$，$n=1,2,3,\cdots$。试证对任意的自然数$n$，
     \[A_n=\bigcup_{m=n}^{\infty}(A_m\cap A_{m+1}^c)\cup \bigcap_{m=n}^{\infty}A_m\]
