@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+\begin{Ex}
+设$X$是一个无穷集合，$f:X\to X$。证明：存在$X$的一个非空真子集$E$使得$f(E)\subseteq E$。
+\end{Ex}
+\begin{proof}[证明]
+  记映射$f$自身$n$次的合成为$f^n$，并约定$f^1=f$,$f^0=I_X$。取集合$X$中的一个元素$x$，记集合$F=\{f^n(x)|n=0,1,2,\cdots\}$。如果存在$n$使得$f^n(x)=x$，则$F$为$X$的真子集（这是因为$F$为有穷集合，而X为无穷集合），并且$f(F)\subseteq F$。如果对任意的$n$，$n=0,1,2,\cdots $，$f^n(x)\neq x$，令$E=F\setminus \{x\}$，则$E$为$X$的真子集（这是因为$E$中不包含$x$），并且$f(E)\subseteq E$。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
