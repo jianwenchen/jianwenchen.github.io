@@ -12,6 +12,8 @@
 \newtheorem*{Thm1}{定理6.3}
 \newtheorem*{Thm3}{定理6.4}
 \newtheorem*{Thm2}{定理5.1}
+\newtheorem*{Thm5.2}{定理5.2}
+\newtheorem*{Thm5.3}{定理5.3}
 \theoremstyle{definition}
 \newtheorem{Def}{定义}[section]
 \theoremstyle{example}
@@ -732,7 +734,7 @@ $G$
     \centering
     \begin{tikzpicture}[auto,
     specification/.style ={circle, draw, thick}]
-   \node[specification] (A)  at (0,0)  {};
+   \node[specification] (A)   at (0,0)  {};
    \node[specification] (B)  at (0,1)  {};
    \node[specification] (C)  at (1,1)  {};
    \node[specification] (D) at (1,0)  {};
@@ -1508,14 +1510,134 @@ q \leq |V_1||V_2|
 
 \section{欧拉图}
 \begin{frame}
+  包含图的所有顶点和所有边的闭迹称为\alert{欧拉闭迹}。存在一条欧拉闭迹的图称为\alert{欧拉图}。
+
+  判断题：下列图为欧拉图。
+  
+  \centering
+  \begin{minipage}{0.18\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}, scale=0.8]
+   \node[specification] (A)  at (0,0)  {};
+   \node[specification] (B)  at (1,0)  {};
+   \node[specification] (C)  at (2,0)  {};
+   \node[specification] (D)  at (0,1)  {};
+   \node[specification] (E)  at (1,1)  {};
+   \node[specification] (F)  at (2,1)  {};
+   \node[specification] (G)  at (0,2)  {};
+   \node[specification] (H)  at (1,2)  {};
+   \node[specification] (I)  at (2,2)  {};
+
+   \draw[thick] (A) to  (B);
+   \draw[thick] (B) to  (C);
+   \draw[thick] (D) to  (E);
+   \draw[thick] (E) to  (F);
+   \draw[thick] (G) to (H);
+   \draw[thick] (H) to (I);
+   \draw[thick] (A) to (D);
+   \draw[thick] (B) to (E);
+   \draw[thick] (C) to (F);
+   \draw[thick] (D) to (G);
+   \draw[thick] (E) to (H);
+   \draw[thick] (F) to (I);
+   \draw[thick] (D) to (H);
+   \draw[thick] (B) to (F);
+ \end{tikzpicture}
+\end{minipage}
+  
+\end{frame}
+
+\begin{frame}
   \frametitle{6.5 欧拉图}
 \centering
-\includegraphics[width=5cm,height=4cm]{konigsberg} 
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=5cm,height=4cm]{konigsberg}
+\end{minipage}
+ \pause
+\hspace{1cm}\begin{minipage}{0.18\linewidth}
+  \centering
+  \begin{tikzpicture}[auto,
+  specification/.style ={circle, draw, thick}, scale=0.8]
+ \node[specification] (A) [label=270:D]  at (0,0)  {};
+ \node[specification] (B) [label=180:B] at (0,2)  {};
+ \node[specification] (C) [label=90:A]  at (0,4)  {};
+ \node[specification] (D) [label=0:C]  at (2,2)  {};
+
+ \draw[thick] (A) to [bend left=10] (B);
+ \draw[thick] (A) to [bend right=10] (B);
+ \draw[thick] (B) to [bend left=10]  (C);
+ \draw[thick] (B) to [bend right=10]  (C);
+ \draw[thick] (B) to [bend left=10]  (D);
+ \draw[thick] (A) to   (D);
+ \draw[thick] (C) to   (D);
+ 
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+\centering
+\begin{minipage}{0.49\linewidth}
+  \includegraphics[width=5cm,height=4cm]{konigsberg}
+\end{minipage}
+ \pause
+\hspace{1cm}\begin{minipage}{0.18\linewidth}
+  \centering
+  \begin{tikzpicture}[auto,
+  specification/.style ={circle, draw, thick}, scale=0.8]
+ \node[specification] (A) [label=270:D]  at (0,0)  {};
+ \node[specification] (B) [label=180:B]  at (0,2)  {};
+ \node[specification] (C) [label=90:A]  at (0,4)  {};
+ \node[specification] (D) [label=0:C]  at (2,2)  {};
+
+ \draw[thick] (A) to [bend left=10] (B);
+ \draw[thick] (A) to [bend right=10] (B);
+ \draw[thick] (B) to [bend left=10]  (C);
+ \draw[thick] (B) to [bend right=10]  (C);
+ \draw[thick] (B) to [bend left=10]  (D);
+ \draw[thick] (B) to [bend right=10]  (D);
+ \draw[thick] (A) to   (D);
+ \draw[thick] (C) to   (D);
+ \draw[thick] (A) to [bend left=60] (C);
+ 
+\end{tikzpicture}
+\end{minipage}
+
     \pause
   \begin{Def}
     包含图的所有顶点和所有边的闭迹称为\alert{欧拉闭迹}。存在一条欧拉闭迹的图称为\alert{欧拉图}。
   \end{Def}
 
+\end{frame}
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+  \begin{Thm2}
+    图G为欧拉图当且仅当$G$为连通的且每个顶点的度为偶数。
+  \end{Thm2}\pause
+  \centering\begin{minipage}{0.18\linewidth}\centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}, scale=0.8]
+   \node[specification] (A) [label=270:D]  at (0,0)  {};
+   \node[specification] (B) [label=180:B]  at (0,2)  {};
+   \node[specification] (C) [label=90:A]  at (0,4)  {};
+   \node[specification] (D) [label=0:C]  at (2,2)  {};
+  
+   \draw[thick] (A) to [bend left=10] (B);
+   \draw[thick] (A) to [bend right=10] (B);
+   \draw[thick] (B) to [bend left=10]  (C);
+   \draw[thick] (B) to [bend right=10]  (C);
+   \draw[thick] (B) to [bend left=10]  (D);
+   \draw[thick] (B) to [bend right=10]  (D);
+   \draw[thick] (A) to   (D);
+   \draw[thick] (C) to   (D);
+   \draw[thick] (A) to [bend left=60] (C);
+   
+  \end{tikzpicture}
+  \end{minipage}
+  
 \end{frame}
 
 
@@ -1533,6 +1655,37 @@ q \leq |V_1||V_2|
   条边相关联，\pause其余的每次出现均与两条边相关联，\pause因此其度为偶数。\pause除$v_0$之外的其他
   顶点在$T$中的每次出现均与两条边相关联，\pause因此其度也为偶数。
 
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+  \begin{Thm2}
+    图G为欧拉图当且仅当$G$为连通的且每个顶点的度为偶数。
+  \end{Thm2}
+  \begin{proof}[证明(续上页)]
+    \pause
+    \centering\begin{minipage}{0.18\linewidth}\centering
+      \begin{tikzpicture}[auto,
+      specification/.style ={circle, draw, thick}, scale=0.8]
+     \node[specification] (A) [label=270:D]  at (0,0)  {};
+     \node[specification] (B) [label=180:B]  at (0,2)  {};
+     \node[specification] (C) [label=90:A]  at (0,4)  {};
+     \node[specification] (D) [label=0:C]  at (2,2)  {};
+    
+     \draw[thick] (A) to [bend left=10] (B);
+     \draw[thick] (A) to [bend right=10] (B);
+     \draw[thick] (B) to [bend left=10]  (C);
+     \draw[thick] (B) to [bend right=10]  (C);
+     \draw[thick] (B) to [bend left=10]  (D);
+     \draw[thick] (B) to [bend right=10]  (D);
+     \draw[thick] (A) to   (D);
+     \draw[thick] (C) to   (D);
+     \draw[thick] (A) to [bend left=60] (C);
+     
+    \end{tikzpicture}
+    \end{minipage}
+   
   \end{proof}
 \end{frame}
 
@@ -1579,12 +1732,77 @@ q \leq |V_1||V_2|
   之外其余的每个顶点在$Z$中的每次出现均与两条边相关联，\pause因此其度为偶数。\pause这证明了
   图$G$恰有两个奇度顶点。
 
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+  \begin{Thm5.2}
+    图G有一条欧拉开迹当且仅当$G$为连通的且恰有两个奇度顶点。
+  \end{Thm5.2}
+\pause
+\centering\begin{minipage}{0.18\linewidth}\centering
+  \begin{tikzpicture}[auto,
+  specification/.style ={circle, draw, thick}, scale=0.8]
+ \node[specification] (A) [label=270:D]  at (0,0)  {};
+ \node[specification] (B) [label=180:B]  at (0,2)  {};
+ \node[specification] (C) [label=90:A]  at (0,4)  {};
+ \node[specification] (D) [label=0:C]  at (2,2)  {};
+
+ \draw[thick] (A) to [bend left=10] (B);
+ \draw[thick] (A) to [bend right=10] (B);
+ \draw[thick] (B) to [bend left=10]  (C);
+ \draw[thick] (B) to [bend right=10]  (C);
+ \draw[thick] (B) to [bend left=10]  (D);
+ \draw[thick] (B) to [bend right=10]  (D);
+ \draw[thick] (A) to   (D);
+ \draw[thick] (C) to   (D);
+ 
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+  \begin{Thm5.2}
+    图G有一条欧拉开迹当且仅当$G$为连通的且恰有两个奇度顶点。
+  \end{Thm5.2}
+\pause\begin{proof}[证明]\justifying\let\raggedright\justifying
+      
+
   \pause设图$G$是连通的，\pause且恰有两个奇度顶点$u$和$v$。\pause在顶点$u$和$v$之间加一条边，\pause得
   到图$G'$。\pause则图$G'$是连通的且每个顶点的度为偶数，\pause因此有一条欧拉闭迹。\pause在该欧拉闭迹上去掉
   新加的顶点$u$与顶点$v$之间的边，\pause便得到了图$G$的一条欧拉开迹。
   \end{proof}
 \end{frame}
+\begin{frame}
+  \frametitle{6.5 欧拉图}
+  \begin{Thm5.3}
+    设$G$为连通图，$G$恰有$2n$个奇度顶点，$n \geq 1$，则$G$的全部边可以排成$n$条
+    开迹，且不能排成少于$n$条开迹。  \end{Thm5.3}
+\pause 
+\pause
+\centering\begin{minipage}{0.18\linewidth}\centering
+  \begin{tikzpicture}[auto,
+  specification/.style ={circle, draw, thick}, scale=0.8]
+ \node[specification] (A) [label=270:D]  at (0,0)  {};
+ \node[specification] (B) [label=180:B]  at (0,2)  {};
+ \node[specification] (C) [label=90:A]  at (0,4)  {};
+ \node[specification] (D) [label=0:C]  at (2,2)  {};
 
+ \draw[thick] (A) to [bend left=10] (B);
+ \draw[thick] (A) to [bend right=10] (B);
+ \draw[thick] (B) to [bend left=10]  (C);
+ \draw[thick] (B) to [bend right=10]  (C);
+ \draw[thick] (B) to [bend left=10]  (D);
+ \draw[thick] (A) to   (D);
+ \draw[thick] (C) to   (D);
+ 
+\end{tikzpicture}
+\end{minipage}
+
+\end{frame}
 
 \begin{frame}
   \frametitle{6.5 欧拉图}
@@ -1601,7 +1819,181 @@ q \leq |V_1||V_2|
   奇度顶点，\pause因此图$G$至多有$2m$个奇度顶点，\pause这与图$G$有$2n$个奇度顶点矛盾。
   \end{proof}
 \end{frame}
+\begin{frame}
+  包含图的所有顶点和所有边的闭迹称为\alert{欧拉闭迹}。存在一条欧拉闭迹的图称为\alert{欧拉图}。
 
+  \centering
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B)  at (0,1)  {};
+   \node[specification] (C)  at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ A
+\end{minipage}\hfill 
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (B) to  (C);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ B
+\end{minipage}\hfill 
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (B) to  (C);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ C
+\end{minipage}\hfill 
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {};
+   \node[specification] (B)  at (0,1)  {};
+   \node[specification] (C)  at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (B) to  (C);
+   \draw[thick] (D) to  (A);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ D
+\end{minipage}\hfill
+
+\vspace*{0.5cm}
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B)  at (0,1)  {};
+   \node[specification] (C)  at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to (B);
+   \draw[thick] (B) to (C);
+      \draw[thick] (B) to (D);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ E
+\end{minipage}\hfill
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (B) to (C);
+   \draw[thick] (C) to (A);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ F
+\end{minipage}\hfill
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (B) to  (C);
+      \draw[thick] (C) to (D);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ G
+\end{minipage}\hfill 
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A)  at (0,0)  {};
+   \node[specification] (B)  at (0,1)  {};
+   \node[specification] (C)  at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (C);
+   \draw[thick] (C) to  (D);
+   \draw[thick] (D) to (A);
+   \draw[thick] (B) to (D);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ H
+\end{minipage}\hfill 
+
+\vspace*{0.5cm}
+\flushleft
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B)  at (0,1)  {};
+   \node[specification] (C)  at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to (B);
+   \draw[thick] (B) to (D);
+   \draw[thick] (D) to (C);
+      \draw[thick] (C) to (A);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ I
+\end{minipage}
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (B);
+      \draw[thick] (C) to (D);
+   \draw[thick] (D) to (A);
+   \draw[thick] (A) to (C);
+   \draw[thick] (B) to (D);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ J
+\end{minipage} 
+  \begin{minipage}{0.24\linewidth}
+    \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) at (0,0)  {};
+   \node[specification] (B) at (0,1)  {};
+   \node[specification] (C) at (1,1)  {};
+   \node[specification] (D) at (1,0)  {};
+   \draw[thick] (A) to  (B);
+   \draw[thick] (B) to  (C);
+      \draw[thick] (C) to (D);
+   \draw[thick] (D) to (A);
+   \draw[thick] (A) to (C);
+   \draw[thick] (B) to (D);
+ \end{tikzpicture}\\
+ \vspace*{0.1cm}
+ K
+\end{minipage}  
+\end{frame}
 % \begin{frame}
 %   \frametitle{6.6 哈密顿图}
 % \centering
@@ -1611,6 +2003,7 @@ q \leq |V_1||V_2|
 %     图$G$的一条包含所有顶点的路称为$G$的一条\alert{哈密顿路};图$G$的一个包含所有顶点的圈称为$G$的一个\alert{哈密顿圈}。具有哈密顿圈的图称为\alert{哈密顿图}。
 %   \end{definition6.6.1}
 % \end{frame}
+
 \section{哈密顿图}
 \begin{frame}
   \frametitle{6.6 哈密顿图}
