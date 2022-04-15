@@ -450,6 +450,7 @@
    \draw[thick] (H) to  (E);
    \draw[thick] (E) to  (G);
    \draw[thick] (G) to  (I);
+   \draw[thick] (H) to  (I);
  \end{tikzpicture}  
  \\  G   
 \end{frame}
@@ -457,7 +458,7 @@
 \begin{frame}
   \frametitle{6.3 路、圈、连通图}
   \begin{Def}
-   如果图中一条通道上的各边互不相同，则称此通道为图的\alert{迹}。如果一条闭通道上的各边互不相同，则此闭通道称为\alert{闭迹}。
+   如果图中一条通道上的各边互不相同，则称此通道为图的\alert{迹}。如果一条闭通道上的各边互不相同，则称此闭通道为\alert{闭迹}。
   \end{Def}
   \centering
   \begin{tikzpicture}[auto,
@@ -474,6 +475,7 @@
    \draw[thick] (H) to  (E);
    \draw[thick] (E) to  (G);
    \draw[thick] (G) to  (I);
+   \draw[thick] (H) to  (I);
  \end{tikzpicture}  
  \\  G   
 \end{frame}
@@ -498,6 +500,7 @@
    \draw[thick] (H) to  (E);
    \draw[thick] (E) to  (G);
    \draw[thick] (G) to  (I);
+   \draw[thick] (H) to  (I);
  \end{tikzpicture}  
  \\  G   
 \end{frame}
@@ -1110,7 +1113,7 @@ $G$
       个三个顶点为$v_2,v_3,v_4$。
       \begin{itemize}
       \item[-] 在顶点$v_2,v_3,v_4$中，存在两个顶点不邻接，此时$G^c$中存在三角形。
-      \item[-] 在顶点$v_2,v_3,v_4$中，任意两个顶点互相邻接，此时$G$中存在三角性。
+      \item[-] 在顶点$v_2,v_3,v_4$中，任意两个顶点互相邻接，此时$G$中存在三角形。
       \end{itemize}
 
     \end{itemize}
@@ -1521,7 +1524,7 @@ q \leq |V_1||V_2|
   \begin{Thm}
     图G为欧拉图当且仅当$G$为连通的且每个顶点的度为偶数。
   \end{Thm}
-\pause\begin{proof}[证明]
+\pause\begin{proof}[证明]\justifying\let\raggedright\justifying
       \pause首先，假设图$G$为欧拉图，往证$G$是连通的且每个顶点的度为偶数。
 
   \pause由图$G$为欧拉图知$G$中有一条包含所有边和所有顶点的闭迹$T:v_0,x_1,v_1,\ldots,
@@ -1538,7 +1541,7 @@ q \leq |V_1||V_2|
   \begin{Thm2}
     图G为欧拉图当且仅当$G$为连通的且每个顶点的度为偶数。
   \end{Thm2}
-  \begin{proof}[证明(续上页)]
+  \begin{proof}[证明(续上页)]\justifying\let\raggedright\justifying
   \pause其次，\pause假设$G$为连通的且每个顶点的度为偶数，\pause往证$G$为欧拉图。
 
   \pause设$v_0,x_1,v_1,\ldots, x_n,v_n$为图$G$的一条最长的迹，\pause记为$Z$，\pause则$Z$为闭迹。\pause否
@@ -1588,7 +1591,7 @@ q \leq |V_1||V_2|
   \begin{Thm}
     设$G$为连通图，$G$恰有$2n$个奇度顶点，$n \geq 1$，则$G$的全部边可以排成$n$条
     开迹，且不能排成少于$n$条开迹。  \end{Thm}
-\pause  \begin{proof}[证明]
+\pause  \begin{proof}[证明]\justifying\let\raggedright\justifying
       \pause设连通图$G$有$2n$个奇度顶点$u_1,v_1,u_2,v_2,\ldots,u_n,v_n$。\pause在$G$中加
   入$n$条边$u_1v_1$，　$u_2v_2$， $\ldots$， $u_nv_n$，\pause得到图$G'$。\pause则$G'$是连通的，
   \pause且每个顶点的度为偶数，\pause因此存在一条欧拉闭迹$Z$。\pause在$Z$中去掉新加入的边$u_1v_1,
