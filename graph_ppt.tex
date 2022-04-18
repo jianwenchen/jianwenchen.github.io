@@ -14,6 +14,8 @@
 \newtheorem*{Thm2}{定理5.1}
 \newtheorem*{Thm5.2}{定理5.2}
 \newtheorem*{Thm5.3}{定理5.3}
+\newtheorem*{Thm6.3}{定理6.3}
+\newtheorem*{Thm6.4}{定理6.4}
 \theoremstyle{definition}
 \newtheorem{Def}{定义}[section]
 \theoremstyle{example}
@@ -2387,17 +2389,32 @@ q \leq |V_1||V_2|
  K
 \end{minipage}  
 \end{frame}
-
 \begin{frame}
-  \frametitle{6.6 哈密顿图}
-  \begin{Thm3}
-    设$G$为有$p(p \geq 3)$个顶点的图。如果对$G$的任一对不邻接的顶点$u$和$v$，均有
+\begin{Thm6.3}
+    设$G$为一个有$p$个顶点的图，如果对$G$的每一对不临接的顶点$u$和$v$，均有
     \begin{equation*}
-      \deg u + \deg v \geq p,
+      \deg u + \deg v \geq p - 1,
     \end{equation*}
+则$G$有哈密顿路。
+\end{Thm6.3}
+\begin{Thm6.4}
+  设$G$为有$p(p \geq 3)$个顶点的图。如果对$G$的任一对不邻接的顶点$u$和$v$，均有
+  \begin{equation*}
+    \deg u + \deg v \geq p,
+  \end{equation*}
 则$G$是一个哈密顿图。
-  \end{Thm3}
+\end{Thm6.4}
 \end{frame}
+% \begin{frame}
+%   \frametitle{6.6 哈密顿图}
+%   \begin{Thm3}
+%     设$G$为有$p(p \geq 3)$个顶点的图。如果对$G$的任一对不邻接的顶点$u$和$v$，均有
+%     \begin{equation*}
+%       \deg u + \deg v \geq p,
+%     \end{equation*}
+% 则$G$是一个哈密顿图。
+%   \end{Thm3}
+% \end{frame}
 \begin{frame}
   \frametitle{6.6 哈密顿图}
   \begin{Thm}
@@ -2407,6 +2424,11 @@ q \leq |V_1||V_2|
     \end{equation*}
 则$G$为连通的。
 \end{Thm}
+\begin{proof}[证明]
+  \pause用反证法。\pause假设$G$不连通，\pause则$G$至少有两个支。\pause设$G_1=(V_1,E_1)$为其中的一个支，\pause其他各支构成的子图为$G_2=(V_2,E_2)$。\pause取$V_1$中的任意一个顶点$u$和$V_2$中的任意一个顶点$v$，\pause则顶点$u$和顶点$v$不邻接并且
+  \[\deg u + \deg v \leq (|V_1| - 1 ) + (|V_2| - 1) = p - 2\]
+  \pause矛盾。
+\end{proof}
 
 \end{frame}
 
