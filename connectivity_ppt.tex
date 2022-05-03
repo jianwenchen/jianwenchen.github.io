@@ -1435,7 +1435,28 @@
   
 \end{frame}
 
+
 \section{匹配、霍尔定理}
+\begin{frame}
+  \begin{Exercise}
+    设$G$为图。证明：若$\delta(G)\geq 2$，则$G$包含长度至少为$\delta(G)+1$的圈。  
+    \end{Exercise}
+    \begin{proof}[证明]\justifying\let\raggedright\justifying
+      \pause设$P=v_0v_1\ldots v_n$为$G$中的一条最长路，\pause则$v_0$只能与$P$中的顶点相邻接，\pause否则假设$v_0$与不在$P$中的顶点$u$邻接，\pause则$uv_0v_1\ldots v_n$构成了$G$中一条更长的路，\pause与$P$为$G$中的最长路矛盾。\pause取最大的$s$使得$v_0$与$v_s$相邻接，\pause则$C=v_0v_1\ldots v_sv_0$为长度至少为$\delta(G)+1$的圈，\pause这是因为$v_0$至少与$\delta(G)$个顶点相邻接，\pause而所有这些与$v_0$邻接的顶点均在圈$C$中。
+    \end{proof}
+\end{frame}
+\begin{frame}
+  \begin{Exercise}
+    设$T$为一棵包含$k+1$个顶点的树。证明：如果图$G$的最小度$\delta(G)\geq k$，则$G$有一个同构于$T$的子图。
+  \end{Exercise}
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause用数学归纳法证明，\pause施归纳于$k$。
+  
+  \pause（１）当$k=0$时，\pause$T$是一棵包含$1$个顶点的树，\pause在$G$中取任意一个顶点$u$，\pause该顶点自身为$G$的一个与$T$同构的子图。
+  
+    \pause（２）假设当$k=n$时结论成立，\pause往证当$k=n+1$时结论也成立。\pause设$T$是一棵$n+1+1$个顶点的树，\pause去掉一个叶子顶点$v$，\pause得到一棵树$T'$，\pause则$T'$是一棵有$n+1$个顶点的树。\pause图$G$的最小度$\delta(G)\geq n+1\geq n$，\pause由归纳假设，\pause$G$中存在一个同构于$T'$的子图$G'$。\pause设在$T$中与其叶子顶点$v$邻接的顶点为$u$，\pause在$T'$与$G'$的同构中，\pause与$u$对应的顶点为$u'$。\pause在$G$中，\pause$\deg u'\geq n+1$，\pause由于$G'$中有$n+1$个顶点，\pause$u'$在$G'$中至多有$n$条与之关联的边，\pause因此$u'$与$G$中除去$G'$中的顶点之外的其他某个顶点$v'$邻接，\pause在$G'$中添加顶点$v'$和边$u'v'$，\pause则得到一个与$T$同构的子图。
+  \end{proof}
+\end{frame}
 \begin{frame}
     \frametitle{3. 匹配}\pause\centering
     \begin{minipage}{0.24\linewidth}
@@ -1504,8 +1525,8 @@ C
 \begin{frame}
   \frametitle{3. 匹配}
 
-  \begin{Def}
-    设$G=(V,E)$为一个图，$G$的任意两条不邻接的边$x$与$y$称为互相\alert{独立}的。
+  \begin{Def}\justifying\let\raggedright\justifying
+    设$G=(V,E)$为一个图，$G$的任意两条不邻接的边$x$与$y$称为互相\alert{独立}的边。
   \end{Def}\pause
     \centering
   \begin{minipage}{0.24\linewidth}
@@ -1545,7 +1566,7 @@ C
 \begin{frame}
   \frametitle{3. 匹配}
 
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
     图$G$的边集$E$的子集$Y$称为$G$的一个\alert{匹配}，如果$Y$中任意两条不同的边都是互相独立的。
   \end{Def}
 \pause
@@ -1602,7 +1623,7 @@ C
 
 \begin{frame}
   \frametitle{3. 匹配}
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
     设$Y$为图$G=(V,E)$的一个匹配，如果$2|Y|=|V|$，则称$Y$为$G$的一个\alert{完美匹配}。
   \end{Def}
 \pause
@@ -1626,7 +1647,7 @@ C
 
 \begin{frame}
   \frametitle{3. 匹配}
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
     设$Y$为图$G=(V,E)$的一个匹配，如果$2|Y|=|V|$，则称$Y$为$G$的一个\alert{完美匹配}。
   \end{Def}
   \pause
@@ -1796,7 +1817,7 @@ C
 \begin{frame}
   \frametitle{3. 匹配}
 
-    \begin{Def}
+    \begin{Def}\justifying\let\raggedright\justifying
    设$Y$为图$G=(V,E)$的一个匹配，如果对于$G$的任一匹配$Y'$，恒有$|Y'|\leq |Y|$, 则称$Y$为$G$的一个\alert{最大匹配}。
   \end{Def}
 \pause
@@ -1966,7 +1987,7 @@ C
 \begin{frame}
   \frametitle{3. 匹配}
 
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
     设$G=(V,E)$为一个偶图且$V=V_1\cup V_2$,
     $\forall x \in
     E$，$x$为联结$V_1$的一个顶点与$V_2$的一个顶点的边。如果存在$G$的一个匹配$Y$使得$|Y|=min\{|V_1|,|V_2|\}$，则称$Y$是偶图$G$的一个\alert{完全匹配}。
@@ -1977,7 +1998,7 @@ C
 
 \begin{frame}
   \frametitle{匹配}
-  \begin{Thm}
+  \begin{Thm}\justifying\let\raggedright\justifying
     设$G=((V_1,V_2),E)$为偶图，存在$G$的一个完全匹配$M$且$|M| = |V_1|$的充分必要条件是对$V_1$的任意子集$A$， $|N(A)| \geq |A|$，其中\[N(A) = \{y\in V_2|\exists x \in A \{x,y\} \in E\}\]
   \end{Thm}
 
@@ -1985,13 +2006,13 @@ C
 
 \begin{frame}
   \frametitle{匹配}
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
   设$M$为图$G=(V,E)$的一个匹配，如果一条路$P$上的边在$M$与$E\setminus M$中交错出现，则称路$P$为图$G$中的一条\alert{M-交错路}。\pause进一步，如果$P$的两个端点都不与$M$中的边相关联，则称$P$为一条\alert{M-增广路}。
   \end{Def}
 \end{frame}
 \begin{frame}
   \frametitle{匹配}
-  \begin{Thm3.1}
+  \begin{Thm3.1}\justifying\let\raggedright\justifying
     设$G=((V_1,V_2),E)$为偶图，存在$G$的一个完全匹配$M$且$|M| = |V_1|$的充分必要条件是对$V_1$的任意子集$A$， $|N(A)| \geq |A|$，其中\[N(A) = \{y\in V_2|\exists x \in A \{x,y\} \in E\}\]
   \end{Thm3.1}\pause
   \begin{proof}[证明]
@@ -2111,14 +2132,27 @@ C
 \begin{frame}
   \frametitle{3. 匹配}
 
-  \begin{Def}
+  \begin{Def}\justifying\let\raggedright\justifying
     设$X$为一个有穷集合，$(A_1,A_2,\ldots,A_n)$为$X$的子集的一个序列，由$X$的互不相同的元素构成的集合$\{s_1,s_2,\ldots,s_n\}$称为系统\[T:A_1,A_2,\ldots,A_n\]的\alert{相异代表系}，如果$s_i\in A_i$，$i=1,2,\ldots,n$。
   \end{Def}
 
 \end{frame}
 \begin{frame}
+  \begin{Exercise}\justifying\let\raggedright\justifying
+    设集合$X=\{1,2,3,4,5,6\}$,则$\{1,2\},\{2,3\},\{3,4\},\{4,5\},\{5,6\},\{6,1\}$有（）个相异代表系。
+
+    A. 1
+
+    B. 2
+
+    C. 3
+
+    D. 4
+  \end{Exercise}
+\end{frame}
+\begin{frame}
   \frametitle{匹配}
-    \begin{Thm}
+    \begin{Thm}\justifying\let\raggedright\justifying
     设$X$为一个有限集，系统$T:A_1,A_2,\cdots,A_n$为$X$的一些子集组成的，则$T$有相异代表系的充分必要条件是$\forall I \subseteq \{1,2,\cdots, n\}$有
     \[|\bigcup_{i\in I}A_i|\geq |I|\]
   \end{Thm}
