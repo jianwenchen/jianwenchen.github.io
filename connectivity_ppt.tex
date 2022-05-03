@@ -2065,32 +2065,32 @@ C
   \end{proof}
 \end{frame}
 
-\begin{frame}
-    \begin{codebox}
-    \Procname{$\proc{Augmenting-Path-Search}(G,M,u)$}
-    \zi \Comment $G$ is a bipartite graph statisfying the Hall condition,
-    \zi \Comment $M$ is a match in $G$,
-    \zi \Comment and $u$ is a vertex which is not incident to any edge in $M$
-    \li $V(T) \gets \{u\}$
-    \li $E(T) \gets \phi$
-    \li $R(T) \gets \{u\}$
-    \li \While there is an edge $xy$ whith $x\in R(T)$ and $y\in V(G)\setminus V(T)$
-    \li \Do
-        $V(T) \gets V(T)\cup \{y\}$
-    \li $E(T) \gets E(T)\cup \{xy\}$
-    \li \If y is incident with an edge $yz$ in $M$
-    \li \Do
-    $V(T) \gets V(T)\cap \{z\}$
-    \li $E(T) \gets E(T) \cup \{yz\}$
-    \li $R(T) \gets R(T) \cup \{z\}$
-    \Else 
-    \li $M \gets M \bigtriangleup E(P)$, where $P=uTy$
-    \li \Return M
-    \End
-    \End
-  \end{codebox}
+% \begin{frame}
+%     \begin{codebox}
+%     \Procname{$\proc{Augmenting-Path-Search}(G,M,u)$}
+%     \zi \Comment $G$ is a bipartite graph statisfying the Hall condition,
+%     \zi \Comment $M$ is a match in $G$,
+%     \zi \Comment and $u$ is a vertex which is not incident to any edge in $M$
+%     \li $V(T) \gets \{u\}$
+%     \li $E(T) \gets \phi$
+%     \li $R(T) \gets \{u\}$
+%     \li \While there is an edge $xy$ whith $x\in R(T)$ and $y\in V(G)\setminus V(T)$
+%     \li \Do
+%         $V(T) \gets V(T)\cup \{y\}$
+%     \li $E(T) \gets E(T)\cup \{xy\}$
+%     \li \If y is incident with an edge $yz$ in $M$
+%     \li \Do
+%     $V(T) \gets V(T)\cap \{z\}$
+%     \li $E(T) \gets E(T) \cup \{yz\}$
+%     \li $R(T) \gets R(T) \cup \{z\}$
+%     \Else 
+%     \li $M \gets M \bigtriangleup E(P)$, where $P=uTy$
+%     \li \Return M
+%     \End
+%     \End
+%   \end{codebox}
 
-\end{frame}
+% \end{frame}
 
 % \begin{frame}
 %   \frametitle{匹配}
