@@ -1,4 +1,6 @@
 \documentclass{article}
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
 \usepackage{tikz}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
@@ -2920,7 +2922,37 @@ D
   \vspace*{0.3cm}
   P
 \end{minipage}
+\clearpage
+\begin{Def}\justifying\let\raggedright\justifying
+  设$G=(V,E)$为一个图，$G$的任意两条不邻接的边$x$与$y$称为互相{\bfseries独立}的边。
+\end{Def}
+\begin{Def}\justifying\let\raggedright\justifying
+  图$G$的边集$E$的子集$Y$称为$G$的一个{\bfseries匹配}，如果$Y$中任意两条不同的边都是互相独立的。
+\end{Def}
+\begin{Def}\justifying\let\raggedright\justifying
+  设$Y$为图$G=(V,E)$的一个匹配，如果对于$G$的任一匹配$Y'$，恒有$|Y'|\leq |Y|$, 则称$Y$为$G$的一个{\bfseries最大匹配}。
+ \end{Def}
 
+\leftline{设无向图$G$的邻接矩阵如下：}
+\[
+\begin{bmatrix}
+  0&1&0&0&0\\
+  0&0&1&0&0\\
+  0&0&0&1&0\\
+  0&0&0&0&1\\
+  1&0&0&0&0
+\end{bmatrix}\]
+\begin{flushleft}
+则$G$的最大匹配中包含多少条边？
+
+A. 1
+
+B. 2
+
+C. 3
+
+D. 4
+\end{flushleft}
 \end{CJK}
 \end{document}
 
