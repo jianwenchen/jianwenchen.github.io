@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem{Exercise}{习题}
+\begin{Exercise}
+    设$G$为一个有$k$个支的平面图。如果$G$的顶点数、边数、面数分别为$p$，$q$和$f$，试证：
+  \[p-q+f=k+1\]
+\end{Exercise}
+\begin{proof}[证明]
+    设$G$的的$k$个支分别为$G_1$，$G_2$，$\ldots$，$G_k$，其中$G_i$有$p_i$个顶点，$q_i$条边，$f_i$个面（$1\leq i \leq k$）。
+  
+    由欧拉公式知，
+    \begin{align*}
+      p_1-q_1+f_1&=2\\
+      p_2-q_2+f_2&=2\\
+      \cdots&\\
+      p_k-q_k+f_k&=2
+    \end{align*}
+    以上各式相加得：
+    \[(p_1+p_2+\ldots+p_k)-(q_1+q_2+\ldots+q_k)+(f_1+f_2+\ldots+f_k)=2k\]
+  
+  由$G$只有一个外部面知
+  \[f_1 + f_2 + \ldots + f_k = f + (k-1)\]
+  从而
+  \[p-q+f+(k-1)=2k\]
+  即
+  \[p-q+f = k + 1\]
+  \end{proof}  
+\begin{Exercise}
+    如果$G$为顶点数$p\geq 11$的可平面图，试证$G^c$不是可平面图。
+\end{Exercise}
+\begin{proof}[证明]
+    用反证法，假设$G^c$也是可平面图。设$G$有$q$条边，由$G$为可平面图知
+  \[q \leq 3p - 6\]
+  设$G^c$有$q_1$条边，由$G^c$为有$p$个顶点的可平面图知
+  \[q_1 \leq 3p - 6\]
+  于是
+  \[q + q _1 \leq 6p-12\]
+  即
+  \[\frac{p(p-1)}{2} \leq 6p-12\]
+  \[p^2-p \leq 12p-24\]
+  \[p^2-13p+24 \leq 0\]
+  当$p\geq 11$时，
+  \begin{equation*}
+    \begin{split}
+     &p^2-13p+24\\
+     =&(p-\frac{13}{2})^2-\frac{169}{4}+24\\
+     \geq&(11-\frac{13}{2})^2-\frac{169}{4} + 24\\
+     =&\frac{81}{4} - \frac{169}{4} + 24\\
+     =&2 > 0
+    \end{split}
+  \end{equation*}
+  矛盾。
+\end{proof}
+\begin{Exercise}
+    不存在$7$条棱的凸多面体。
+\end{Exercise}
+\begin{proof}[证明]
+    用反证法，假设存在$7$条棱的凸多面体，其对应的平面图有$p$个顶点，则
+    \[7 \leq 3p - 6\]
+    于是
+    \[p \geq \frac{13}{3}\]
+    又由每个顶点的度大于等于$3$知
+    \[3p \leq 2 * 7\]
+    于是
+    \[p \leq \frac{14}{3}\]
+    由于不存在正整数$p$使得$\frac{13}{3} \leq p \leq \frac{14}{3}$
+    结论得证。
+  \end{proof}
+\begin{Exercise}
+    设$G$为一个没有三角形的可平面图。证明$G$中存在一个顶点$v$使得$\deg v \leq 3$。
+\end{Exercise}
+\begin{proof}[证明]
+    当图$G$的顶点数$p=1,2$时，结论显然成立。
+    当$p \geq 3$时，用反证法证明结论也成立。假设$\delta (G) \geq 4$，设$G$有$q$条边，则
+    \[2q \geq 4p\]
+    于是\[q \geq 2p\]
+    由$G$为可平面图知
+    \[q \leq 2p - 4\]
+  矛盾。  
+  \end{proof}
+\begin{Exercise}
+    设$G$为一个没有三角形的可平面图。应用数学归纳法证明$G$为4-可着色的。
+\end{Exercise}
+\begin{proof}[证明]用数学归纳法证明，施归纳于顶点数$p$。
+
+    （１）当$p=1$时，结论显然成立。
+
+    （２）假设当$p=k(k\geq 1)$时结论成立，往证当$p=k+1$时结论也成立。设$G$为包含$k+1$个顶点，没有三角形的可平面图知，$G$中存在一个顶点$v$，$\deg v \leq 3$。显然，$G-v$为包含$k$个顶点，没有三角形的可平面图，由归纳假设，$G-v$为$4$可着色的。假设已经用至多$4$种颜色对$G-v$进行了顶点着色，使得任意相邻的顶点着不同的颜色，那么此时在$G$中与$v$邻接的顶点用了至多$3$种颜色，用另外一种不同的颜色对顶点$v$进行着色，从而用至多$4$种颜色就可以对$G$的顶点进行着色使得相邻的顶点着不同的颜色，即$G$为$4$可着色的。
+    
+  \end{proof}
+
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
