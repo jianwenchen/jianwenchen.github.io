@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+  \begin{Ex}
+      设$f:X\to Y$，$g:Y\to Z$，$A\subseteq Z$，证明：$(gf)^{-1}(A)=f^{-1}(g^{-1}(A))$。 
+  \end{Ex}
+  \begin{proof}[证明]
+    先证$(gf)^{-1}(A)\subseteq f^{-1}(g^{-1}(A))$。
+
+    对任意的$x$,如果$x\in (gf)^{-1}(A)$，则$(gf)(x)\in A$，即$g(f(x))\in A$，从而$f(x)\in g^{-1}(A)$，因此$x\in f^{-1}(g^{-1}(A))$。
+    
+
+    再证$f^{-1}(g^{-1}(A))\subseteq (gf)^{-1}(A)$。
+
+    对任意的$x$,如果$x\in f^{-1}(g^{-1}(A))$，则$f(x)\in g^{-1}(A)$，从而$g(f(x))\in A$，即$(gf)(x)\in A$，因此$x\in (gf)^{-1}(A)$。
+  \end{proof}
+\end{CJK}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
