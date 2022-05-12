@@ -2397,6 +2397,27 @@ D
   \end{proof}
 \end{frame}
 \begin{frame}
+  \frametitle{1. 有向图的概念}
+  \begin{Def}
+    一个\alert{比赛图}为一个定向完全图，即任两个不同顶点间有且仅有一条弧。
+  \end{Def}
+  \centering
+    \begin{tikzpicture}[auto,
+    specification/.style ={circle, draw, thick}]
+   \node[specification] (A) [label=-135:$v_1$] at (0,0)  {};
+   \node[specification] (B) [label=135:$v_2$] at (0,2)  {};
+   \node[specification] (C) [label=45:$v_3$] at (2,2)  {};
+   \node[specification] (D) [label=-45:$v_4$] at (2,0)  {};
+   \draw[thick, ->] (A) to  (B);
+   \draw[thick, ->] (C) to  (B);
+   \draw[thick, ->] (C) to  (D);
+   \draw[thick, ->] (D) to  (A);
+   \draw[thick, ->] (A) to  (C);
+   \draw[thick, ->] (B) to  (D);
+ \end{tikzpicture}
+
+\end{frame}
+\begin{frame}
   \begin{Exercise}
   证明：每个比赛图中必有有向哈密顿路。
   \end{Exercise}
@@ -2406,6 +2427,23 @@ D
    \pause易见$1<i\leq k$。\pause于是，\pause$(v_{i-1},v)\in A$，\pause因此$v_1v_2\cdots v_{i-1}vv_{i}\cdots v_k$为$D$的一条比$P$更长的有向路，\pause这与$P$为$D$的最长路矛盾。\pause因此，\pause$k=p$，\pause即$D$中的最长路$P$为$D$的有向哈密顿路。
   \end{proof}
 \end{frame}
+\begin{frame}[t]
+  \frametitle{匹配}
+  \begin{Thm}\justifying\let\raggedright\justifying
+    设$G=((V_1,V_2),E)$为偶图，存在$G$的一个完全匹配$M$且$|M| = |V_1|$的充分必要条件是对$V_1$的任意子集$A$， $|N(A)| \geq |A|$，其中\[N(A) = \{y\in V_2|\exists x \in A \{x,y\} \in E\}\]
+  \end{Thm}\pause
+  \begin{proof}[证明]
+\justifying\let\raggedright\justifying
+\pause设$G=((V_1,V_2),E)$为偶图，\pause如果存在$G$的一个完全匹配$Y$且$|Y| = |V_1|$，\pause则显然对$V_1$的任意子集$A$， \pause$|N(A)| \geq |A|$。
+    \renewcommand{\qedsymbol}{}    
+\end{proof}  
+\end{frame}
+\begin{frame}
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+    \pause设$G=((V_1,V_2),E)$为偶图，\pause对$V_1$的任意子集$A$， \pause$|N(A)| \geq |A|$。\pause用反证法证明$G$一定存在一个完全匹配。\pause假设$G$中不存在完全匹配。\pause设$M^*$为$G$的一个最大匹配，\pause则$M^*$不是$G$的完全匹配，\pause从而存在顶点$u\in V_1$，\pause$u$不与$M^*$中的任意一条边相关联。\pause设$Z$为所有可以从顶点$u$经由一条$M^*-$交错路到达的顶点构成的集合。\pause由$M^*$为一个最大匹配知$u$为$Z$中唯一没有与$M^*$中的边相关联的顶点。\pause记$R=V_1\cap Z$，\pause$B=V_2\cap Z$。\pause显然$f=\{(x,y)\in R\setminus \{u\}\times B | \{x,y\}\in M^*\}$为从集合$R\setminus \{u\}$到$B$的双射，\pause因此$|B|=|R|-1$。\pause以下证明$N(R)=B$。\pause显然$B\subseteq N(R)$。\pause由$N(R)$中的每个顶点都在从$u$出发的一条$M^*$交错路上知$N(R)\subseteq B$。\pause由$|B|=|R|-1$及$B= N(R)$知$|N(R)|=|R|-1$，\pause与已知条件矛盾。
+  \end{proof}
+\end{frame}
+
 \begin{frame}
   \begin{Exercise}
     用对角线法证明：如果$A$是可数集，则$2^A$是不可数集。
