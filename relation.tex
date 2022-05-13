@@ -1192,7 +1192,48 @@ $a_1\sim a_2$，$b_1\sim b_2$，则$a_2 R a_1, a_1 R b_1, b_1 R b_2$，由$R$的
   
   此时，$x$必为$X\setminus \{y\}$的唯一极大元。否则，如果存在元素$a$为$X\setminus \{y\}$的极大元，$a\neq x$，由$a$不是$X$的极大元知$a\leq y$,再由$z>y$知$z>a$，矛盾。
   由归纳假设，$x$为$X\setminus \{y\}$的最大元。由$z\leq x$及$z>y$知，$y\leq x$。
-  \end{proof}  
+  \end{proof}
+  \begin{Exercise}
+    设$R$，$S$为集合$X$上的等价关系。如果$R\circ S$为等价关系，则$R\circ S= (R\cup S)^+$。    
+      \end{Exercise}
+      \begin{proof}[证法一]
+        首先证明$R\circ S\subseteq (R\cup S)^+$。
+
+        设$T$为任意一个包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$,如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$。从而$(a,b)\in R\cup S \subseteq T$，$(b,c)\in R\cup S \subseteq T$，再由$T$为传递关系知$(a,c)\in T$。因此，$R\circ S\subseteq T$。这证明了$R\circ S \subseteq \bigcap_{R\cup S\subseteq T'\text{且} T'\text{是传递的}}T'=(R\cup S)^+$。
+      
+        其次证明$(R\cup S)^+\subseteq R \circ S$。
+
+        只需证明$R\circ S$为包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$，如果$(a,c)\in R\cup S$，则$(a,c)\in R$或者$(a,c)\in S$。如果$(a,c)\in R$，此时由$S$为等价关系知$(c,c)\in S$，从而$(a,c)\in R\circ S$；　如果$(a,c)\in S$，此时由$R$为等价关系知$(a,a)\in R$，从而$(a,c)\in R\circ S$。这证明了$R\cup S\subseteq R\circ S$。由$R\circ S$为等价关系知$R\circ S$为传递的。
+      
+        
+      \end{proof}
+      
+      \begin{proof}[证法二]
+        先证$R\circ S\subseteq (R\cup S)^+$。
+      
+        对任意的$a\in X,c\in X$，如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$，从而$(a,b)\in R\cup S$并且$(b,c)\in R\cup S$，于是$(a,c)\in (R\cup S)^2 \subseteq (R\cup S)^+$。
+      
+        再证$(R\cup S)^+\subseteq R\circ S$。
+      
+        对任意的$a\in X,c\in X$，由$(a,c)\in (R\cup S)^+$，往证$(a,c)\in R\circ S$。
+      
+        对任意的$a\in X,c\in X$，如果$(a,c)\in (R\cup S)^+$，则存在自然数$n$，$n\geq 1$，　$(a,c)\in (R\cup S)^n$。
+      
+        以下用数学归纳法证明，对任意的自然数$n$，$n\geq 1$，$(R\cup S)^n\subseteq R\circ S$。
+      
+        (1)当$n=1$时，对任意的$a\in X,c\in X$，如果$(a,c)\in R\cup S$，则$(a,c)\in R$或者$(a,c)\in S$。如果$(a,c)\in R$，此时由$S$为等价关系知$(c,c)\in S$，从而$(a,c)\in R\circ S$；　如果$(a,c)\in S$，此时由$R$为等价关系知$(a,a)\in R$，从而$(a,c)\in R\circ S$。
+      
+        (2)假设当$n=k(k\geq 1)$时结论成立，往证当$n=k+1$时结论也成立。
+      
+        由$R$,$S$,$R\circ S$都为$X$上的等价关系知，$S\circ R=S^{-1}\circ R^{-1}=(R\circ S)^{-1}=R\circ S$。
+      
+        对任意的$a\in X,c\in X$，如果$(a,c)\in (R\cup S)^{k+1}=(R\cup S)^k\circ (R\cup S)$，则存在$b\in X$，$(a,b)\in (R\cup S)^k$并且$(b,c)\in (R\cup S)$。由归纳假设，$(a,b)\in R\circ S$。如果$(b,c)\in R$，那么$(a,c)\in (R\circ S)\circ R = R\circ (S\circ R) = R\circ (R\circ S) = (R\circ R)\circ S = R^2\circ S \subseteq R\circ S$；如果$(b,c)\in S$，那么$(a,c)\in (R\circ S)\circ S = R\circ (S\circ S) = R\circ S^2 \subseteq R\circ S$。
+        
+      
+        
+      \end{proof}
+      
+   
 
 %\setcounter{Exercise}{0}
 
