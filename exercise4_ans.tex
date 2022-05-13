@@ -77,6 +77,42 @@ $\sum^*=\bigcup_{i=0}^{\infty}\sum^n$，其中$\sum^0=\{\epsilon\}$。对任意�
 先排$\sum^0$中的元素，再排$\sum^1$中的元素，再排$\sum^2$中的元素，$\cdots$。
 \end{proof}
 \begin{Exercise}
+  用对角线法证明：如果$A$是可数集，则$2^A$是不可数集。
+\end{Exercise}
+\begin{proof}[证明]
+  由$A$为可数集知$A$中的元素可以排成无重复项的序列
+ \[a_1,a_2,a_3,\cdots\]
+
+  $2^A$与$A$的所有特征函数构成的集合$Ch(A)$对等。进一步，$Ch(A)$与所有的0,1序列构成的集合对等，对任意的$f\in Ch(A)$，$f$对应$0,1$序列$f(a_1),f(a_2),f(a_3),\cdots$。
+  
+  以下用对角线法证明所有的$0,1$序列构成的集合不可数。
+
+  用反证法，假设所有0,1的无穷序列构成的集合$B$为可数集，
+  则$B$中元素可以排成无重复项的序列：
+  \begin{align*}
+    b_{11}b_{12}b_{13}\cdots\\
+    b_{21}b_{22}b_{23}\cdots\\
+    b_{31}b_{32}b_{33}\cdots\\
+    \cdots\\
+    b_{n1}b_{n2}b_{n3}\cdots\\
+    \cdots
+  \end{align*}
+ 其中$b_{ij}=0$或$1$。
+  
+ 构造0,1序列
+\[d_1,d_2,d_3,\cdots\]
+
+其中
+\[d_n=
+\begin{cases}
+  0&\text{如果}b_{nn}=1\\
+  1&\text{如果}b_{nn}=0
+\end{cases}\]
+则所构造的0,1序列$d_1,d_2,d_3,\cdots$与前述序列中的任意一个$0,1$序列都不相同，矛盾。
+
+\end{proof}  
+
+\begin{Exercise}
   利用康托的对角线法证明所有0，1的无穷序列是不可数集。
 \end{Exercise}
 \begin{proof}[证明]
@@ -104,27 +140,27 @@ $\sum^*=\bigcup_{i=0}^{\infty}\sum^n$，其中$\sum^0=\{\epsilon\}$。对任意�
 \end{cases}\]
 则所构造的0,1序列$b_1,b_2,b_3,\cdots$与前述序列中的任意一个$0,1$序列都不相同，矛盾。
 \end{proof}
-\begin{Exercise}
-  证明：如果$A$是可数集，则$2^A$是不可数集。
-\end{Exercise}
-\begin{proof}[证明]
-  由$A$为可数集知$A$中的元素可以排成无重复项的序列
-  \[a_1,a_2,a_3,\cdots\]
-  构造从$2^A$到所有的0,1序列构成的集合之间的映射f：
+% \begin{Exercise}
+%   证明：如果$A$是可数集，则$2^A$是不可数集。
+% \end{Exercise}
+% \begin{proof}[证明]
+%   由$A$为可数集知$A$中的元素可以排成无重复项的序列
+%   \[a_1,a_2,a_3,\cdots\]
+%   构造从$2^A$到所有的0,1序列构成的集合之间的映射f：
 
-  对任意的$B\in 2^A$，f(B)为如下的0,1序列：
-  \[b_1,b_2,b_3,\cdots\]
+%   对任意的$B\in 2^A$，f(B)为如下的0,1序列：
+%   \[b_1,b_2,b_3,\cdots\]
 
-  其中
+%   其中
 
-  \[b_i=\begin{cases}
-    1& \text{如果}a_i\in B\\
-    0& \text{如果}a_i\notin B
-  \end{cases}\]
+%   \[b_i=\begin{cases}
+%     1& \text{如果}a_i\in B\\
+%     0& \text{如果}a_i\notin B
+%   \end{cases}\]
   
-  则$f$为从$2^A$到所有的0,1序列构成的集合之间的双射，
-  而所有的0,1序列构成的集合为不可数集，从而$2^A$为不可数集。
-\end{proof}
+%   则$f$为从$2^A$到所有的0,1序列构成的集合之间的双射，
+%   而所有的0,1序列构成的集合为不可数集，从而$2^A$为不可数集。
+% \end{proof}
 
 \end{CJK}
 \end{document}
