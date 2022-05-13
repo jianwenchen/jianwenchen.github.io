@@ -7,6 +7,8 @@
 \usepackage{titletoc}
 \usepackage{xCJKnumb}
 \usepackage{tikz}
+\usepackage{ragged2e}
+\justifying\let\raggedright\justifying
 \titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
     章}{1em}{}
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
@@ -413,8 +415,8 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
     于是，我们得到了一个长度至少为$n+1$的不增子序列\eqref{subseq}，这又与假设相矛盾。所以，本题结论成立。
   \end{proof}
-  \begin{Exercise}
-    设$a_1, a_2, \cdots, a_n$为$n$个实数且$a_1<a_2<\cdots <a_n$。$\varphi$为从$A=\{a_1,a_2,\cdots,a_n\}$到$A$的一一对应。试证：如果$a_1+\varphi(a_1)<a_2+\varphi(a_2)<\cdots < a_n+\varphi(a_n)$，则$\varphi = I_A$。
+  \begin{Exercise}\justifying\let\raggedright\justifying
+    设$a_1, a_2, \cdots, a_n$为$n$个实数且$a_1<a_2<\cdots <a_n$。$\varphi$为从$A=\{a_1,a_2,\cdots,a_n\}$ 到$A$的一一对应。试证：如果$a_1+\varphi(a_1)<a_2+\varphi(a_2)<\cdots < a_n+\varphi(a_n)$，则$\varphi = I_A$。
    \end{Exercise}
   \begin{proof}[证明]
     设$\varphi(a_1)\neq a_1$，则由$\varphi$为双射知存在$j$，$j>1$，$\varphi(a_j)=a_1$。于是，对任意的正整数$i<j$，$a_i+\varphi(a_i)<a_j+\varphi(a_j)=a_j+a_1$，由$a_i\geq a_1$知$\varphi(a_i)< a_j$，从而$\varphi(a_i)=a_k,k<j$。于是，对任意的$i$，$i<j$，$\varphi(a_i)\in \{a_2,\ldots,a_{j-1}\}$，由鸽笼原理，必存在$i_1<i_2<j$，$\varphi(i_1)=\varphi(i_2)$，这与$\varphi$为双射矛盾。类似可证，$\varphi(a_2)=a_2,\ldots,\varphi(a_n)=a_n$，即$\varphi = I_A$。
