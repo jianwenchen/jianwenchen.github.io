@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Exercise}{习题}
+\begin{Exercise}
+设$p\geq mn+1$，$D$为一个有$p$个顶点的比赛图。对$D$的弧任意涂上红色或黄色，试证：$D$中有一条长至少为$m$的由红色弧组成的有向路，或有一条长至少为$n$的由黄色弧组成的有向路。
+\end{Exercise}
+\begin{proof}[证明]
+  设$R$为由$D$的所有顶点和着红色的弧构成的$D$的子图，$Y$为由$D$的所有顶点和着黄色的弧构成的$D$的子图。与无向图类似的，定义有向图的色数。有向图$D$的一种（顶点）着色是指对$D$中的每个顶点指定一种颜色，使得没有邻接的顶点着同一种颜色。有向图$D$的一个$n$-着色是用$n$种颜色对$D$的着色。有向图$D$的色数是使$D$为$n$-着色的最小值，记为$\chi(D)$。以下证明$\chi(R)\geq m+1$或者$\chi(Y)\geq n+1$。用反证法，假设$\chi(R)\leq m$并且$\chi(Y)\leq n$。则可以用$m$种颜色对$R$的顶点进行着色，使得相邻的顶点着不同的颜色，着不同的颜色的顶点所构成的集合（称为色组）依次记为$U_1,U_2,\ldots,U_m$。同理，可以用$n$种颜色对$Y$的顶点进行着色，使得相邻的顶点着不同的颜色，不同的色组依次记为$W_1,W_2,\ldots,W_n$。于是，$U_i\cap W_j (i=1,2,\ldots,m, j=1,2,\ldots,n)$中的顶点在$D$中彼此是不邻接的，从而$\chi(D)\leq mn$，与$D$为比赛图矛盾。
+
+  以下证明对于任意的一个有向图$D=(V,A)$，$D$中存在一个长度大于等于$\chi(D)-1$的有向路，从而结论得证。设$A'\subseteq A$为使$D'=D-A'$不含有向圈的极小弧集（即对任意的$a\in A'$，$D'+a$含有向圈），并设$D'$中有向路的最大长度为$k$，只需证明$k\geq \chi(D)-1$。对$i=0,1,2,\cdots,k$，令$V_i=\{x\in V|D'$中以$x$为起点的有向路最大长度为$i\}$，则$V=V_0\cup V_1\cup \cdots V_k$，于是只需证明对任意的$i$，$0\leq i \leq k$，$V_i$中的任意两个顶点是不邻接的，从而$\chi(D) \leq k+1$，即$k\geq \chi(D) - 1$。
+
+  首先注意到，$D'$中不存在起点和终点都在$V_i(i=0,1,2,\cdots,k)$中的有向路，若不然，设$P$为$D'$中从顶点$x$到顶点$y$的有向路，则存在一条长度为$i$的且起点为$y$的有向路，因为$D'$不含有向圈，所以$P$之后接$Q$为$D'$中起点在$x$且长度$\geq i+1$的有向路，与$x\in V_i$矛盾。
+
+  以下证明对任意的$i$，$0\leq i \leq k$，$V_i$中的任意两个顶点是不邻接的。用反证法，设$x$和$y$为$V_i$中两个在$D$中邻接的顶点，并且存在从顶点$x$到顶点$y$的弧。由于$D'$中不存在从顶点$x$到顶点$y$的路，所以$xy\in A'$，从而$D'+xy$中含有向圈，设为$C$，于是$C-xy$为$D'$中一条从顶点$y$到顶点$x$的有向路且$x,y\in V_i$，与前面所得到的结论矛盾。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
