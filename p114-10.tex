@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+\begin{Ex}
+设$R,S$为集合$X$上的等价关系，证明：$(R\cup S)^+$为$X$上的等价关系。
+\end{Ex}
+\begin{proof}[证明]
+  以下验证$(R\cup S)^+$为集合$X$上自反的，对称的和传递的二元关系。
+
+  首先验证自反性：对任意的$x\in X$，由$R$为等价关系知$(x,x)\in R$，从而$(x,x)\in R\cup S\subseteq (R\cup S)^+$。
+
+  其次验证对称性：对任意的$x\in X, y\in X$，如果$(x,y)\in (R\cup S)^+=\bigcup_{n=1}^{\infty}(R\cup S)^n$，则存在$m$使得$(x,y)\in R^m$。
+  于是存在$x_1,x_2,\ldots,x_{m-1}\in X$使得$(x,x_1)\in R\cup S$，$(x_1,x_2)\in R\cup S$，$\ldots$，$(x_{m-1},y)\in R\cup S$。由$R$和$S$都为
+  $X$上的等价关系知$R$和$S$都是对称的，从而易验证$(y,x_{m-1})\in R\cup S$，$\ldots$，$(x_2,x_1)\in R\cup S$，$(x_1,x)\in R\cup S$，从而$(y,x)\in (R\cup S)^m \subseteq (R\cup S)^+$。
+
+  最后验证传递性：显然$(R\cup S)^+$为传递的。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
