@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+\begin{Ex}
+设$A$为有穷集合，$B$为可数集，证明：$B^A$（即从$A$到$B$的所有映射之集）为可数集。
+\end{Ex}
+\begin{proof}[证明]
+  设$A=\{a_1,a_2,\ldots,a_n\}$。
+
+  构造映射$F:B^A\to B^n$，对任意的$f\in B^A$，$F(f)=(f(a_1),f(a_2),\ldots,f(a_n))$。
+
+  易验证，$F$为从$B^A$到$B^n$的双射，而$B^n$为可数集，故$B^A$为可数集。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
