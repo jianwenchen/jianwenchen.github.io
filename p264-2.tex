@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+\begin{Ex}
+如果$(p,q)$图$G$为$k$-边连通的，试证$q\geq kp/2$。
+\end{Ex}
+\begin{proof}[证明]
+  由$G$为$k$-边连通的知$\lambda(G)\geq k$，从而$\delta(G)\geq k$，于是$2q\geq kp$，即$q\geq kp/2$。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
