@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\newtheorem*{Ex}{习题}
+\begin{Ex}
+证明：每个哈密顿可平面图都是$4$-面可着色的。
+\end{Ex}
+\begin{proof}[证明]
+将圈内的每个面内画一个顶点，两邻的面对应的顶点之间连接一条边，所得到的图连通无圈，所以是树。树是2可着色的，从而哈密顿圈内部是2-面可着色的。
+同理，哈密顿圈外部是2-面可着色的。因此，整个哈密顿可平面图是$4$-面可着色的。
+\end{proof}
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
