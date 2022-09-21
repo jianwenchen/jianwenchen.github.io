@@ -20,7 +20,7 @@
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{第一讲 运算}
+  \title{第一讲 若干基本概念}
   \author{陈建文}
   \maketitle
   % \tableofcontents
@@ -35,7 +35,7 @@ $ax^2+bx+c=0$
 
 $ax^3+bx^2+cx+d=0$
 
-$ax^4+bx^3+cx^2+dx^1+e=0$
+$ax^4+bx^3+cx^2+dx+e=0$
 
 $ax^5+bx^4+cx^3+dx^2+ex+f=0$
 
@@ -43,16 +43,17 @@ Abel(1802-1829):证明了一般的次数$\geq 5$的一元方程没有用$+,-,*,/
 
 Crelle
 
-Galois():
+Galois(1811-1832):
 
 $x^5=1$
 
 解决了哪些次数$\geq 5$的一元方程有求根公式，哪些没有的问题，构思了群的概念
 
+Liouville
 
 群的概念来源于三个主要的数学领域：代数方程论，几何，数论
 
-Cantor():创立集合论
+Cantor(1845-1918):创立集合论
 
 Noether(1882-1935):现代代数学之母
 
@@ -92,7 +93,7 @@ Algebra
    \item   对任意的$x\in R$，$y\in R$，$x + y = y + x$ 
    \item   对任意的$x\in R$，$y\in R$，$z\in R$，$(x * y) * z = x * (y *z)$
    \item   对任意的$x\in R$，$1 * x = x * 1 = x$
-   \item   对任意的$x\in R$，$x^{-1} * x = x * x^{-1} = 1 (x \neq 0)$
+   \item   对任意的$x\in R$，$x\neq 0 \to x^{-1} * x = x * x^{-1} = 1$
    \item   对任意的$x\in R$，$y\in R$，$x * y = y * x$
    \item   对任意的$x\in R$，$y\in R$，$z\in R$，$x* (y + z) = x * y + x * z$
    \item   对任意的$x\in R$，$y\in R$，$z\in R$，$(y + z) * x = y * x + z * x$
@@ -144,7 +145,7 @@ Algebra
     则称$e$为“$\circ$”运算的单位元素。
   \end{Def}
   \begin{Thm}
-    设$(S,\circ)$为一个代数系，如果二元代数运算$\circ$既有左单位元“$e_l$”，又有右单位元“$e_r$”，则$e_l=e_r$，从而有单位元。
+    设$(S,\circ)$为一个代数系，如果二元代数运算$\circ$既有左单位元$e_l$，又有右单位元$e_r$，则$e_l=e_r$，从而有单位元。
   \end{Thm}
   \begin{proof}[证明]
     $e_r = e_l\circ e_r = e_l$
