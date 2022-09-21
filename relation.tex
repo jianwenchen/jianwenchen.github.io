@@ -1199,7 +1199,7 @@ $a_1\sim a_2$，$b_1\sim b_2$，则$a_2 R a_1, a_1 R b_1, b_1 R b_2$，由$R$的
       \begin{proof}[证法一]
         首先证明$R\circ S\subseteq (R\cup S)^+$。
 
-        设$T$为任意一个包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$,如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$。从而$(a,b)\in R\cup S \subseteq T$，$(b,c)\in R\cup S \subseteq T$，再由$T$为传递关系知$(a,c)\in T$。因此，$R\circ S\subseteq T$。这证明了$R\circ S \subseteq \bigcap_{R\cup S\subseteq T'\text{且} T'\text{是传递的}}T'=(R\cup S)^+$。
+        设$T$为任意一个包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$,如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$。从而$(a,b)\in R\cup S \subseteq T$，$(b,c)\in R\cup S \subseteq T$，再由$T$为传递关系知$(a,c)\in T$。这证明了$R\circ S \subseteq \bigcap_{R\cup S\subseteq T\text{且} T\text{是传递的}}T=(R\cup S)^+$。
       
         其次证明$(R\cup S)^+\subseteq R \circ S$。
 
