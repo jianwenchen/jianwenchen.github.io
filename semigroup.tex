@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第二讲 半群、幺半群与群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+\begin{Def}
+设“$\circ$”为非空集合$S$上的一个二元代数运算。如果$\forall a,b,c \in S$，
+\[(a\circ b) \circ c = a \circ (b\circ c)\]
+则称集合$S$对“$\circ$”运算形成一个半群（semigroup），并记为$(S,\circ)$。  
+\end{Def}
+
+\begin{Example}
+  正整数集合$Z_+$对“$+$”运算构成一个半群。
+\end{Example}
+
+$\forall a,b,c \in Z_+ (a+b)+c = a + (b + c)$
+
+\begin{Def}
+  如果一个半群中的二元代数运算满足交换律，则称此半群为交换半群。
+\end{Def}
+
+\begin{Example}
+  设$S$为一切形如
+  \[\begin{bmatrix}
+    a&b\\
+    0&0
+  \end{bmatrix},a,b\in N\]
+的$2\times 2$矩阵之集，则$S$对矩阵的乘法构成一个不可交换的半群。
+
+$\forall d\in N$，$2\times 2$矩阵
+\[\begin{bmatrix}1&d\\0&0\end{bmatrix}\]
+为左单位元素。于是，$(S,*)$有无穷多个左单位元素，然而它却没有右单位元素。
+\end{Example}
+
+\begin{Thm}
+  如果半群$(S,\circ)$中既有左单位元素又有右单位元素，则左单位元素与右单位元素相等，从而有单位元素且单位元素是唯一的。
+\end{Thm}
+
+\begin{Def}
+  有单位元素的半群称为独异点(monoid)，或称为幺半群。
+\end{Def}
+
+\begin{Example}
+  自然数集合$N$对加法运算“$+$”构成幺半群，单位元为$0$。正整数集合$Z_+$对乘法运算“$\times$”构成幺半群，单位元为$1$。
+\end{Example}
+
+\begin{Example}
+  设$S$为任意一个非空集合，则$(2^S,\cup,\phi)$和$(2^S,\cap,S)$都为幺半群。
+\end{Example}
+
+\begin{Def}
+  如果一个幺半群中的二元代数运算满足交换律，则称此半群为交换半群。
+\end{Def}
+
+\begin{Example}
+  设$S$为非空集合，$M(S)=\{f|f:S\to S\}$，则$M(S)$对映射的合成构成了一个以$I_S$为单位元的幺半群$(M(S),\circ,I_S)$，它是不可交换幺半群。
+\end{Example}
+\begin{Example}
+  设$M_n$为所有$n\times n$实矩阵构成的集合，则$M_n$对矩阵的乘法构成了一个以$I_n$为单位元的幺半群$(M_n,*,I_n)$。
+\end{Example}
+
+
+\begin{Def}
+  设$(S,\circ,e)$为一个幺半群，$a\in S$。如果存在$a_l\in S$使得$a_l\circ a=e$，则称$a_l$为$a$的左逆元素；如果存在$a_r
+  \in S$使得$a\circ a_r=e$，则称$a_r$为$a$的右逆元素；如果存在$b\in S$使得$b\circ a=a\circ b=e$，则称$b$为$a$的逆元素。
+\end{Def}
+\begin{Thm}
+  如果幺半群$(S,\circ,e)$中的元素$a$既有左逆元素$a_l$，又有右逆元素$a_r$，则$a_l=a_r$。于是，$a$有逆元素且$a$的逆元素是唯一的，记为$a^{-1}$。
+\end{Thm}
+\begin{Def}
+  每个元素都有逆元素的幺半群称为群。
+\end{Def}
+\begin{Example}
+  全体整数集合$Z$,全体有理数集合$Q$，全体实数集合$R$，全体复数集合$C$对通常的加法运算构成群；
+  全体非零有理数集合$Q^*$，全体非零实数集合$R^*$，全体非零复数集合$C^*$对通常的乘法运算构成群。
+\end{Example}
+\begin{Example}
+设$S$为一个非空集合，从$S$到$S$的所有双射构成的集合对映射的合成构成一个群，称为$S$上的对称群，记为$Sym(S)$。当$S=\{1,2,\cdots,n\}$时，$Sym(S)=S_n$。
+\end{Example}
+  \begin{Example}
+    设$M_n$为所有可逆$n\times n$实矩阵构成的集合，则$M_n$对矩阵的乘法构成了一个以$I_n$为单位元的群$(M_n,*,I_n)$。
+  \end{Example}
+
+  课后作业题：
+
+\begin{Exercise}
+  给出一个半群，它有无穷多个右单位元素。
+\end{Exercise}
+
+\begin{Exercise}
+  设$(S,\circ)$为一个半群，$a\in S$称为左消去元素，如果$\forall x, y\in S$，有$a\circ x=a\circ y$，则一定有$x=y$。试证：
+  如果$a$和$b$均为左消去元，则$a\circ b$也是左消去元。
+\end{Exercise}
+
+\begin{Exercise}
+  设$Z$为整数集合，$M=Z\times Z$。在$M$上定义二元运算$\circ$如下：
+
+  $\forall (x_1,x_2), (y_1,y_2)\in M, (x_1,x_2)\circ (y_1,y_2)=(x_1y_1+2x_2y_2,x_1y_2+x_2y_1)$
+
+  试证：
+
+  (1)$M$对上述定义的代数运算构成一个幺半群。
+
+  (2)如果$(x_1,x_2)\neq (0,0)$，则$(x_1,x_2)$是左消去元。
+
+  (3)运算“$\circ$”满足交换率。
+\end{Exercise}
+
+
+\begin{Exercise}
+  证明：有限半群中一定有一个元素$a$使得$a\circ a=a$。
+\end{Exercise}
+
+
+\begin{Exercise}
+  设$R$为实数集合，$S=\{(a,b)|a\neq 0,a,b\in R\}$。在$S$上利用通常的加法和乘法定义二元运算“$\circ$”如下：
+  \[(a,b)\circ (c,d) = (ac, ad + b)\]
+  验证$(S,\circ)$为群。
+\end{Exercise}
+
+\begin{Exercise}
+  $n$次方程$x^n=1$的根称为$n$次单位根，所有$n$次单位根之集记为$U_n$。证明：$U_n$对通常的复数乘法构成一个群。
+\end{Exercise}
+
+
+\begin{Exercise}
+ 令
+ \[G=\bigg\{\begin{bmatrix}
+  1&0\\0&1
+ \end{bmatrix},
+ \begin{bmatrix}
+  -1&0\\0&-1
+ \end{bmatrix},
+ \begin{bmatrix}
+  1&0\\0&-1
+ \end{bmatrix},
+ \begin{bmatrix}
+  -1&0\\0&1
+ \end{bmatrix}\bigg\}\] 
+ 试证：$G$对矩阵乘法构成一个群。
+\end{Exercise}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "chapter1"
+%%% End:
+
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
