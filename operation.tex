@@ -116,7 +116,25 @@ Algebra
 \begin{Thm}
   设$(S,\circ)$为一个代数系，如果二元代数运算“$\circ$”满足结合律，则$\forall a_i\in S$，$i=1,2,\cdots,n$，$n$个元素$a_1,a_2,\cdots,a_n$的乘积由它们的次序唯一确定。
 \end{Thm}
-  \begin{Def}
+\begin{proof}[证明]
+  用$a_1\circ a_2\circ \cdots \circ a_n$表示按照$a_1,a_2, \cdots, a_n$的次序进行“$\circ$”运算时任意加括号所得到的运算结果。
+
+  以下用数学归纳法证明$a_1\circ a_2\circ \cdots \circ a_n=(((a_1\circ a_2)\circ a_3)\circ \cdots )\circ a_n$。
+
+  当$n=1$时结论显然成立。
+
+  假设当$n<k$时结论成立，往证当$n=k$时结论也成立。
+
+  对$k$个元素按$a_1,a_2,\cdots,a_k$的次序不论用什么方法加括号确定计算方案，最后一步必是两个元素的乘积，不妨设为$b_1\circ b_2$，这里$b_1$为前$i$个元素$a_1,a_2,\cdots,a_i$之积，
+  而$b_2$为后$k-i$个元素$a_{i+1},\cdots,a_k$之积。
+
+  \begin{align*}
+    b_1\circ b_2 = &((((a_1\circ a_2)\circ a_3)\circ \cdots )\circ a_i)\circ ((((a_{i+1}\circ a_{i+2})\circ a_{i+3})\circ \cdots )\circ a_k)\\
+                = &(((((a_1\circ a_2)\circ a_3)\circ \cdots )\circ a_i)\circ ((((a_{i+1}\circ a_{i+2})\circ a_{i+3})\circ \cdots )\circ a_{k-1})))\circ a_k\\
+                =&((((a_1\circ a_2)\circ a_3)\circ \cdots )\circ a_{k-1})\circ a_k\\
+  \end{align*}
+\end{proof}
+ \begin{Def}
     设“$\circ$”为集合$X$上的一个二元代数运算。如果$\forall a, b \in X$，恒有\\$a \circ b = b \circ a$， 则称二元代数运算“$\circ$”满足交换律。
   \end{Def}
   \begin{Thm}
@@ -154,10 +172,7 @@ Algebra
   \begin{Exercise}
     设$(S,\circ)$为一个代数系，如果二元代数运算“$\circ$”满足结合律和交换律，则$\forall a_i\in S$，$i=1,2,\cdots,n$，$n$个元素$a_1,a_2,\cdots,a_n$的乘积仅与这$n$个元素有关而与它们的次序无关。
   \end{Exercise}
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "chapter1"
-%%% End:
+
 
 \end{CJK*}
 \end{document}
