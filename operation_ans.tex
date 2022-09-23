@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+
+  课后作业题
+
+  \begin{Exercise}
+    设$(S,\circ)$为一个代数系，如果二元代数运算“$\circ$”满足结合律和交换律，则$\forall a_i\in S$，$i=1,2,\cdots,n$，$n$个元素$a_1,a_2,\cdots,a_n$的乘积仅与这$n$个元素有关而与它们的次序无关。
+  \end{Exercise}
+
+\begin{proof}[证明]
+    设$\pi$为从集合$\{1,2,\cdots,n\}$到$\{1,2,\cdots,n\}$的一个双射，
+    以下用数学归纳法证明$a_{\pi(1)}\circ a_{\pi(2)}\circ \cdots \circ a_{\pi(n)}=(((a_1\circ a_2)\circ a_3)\circ \cdots )\circ a_n$。
+
+    这里$a_{\pi(1)}\circ a_{\pi(2)}\circ \cdots \circ a_{\pi(n)}$表示按照$a_{\pi(1)},a_{\pi(2)}, \cdots, a_{\pi(n)}$的次序进行“$\circ$”运算时任意加括号所得到的运算结果。
+
+    当$n=1$时，结论显然成立。
+
+    假设当$n=k$时结论成立，往证当$n=k+1$时，结论也成立。
+
+    设$\pi(i)=k+1$，则
+    \begin{align*}
+        &a_{\pi(1)}\circ a_{\pi(2)}\circ \cdots \circ a_{\pi(k+1)}\\
+        =&((((a_{\pi(1)}\circ a_{\pi(2)})\circ a_{\pi(3)}) \cdots )\circ a_{\pi(i-1)})\circ (a_{\pi(i)} \circ ((((a_{\pi(i+1)}\circ a_{\pi(i+2)})\circ a_{\pi(i+3)})\circ \cdots )\circ a_{\pi(k+1)}))\\
+        =&((((a_{\pi(1)}\circ a_{\pi(2)})\circ a_{\pi(3)}) \cdots )\circ a_{\pi(i-1)})\circ (((((a_{\pi(i+1)}\circ a_{\pi(i+2)})\circ a_{\pi(i+3)})\circ \cdots )\circ a_{\pi(k+1)})\circ a_{\pi(i)} )\\
+        =&((((a_{\pi(1)}\circ a_{\pi(2)})\circ a_{\pi(3)}) \cdots )\circ a_{\pi(i-1)})\circ ((((a_{\pi(i+1)}\circ a_{\pi(i+2)})\circ a_{\pi(i+3)})\circ \cdots )\circ a_{\pi(k+1)}))\circ a_{\pi(i)}\\
+        =&((((a_1\circ a_2)\circ a_3)\circ \cdots \circ) a_{k})\cdots \circ a_{k+1}
+    \end{align*}
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
