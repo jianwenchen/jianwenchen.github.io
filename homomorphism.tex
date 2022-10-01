@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第八讲 同态基本定理}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+\begin{Def}
+  设$(G,\circ)$与$(\bar{G},\cdot)$为两个群，如果存在一个从$G$到$\bar{G}$的映射$\phi$，使得$\forall a,b\in G$，\[\phi(a\circ b)=\phi(a)\circ \phi(b)\]
+  则称$\phi$为从$G$到$\bar{G}$的一个同态（homomorphism），而称$G$与$\bar{G}$同态。如果同态$\phi$是满射，则称$\phi$为从$G$到$\bar{G}$的一个满同态，此时称$G$与$\bar{G}$为满同态，
+  并记为$G\sim \bar{G}$。类似的，如果同态$\phi$为单射，则称$\phi$为单同态。
+\end{Def}
+
+\begin{Thm}
+  设$(G,\circ)$与$(\bar{G},\cdot)$为两个群，$e$和$\bar{e}$分别为其单位元，$\phi$为从$G$到$\bar{G}$的同态，则，
+  \begin{align*}
+    &\phi(e)=\bar{e}\\
+    &\forall a\in G \phi(a^{-1})=(\phi(a))^{-1}\\
+  \end{align*}
+\end{Thm}
+
+\begin{Thm}
+  设$(G,\circ)$为一个群，$\bar{G}$为一个具有二元代数运算$\cdot$的代数系。如果存在一个满射$\phi:G\to \bar{G}$使得$\forall a,b\in G$
+  \[\phi(a\circ b)=\phi(a) \cdot \phi(b)\]
+  则$(\bar{G},\cdot)$为一个群。
+\end{Thm}
+
+\begin{Thm}
+  设$\phi$为从群$G$到群$\bar{G}$的同态，则
+
+  （1）如果$H$为$G$的子群，那么$\phi(H)$为$\bar{G}$的子群；
+
+  （2）如果$\bar{H}$为$\bar{G}$的子群，那么$\phi^{-1}(\bar{H})$为$G$的子群；
+
+  （3）如果$\bar{N}$为$\bar{G}$的正规子群，那么$\phi^{-1}(\bar{N})$为$G$的子群。
+\end{Thm}
+
+\begin{Thm}
+设$\phi$为从群$G$到群$\bar{G}$的满同态，$N$为$G$的正规子群，则$\phi(N)$为$\bar{G}$的正规子群。
+\end{Thm}
+
+\begin{Def}
+设$\phi$为群$(G,\circ)$到群$(\bar{G},\cdot)$的同态，$\bar{e}$为$\bar{G}$的单位元，则$G$的子群$\phi^{-1}(\bar{e})$称为同态$\phi$的核，记为$Ker \phi$。$\phi(G)$称为$\phi$在$G$下的同态像。
+\end{Def}
+
+\begin{Thm}
+  设$\phi$为从群$(G,\circ)$到群$(\bar{G},\cdot)$的同态，则$Ker \phi$为群$G$的正规子群。
+\end{Thm}
+
+\begin{Thm}
+设$N$为$G$的一个正规子群，$\phi$为从$G$到$G/N$的一个映射，$\forall x\in G \phi(x)=xN$，则$\phi$为从$G$到$G/N$的一个同态，$Ker \phi=N$。
+\end{Thm}
+
+\begin{Thm}[群的同态基本定理]
+设$\phi$为从群$G$到群$\bar{G}$的同态，则$G/Ker G \cong \phi(G)$。
+\end{Thm}
+
+课后作业题：
+\begin{Exercise}
+设$G$为$m$阶循环群，$\bar{G}$为$n$阶循环群，试证：$G \sim \bar{G}$当且仅当$n | m$。
+\end{Exercise}
+
+\begin{Exercise}
+设$G$为一个循环群，$H$为群$G$的子群，试证:$G/H$也为循环群。
+\end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
