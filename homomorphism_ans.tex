@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第八讲 同态基本定理}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+课后作业题：
+\begin{Exercise}
+设$(G,\circ)$为$m$阶循环群，$(\bar{G},\cdot)$为$n$阶循环群，试证：$G \sim \bar{G}$当且仅当$n | m$。
+\end{Exercise}
+\begin{proof}[证明]
+由$G\sim \bar{G}$往证$n|m$：
+
+设$\phi$为从$G$到$\bar{G}$的一个满同态，由群同态基本定理，$G/Ker \phi\cong \bar{G}$，于是$|G/Ker \phi|=|\bar{G}|$。由拉格朗日定理，$|G|=|G/Ker \phi||Ker \phi|$，这说明$|G/Ker \phi|||G|$，从而$|\bar{G}|||G|$，即$n|m$。
+
+设$n|m$，往证$G\sim \bar{G}$:
+
+设$G=\{a^0,a,a^2,\cdots,a^{m-1}\}$，$\bar{G}=\{b^0,b,b^2,\cdots,b^{n-1}\}$。
+
+令$\phi:G\to \bar{G}$，$\phi(a^i)=b^{i \mod n}$，则$\forall i,j, 0\leq i \leq m-1, 0\leq j \leq m-1,$\phi(a^i\circ a^j)=\phi(a^{i+j})=b^{(i+j) \mod n} = b^{((i\mod n) + (j\mod n))\mod n}=b^{i\mod n}\cdot b^{j\mod n}=\phi(a^i)\cdot \phi(a^j)$。 
+这证明了$\phi$为从$G$到$\bar{G}$的同态，$\phi$显然为满同态，于是$G\sim \bar{G}$。
+\end{proof}
+\begin{Exercise}
+设$G$为一个循环群，$H$为群$G$的子群，试证：$G/H$也为循环群。
+\end{Exercise}
+\begin{proof}[证明]
+设$G=(a)$，$\forall x\in G/H$，存在自然数$i$使得$x=a^iH=(aH)^i$，于是$G/H=(aH)$，即$G/H$为循环群。
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
