@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第七讲 正规子群、商群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+\begin{Def}
+  设$G$为一个群，$G$的任意子集称为群子集。在$2^G$中借助于$G$的乘法引入一个代数运算，称为群子集的乘法：$\forall A,B\in 2^G$，
+  \[AB=\{ab|a\in A \text{且} b\in B\}\]
+  对任意的$A\in 2^G$，定义
+\[A^{-1}=\{a^{-1}|a\in A\}\]
+\end{Def}
+
+\begin{Thm}
+  设$G$为一个群，则$\forall A,B,C\in 2^G$，$(AB)C=A(BC)$。
+\end{Thm}
+
+\begin{Thm}
+  设$G$为一个群，则$\forall A,B\in 2^G$，$(AB)^{-1}=B^{-1}A^{-1}$。
+\end{Thm}
+
+\begin{Thm}
+  设$G$为一个群，$H$为$G$的一个子群，则$HH=H,H^{-1}=H,HH^{-1}=H$。
+\end{Thm}
+
+\begin{Thm}
+设$A$，$B$为群$G$的子群，则$AB$为$G$的子群的充分必要条件为$AB=BA$。
+\end{Thm}
+
+\begin{Example}
+设$H$为$G$的一个子群且$H\neq \{e\}$。如果存在一个元素$x_0\in G$使得$H(x_0^{-1}Hx_0)=G$，则$H\cap (x_0^{-1}Hx_0)\neq \{e\}$。
+\end{Example}
+
+\begin{Def}
+  设$H$为群$G$的子群，如果$\forall a\in G$有$aH=Ha$，则称$H$为$G$的正规子群。
+\end{Def}
+\begin{Thm}
+ 设$H$为群$G$的一个子群，则下列三个命题等价：
+
+ （1）$H$为群$G$的正规子群；
+
+ （2）$\forall a\in G, aHa^{-1}=H$；
+
+ （3）$\forall a\in G, aHa^{-1}\subseteq H$。
+\end{Thm}
+
+\begin{Thm}
+设$H$为群$G$的正规子群，则$H$的所有左陪集构成的集族$S_l$对群子集乘法形成一个群。
+\end{Thm}
+\begin{Def}
+  群$G$的正规子群$H$的所有左陪集构成的集族，对群子集乘法构成的群称为$G$对$H$的商群，记为$G/H$。
+\end{Def}
+
+
+课后作业题：
+\begin{Exercise}
+设$A$和$B$为群$G$的两个有限子群，证明：
+\[|AB|=\frac{|A||B|}{|A\cap B|}\]
+\end{Exercise}
+\begin{Exercise}
+  利用上题的结论证明：六阶群中有唯一的一个三阶子群。
+\end{Exercise}
+\begin{Exercise}
+设$G$为一个$n^2$阶的群，$H$为$G$的一个$n$阶子群。证明：$\forall x\in G, x^{-1}Hx\cap H \neq \{e\}$。
+\end{Exercise}
+\begin{Exercise}
+证明：指数为2的子群为正规子群。
+\end{Exercise}
+\begin{Exercise}
+证明：两个正规子群的交还是正规子群。
+\end{Exercise}
+\begin{Exercise}
+设$H$为群$G$的子群，$N$为群$G$的正规子群，试证：$NH$为群$G$的子群。
+\end{Exercise}
+\begin{Exercise}
+设$G$为一个阶为$2n$的交换群，试证：$G$必有一个$n$阶商群。
+\end{Exercise}
+\begin{Exercise}
+设$H$为群$G$的子群，证明：$H$为群$G$的正规子群的充分必要条件是$H$的任意两个左陪集的乘积还是$H$的一个左陪集。
+\end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
