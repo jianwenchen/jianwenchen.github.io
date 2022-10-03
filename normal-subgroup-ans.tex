@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第七讲 正规子群、商群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+
+课后作业题：
+\begin{Exercise}
+设$A$和$B$为群$G$的两个有限子群，证明：
+\[|AB|=\frac{|A||B|}{|A\cap B|}\]
+\end{Exercise}
+\begin{proof}[证明]
+  因为$A\cap B$为$A$的子群，因此存在$a_1,a_2,\cdots,a_n\in A$，使得
+  \[A=a_1(A\cap B)\cup a_2(A\cap B)\cup \cdots \cup a_n(A\cap B)\]
+  这里$n=\frac{|A|}{|A\cap B|}$。以下验证$AB=a_1B\cup a_2B\cup \cdots \cup a_nB$，并且对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，
+  $a_iB\cap a_jB=\phi$，于是$|AB|=n|B|=\frac{|A||B|}{|A\cap B|}$。
+
+  $\forall g\in AB$，存在$a\in A$，$b\in B$使得$g=ab$。进一步，存在$i$，$1\leq i\leq n$，$x\in A\cap B$使得$a=a_ix$，于是$g=a_ixb\in a_iB$（因为$x\in A\cap B\subseteq B$，$b\in B$，从而$xb\in B$）。
+
+以下用反正法证明对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，
+$a_iB\cap a_jB=\phi$。假设存在$i,j$,$1\leq i \leq n$，$1\leq j \leq n$，使得$a_iB\cap a_jB\neq \phi$，则存在$x$，$x\in a_iB\cap a_jB$。
+设$x=a_ib_1=a_jb_2$，这里$b_1\in B$，$b_2\in B$，则$a_i^{-1}b_j=b_1b_2^{-1}\in A\cap B$，从而$a_i(A\cap B)=a_j(A\cap B)$，与$a_i(A\cap B)\cap a_j(A\cap B)=\phi$矛盾。
+
+\end{proof}
+\begin{Exercise}
+  利用上题的结论证明：六阶群中有唯一的一个三阶子群。
+\end{Exercise}
+\begin{proof}[证明]
+  设$A$和$B$为六阶群$G$的两个三阶子群，由练习1结论可得：
+  \[|AB|=\frac{|A||B|}{|A\cap B|}\]
+
+  由于$A\cap B$为$A$的子群，所以必有$|A\cap B|||A|$，从而$|A\cap B|=1$或$3$。如果$|A\cap B|=1$，则$|AB|=9$，这与$G$为一个六阶群，$AB$为$G$的群子集矛盾，从而$|A\cap B|=3$，此时必有$A=B$,结论得证。
+\end{proof}
+\begin{Exercise}
+设$G$为一个$n^2$阶的群，$H$为$G$的一个$n$阶子群。证明：$\forall x\in G, x^{-1}Hx\cap H \neq \{e\}$。
+\end{Exercise}
+\begin{proof}[证明]
+  用反证法，假设存在$x\in G$，$x^{-1}Hx\cap H = \{e\}$。由练习1结论可得，
+  \[|H(x^{-1}Hx)|=\frac{|H||x^{-1}Hx|}{|H\cap (x^{-1}Hx)|}=n^2\]
+  又由于$G$为一个$n^2$阶的群，所以$H(x^{-1}Hx)=G$，由教材例题结论可得$x^{-1}Hx\cap H \neq \{e\}$，矛盾。
+\end{proof}
+\begin{Exercise}
+证明：指数为2的子群为正规子群。
+\end{Exercise}
+\begin{proof}[证明]
+  设$H$为群$G$的指数为2的子群，则存在$a\in G$使得$G=H\cup aH$。
+
+
+  $\forall g\in G$，如果$g\in H$，则显然$gHg^{-1}\subseteq H$；如果$g\in aH$，则存在$h\in H$使得$g=ah$，
+  以下证明$gHg^{_1}\subseteq H$，从而可得$H$为$G$的正规子群。
+
+  $\forall x\in gHg^{-1}$，存在$h_1\in H$使得$x=gh_1g^{-1}$，再由$g=ah$得$x=ahh_1(ah)^{-1}=ahh_1h^{-1}a^{-1}$。
+  此时必有$x\in H$，否则$x\in aH$，从而存在$h_2\in H$使得$x=ah_2$，于是$ahh_1h^{-1}a^{-1}=ah_2$，由此可得$a=h_2^{-1}hh_1h^{-1}\in H$，与$a\in aH$矛盾。
+\end{proof}
+\begin{Exercise}
+证明：两个正规子群的交还是正规子群。
+\end{Exercise}
+\begin{proof}[证明]
+  设$N_1$和$N_2$为群$G$的两个正规子群，显然$N_1\cap N_2$为$G$的子群。$\forall a\in G$，易得$a(N_1\cap N_2)a^{-1}\subseteq aN_1a^{-1}\subseteq N_1$,$a(N_1\cap N_2)a^{-1}\subseteq aN_2a^{-1}\subseteq N_2$，由此可得$a(N_1\cap N_2)a^{-1}\subseteq N_1\cap N_2$，这证明了$N_1\cap N_2$为$G$的正规子群。
+\end{proof}
+\begin{Exercise}
+设$H$为群$G$的子群，$N$为群$G$的正规子群，试证：$NH$为群$G$的子群。
+\end{Exercise}
+\begin{proof}[证明]
+  只需证$NH=HN$。
+
+  $\forall g \in NH$，$\exists n\in N, h\in H$使得$g=nh$，由$N$为正规子群知$hN=Nh$，从而$\exists n_1\in N$使得$nh=hn_1$，于是$g=nh=hn_1\in HN$。
+
+  $\forall g \in HN$，$\exists h\in H, n\in N$使得$g=hn$，由$N$为正规子群知$hN=Nh$，从而$\exists n_1\in N$使得$hn=n_1h$，于是$g=hn=n_1h\in NH$。
+\end{proof}
+\begin{Exercise}
+设$G$为一个阶为$2n$的交换群，试证：$G$必有一个$n$阶商群。
+\end{Exercise}
+\begin{proof}[证明]
+  由以前作业题知$G$中存在一个阶为$2$的元素$a$，则$G/(a)$为$G$的一个$n$阶商群。
+\end{proof}
+\begin{Exercise}
+设$H$为群$G$的子群，证明：$H$为群$G$的正规子群的充分必要条件是$\forall a,b\in G,(aH)(bH)=(ab)H$。
+\end{Exercise}
+
+\begin{proof}[证明]
+  由教材定理知如果$H$为群$G$的正规子群，则$\forall a,b\in G,(aH)(bH)=(ab)H$。
+
+  以下假设$\forall a,b\in G,(aH)(bH)=(ab)H$，往证$H$为群$G$的正规子群。
+
+  $\forall a\in G$，$(aH)(a^{-1}H)=(aa^{-1})H=eH=H$，从而$\forall h\in H$，$aha^{-1}h\in H$，于是$\exists h_1\in H, aha^{-1}h=h_1$，由此可得$aha^{-1}=h_1h^{-1}\in H$，
+  这证明了$aHa^{-1}\subseteq H$，即$H$为群$G$的正规子群。
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
