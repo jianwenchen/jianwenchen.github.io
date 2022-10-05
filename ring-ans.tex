@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第九讲 环的定义及简单性质}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+
+课后作业题：
+\begin{Exercise}
+  设$Z(\sqrt{2})=\{m+n\sqrt{2}|m,n\in Z\}$，其中$Z$为全体整数之集合。试证：$Z(\sqrt{2})$对数的通常加法和乘法构成一个环。
+\end{Exercise}
+\begin{proof}[证明]
+  $\forall m_1,n_1,m_2,n_2\in Z$，$(m_1+n_1\sqrt{2})+(m_2+n_2\sqrt{2})=(m_1+m_2)+(n_1+n_2)\sqrt{2}$，$(m_1+n_1\sqrt{2})(m_2+n_2\sqrt{2})=(m_1m_2+2n_1n_2)+(m_1n_2+m_2n_1)\sqrt{2}$，
+  这验证了加法和乘法满足封闭性。
+
+  加法的结合律显然成立。
+
+  加法的单位元为$0+0\sqrt{2}=0$。
+
+  $\forall m,n\in Z$，$m+n\sqrt{2}$对加法的逆元为$(-m)+(-n)\sqrt{2}$。
+
+  乘法的结合律，乘法对加法的分配律显然成立。
+\end{proof}
+\begin{Exercise}
+  设$Q(\sqrt[3]{2})=\{a+b\sqrt[3]{2}|a,b\in Q\}$，其中$Q$为全体有理数之集合。试证：$Q(\sqrt[3]{2})$对数的通常加法和乘法不构成一个环。
+\end{Exercise}
+\begin{proof}[证明]
+  $Q(\sqrt[3]{2})$对乘法不满足封闭性。否则如果$\sqrt[3]{2}\sqrt[3]{2}=a+b\sqrt[3]{2}$,则$\sqrt[3]{4}=a+b\sqrt[3]{2}$，
+  从而$2=\sqrt[3]{2}\sqrt[3]{4}=\sqrt[3]{2}(a+b\sqrt[3]{2})=a\sqrt[3]{2}+b\sqrt[3]{4}=a\sqrt[3]{2}+b(a+b\sqrt[3]{2})=ab+(a+b^2)\sqrt[3]{2}$，
+  于是$\sqrt[3]{2}=\frac{2-ab}{a+b^2}$。等式的右边是一个有理数，左边是一个无理数，矛盾。
+\end{proof}
+\begin{Exercise}
+设$e$为环$R$的唯一左单位元，试证$e$为$R$的单位元。
+\end{Exercise}
+\begin{proof}[证明]
+  $\forall a,b\in R$，
+  \[(ae-a+e)b=(ae)b-ab+eb=ab-ab+b=b\]
+  从而$ae-a+e$也为$R$的左单位元，又由于$e$为环$R$的唯一左单位元，从而$ae-a+e=e$，于是$ae=a$，这说明$e$也为$R$的右单位元，从而为$R$的单位元。
+\end{proof}
+\begin{Exercise}
+设$(R,+,\circ)$为一个有单位元$1$的环，如果$R$中的元素$a$，$b$及$ab-1$均有逆元素，试证$a-b^{-1}$及$(a-b^{-1})^{-1}-a^{-1}$也有逆元素，并且
+\[((a-b^{-1})^{-1}-a^{-1})^{-1}=aba-a\]
+\end{Exercise}
+\begin{proof}[证明]
+  欲证
+  \[((a-b^{-1})^{-1}-a^{-1})^{-1}=aba-a\]
+  只需证
+  \[((a-b^{-1})^{-1}-a^{-1})(aba-a)=1\]
+  只需证
+  \[(a-b^{-1})^{-1}(aba-a)-ba+1=1\]
+  只需证
+  \[(a-b^{-1})^{-1}(aba-a)=ba\]
+  只需证
+  \[(a-b^{-1})(ba)=aba-a\]
+  该等式显然成立。
+
+  我们还需要证明$a-b^{-1}$可逆。
+
+  在
+  \[(a-b^{-1})(ba)=aba-a\]
+  的启发下，
+  计算
+  \[(a-b^{-1})(b(ab-1)^{-1})=1\]
+  得$a-b^{-1}$可逆。
+
+\end{proof}
+\begin{Exercise}
+  有单位元素的环$R$中零因子没有逆元素。
+\end{Exercise}
+\begin{proof}[证明]
+  设$a$为$R$的零因子，则存在一个$b\in R$，$b\neq 0$，使得$ab=0$。以下用反证法证明$a$没有逆元素。假设$a$有逆元素，
+  则$a^{-1}(ab)=a^{-1}0=0$,即$(a^{-1}a)b=b=0$，与$b\neq 0$矛盾。
+\end{proof}
+\begin{Exercise}
+  在交换环中二项式定理
+\[(a+b)^n=a^n+\binom{n}{1}a^{n-1}b+\binom{n}{2}a^{n-2}b^2+\cdots+\binom{n}{n-1}ab^{n-1}+b^n\]
+  成立。
+\end{Exercise}
+\begin{proof}[证明]
+用数学归纳法证明，施归纳于$n$。
+
+当$n=1$时，结论显然成立。
+
+假设当$n=k$时结论成立，往证当$n=k+1$时结论也成立。
+\begin{align*}
+  &(a+b)^{k+1}\\
+  =&(a+b)^k(a+b)\\
+  =&(a^k+\binom{k}{1}a^{k-1}b+\binom{k}{2}a^{k-2}b^2+\cdots+\binom{k}{k-1}ab^{k-1}+b^k)(a+b)\\
+  =&a^{(k+1)}+(\binom{k}{0}+\binom{k}{1})a^{(k+1)-1}b+(\binom{k}{1}+\binom{k}{2})a^{(k+1)-2}b^2+\cdots+(\binom{k}{k-1}+\binom{k}{k})ab^{(k+1)-1}+b^{(k+1)}\\
+  =&a^{(k+1)}+\binom{k+1}{1}a^{(k+1)-1}b+\binom{k+1}{2}a^{(k+1)-2}b^2+\cdots+\binom{k+1}{(k+1)-1}ab^{(k+1)-1}+b^{(k+1)}\\
+\end{align*}
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
