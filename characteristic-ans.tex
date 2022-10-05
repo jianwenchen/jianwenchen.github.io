@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第十讲 无零因子环的特征数}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+课后作业题：
+\begin{Exercise}
+设$F$为一个域，$|F|=4$，证明：
+
+（1）$F$的特征数为$2$；
+
+（2）$F$的任意一个非零元并且非单位元$1$的元素$x$均满足方程$x^2=x+1$；
+
+（3）列出$F$的加法表和乘法表。
+\end{Exercise}
+\begin{proof}[证明]
+
+  （1）考虑$F$中乘法的单位元$1$，如果$1+1=0$，即$1$的阶为2，则$F$的特征数为$2$。
+
+  以下用反证法证明$1$的阶为$2$。假设$1$的阶不是$2$，由于$1$的阶整除$4$，因此$1$的阶必为$4$。此时$1+1\neq 0$，但$1+1+1+1=0$，即$1+1$的阶为$2$。
+  由于$F$的所有非零元素的阶都相等，因此$1$的阶为$2$，矛盾。
+
+  （2）设$x$为$F$的任意一个非零元并且非单位元$1$的元素，
+
+  则$x+1\neq 0$（否则$x+1=1+1$，可得$x=1$，与$x$非单位元$1$矛盾）,$x+1\neq 1$（否则$x=0$,与$x$非零元矛盾），$x+1\neq x$（否则$1=0$，与$1\neq 0$矛盾），
+  于是$x$和$x+1$为$F$中与$0$和$1$不同的其他两个元素，此时必有$x(x+1)=1$，这是因为$x(x+1)\neq x$（否则$x+1=1$，与$x+1\neq 1$矛盾），$x(x+1)\neq x+1$（否则$x=1$，与$x$非单位元$1$矛盾）。
+
+  于是$x^2+x=1$，两边同时加$x$得$x^2=x+1$（由于$x$得阶为$2$，这里$x+x=0$）。
+
+  （3）设$F=\{0,1,a,b\}$，加法表如下：
+
+  \begin{tabular}{c|cccc}
+    $+$&0&1&a&b\\
+    \hline
+  0&0&1&a&b\\
+  1&1&0&b&a\\
+  a&a&b&0&1\\
+  b&b&a&1&0\\
+  \end{tabular}
+
+  乘法表如下：
+
+  \begin{tabular}{c|cccc}
+    $\circ$&0&1&a&b\\
+    \hline
+  0&0&0&0&0\\
+  1&0&1&a&b\\
+  a&0&a&b&1\\
+  b&0&b&1&a\\
+  \end{tabular}
+
+\end{proof}
+
+
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
