@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第四讲 子群、生成子群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+课后作业题：
+\begin{Exercise}
+举例说明两个子群的并可以不是子群。
+\end{Exercise}
+\begin{proof}[解]
+  $S_6=\{[0],[1],[2],[3],[4],[5]\}$，
+
+  $\{[0],[2],[4]\}$和$\{[0],[3]\}$为$S_6$的两个子群，
+  但$\{[0],[2],[4]\}\cup \{[0],[3]\}=\{[0],[2],[3],[4]\}$不是$S_6$的子群，因为$[2]+[3]=[5]\notin \{[0],[2],[3],[4]\}$。
+\end{proof}
+\begin{Exercise}
+  设$G_1$和$G_2$为群$G$的两个真子群，证明：$G_1\cup G_2$为$G$的子群的充分必要条件是$G_1\subseteq G_2$或者$G_2\subseteq G_1$。
+\end{Exercise}
+\begin{proof}[证明]
+  如果$G_1\subseteq G_2$或者$G_2\subseteq G_1$，则$G_1\cup G_2=G_2$或$G_1$，此时显然$G_1\cup G_2$为$G$的子群。
+
+  如果$G_1\cup G_2$为$G$的子群，以下用反证法证明$G_1\subseteq G_2$或者$G_2\subseteq G_1$。假设$G_1\nsubseteq G_2$并且$G_2\nsubseteq G_1$，则存在$g_2\in G_2$，但是$g_2\notin G_1$，同时存在$g_1\in G_1$，但是$g_1\notin G_2$。
+  于是$G_1$为$G_1\cup G_2$的真子集，$G_2$为$G_1\cup G_2$的真子集，易得$G_1$和$G_2$为$G_1\cup G_2$的真子群，由于任一群不能是两个真子群的并，矛盾。
+\end{proof}
+\begin{Exercise}
+  设$(G_1,\circ)$和$(G_2,*)$都是群，$\phi:G_1\to G_2$，$\forall a,b\in G_1$，$\phi(a\circ b)=\phi(a)*\phi(b)$，
+  证明：$\phi^{-1}(e_2)$为$G_1$的子群，其中$e_2$为$G_2$的单位元素。
+\end{Exercise}
+\begin{proof}[证明]
+  设$e_1$为$G_1$的单位元，则$\phi(e_1)=\phi(e_1\circ e_1)=\phi(e_1)*\phi(e_1)$，两边同时左乘$\phi(e_1)^{-1}$，得$\phi(e_1)=e_2$，
+  从而$e_1\in \phi^{-1}(e_2)$，所以$\phi^{-1}(e_2)$非空。
+
+  $\forall x,y\in \phi^{-1}(e_2)$，$\phi(x)=\phi(y)=e_2$，从而$\phi(x\circ y)=\phi(x)*\phi(y)=e_2*e_2=e_2$，故$x\circ y\in \phi^{-1}(e_2)$，于是$G$中的乘法在$\phi^{-1}(e_2)$中封闭。
+
+$\forall x\in \phi^{-1}(e_2)$，$e_2=\phi(e_1)=\phi(x^{-1}\circ x)=\phi(x^{-1})*\phi(x)=\phi(x^{-1})*e_2=\phi(x^{-1})$，从而$x^{-1}\in \phi^{-1}(e_2)$。
+
+以上证明了$\phi^{-1}(e_2)$为$G_1$的子群。
+\end{proof}
+\begin{Exercise}
+  找出$3$次对称群的所有子群。
+\end{Exercise}
+\begin{proof}[解]
+  $\{(1),(1,2)\}$，$\{(1),(1,3)\}$，$\{(1),(2,3)\}$，$\{(123),(132)\}$
+\end{proof}
+
+\begin{Exercise}
+  令$P=\{(12),(123)\}\subseteq S_3$。写出由$P$生成的$S_3$的子群$(P)$。
+\end{Exercise}
+\begin{proof}[解]
+  $(P)=S_3$。
+
+  这可以由以下计算得到：
+
+  $(12)(123)=(13)$，$(123)(12)=(23)$，$(123)(123)=(132)$。
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
