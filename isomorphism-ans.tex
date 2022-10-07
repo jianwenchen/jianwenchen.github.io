@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\newtheorem{Cor}{推论}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第五讲 变换群、同构}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+  
+课后作业题：
+\begin{Exercise}
+设$R$为实数集合，$G$为一切形如$f(x)=ax+b$的从$R$到$R$的函数之集，这里$a\in R$，$b\in R$，$a\neq 0$，试证：$G$为一个变换群。
+\end{Exercise}
+\begin{proof}[证明]
+  设$f(x)=ax+b$，$g(x)=cx+d$，$a,b,c,d\in R$，$a\neq 0$，$c\neq 0$，则
+  $(f\circ g)(x)=a(cx+d)+b=acx+(ad+b)$，这里$ac\neq 0$，因此$f\circ g\in G$。
+这验证了$G$中的函数关于函数的合成满足封闭性。
+
+设$h:R\to R,h(x)=x$,则$h\in G$，$h$为$G$的函数关于函数合成运算的单位元。
+
+对任意的$f\in G$，设$f=ax+b$，$a,b\in R$，$a\neq 0$。
+
+寻找$g\in G$，使得$g\circ f=h$。设$g(x)=cx+d$，$c,d\in R$，$c\neq 0$，
+
+则$(g\circ f)(x)=c(ax+b)+d=cax+(cb+d)=x$，解方程组
+\begin{cases}
+  &ca=1\\
+  &cb+d=0\\
+\end{cases}
+得$c=\frac{1}{a},d=-\frac{b}{a}$，
+易验证$g(x)=\frac{1}{a}x-\frac{b}{a}$满足$(g\circ f)(x)=x$。
+
+\end{proof}
+\begin{Exercise}
+  设$R$为实数集合，$H$为一切形如$f(x)=x+b$的从$R$到$R$的函数之集，这里$b\in R$，试证：$H$为上题中$G$的一个子群。
+\end{Exercise}
+\begin{proof}[证明]
+  显然$H$非空，例如$h:R\to R$,$h(x)=x$，则$h\in H$。
+
+  $\forall f,g\in H$，$f(x)=x+b$，$g(x)=x+c$，$b,c\in R$，则$(f\circ g^{-1})(x)=(x-c)+b=x+(b-c)\in H$，因此$H$为上题中$G$的一个子群。
+\end{proof}
+\begin{Exercise}
+设$R_+$为一切正实数之集，$R$为一切实数之集。$(R_+,\times)$，$(R,+)$都为群。令$\phi:R_+\to R,\forall x\in R_+,\phi(x)=log_p(x)$，其中$p$为任意一个正实数。证明$\phi$为同构。
+\end{Exercise}
+\begin{proof}[证明]
+  显然$\phi$为从$R_+$到$R$的双射。
+
+  其次，$\phi(x\times y)=log_p(x\times y)=\log_p(x)+\log_p(y)=\phi(x)+\phi(y)$。
+
+  因此，$\phi$为从$(R_+,\times)$到$(R,+)$的同构。
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
