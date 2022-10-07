@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第四讲 子群、生成子群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+ \begin{Def}
+  设$S$为群$G$的非空子集，如果$G$的乘法在$S$中封闭且$S$对此乘法也构成一个群，则称$S$为$G$的一个子群。
+  如果$S\neq G$，则称$S$为$G$的真子群。
+ \end{Def} 
+
+ \begin{Thm}
+  设$G_1$为$G$的子群，则$G_1$的单位元必为$G$的单位元；$G_1$的元素$a$在$G_1$中的逆元素也是$a$在$G$中的逆元素。
+ \end{Thm}
+
+ \begin{Thm}
+  群$G$的任意多个子群的交还是$G$的子群。
+ \end{Thm}
+
+ \begin{Thm}
+  任一群不能是其两个真子群的并。
+ \end{Thm}
+
+ \begin{Thm}
+  群$G$的非空子集$S$为$G$的子群的充分必要条件是
+
+  （1）$\forall a,b\in S, ab\in S$且
+
+  （2）$\forall a\in S, a^{-1}\in S$。
+ \end{Thm}
+
+ \begin{Thm}
+  群$G$的非空子集$S$为$G$的子群的充分必要条件是$\forall a,b\in S, ab^{-1}\in S$。
+ \end{Thm}
+
+
+ \begin{Thm}
+  群$G$的有限非空子集$F$为$G$的子群的充分必要条件是$\forall a,b\in F, ab\in F$。
+ \end{Thm}
+
+ \begin{Def}
+  群$G$的元素$a$称为$G$的中心元素，如果$a$与$G$的每个元素可交换，即$\forall x\in G, ax=xa$。$G$的所有中心元素构成的集合$C$称为$G$的中心。
+ \end{Def}
+ \begin{Thm}
+  群$G$的中心$C$是$G$的可交换子群。
+ \end{Thm}
+
+\begin{Example}
+  设$G$为一个群，$a\in G$，$\{\cdots,a^{-2},a^{-1},e,a,a^2,\cdots\}$为$G$的一个子群。
+\end{Example}
+
+\begin{Example}
+  设$G$为一个有限群，$a\in G$，$\{e,a,a^2,\cdots\}$为$G$的一个子群。
+\end{Example}
+
+\begin{Example}
+  设$G$为一个交换群，$a,b\in G$，则$\{a^mb^n|m,n\in Z\}$为$G$的一个子群。
+\end{Example}
+
+\begin{Def}
+  设$M$为$G$的一个子集，$G$的包含$M$的所有子群的交称为由$M$生成的子群，记为$(M)$。
+\end{Def}
+课后作业题：
+\begin{Exercise}
+举例说明两个子群的并可以不是子群。
+\end{Exercise}
+\begin{Exercise}
+  设$G_1$和$G_2$为群$G$的两个真子群，证明：$G_1\cup G_2$为$G$的子群的充分必要条件是$G_1\subseteq G_2$并且$G_2\subseteq G_1$。
+\end{Exercise}
+
+\begin{Exercise}
+  设$(G_1,\circ)$和$(G_2,*)$都是群，$\phi:G_1\to G_2$，$\forall a,b\in G_1$，$\phi(a\circ b)=\phi(a)*\phi(b)$，
+  证明：$\phi^{-1}(e_2)$为$G_1$的子群，其中$e_2$为$G_2$的单位元素。
+\end{Exercise}
+
+\begin{Exercise}
+  找出$3$次对称群的所有子群。
+\end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
