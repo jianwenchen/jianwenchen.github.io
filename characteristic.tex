@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第十一讲 无零因子环的特征数}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+在初等代数中，如果$a\neq 0$，则$na=\underbrace{a+a+\cdots+a}_\text{n}\neq 0$,
+这个结论在一般的域中成立吗？
+
+\begin{Example}
+  设$p$为一个素数，则模$p$同余类环$Z_p=\{[0],[1],\cdots,[p-1]\}$为一个域。在域$Z_p$中，
+  同余类$[1]\neq [0]$，但是
+  \[p[1]=\underbrace{[1]+[1]+\cdots+[1]}_\text{p个[1]}=[0]\]
+  而且$\forall [i]\in Z_p$，$p[i]=[pi]=[0]$。$[0]$为域$Z_p$中的零元，在$Z_p$中任一非零元的$p$倍等于零元。
+\end{Example}
+
+在上例中，任意一个非零元对加法的阶都等于$p$，在一般的域中，这个结论成立吗？
+
+下面的例子说明在一般的环中，该结论不成立。
+
+\begin{Example}
+  在环$Z_4=\{[0],[1],[2],[3]\}$中，$[1]$对加法的阶为$4$，$[2]$对加法的阶为$2$。
+\end{Example}
+
+\begin{Thm}
+在一个无零因子环中，每个非零元素对加法的阶均相等。
+\end{Thm}
+
+\begin{Cor}
+  体和域中每个非零元素对加法的阶均相等。
+\end{Cor}
+
+\begin{Def}
+  无零因子环中非零元素对加法的阶称为该环的特征数，简称特征；域（体）中非零元素对加法的阶称为该域（体）的特征数，简称特征。
+\end{Def}
+
+\begin{Thm}
+  如果一个无零因子环$R$的特征数为正整数$p$，则$p$为素数。
+\end{Thm}
+
+\begin{Thm}
+  在特征为$p$的域中，
+  \begin{align*}
+    (a+b)^p=&a^p+b^p\\
+    (a-b)^p=&a^p-b^p\\
+  \end{align*}
+\end{Thm}
+\begin{proof}[证明]
+
+由
+  \[a^p=(a-b+b)^p=(a-b)^p+b^p\]
+可得
+\[(a-b)^p=a^p-b^p\]
+\end{proof}
+课后作业题：
+\begin{Exercise}
+设$F$为一个域，$|F|=4$，证明：
+
+（1）$F$的特征数为$2$；
+
+（2）$F$的任意一个非零元并且非单位元$1$的元素$x$均满足方程$x^2=x+1$；
+
+（3）列出$F$的加法表和乘法表。
+\end{Exercise}
+
+
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
