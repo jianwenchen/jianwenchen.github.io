@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第六讲 循环群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+课后作业题：
+\begin{Exercise}
+证明：$n$次单位根之集对数的通常乘法构成一个循环群。
+\end{Exercise}
+\begin{proof}[证明]
+  $n$次单位根之集对数的通常乘法构成的群为$(cos(\frac{\theta}{n})+isin(\frac{\theta}{n}))$。
+\end{proof}
+\begin{Exercise}
+找出模$12$的同余类加群的所有子群。
+\end{Exercise}
+\begin{proof}[解]
+  $([0])=\{[0]\},([1])=Z_{12},([2])=\{[0],[2],[4],[6],[8],[10],[12]\},([3])=\{[0],[3],[6],[9]\},([4])=\{[0],[4],[8]\},$
+  $([6])=\{[0],[6]\}$。
+
+\end{proof}
+\begin{Exercise}
+  设$G=(a)$为一个$n$阶循环群。证明：如果$(r,n)=1$，则$(a^r)=G$。
+\end{Exercise}
+
+\begin{proof}[证明]
+  由$(r,n)=1$知存在$s,t\in Z$，使得$1=sr+tn$，从而$a^1=a^{sr+tn}=(a^r)^s(a^n)^t=(a^r)^se^t=(a^r)^s$，
+  于是$a\in (a^r)$，从而$(a^r)=G$。
+\end{proof}
+\begin{Exercise}
+  设群$G$中元素$a$的阶为$n$，$(r,n)=d$。证明：$a^r$的阶为$n/d$。
+\end{Exercise}
+\begin{proof}[证明]
+  以下证明$(a^d)=(a^r)$，而$|(a^d)|=n/d$，于是$|(a^r)|=n/d$，从而$a^r$的阶为$n/d$。
+
+  由$(r,n)=d$知存在$s,t\in Z$使得$d=sr+tn$，从而$a^d=a^{(sr+tn)}=(a^r)^s(a^n)^t=(a^r)^se^t=(a^r)^s$，
+  于是$a^d\in (a^r)$，由此可得$(a^d)\subseteq (a^r)$。
+
+  设$r=kd$，这里$k\in n$，于是$a^r=(a^d)^k$，从而$a^r\in (a^d)$，由此可得$(a^r)\subseteq (a^d)$。
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
