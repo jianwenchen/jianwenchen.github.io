@@ -17,24 +17,86 @@
 
 \newtheorem*{Example}{例}
 
-
+\newtheorem{Cor}{推论}
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
   \title{第七讲 陪集、拉格朗日定理}
   \author{陈建文}
   \maketitle
   % \tableofcontents
-  
+  \begin{Def}
+    设$G$为一个群，$G$的任意子集称为群子集。在$2^G$中借助于$G$的乘法引入一个代数运算，称为群子集的乘法：$\forall A,B\in 2^G$，
+    \[AB=\{ab|a\in A \text{且} b\in B\}\]
+    $\forall g\in G,A\in 2^G,\{g\}A$简写为$gA$，即$gA=\{ga|a\in A\}$。
+  \end{Def}
 
+\begin{Def}
+  设$H$为群$G$的一个子群，$a\in G$，则集合$aH$称为子群$H$的一个左陪集，$Ha$称为$H$的一个右陪集。
+\end{Def}
+
+\begin{Thm}
+  设$H$为群$G$的一个子群，则$\forall a\in G$，$aH=H$的充分必要条件是$a\in H$。
+\end{Thm}
+  
+\begin{Thm}
+  设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$的充分必要条件是$a^{-1}b\in H$。
+\end{Thm}
+
+\begin{Thm}
+  设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$或者$aH\cap bH=\phi$。
+\end{Thm}
+
+\begin{Thm}
+  设$H$为群$G$的一个子群，则$\forall a,b\in G$，$|aH|=|bH|$。
+\end{Thm}
+
+\begin{Thm}
+  设$H$为群$G$的一个子群，则$H$的左右左陪集构成的集合为$G$的一个划分。
+\end{Thm}
+
+\begin{Def}
+  设$H$为群$G$的一个子群，如果$H$的所有不同的左陪集的个数为有限数$j$，则称$j$为$H$在$G$中的指数，记为$j=[G:H]$，否则称$H$在$G$中的指数为无穷大。
+\end{Def}
+
+\begin{Thm}
+ 设$G$为一个有限群，$H$为$G$的一个子群，则$|G|=|H|\cdot [G:H]$。 
+\end{Thm}
+
+\begin{Cor}
+有限群中每个元素的阶都能整除该有限群的阶。
+\end{Cor}
+
+\begin{Cor}
+  如果群$G$的阶为素数，则$G$为一个循环群。
+\end{Cor}
+
+\begin{Cor}
+  设$G$为一个群，则$\forall a\in G$，$a^{|G|}=e$。
+\end{Cor}
+
+\begin{Example}
+  阶小于等于$5$的群为交换群。
+\end{Example}
+
+\begin{Thm}
+  设$H$为群$G$的一个子群，$S_l$为$H$的所有左陪集构成的集合，$S_r$为$H$的所有右陪集构成的集合，则$|S_l|=|S_r|$。
+\end{Thm}
 
 
 课后作业题：
 \begin{Exercise}
-
+证明：六阶群里必有一个三阶子群。
 \end{Exercise}
 
 \begin{Exercise}
+设$p$为一个素数，证明：在阶为$p^m$的群里一定含有一个$p$阶子群，其中$m\geq 1$。
+\end{Exercise}
 
+\begin{Exercise}
+在三次对称群$S_3$中，找一个子群$H$，使得$H$的左陪集不等于$H$的右陪集。
+\end{Exercise}
+\begin{Exercise}
+设$H$为群$G$的一个子群，如果左陪集$aH$等于右陪集$Ha$，即$aH=Ha$，则$\forall h\in H, ah=ha$一定成立吗？
 \end{Exercise}
 \end{CJK*}
 \end{document}
