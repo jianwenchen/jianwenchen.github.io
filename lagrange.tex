@@ -82,7 +82,71 @@
   设$H$为群$G$的一个子群，$S_l$为$H$的所有左陪集构成的集合，$S_r$为$H$的所有右陪集构成的集合，则$|S_l|=|S_r|$。
 \end{Thm}
 
+\begin{Def}
+  设$a,b,n\in Z$，$n>0$，如果$n|(a-b)$，则称$a$与$b$模$n$同余，记为$a \equiv b(\mod n)$。
+\end{Def}
 
+\begin{Thm}
+  $\forall a,b\in Z, a\equiv b(\mod n)$等价于$a\mod n = b \mod n$。
+\end{Thm}
+
+\begin{Thm}
+  1. $\forall a\in Z, a \equiv a (\mod n)$；
+
+  2. $\forall a, b\in Z$，如果$a\equiv b (\mod n)$，则$b\equiv a(\mod n)$；
+
+  3. $\forall a,b,c\in Z$，如果$a\equiv b(\mod n)$并且$b\equiv c(\mod n)$，则$a\equiv c(\mod n)$；
+
+  4. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$a+k\equiv b+k(\mod n)$；
+
+  5. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$a+c\equiv b+d (\mod n)$；
+
+  6. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$ak\equiv bk(\mod n)$；
+
+  7. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$ac\equiv bd (\mod n)$
+
+  8. $\forall a,b\in Z$，$ab (\mod n)=(a\mod n)(b\mod n) (\mod n)$。
+\end{Thm}
+
+RSA算法：
+
+（1）随机选择两个大的素数$p$和$q$；
+
+（2）计算$n=pq$；
+
+（3）选择数$e$，使得$e$与$(p-1)(q-1)$互素；
+
+（4）计算数$d$，使得对于某个整数$k$，$ed=1+k(p-1)(q-1)$；
+
+（5）将$(e,n)$作为公钥发布，保留私钥$(d,n)$。
+
+设待加密的明文为$M$，$M<n$。
+
+加密过程：$C=M^e \mod n$；
+
+解密过程：$M=C^d \mod n$。
+
+
+\begin{Thm}
+  在以上描述的RSA算法中，$(M^e \mod n)^d \mod n=M$。
+\end{Thm}
+
+\begin{proof}[证明]
+  由于$(M^e \mod n)^d \mod n &= (M^e)^d \mod n=m^{ed}\mod n$，
+  因此只需证$M^ed \mod n=M$。
+  当$M$与$p$互素时，
+\begin{align*}
+  &M^{ed}\mod p\\
+  =&M^{1+k(p-1)(q-1)} \mod p\\
+  =&M(M^{p-1})^{k(q-1)} \mod p\\
+  =&M(1)^{k(q-1)} \mod p\\
+  =&M \mod p\\
+\end{align*}
+于是$(M^{ed})\equiv M (\mod p)$。当$p|M$时，该式显然也成立。
+
+同理可证$(M^{ed})\equiv M (\mod q)$，进一步可得$M^{ed}\equiv M (\mod pq)$，
+即$M^{ed}\equiv M (\mod n)$，从而$M^{ed} \mod n = M\mod n=M$。
+\end{proof}
 课后作业题：
 \begin{Exercise}
 证明：六阶群里必有一个三阶子群。
