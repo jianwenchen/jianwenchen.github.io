@@ -111,7 +111,7 @@ Algebra
 
 
   \begin{Def}
-    设“$\circ$”为集合$X$上的一个二元代数运算。如果$\forall a, b, c \in X$，恒有$(a \circ b) \circ c = a \circ (b \circ c)$， 则称二元代数运算“$\circ$”满足结合律。
+    设“$\circ$”为集合$S$上的一个二元代数运算。如果$\forall a, b, c \in S$，$(a \circ b) \circ c = a \circ (b \circ c)$， 则称二元代数运算“$\circ$”满足结合律。
   \end{Def}
 \begin{Thm}
   设$(S,\circ)$为一个代数系，如果二元代数运算“$\circ$”满足结合律，则$\forall a_i\in S$，$i=1,2,\cdots,n$，$n$个元素$a_1,a_2,\cdots,a_n$的乘积由它们的次序唯一确定。
@@ -139,7 +139,7 @@ Scala: Martin Ordersky
 
 C++ STL: Alexander Stepanov
  \begin{Def}
-    设“$\circ$”为集合$X$上的一个二元代数运算。如果$\forall a, b \in X$，恒有\\$a \circ b = b \circ a$， 则称二元代数运算“$\circ$”满足交换律。
+    设“$\circ$”为集合$S$上的一个二元代数运算。如果$\forall a, b \in S$，\\$a \circ b = b \circ a$， 则称二元代数运算“$\circ$”满足交换律。
   \end{Def}
   \begin{Thm}
     设$(S,\circ)$为一个代数系，如果二元代数运算“$\circ$”满足结合律和交换律，则$\forall a_i\in S$，$i=1,2,\cdots,n$，$n$个元素$a_1,a_2,\cdots,a_n$的乘积仅与这$n$个元素有关而与它们的次序无关。
@@ -148,8 +148,8 @@ C++ STL: Alexander Stepanov
 留作课后作业题。    
   \end{proof}
   \begin{Def}
-    设“$+$”与“$\circ$”为集合$X$上的两个二元代数运算。\\如果$\forall a, b, c \in S$，恒有\[a \circ (b + c) = a \circ b + a \circ c,\] 则称二元代数运算“$\circ$”对“$+$”满足左分配律。
-    如果$\forall a, b, c \in X$，恒有\[(b + c)\circ a = b \circ a + c \circ a,\] 则称二元代数运算“$\circ$”对“$+$”满足右分配律。
+    设“$+$”与“$\circ$”为集合$S$上的两个二元代数运算。\\如果$\forall a, b, c \in S$，\[a \circ (b + c) = a \circ b + a \circ c,\] 则称二元代数运算“$\circ$”对“$+$”满足左分配律。
+    如果$\forall a, b, c \in S$，\[(b + c)\circ a = b \circ a + c \circ a,\] 则称二元代数运算“$\circ$”对“$+$”满足右分配律。
   \end{Def}
   \begin{Thm}
     设$(S,+,\circ)$为具有两个二元代数运算的代数系，“$+$”满足结合律。如果“$\circ$”对“$+$”满足左分配律，则对任意的$a,a_i\in S$，$i=1,2,\cdots,n$，有
