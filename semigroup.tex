@@ -57,7 +57,7 @@ $\forall d\in N$，$2\times 2$矩阵
 \end{Example}
 
 \begin{Thm}
-  如果半群$(S,\circ)$中既有左单位元素又有右单位元素，则左单位元素与右单位元素相等，从而有单位元素且单位元素是唯一的。
+  设$(S,\circ)$为一个代数系，如果二元代数运算$\circ$既有左单位元$e_l$，又有右单位元$e_r$，则$e_l=e_r$，从而有单位元且单位元是唯一的。
 \end{Thm}
 
 \begin{Def}
@@ -94,9 +94,20 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Def}
   每个元素都有逆元素的幺半群称为群。
 \end{Def}
+
+\begin{Def}
+  设$G$为一个非空集合，“$\circ$”为$G$上的一个二元代数运算。如果下列各个条件成立，则称$G$对“$\circ$”运算构成一个群（group）：
+
+  I. “$\circ$”运算满足结合律，即$\forall a,b,c \in G$ $(a\circ b)\circ c = a\circ(b\circ c)$；
+
+  II. 对“$\circ$”运算，$G$中有一个单位元$e$，即$\forall a\in G$ $e\circ a =a\circ e= a$；
+
+  III. 对$G$中的每个元素，关于$\circ$运算有一个逆元，
+  即$\forall a\in G \exists b\in G b\circ a = a\circ b= e$。
+\end{Def}
 \begin{Example}
-  全体整数集合$Z$,全体有理数集合$Q$，全体实数集合$R$，全体复数集合$C$对通常的加法运算构成群；
-  全体非零有理数集合$Q^*$，全体非零实数集合$R^*$，全体非零复数集合$C^*$对通常的乘法运算构成群。
+  整数集合$Z$,有理数集合$Q$，实数集合$R$，复数集合$C$对通常的加法运算构成群；
+  非零有理数集合$Q^*$，非零实数集合$R^*$，非零复数集合$C^*$对通常的乘法运算构成群。
 \end{Example}
 \begin{Def}
   如果一个群中的二元代数运算满足交换律，则称此群为交换群，又称为Abel群。
@@ -110,6 +121,49 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Def}
   群$(G,\circ)$称为有限群，如果$G$为有限集。$G$的基数称为群$G$的阶。如果$G$含有无穷多个元素，则称$G$为无限群。
 \end{Def}
+
+\begin{Def}
+  设$a,n\in Z$，$n>0$，$a=bn+r$，$0\leq r<n$，则称$r$为$a$除以$n$所得到的余数，记为$a\mod n$。
+\end{Def}
+\begin{Def}
+  设$a,b,n\in Z$，$n>0$，如果$a\mod n=b\mod n$，则称$a$与$b$模$n$同余，记为$a \equiv b(\mod n)$。
+\end{Def}
+
+\begin{Thm}
+  $\forall a,b\in Z, a\equiv b(\mod n)$等价于$n|(a-b)$。
+\end{Thm}
+
+\begin{Thm}
+  1. $\forall a\in Z, a \equiv a (\mod n)$；
+
+  2. $\forall a, b\in Z$，如果$a\equiv b (\mod n)$，则$b\equiv a(\mod n)$；
+
+  3. $\forall a,b,c\in Z$，如果$a\equiv b(\mod n)$并且$b\equiv c(\mod n)$，则$a\equiv c(\mod n)$；
+
+  4. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$a+k\equiv b+k(\mod n)$；
+
+  5. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$a+c\equiv b+d (\mod n)$；
+
+  6. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$ak\equiv bk(\mod n)$；
+
+  7. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$ac\equiv bd (\mod n)$
+
+  8. $\forall a,b\in Z$，$ab (\mod n)=(a\mod n)(b\mod n) (\mod n)$。
+\end{Thm}
+
+\begin{Def}
+  设$n\in Z$，$n>0$，$\forall x\in Z$，定义$[x]=\{y|y\equiv x (\mod n)\}$。
+\end{Def}
+\begin{Thm}
+  设$n\in Z$，$n>0$，$\forall x\in z$，$[x]=[y]$当且仅当$x\equiv y(\mod n)$。
+\end{Thm}
+
+\begin{Example}
+  设$Z_n=\{[0],[1],\cdots,[n-1]\}$为整数集$Z$上在模$n$同余的等价关系下所有等价类之集，
+  在$Z_n$上定义加法运算“$+$”如下：$\forall [i],[j]\in Z_n,[i]+[j]=[i+j]$，则$(Z_n,+)$构成一个交换群；
+
+  在$Z_n$上定义加法运算“$*$”如下：$\forall [i],[j]\in Z_n,[i]*[j]=[i*j]$，则$(Z_n,*)$构成一个交换幺半群；
+\end{Example}
 
   课后作业题：
 
