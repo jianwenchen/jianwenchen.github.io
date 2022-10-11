@@ -123,46 +123,53 @@ $\forall d\in N$，$2\times 2$矩阵
 \end{Def}
 
 \begin{Def}
-  设$a,n\in Z$，$n>0$，$a=bn+r$，$0\leq r<n$，则称$r$为$a$除以$n$所得到的余数，记为$a\mod n$。
+  设$a,b\in Z$，如果存在$q\in Z$使得$a=qb$，则称$b$整除$a$，记为$b|a$。
 \end{Def}
 \begin{Def}
-  设$a,b,n\in Z$，$n>0$，如果$a\mod n=b\mod n$，则称$a$与$b$模$n$同余，记为$a \equiv b(\mod n)$。
+  设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<n$，则称$r$为$a$除以$n$所得到的余数，记为$a\bmod n$。
 \end{Def}
 
+\begin{Def}
+  设$a,b,n\in Z$，$n>0$，如果$a\bmod n=b\bmod n$，则称$a$与$b$模$n$同余，记为$a \equiv b\pmod{n}$。
+\end{Def}
+
+\begin{Def}
+
+\end{Def}
 \begin{Thm}
-  $\forall a,b\in Z, a\equiv b(\mod n)$等价于$n|(a-b)$。
+  $\forall a,b\in Z, a\equiv b\pmod{n}$等价于$n|(a-b)$。
 \end{Thm}
 
 \begin{Thm}
-  1. $\forall a\in Z, a \equiv a (\mod n)$；
+  1. $\forall a\in Z, a \equiv a \pmod{n}$；
 
-  2. $\forall a, b\in Z$，如果$a\equiv b (\mod n)$，则$b\equiv a(\mod n)$；
+  2. $\forall a, b\in Z$，如果$a\equiv b \pmod{n}$，则$b\equiv a\pmod{n}$；
 
-  3. $\forall a,b,c\in Z$，如果$a\equiv b(\mod n)$并且$b\equiv c(\mod n)$，则$a\equiv c(\mod n)$；
+  3. $\forall a,b,c\in Z$，如果$a\equiv b\pmod{n}$并且$b\equiv c\pmod{n}$，则$a\equiv c\pmod{n}$；
 
-  4. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$a+k\equiv b+k(\mod n)$；
+  4. $\forall a,b,k\in Z$，如果$a\equiv b\pmod{n}$，则$a+k\equiv b+k\pmod{n}$；
 
-  5. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$a+c\equiv b+d (\mod n)$；
+  5. $\forall a,b,c,d\in Z$，如果$a\equiv b\pmod{n}$并且$c\equiv d\pmod{n}$，则$a+c\equiv b+d \pmod{n}$；
 
-  6. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$ak\equiv bk(\mod n)$；
+  6. $\forall a,b,k\in Z$，如果$a\equiv b\pmod{n}$，则$ak\equiv bk\pmod{n}$；
 
-  7. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$ac\equiv bd (\mod n)$
+  7. $\forall a,b,c,d\in Z$，如果$a\equiv b\pmod{n}$并且$c\equiv d\pmod{n}$，则$ac\equiv bd \pmod{n}$
 
-  8. $\forall a,b\in Z$，$ab (\mod n)=(a\mod n)(b\mod n) (\mod n)$。
+  8. $\forall a,b\in Z$，$ab \pmod{n}=(a\mod n)(b\mod n) \pmod{n}$。
 \end{Thm}
 
 \begin{Def}
-  设$n\in Z$，$n>0$，$\forall x\in Z$，定义$[x]=\{y|y\equiv x (\mod n)\}$，称为整数集$Z$上在模$n$同余的等价关系下的一个等价类。
+  设$n\in Z$，$n>0$，$\forall x\in Z$，定义$[x]=\{y|y\equiv x \pmod{n}\}$，称为整数集$Z$上在模$n$同余的等价关系下的一个等价类。
 \end{Def}
 \begin{Thm}
-  设$n\in Z$，$n>0$，$\forall x\in z$，$[x]=[y]$当且仅当$x\equiv y(\mod n)$。
+  设$n\in Z$，$n>0$，$\forall x\in z$，$[x]=[y]$当且仅当$x\equiv y\pmod{n}$。
 \end{Thm}
 
 \begin{Example}
   设$Z_n=\{[0],[1],\cdots,[n-1]\}$为整数集$Z$上在模$n$同余的等价关系下所有等价类之集，
   在$Z_n$上定义加法运算“$+$”如下：$\forall [i],[j]\in Z_n,[i]+[j]=[i+j]$，则$(Z_n,+)$构成一个交换群；
 
-  在$Z_n$上定义加法运算“$*$”如下：$\forall [i],[j]\in Z_n,[i]*[j]=[i*j]$，则$(Z_n,*)$构成一个交换幺半群；
+  在$Z_n$上定义乘法运算“$*$”如下：$\forall [i],[j]\in Z_n,[i]*[j]=[i*j]$，则$(Z_n,*)$构成一个交换幺半群；
 \end{Example}
 
 
