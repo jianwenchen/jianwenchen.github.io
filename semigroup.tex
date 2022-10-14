@@ -59,7 +59,9 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Thm}
   设$(S,\circ)$为一个代数系，如果二元代数运算$\circ$既有左单位元$e_l$，又有右单位元$e_r$，则$e_l=e_r$，从而有单位元且单位元是唯一的。
 \end{Thm}
-
+\begin{proof}[证明]
+  $e_r=e_l\circ e_r=e_l$
+\end{proof}
 \begin{Def}
   有单位元素的半群称为独异点(monoid)，或称为幺半群。
 \end{Def}
@@ -91,6 +93,9 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Thm}
   如果幺半群$(S,\circ,e)$中的元素$a$既有左逆元素$a_l$，又有右逆元素$a_r$，则$a_l=a_r$。于是，$a$有逆元素且$a$的逆元素是唯一的，记为$a^{-1}$。
 \end{Thm}
+\begin{proof}[证明]
+  $a_r=e\circ a_r=(a_l\circ a)\circ a_r=a_l\circ(a\circ a_r)=a_l\circ e=a_l$
+\end{proof}
 \begin{Def}
   每个元素都有逆元素的幺半群称为群。
 \end{Def}
@@ -105,6 +110,7 @@ $\forall d\in N$，$2\times 2$矩阵
   III. 对$G$中的每个元素，关于$\circ$运算有一个逆元，
   即$\forall a\in G \exists b\in G b\circ a = a\circ b= e$。
 \end{Def}
+
 \begin{Example}
   整数集合$Z$,有理数集合$Q$，实数集合$R$，复数集合$C$对通常的加法运算构成群；
   非零有理数集合$Q^*$，非零实数集合$R^*$，非零复数集合$C^*$对通常的乘法运算构成群。
@@ -119,7 +125,7 @@ $\forall d\in N$，$2\times 2$矩阵
     设$M_n$为所有可逆$n\times n$实矩阵构成的集合，则$M_n$对矩阵的乘法构成了一个以$I_n$为单位元的群$(M_n,*,I_n)$。
   \end{Example}
 \begin{Def}
-  群$(G,\circ)$称为有限群，如果$G$为有限集。$G$的基数称为群$G$的阶。如果$G$含有无穷多个元素，则称$G$为无限群。
+  群$(G,\circ)$称为有限群，如果$G$为有限集。$G$的基数称为群$G$的阶，记为$|G|$。如果$G$含有无穷多个元素，则称$G$为无限群。
 \end{Def}
 
 \begin{Def}
@@ -155,7 +161,7 @@ $\forall d\in N$，$2\times 2$矩阵
 
   7. $\forall a,b,c,d\in Z$，如果$a\equiv b\pmod{n}$并且$c\equiv d\pmod{n}$，则$ac\equiv bd \pmod{n}$
 
-  8. $\forall a,b\in Z$，$ab \pmod{n}=(a\mod n)(b\mod n) \pmod{n}$。
+  8. $\forall a,b\in Z$，$ab \bmod n=(a\bmod n)(b\bmod n) \bmod n$。
 \end{Thm}
 
 \begin{Def}
@@ -221,18 +227,36 @@ $x < 0$，$y < 0$：此时$x$的补码为$x+2^n$的原码，$y$的补码为$y+2^
   III. 对$G$中的每个元素，关于$\circ$运算有一个左逆元，
   即$\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
 \end{Def}
-
+在群$(G,\circ)$中，$a\circ b$简写为$ab$。
 \begin{Thm}
   设$G$为一个群，则$\forall a\in G$，$a$的左逆元也是$a$的右逆元。
 \end{Thm}
-
+\begin{proof}[证明]
+  $\forall a\in G$，设$a_l$为$a$的一个左逆元，则
+  \[a_la=e\]
+  两边同时右乘以$a_l$得
+  \[(a_la)a_l=ea_l\]
+  从而
+  \[a_l(aa_l)=a_l\]
+  两边同时左乘以$a_l$的左逆元得
+  \[aa_l=e\]
+\end{proof}
 \begin{Thm}
   设$G$为一个群，则$G$的左单位元$e$也是右单位元。
 \end{Thm}
-
+\begin{proof}[证明]
+  $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
+\end{proof}
+在群$(G,\circ)$中，$a$得逆元记为$a^{-1}$。
 \begin{Thm}
   设$a$与$b$为群$G$的任意两个元素，则$(a^{-1})^{-1}=a$，$(ab)^{-1}=b^{-1}a^{-1}$。
 \end{Thm}
+\begin{proof}[证明]
+  由\[aa^{-1}=e\]
+  得\[(a^{-1})^{-1}=a\]
+由\[(b^{-1}a^{-1})(ab)=b^{-1}(a^{-1}a)b=b^{-1}eb=e\]
+得\[(ab)^{-1}=b^{-1}a^{-1}\]
+\end{proof}
 
   课后作业题：
 
