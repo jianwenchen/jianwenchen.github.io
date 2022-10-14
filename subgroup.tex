@@ -26,7 +26,7 @@
   \maketitle
   % \tableofcontents
  \begin{Def}
-  设$S$为群$G$的非空子集，如果$G$的乘法在$S$中封闭且$S$对此乘法也构成一个群，则称$S$为$G$的一个子群。
+  设$S$为群$G$的非空子集，如果$G$的运算在$S$中封闭且$S$对此运算也构成一个群，则称$S$为$G$的一个子群。
   如果$S\neq G$，则称$S$为$G$的真子群。
  \end{Def} 
 \begin{Thm}
@@ -35,7 +35,7 @@
 \begin{Example}
   $(Z,+)$为$(Q,+)$的子群，$(Q,+)$为$(R,+)$的子群，$(R,+)$为$(C,+)$的子群；
   $(Q^*,\times)$为$(R^*,\times)$的子群，$(R^*,\times)$为$(C^*,\times)$的子群。
-  集合$\{1,-1\}$对通常的乘法构成一个群，但它不是$(Q,+)$的子群，因为它们的运算不一样。
+  这里$Q^*,R^*$和$C^*$本别代表非零有理数集合、非零实数集合和非零复数集合。集合$\{1,-1\}$对通常的乘法构成一个群，但它不是$(Q,+)$的子群，因为它们的运算不一样。
 \end{Example}
 
  \begin{Thm}
@@ -73,7 +73,7 @@
   $\Rightarrow$
   运算的封闭性显然成立；
   运算的结合律显然成立；
-  由$G$非空知$\exists a\in G$，从而$a^{-1}\in G$，于是$e=a^{-1}a\in G$。
+  由$S$非空知$\exists a\in S$，从而$a^{-1}\in S$，于是$e=a^{-1}a\in S$。
 \end{proof}
  \begin{Thm}
   群$G$的非空子集$S$为$G$的子群的充分必要条件是$\forall a,b\in S, ab^{-1}\in S$。
@@ -82,11 +82,11 @@
   $\Leftarrow$ 显然。
 
   $\Rightarrow$
-  由$G$非空知$\exists a\in G$，从而$e=aa^{-1}\in S$；
+  由$S$非空知$\exists a\in S$，从而$e=aa^{-1}\in S$；
 
-  $\forall g\in G$，$g^{-1}=eg^{-1}\in S$；
+  $\forall g\in S$，$g^{-1}=eg^{-1}\in S$；
 
-  $\forall a,b\in G$，$b^{-1}\in S$，从而$ab=a(b^{-1})^{-1}\in S$。
+  $\forall a,b\in S$，$b^{-1}\in S$，从而$ab=a(b^{-1})^{-1}\in S$。
 \end{proof}
 
  \begin{Thm}
