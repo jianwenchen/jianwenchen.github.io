@@ -1,0 +1,217 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第二讲 半群、幺半群与群}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  
+
+
+
+
+  课后作业题：
+
+\begin{Exercise}
+  给出一个半群，它有无穷多个右单位元素。
+\end{Exercise}
+\begin{proof}[解]
+  设$S$为一切形如
+  \[\begin{bmatrix}
+    a&0\\
+    b&0
+  \end{bmatrix},a,b\in N\]
+的$2\times 2$矩阵之集，则$S$对矩阵的乘法构成一个半群。
+
+$\forall d\in N$，$2\times 2$矩阵
+\[\begin{bmatrix}1&0\\d&0\end{bmatrix}\]
+为右单位元素。于是，$(S,*)$有无穷多个右单位元素。  
+\end{proof}
+\begin{Exercise}
+  设$(S,\circ)$为一个半群，$a\in S$称为左消去元素，如果$\forall x, y\in S$，有$a\circ x=a\circ y$，则一定有$x=y$。试证：
+  如果$a$和$b$均为左消去元，则$a\circ b$也是左消去元。
+\end{Exercise}
+\begin{proof}[证明]
+  如果$\forall x, y\in S$，$(a\circ b)\circ x=(a\circ b)\circ y$，由结合律知$a\circ (b\circ x)=a\circ (b\circ y)$，由$a$为左消去元知$b\circ x=b\circ y$，由$b$为左消去元知$x=y$，这证明了$a\circ b$也是左消去元。
+\end{proof}
+\begin{Exercise}
+  设$Z$为整数集合，$M=Z\times Z$。在$M$上定义二元运算$\circ$如下：
+
+  $\forall (x_1,x_2), (y_1,y_2)\in M, (x_1,x_2)\circ (y_1,y_2)=(x_1y_1+2x_2y_2,x_1y_2+x_2y_1)$
+
+  试证：
+
+  (1)$M$对上述定义的代数运算构成一个幺半群。
+
+  (2)如果$(x_1,x_2)\neq (0,0)$，则$(x_1,x_2)$是左消去元。
+
+  (3)运算“$\circ$”满足交换率。
+\end{Exercise}
+\begin{proof}[证明]
+  (1)$\forall (x_1,x_2), (y_1,y_2),(z_1,z_2)\in M$，
+  \begin{align*}
+    &((x_1,x_2)\circ (y_1,y_2))\circ (z_1,z_2) = (x_1y_1+2x_2y_2,x_1y_2+x_2y_1)\circ (z_1,z_2)\\
+     =& (x_1y_1z_1+2x_2y_2z_1+2x_1y_2z_2+2x_2y_1z_2,x_1y_1z_2+2x_2y_2z_2+x_1y_2z_1+x_2y_1z_1)\\
+     &(x_1,x_2)\circ ((y_1,y_2)\circ (z_1,z_2)) = (x_1,x_2)\circ (y_1z_1+2y_2z_2,y_1z_2+y_2z_1)\\
+     =&(x_1y_1z_1+2x_1y_2z_2+2x_2y_1z_2+2x_2y_2z_1,x_1y_1z_2+x_1y_2z_1+x_2y_1z_1+2x_2y_2z_2)\\
+  &((x_1,x_2)\circ (y_1,y_2))\circ (z_1,z_2) = (x_1,x_2)\circ ((y_1,y_2)\circ (z_1,z_2))\\
+    \end{align*}
+    这验证了“$\circ$”运算满足结合律。
+
+  \[\forall (x,y)\in M,(1,0)\circ (x,y) = (x,y)\circ (1,0) = (x,y)\]
+  
+  这验证了$(1,0)$为“$\circ$”运算的单位元。
+    
+    
+    于是，$M$对“$\circ$”运算构成一个幺半群。
+
+(2) $\forall (y_1,y_2),(z_1,z_2)\in M$，如果$(x_1,x_2)\circ (y_1,y_2)=(x_1,x_2)\circ (z_1,z_2)$，
+则$(x_1y_1+2x_2y_2,x_1y_2+x_2y_1)=(x_1z_1+2x_2z_2,x_1z_2+x_2z_1)$，
+
+当$(x_1,x_2)\neq 0$时，关于$y_1$和$y_2$的线性方程组
+\[
+\begin{cases}
+  x_1y_1+2x_2y_2=x_1z_1+2x_2z_2\\
+  x_1y_2+x_2y_1=x_1z_2+x_2z_1
+\end{cases}\]
+有唯一解$y_1=z_2,y_2=z2$，因此$(x_1,x_2)$是左消去元。
+
+(3)$\forall (x_1,x_2), (y_1,y_2)\in M$，
+
+\begin{align*}
+  (x_1,x_2)\circ (y_1,y_2) &= (x_1y_1+2x_2y_2,x_1y_2+x_2y_1)\\
+  (y_1,y_2)\circ (x_1,x_2) &= (y_1x_1+2y_2x_2,y_1x_2+x_1y_2)\\
+  (x_1,x_2)\circ (y_1,y_2) &= (y_1,y_2)\circ (x_1,x_2)\\
+\end{align*}
+这证明了“$\circ$”运算满足交换律。
+\end{proof}
+
+\begin{Exercise}
+  证明：有限半群中一定有一个元素$a$使得$a\circ a=a$。
+\end{Exercise}
+
+\begin{proof}[证明]
+  设$(S,\circ)$为有限半群，$x\in S$。由$S$为有限半群知，存在正整数$i$和$j$，使得$x^i=x^j$。
+  取正整数$n$，使得$(n+1)(j-i)\geq j$，则$x^{2n(j-i)}=x^{n(j-i)}$，于是$(x^{n(j-1)})^2=x^{n(j-i)}$。
+\end{proof}
+\begin{Exercise}
+  设$R$为实数集合，$S=\{(a,b)|a\neq 0,a,b\in R\}$。在$S$上利用通常的加法和乘法定义二元运算“$\circ$”如下：
+  \[(a,b)\circ (c,d) = (ac, ad + b)\]
+  验证$(S,\circ)$为群。
+\end{Exercise}
+\begin{proof}[证明]
+  $\forall (a,b),(c,d),(e,f)\in S$，
+  \begin{align*}
+    &((a,b)\circ (c,d))\circ (e,f) = (ac,ad+b)\circ (e,f)\\
+    =&(ace,acf+ad+b)\\
+    &(a,b)\circ ((c,d)\circ (e,f)) = (a,b)\circ (ce,cf+d)\\
+    =&(ace,acf+ad+b)\\
+    &((a,b)\circ (c,d))\circ (e,f) = (a,b)\circ ((c,d)\circ (e,f))\\
+  \end{align*}
+  这验证了“$\circ$”运算满足结合律。
+
+  $\forall (c,d)\in S, (1,0)\circ (c,d) = (1\cdot c, 1\cdot d + 0) = (c,d)$，
+这验证了$(1,0)$为$\circ$运算的左单位元。
+
+$\forall (c,d)\in S,(1/c,-d/c)\circ (c,d) = (1,0)$,这验证了$(1/c,-d/c)$为$(c,d)$关于左单位元$(1,0)$的左逆元。
+\end{proof}
+\begin{Exercise}
+  $n$次方程$x^n=1$的根称为$n$次单位根，所有$n$次单位根之集记为$U_n$。证明：$U_n$对通常的复数乘法构成一个群。
+\end{Exercise}
+\begin{proof}[证明]
+  对任意的$x_1\in U_n$，$x_2\in U_n$，则$x^n_1=1$，$x_2^n=1$，从而$(x_1x_2)^n=1$，即$x_1x_2\in U_n$。
+
+  结合律显然成立。
+
+  $1^n=1$，从而$1\in U_n$。 $\forall x\in U_n, 1\cdot x = x$，这说明$1$为左单位元。
+
+  $\forall x\in U_n$，则$x^n=1$，从而$(\frac{1}{x})^n=1$，即$\frac{1}{x}\in U_n$。$\frac{1}{x}\cdot x =1$说明$\frac{1}{x}$为$x$关于左单位元$1$的左逆元。
+
+  以上验证了$U_n$对通常的复数乘法构成一个群。
+\end{proof}
+
+\begin{Exercise}
+ 令
+ \[G=\bigg\{\begin{bmatrix}
+  1&0\\0&1
+ \end{bmatrix},
+ \begin{bmatrix}
+  -1&0\\0&-1
+ \end{bmatrix},
+ \begin{bmatrix}
+  1&0\\0&-1
+ \end{bmatrix},
+ \begin{bmatrix}
+  -1&0\\0&1
+ \end{bmatrix}\bigg\}\] 
+ 试证：$G$对矩阵乘法构成一个群。
+\end{Exercise}
+
+\begin{proof}[证明]
+  易验证$G$对矩阵的乘法满足封闭性。
+
+  结合律显然成立。
+
+  $\begin{bmatrix}
+    1&0\\0&1
+   \end{bmatrix}$为左单位元。
+
+   $\begin{bmatrix}
+    -1&0\\0&-1
+   \end{bmatrix}$的左逆元为
+   $\begin{bmatrix}
+    -1&0\\0&-1
+   \end{bmatrix}$，
+   $\begin{bmatrix}
+    1&0\\0&-1
+   \end{bmatrix}$的左逆元为$\begin{bmatrix}
+    1&0\\0&-1
+   \end{bmatrix}$，
+   $\begin{bmatrix}
+    -1&0\\0&1
+   \end{bmatrix}$的左逆元为$\begin{bmatrix}
+    -1&0\\0&1
+   \end{bmatrix}$。
+
+   以上验证了$G$对矩阵的乘法构成一个群。
+  
+\end{proof}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "chapter1"
+%%% End:
+
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
