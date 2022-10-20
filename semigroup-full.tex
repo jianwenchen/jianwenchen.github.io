@@ -66,7 +66,7 @@ $\forall d\in N$，$2\times 2$矩阵
 \end{Def}
 
 \begin{Example}
-  自然数集合$N$对加法运算“$+$”构成幺半群，单位元为$0$。正整数集合$Z_+$对乘法运算“$\times$”构成幺半群，单位元为$1$。
+  自然数集合$N$对加法运算“$+$”构成幺半群，单位元为$0$。正整数集合$Z^+$对乘法运算“$\times$”构成幺半群，单位元为$1$。
 \end{Example}
 
 \begin{Example}
@@ -78,7 +78,7 @@ $\forall d\in N$，$2\times 2$矩阵
 \end{Def}
 
 \begin{Example}
-  设$S$为非空集合，$M(S)=\{f|f:S\to S\}$，则$M(S)$对映射的合成构成了一个以$I_S$为单位元的幺半群$(M(S),\circ,I_S)$，它是不可交换幺半群。
+  设$S$为非空集合，$S^S=\{f|f:S\to S\}$，则$S^S$对映射的合成构成了一个以$I_S$为单位元的幺半群$(S^S,\circ,I_S)$，它是不可交换幺半群。
 \end{Example}
 \begin{Example}
   设$M_n$为所有$n\times n$实矩阵构成的集合，则$M_n$对矩阵的乘法构成了一个以$I_n$为单位元的幺半群$(M_n,*,I_n)$。
@@ -131,18 +131,16 @@ $\forall d\in N$，$2\times 2$矩阵
   设$a,b\in Z$，如果存在$q\in Z$使得$a=qb$，则称$b$整除$a$，记为$b|a$。
 \end{Def}
 \begin{Def}
-  设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<n$，则称$r$为$a$除以$n$所得到的余数，记为$a\bmod n$。
+  设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<b$，则称$r$为$a$除以$b$所得到的余数，记为$a\bmod b$。
 \end{Def}
 
 \begin{Def}
   设$a,b,n\in Z$，$n>0$，如果$a\bmod n=b\bmod n$，则称$a$与$b$模$n$同余，记为$a \equiv b\pmod{n}$。
 \end{Def}
 
-\begin{Def}
 
-\end{Def}
 \begin{Thm}
-  $\forall a,b\in Z, a\equiv b\pmod{n}$等价于$n|(a-b)$。
+  $\forall a,b,n\in Z, n>0, a\equiv b\pmod{n}$等价于$n|(a-b)$。
 \end{Thm}
 
 \begin{Thm}
@@ -246,7 +244,7 @@ $x < 0$，$y < 0$：此时$x$的补码为$x+2^n$的原码，$y$的补码为$y+2^
 \begin{proof}[证明]
   $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
 \end{proof}
-在群$(G,\circ)$中，$a$得逆元记为$a^{-1}$。
+在群$(G,\circ)$中，$a$的逆元记为$a^{-1}$。
 \begin{Thm}
   设$a$与$b$为群$G$的任意两个元素，则$(a^{-1})^{-1}=a$，$(ab)^{-1}=b^{-1}a^{-1}$。
 \end{Thm}
