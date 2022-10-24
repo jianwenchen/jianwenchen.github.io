@@ -33,28 +33,28 @@
 
   II. 对“$\circ$”运算，$G$中有一个左单位元$e$，即$\forall a\in G$ $e\circ a = a$；
 
-  III. 对$G$中的每个元素，关于$\circ$运算有一个左逆元，
-  即$\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
+  III. $\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
 \end{Def}
 在群$(G,\circ)$中，$\forall a,b\in G, a\circ b$简写为$ab$。
 \begin{Thm}
-  设$G$为一个群，则$\forall a\in G$，$a$的左逆元也是$a$的右逆元。
+  设$G$为一个群，则$\forall a,b\in G$，如果$ba=e$，则$ab=e$。
 \end{Thm}
 \begin{proof}[证明]
-  $\forall a\in G$，设$a_l$为$a$的一个左逆元，则
-  \[a_la=e\]
-  两边同时右乘以$a_l$得
-  \[(a_la)a_l=ea_l\]
+  在\[ba=e\]的
+  两边同时右乘以$b$得
+  \[(ba)b=eb\]
   从而
-  \[a_l(aa_l)=a_l\]
-  两边同时左乘以$a_l$的左逆元得
-  \[aa_l=e\]
+  \[b(ab)=b\]
+  在$G$中存在$c$使得$cb=e$，于是
+  \[c(b(ab))=cb\]
+  所以
+  \[ab=e\]
 \end{proof}
 \begin{Thm}
   设$G$为一个群，则$G$的左单位元$e$也是右单位元。
 \end{Thm}
 \begin{proof}[证明]
-  $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
+  $\forall a\in G$，设$b\in G$，$ba=e$，则$ae=a(ba)=(ab)a=ea=a$，所以$e$也是右单位元。
 \end{proof}
 \begin{Thm}
   设$a$与$b$为群$G$的任意两个元素，则$(a^{-1})^{-1}=a$，$(ab)^{-1}=b^{-1}a^{-1}$。
@@ -134,6 +134,58 @@ $\Leftarrow$
 \begin{Thm}
 设$G$为一个群，$a\in G$，$m$，$n$为任意整数，则$a^ma^n=a^{m+n}$，$(a^m)^n=a^{mn}$。
 \end{Thm}
+\begin{proof}[证明]
+  1. $a^ma^n=a^{m+n}$
+
+$a^2a^3=a^5:(aa)(aaa)=a^5$
+
+$a^2a^{-2}=e:(aa)(a^{-1}a^{-1})=e$
+
+$a^{-2}a^{2}=e:(a^{-1}a^{-1})(aa)=e$
+
+$a^2a^{-3}=aa(a^{-1}a^{-1}a^{-1})=a^{-1}$
+
+$a^{-2}a^3=(a^{-1}a^{-1})aaa=a$
+
+
+
+$a^{-2}a^{-3}=(a^{-1}a^{-1})(a^{-1}a^{-1}a^{-1})=a^{-5}$
+
+$m\geq 0,n\geq 0:$
+
+对$n$归纳：
+
+(1)当$n=0$时，$a^ma^0=a^{m+0}$
+
+(2)当$n=k+1$时，$a^{m}a^{k+1}=a^m(a^k\circ a)=(a^ma^k)a=a^{m+k}a=a^{m+k+1}$
+
+$m\geq 0,n \leq 0:$
+
+
+$m=s,n=-t, s\geq 0,t\geq 0:$
+
+当$s=t$时，要证$a^{s}a^{-s}=a^{s+(-s)}=a^0=e$，对$s$归纳：
+
+（1）当$s=0$时，$a^0a^{-0}=a^{0+(-0)}$。
+
+（2）当$s=k+1$时，$a^{k+1}a^{-(k+1)}=(a^ka)(a^{-1})^{k+1}=(a^ka)a^{-1}(a^{-1})^k=a^ka^{-k}=e$
+
+当$s>t$时，$a^sa^{-t}=a^{s-t}a^{t}a^{-t}=a^{s-t}$
+
+当$s<t$时，$a^sa^{-t}=((a^{-1})^{-1})^s(a^{-1})^t=(a^{-1})^{-s}(a^{-1})^t=(a^{-1})^{-s}(a^{-1})^{s}(a^{-1})^{t-s}=(a^{-1})^{t-s}$
+
+$m\leq 0, n\geq 0:$
+
+$m=-s,n=t,s\geq 0, t\geq 0:$
+
+$a^{-s}a^t=(a^{-1})^s((a^{-1})^{-1})^t=(a^{-1})^s(a^{-1})^{-t}=(a^{-1})^{s-t}=a^{-(s-t)}=a^{t-s}$
+
+$m<0, n<0:$
+
+$m=-s,n=-t, s>0,t>0$
+
+$a^{-s}a^{-t}=(a^{-1})^s(a^{-1})^t=(a^{-1})^{s+t}=a^{-(s+t)}$
+\end{proof}
 设$(G,+)$为一个阿贝尔群，$G$的单位元记为$0$。$\forall a\in G$，定义$0a=0$，$(n+1)a=na+a$$(n\geq 0)$，$(-n)a=n(-a)$$(n\geq 1)$。
 对任意整数$m$，$n$，$ma+na=(m+n)a$，$(mn)a=m(na)$，$n(a+b)=na+nb$。
 \begin{Def}
