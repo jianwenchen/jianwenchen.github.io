@@ -37,23 +37,43 @@
 \begin{Thm}
   设$H$为群$G$的一个子群，则$\forall a\in G$，$aH=H$的充分必要条件是$a\in H$。
 \end{Thm}
-  
+\begin{proof}[证明]
+$\Leftarrow$
+设$aH=H$，则$a=ae\in aH=H$。
+
+$\Rightarrow$
+设$a\in H$，则$\forall g\in aH$，$\exists h\in H$，$g=ah\in H$；
+$\forall h\in H$，$h=a(a^{-1}h)\in aH$。
+\end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$的充分必要条件是$a^{-1}b\in H$。
 \end{Thm}
+\begin{proof}[证明]
+  $\Leftarrow$
+  设$aH=bH$，则$b=be\in bH=aH$，从而$\exists h\in H$使得$b=ah$，于是，$a^{-1}b=h\in H$。
 
+  $\Rightarrow$
+  设$a^{-1}b\in H$，则$\forall g\in aH$，$\exists h\in H$，使得$g=ah=b((b^{-1}a)h)=b((a^{-1}b)^{-1}h)\in bH$，从而$aH\subseteq bH$；
+  由$a^{-1}b\in H$可得$b^{-1}a\in H$，从而$bH\subseteq aH$。
+\end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$或者$aH\cap bH=\phi$。
 \end{Thm}
-
+\begin{proof}[证明]
+  如果$aH\cap bH\neq \phi$，设$f\in aH\cap bH$，则$\exists h,h'$使得$f=ah=bh'$，于是$a^{-1}b=hh'^{-1}\in H$，从而$aH=bH$。
+\end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$|aH|=|bH|$。
 \end{Thm}
-
+\begin{proof}[证明]
+  令$\phi:aH\to bH$，$\forall h\in H$，$\phi(ah)=bh$，则易验证$\phi$为双射，所以$|aH|=|bH|$。
+\end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$H$的所有左陪集构成的集合为$G$的一个划分。
 \end{Thm}
-
+\begin{proof}[证明]
+  首先，不同的左陪集互不相交。其次，$\forall a\in G,a\in aH$，所以$G=\bigcup_{a\in G}aH$。因此，$H$的所有左陪集构成的集族为$G$的一个划分。
+\end{proof}
 \begin{Def}
   设$H$为群$G$的一个子群，如果$H$的所有不同的左陪集的个数为有限数$j$，则称$j$为$H$在$G$中的指数，记为$j=[G:H]$，否则称$H$在$G$中的指数为无穷大。
 \end{Def}
@@ -61,7 +81,9 @@
 \begin{Thm}
  设$G$为一个有限群，$H$为$G$的一个子群，则$|G|=|H|\cdot [G:H]$。 
 \end{Thm}
-
+\begin{proof}[证明]
+  $H$在$G$中的所有不同的左陪集构成的集族为$G$的一个划分，每个左陪集均含有$n$个元素。因此，$|G|=n|G:H|$。
+\end{proof}
 \begin{Cor}
 有限群中每个元素的阶都能整除该有限群的阶。
 \end{Cor}
@@ -144,11 +166,11 @@ RSA算法：
   =&M^{1+k(p-1)(q-1)} \bmod p\\
   =&M(M^{p-1})^{k(q-1)} \bmod p\\
   =&M(1)^{k(q-1)} \bmod p\\
-  =&M \mod p\\
+  =&M \bmod p\\
 \end{align*}
 于是$M^{ed}\equiv M \pmod p$。当$p|M$时，该式显然也成立。
 
-同理可证$M^{ed}\equiv M \pmod q$，进一步可得$M^{ed}\equiv M \pmod pq$，
+同理可证$M^{ed}\equiv M \pmod q$，进一步可得$M^{ed}\equiv M \pmod{pq}$，
 即$M^{ed}\equiv M \pmod n$，从而$M^{ed} \bmod n = M\bmod n=M$。
 \end{proof}
 课后作业题：
