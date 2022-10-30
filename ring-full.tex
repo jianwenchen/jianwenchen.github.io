@@ -28,9 +28,17 @@
 \begin{Def}
   设$R$为一个非空集合，$R$中有两个代数运算，一个叫做加法并用“$+$”表示，另一个叫做乘法并用“$\circ$”表示，如果
 
-  （1）$(R,+)$为一个$Abel$群；
+  （1）$(R,+)$为一个$Abel$群：
 
-  （2）$(R,\circ)$为一个半群；
+  I.$\forall a,b,c\in R(a\circ b)\circ c=a\circ (b\circ c)$
+
+  II.$\exists 0\in R \forall a\in R 0+a=a+0=a$
+
+  III.$\forall a\in R \exists b\in R b+a = a+b =0$，$a$的逆元记为$-a$。
+
+  IIII.$\forall a,b\in R a+b=b+a$
+
+  （2）$(R,\circ)$为一个半群；$\forall a,b,c\in R (a\circ b)\circ c=a\circ (b\circ c)$
 
   （3）乘法对加法满足左、右分配律：$\forall a,b,c\in R$
 \begin{align*}
@@ -68,6 +76,15 @@
   \[[i]+[j]=[i+j]\]
   同余类乘法定义为
   \[[i]\cdot [j]=[i]\cdot[j]\]
+
+  $\forall i,j,i',j'\in Z$，如果$[i]=[i']$，$[j]=[j']$，则$[ij]=[i'j']$，这验证了“$\cdot$”为一个运算。
+
+  $\forall i,j,k\in Z$，验证$([i]\cdot [j])\cdot [k]=[i]\cdot ([j]\cdot [k])$：$([i]\cdot [j])\cdot [k]=[ij]\cdot [k]=[(ij)k]$，$[i]\cdot ([j]\cdot [k])=[i]\cdot [jk]=[i(jk)]$。
+
+$\forall i,j,k\in Z$，验证$[i]\cdot ([j]+[k])=[i]\cdot [j] + [i]\cdot [k]$：$[i]\cdot([j]+[k])=[i]\cdot([j+k])=[i(j+k)]$，$[i]\cdot [j]+[i]\cdot [k]=[ij]+[ik]=[ij+ik]$。
+
+$\forall i,j,k\in Z$，验证$([j]+[k])\cdot [i]=[j]\cdot [i]+[j]\cdot [k]$：$([j]+[k])\cdot [i]=[j+k]\cdot[i]=[(j+k)\cdot i],[j]\cdot [i]+[j]\cdot [k]=[j\cdot i]+[j\cdot k]=[j\cdot i+j\cdot k]$。
+
 \end{Example}
 \begin{Def}
   设$(R,+,\circ)$为一个环，$\forall a,b\in R,a-b$定义为$a+(-b)$。
@@ -77,14 +94,24 @@
 
   1. $-(a+b)=-a-b$
 
+  这是因为$(-a-b)+(a+b)=((-a)+(-b))+(a+b)=((-a)+a)+((-b)+b)=0+0=0$。
+
   2. $0\circ a = a\circ 0 = 0$
+
+  这是因为$0\circ a = (0+0)\circ a=0\circ a+0\circ a$，两边同时加上$0\circ a$的逆元得$0=0\circ a$；同理，$a\circ 0=a\circ (0+0)=a\circ 0 + a\circ 0$，两边同时加上$a\circ 0$的逆元得$a\circ 0=0$。
 
   3. $(-a)b = -(ab)$，$a(-b)=-(ab)$
 
+  这是因为$(-a)b+ab=((-a)+a)b=0b=0$，$a(-b)+ab=a((-b)+b)=a0=a$。
+
+
   4. $(-a)(-b)=ab$
+
+  这是因为$(-a)(-b)=-(a(-b))=-(-(ab))=ab$。
 
   5. $a(b-c)=ab-ac$
 
+  这是因为$a(b-c)=a(b+(-c))=ab+a(-c)=ab+(-ac)=ab-ac$。
 \end{Thm}
 
 \begin{Def}
@@ -94,15 +121,21 @@
 \begin{Thm}
   设$(R,+,\circ)$为一个环，$\forall a,b \in R$，$m, n \in Z$，
 
-  1. $(m+n)a=ma + na$
+  1. $n(-a)=-(na)$
 
-  2. $m(na)=(mn)a$
+  2. $(m+n)a=ma + na$
 
-  3. $m(a+b) = ma + mb$
+  3. $m(na)=(mn)a$
 
-  4. $n(a-b) = na - nb$
+  4. $m(a+b) = ma + mb$
 
-  5. $(na)b=a(nb)=n(ab)$
+  5. $n(a-b) = na - nb$
+
+  这是因为$n(a-b)=n(a+(-b))=na+n(-b)=na+(-(nb))=na-nb$。
+
+  6. $(na)b=a(nb)=n(ab)$
+
+  
 \end{Thm}
 
 \begin{Def}
@@ -154,7 +187,9 @@
 \begin{Thm}
   环$R$为无零因子环的充分必要条件是$\forall a,b \in R$，如果$a\neq 0$并且$b\neq 0$，则$ab\neq 0$。
 \end{Thm}
-
+\begin{proof}[证明]
+  环$R$不是无零因子环等价于$\exists a,b\in R, a\neq 0\land b\neq 0\land ab=0$，等价于$\lnot (\forall a,b\in R,a\neq 0\land b\neq 0 \to ab\neq 0)$。
+\end{proof}
 \begin{Thm}
   环$R$为无零因子环的充分必要条件是在$R$中乘法满足左消去律或右消去律，即
 
@@ -165,7 +200,18 @@
   $\forall a,b,c\in R$，如果$a\neq 0$，$ba=ca$，则$b=c$。
 
 \end{Thm}
+\begin{proof}[证明]
+  由$R$为无零因子环，往证在$R$中乘法满足左消去律。
 
+  $\forall a,b,c\in R$，如果$a\neq 0$，$ab=ac$，则$a(b-c)=0$（这是因为$ab+(-(ac))=0$,从而$ab+a(-c)=0$,于是$a(b+(-c))=0$），由$R$为无零因子环知$b-c=0$，因此$b=c$。
+
+  由在环$R$中乘法满足左消去律，往证$R$为无零因子环。
+
+
+  $\forall a,b\in R$，如果$a\neq 0$并且$b\neq 0$，用反证法证明$ab\neq 0$。如果$ab=0$，则$ab=a0$，于是$b=0$，与$b\neq 0$矛盾。
+
+  同理可证$R$为无零因子环的充分必要条件是在$R$中满足右消去律。
+\end{proof}
 \begin{Def}
   一个环称为一个体，如果它满足以下两个条件：
 
