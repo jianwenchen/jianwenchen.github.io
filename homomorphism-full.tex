@@ -93,11 +93,11 @@
   $\forall g\in \phi(N)$，$\exists b\in G_1$使得$g=\phi(b)$，$\forall h\in G_2,\exists a\in G_1$，使得$h=\phi(a)$。于是，$hgh^{-1}=\phi(a)\phi(b)\phi(a)^{-1}=\phi(a\circ b)*\phi(a^{-1})=\phi(a\circ b\circ a^{-1})\in \phi(N)$，从而$h\phi(N)h^{-1}\subseteq \phi(N)$，因此$\phi(N)$为$G_2$的正规子群。
 \end{proof}
 \begin{Def}
-设$\phi$为群$(G,\circ)$到群$(\bar{G},\cdot)$的同态，$\bar{e}$为$\bar{G}$的单位元，则$G$的子群$\phi^{-1}(\bar{e})$称为同态$\phi$的核，记为$Ker \phi$。$\phi(G)$称为$\phi$在$G$下的同态像。
+设$\phi$为群$(G_1,\circ)$到群$(G_2,*)$的一个同态，$e_2$为$G_2$的单位元，则$G_1$的子群$\phi^{-1}(e_2)$称为同态$\phi$的核，记为$Ker \phi$。$\phi(G_1)$称为$\phi$在$G_1$下的同态像。
 \end{Def}
 
 \begin{Thm}
-  设$\phi$为从群$(G,\circ)$到群$(\bar{G},\cdot)$的同态，则$Ker \phi$为群$G$的正规子群。
+  设$\phi$为从群$(G_1,\circ)$到群$(G_2,*)$的一个同态，则$Ker \phi$为群$G_1$的正规子群。
 \end{Thm}
 
 \begin{Thm}
@@ -109,17 +109,17 @@
   $\forall g\in G, g\in Ker\phi \Leftrightarrow \phi(g)=N \Leftrightarrow gN=N \Leftrightarrow g\in N$。
 \end{proof}
 \begin{Thm}[群的同态基本定理]
-设$\phi$为从群$G$到群$\bar{G}$的同态，则$G/Ker G \cong \phi(G)$。
+设$\phi$为从群$G_1$到群$G_2$的同态，则$G_1/Ker G_1 \cong \phi(G_1)$。
 \end{Thm}
-记$K=KerG$。令$f:G/K\to \phi(G)$，$\forall gK\in G/K, f(gK)=\phi(g)$。
+记$K=KerG_1$。令$f:G_1/K\to \phi(G_1)$，$\forall gK\in G_1/K, f(gK)=\phi(g)$。
 
-$\forall g_1,g_2\in G$，如果$g_1K=g_2K$，则$g_1^{-1}g_2\in K$，从而$\phi(g_1^{-1}g_2)=\bar{e}$，即$\phi(g_1)^{-1}\phi(g_2)=\bar{e}$，于是$\phi(g_1)=\phi(g_2)$，所以$f(g_1K)=f(g_2K)$，这验证了$f$为映射。
+$\forall g_1,g_2\in G_1$，如果$g_1K=g_2K$，则$g_1^{-1}g_2\in K$，从而$\phi(g_1^{-1}g_2)=e_2$，即$\phi(g_1)^{-1}\phi(g_2)=e_2$，于是$\phi(g_1)=\phi(g_2)$，所以$f(g_1K)=f(g_2K)$，这验证了$f$为映射。
 
-$f$为单射，这是因为$\forall g_1K,g_2K\in G/K$，如果$f(g_1K)=f(g_2K)$，则$\phi(g_1)=\phi(g_2)$，从而$\phi(g_1^{-1}g_2)=\bar{e}$，于是$g_1^{-1}g_2\in K$，所以$g_1K=g_2K$。
+$f$为单射，这是因为$\forall g_1K,g_2K\in G_1/K$，如果$f(g_1K)=f(g_2K)$，则$\phi(g_1)=\phi(g_2)$，从而$\phi(g_1^{-1}\circ g_2)=e_2$，于是$g_1^{-1}g_2\in K$，所以$g_1K=g_2K$。
 
-$f$为满射，这是因为$\forall \bar{g}\in \phi(G)$，$\exists g\in G$使得$\phi(g)=\bar{g}$，于是$f(gK)=\phi(g)=\bar{g}$。
+$f$为满射，这是因为$\forall g_2 \in \phi(G_1)$，$\exists g_1\in G$使得$\phi(g_1)=g_2$，于是$f(g_1K)=\phi(g_1)=g_2$。
 
-$\forall g_1K,g_2K\in G/K$，$f((g_1K)(g_2K))=f(g_1g_2K)=\phi(g_1g_2)=\phi(g_1)\phi(g_2)=f(g_1K)f(g_2K)$，因此$f$为从$G/K$到$\phi(G)$的同构。
+$\forall g_1K,g_2K\in G_1/K$，$f((g_1K)(g_2K))=f(g_1g_2K)=\phi(g_1g_2)=\phi(g_1)\phi(g_2)=f(g_1K)f(g_2K)$，因此$f$为从$G_1/K$到$\phi(G_1)$的同构。
 
 课后作业题：
 \begin{Exercise}
