@@ -25,7 +25,117 @@
   \author{陈建文}
   \maketitle
   % \tableofcontents
+  \begin{Def}
+    设$S$为群$G$的非空子集，如果$G$的运算在$S$中封闭且$S$对此运算也构成一个群，则称$S$为$G$的一个子群。
+    如果$S\neq G$，则称$S$为$G$的真子群。
+   \end{Def} 
+  \begin{Thm}
+  设$G$为一个群，则$\{e\}$为$G$的子群，$G$为$G$的子群。
+  \end{Thm}
+  \begin{Example}
+    $(Z,+)$为$(Q,+)$的子群，$(Q,+)$为$(R,+)$的子群，$(R,+)$为$(C,+)$的子群；
+    $(Q^*,\times)$ 为 $(R^*,\times)$的子群，$(R^*,\times)$为$(C^*,\times)$的子群。
+    这里$Q^*,R^*$和$C^*$本别代表非零有理数集合、非零实数集合和非零复数集合。集合$\{1,-1\}$对通常的乘法构成一个群，但它不是$(Q,+)$的子群，因为它们的运算不一样。
+  \end{Example}
   
+   \begin{Thm}
+    设$G_1$为$G$的子群，则$G_1$的单位元必为$G$的单位元；$G_1$的元素$a$在$G_1$中的逆元素也是$a$在$G$中的逆元素。
+   \end{Thm}
+  \begin{proof}[证明]
+    设$G_1$的单位元为$e_1$，$G$的单位元为$e$，则$e_1e_1=e_1e$，由消去律得$e_1=e$。
+  
+    设$b$为$a$在$G_1$的逆元，则$ba=e$，该式在$G$中也成立，于是$b$也是$a$在$G$中的逆元。
+  \end{proof}
+   \begin{Thm}
+    群$G$的任意多个子群的交还是$G$的子群。
+   \end{Thm}
+  \begin{proof}[证明]
+    设$H$为$G$的一些子群的交，则$e\in H$，从而$H\neq \phi$。其次，$\forall a,b\in H$，$ab$在每个参加交运算的子群中，从而$ab\in H$。
+    所以，$G$的运算在$H$中封闭。最后，$\forall a\in H$，由$a$在每个参加交运算的子群中知$a^{-1}$在每个参加交运算的子群中，故$a^{-1}\in H$。因此，$H$为$G$的子群。
+  \end{proof}
+   \begin{Thm}
+    任一群不能是其两个真子群的并。
+   \end{Thm}
+  \begin{proof}[证明]
+    用反证法。设$G_1$和$G_2$为$G$的两个真子群，且$G_1\cup G_2=G$。由于$G_1$和$G_2$为$G$的真子群，所以$\exists a,b\in G$，$a\notin G_1$，$b\notin G_2$。
+    于是$a\in G_2$，$b\in G_1$，从而$ab\in G$，但$ab\notin G_1$且$ab\notin G_2$，这与$G=G_1\cup G_2$矛盾。
+  \end{proof}
+   \begin{Thm}
+    群$G$的非空子集$S$为$G$的子群的充分必要条件是
+  
+    （1）$\forall a,b\in S, ab\in S$且
+  
+    （2）$\forall a\in S, a^{-1}\in S$。
+   \end{Thm}
+  \begin{proof}[证明]
+    $\Rightarrow$ 显然。
+  
+    $\Leftarrow$
+    运算的封闭性显然成立；
+    运算的结合律显然成立；
+    由$S$非空知$\exists a\in S$，从而$a^{-1}\in S$，于是$e=a^{-1}a\in S$。
+  \end{proof}
+   \begin{Thm}
+    群$G$的非空子集$S$为$G$的子群的充分必要条件是$\forall a,b\in S, ab^{-1}\in S$。
+   \end{Thm}
+   \begin{proof}[证明]
+    $\Rightarrow$ 显然。
+  
+    $\Leftarrow$
+    由$S$非空知$\exists a\in S$，从而$e=aa^{-1}\in S$；
+  
+    $\forall g\in S$，$g^{-1}=eg^{-1}\in S$；
+  
+    $\forall a,b\in S$，$b^{-1}\in S$，从而$ab=a(b^{-1})^{-1}\in S$。
+  \end{proof}
+  
+   \begin{Thm}
+    群$G$的有限非空子集$F$为$G$的子群的充分必要条件是$\forall a,b\in F, ab\in F$。
+   \end{Thm}
+  
+   $\forall A,B\in 2^G$，定义$AB=\{ab|a\in A,b\in B\}$，则以上定理可以写成
+  
+   \begin{Thm}
+    群$G$的有限非空子集$F$为$G$的子群的充分必要条件是$FF\subseteq F$。
+   \end{Thm}
+   \begin{Def}
+    群$G$的元素$a$称为$G$的中心元素，如果$a$与$G$的每个元素可交换，即$\forall x\in G, ax=xa$。$G$的所有中心元素构成的集合$C$称为$G$的中心。
+   \end{Def}
+   \begin{Thm}
+    群$G$的中心$C$是$G$的可交换子群。
+   \end{Thm}
+  \begin{proof}[证明]
+  $\forall x\in G, ex=ex=x$，所以$e\in C$，故$C\neq \phi$。
+  
+  $\forall a,b\in C$，$\forall x\in G$，
+  $(ab)x=a(bx)=a(xb)=(ax)b=(xa)b=x(ab)$，从而$ab\in C$。
+  
+  $\forall a\in C$，$\forall x\in G$，由$ax=xa$可得$xa^{-1}=a^{-1}x$，从而$a^{-1}\in G$。
+  
+  故$C$为$G$的子群。$C$显然是可交换的。
+  \end{proof}
+  \begin{Example}
+    设$G$为一个群，$a\in G$，$\{\cdots,a^{-2},a^{-1},e,a,a^2,\cdots\}$为$G$的一个子群。
+  \end{Example}
+  
+  \begin{Example}
+    设$G$为一个有限群，$a\in G$，$\{e,a,a^2,\cdots\}$为$G$的一个子群。
+  \end{Example}
+  
+  \begin{Example}
+    设$G$为一个交换群，$a,b\in G$，则$\{a^mb^n|m,n\in Z\}$为$G$的一个子群。
+  \end{Example}
+  
+  \begin{Def}
+    设$M$为$G$的一个非空子集，$G$的包含$M$的所有子群的交称为由$M$生成的子群，记为$(M)$。
+  \end{Def}
+  
+  $(\{a\})$简写为$(a)$，$(a)=\{\cdots,a^{-2},a^{-1},e,a,a^2,\cdots\}$。
+  
+  $(\{a,b\})$简写为$(a,b)$。如果$G$为一个交换群，$a,b\in G$，则$(a,b)=\{a^mb^n|m,n\in Z\}$。
+  
+  $(M)=\{m_1m_2\cdots m_r|r\in Z^+,m_i\in M \lor m_i^{-1}\in M,i=1,2,\ldots,r\}$。
+    
 
 
 课后作业题：
@@ -65,7 +175,7 @@ $\forall x\in \phi^{-1}(e_2)$，$e_2=\phi(e_1)=\phi(x^{-1}\circ x)=\phi(x^{-1})*
   找出$3$次对称群的所有子群。
 \end{Exercise}
 \begin{proof}[解]
-  $\{(1),(1,2)\}$，$\{(1),(1,3)\}$，$\{(1),(2,3)\}$，$\{(123),(132)\}$
+  $\{(1),(1,2)\}$，$\{(1),(1,3)\}$，$\{(1),(2,3)\}$，$\{(1),(123),(132)\}$
 \end{proof}
 
 \begin{Exercise}
