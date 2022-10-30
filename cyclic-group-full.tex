@@ -73,13 +73,13 @@
 \begin{proof}[证明]
   （1）设$G=(a)=\{\cdots,a^{-2},a^{-1},e,a,a^2,\cdots\}$
 
-  $\phi:G\to Z$，$\forall i, \phi(a^i)=i$
+  $\phi:G\to Z$，$\forall i\in Z, \phi(a^i)=i$
 
   $\phi(a^i\circ a^j)=\phi(a^{i+j})=i+j=\phi(a^i)\circ\phi(a^j)$
 
   （2）设$G=(a)=\{e,a,a^2,\cdots,a^{n-1}\}$
 
-  $\phi:G\to Z_n$，$\forall i, 0\leq i\leq n-1,\phi(a^i)=[i]$
+  $\phi:G\to Z_n$，$\forall i\in Z, 0\leq i\leq n-1,\phi(a^i)=[i]$
 
   $\forall i,j, 0\leq i\leq n-1,0\leq j\leq n-1,\phi(a^i\circ a^j)=\phi(a^{i+j})=\phi(a^{(i+j)\bmod n})=[(i+j)\bmod n]=[i+j]=[i]+[j]=\phi(a^i)\circ \phi(a^j)$。
 
@@ -91,10 +91,10 @@
 
   （2）如果$G$为无限循环群，则$H_0=\{e\},H_m=(a^m),m=1,2,\cdots$为$G$的所有子群，这里$H_m,m=1,2,\cdots$都同构于$G$；
 
-  （3）如果$G$为$n$阶循环群，则$H_0=\{e\},H_m=(a^m),m|n$为$G$的所有子群。每个子群$H_m$的阶为$\frac{n}{m}$，$m=1,2,\cdots$。
+  （3）如果$G$为$n$阶循环群，则$H_0=\{e\},H_m=(a^m)$，$m|n$，为$G$的所有子群。每个子群$H_m$的阶为$\frac{n}{m}$。
 \end{Thm}
 \begin{proof}[证明]
-  （1）设$H$为循环群$G=(a)$的子群，令$m=\min \{i\in Z^+|a^i\in H\}$。$\forall j\in Z$，如果$a^j\in H$，$j=qm+r$，$0\leq r < m$，
+  （1）设$H$为循环群$G=(a)$的子群，令$m=\min \{i\in Z^+|a^i\in H\}$，以下证明$H=(a^{m})$。$\forall j\in Z$，如果$a^j\in H$，$j=qm+r$，$0\leq r < m$，
   则$a^j=a^{qm+r}=(a^m)^qa^r$，从而$a^r=a^j(a^{m})^{-q}\in H$，此时必有$r=0$，于是$a^j=(a^m)^q$，从而$H\subseteq (a^m)$。$(a^m)\subseteq H$显然成立，于是$H=(a^m)$。
 
   （2）显然$H_0$，$H_m,m=1,2,\cdots$都为$G$的子群。设$H$为$G$的任意一个子群，由（1）知$H$为循环群，从而$\exists m\in Z$，使得$H=(a^m)=(a^{-m})$。
@@ -103,16 +103,18 @@
 
   $\forall k,k=1,2,\cdots$，令$m=\min \{i\in Z^+|a^i\in (a^k)\}$。由（1）的证明过程知$(a^k)=(a^m)$，以下证明$m|n$。
 
-  由$G$为$n$阶循环群知$a^n=e\in (a^m)$，从而$\exists k\in Z$，$n=mk$，即$m|n$。
+  设$n=qm+r$，$0\leq r < m$，则$a^n=a^{qm+r}=(a^m)^qa^r$，由$a$的阶为$n$知$a^n=e$，从而$e=(a^m)^qa^r$，于是$a^r=(a^m)^{-q}\in (a^m)=(a^k)$，此时必有$r=0$，否则与$m$的定义矛盾，所以$m|n$。
 
-  由$(a^m)=\{e,a^m,a^{2m},\cdots,a^{\frac{n}{m}-1}m\}$，知$|(a^m)|=\frac{n}{m}$。
+  由$(a^m)^{\frac{n}{m}}=e$，当$0<k<\frac{n}{m}$时，$(a^m)^k\neq e$知$a^m$的阶为$\frac{n}{m}$，此时$(a^m)=\{e,a^m,a^{2m},\cdots,a^{\frac{n}{m}-1}m\}$，$|(a^m)|=\frac{n}{m}$。
 \end{proof}
 \begin{Example}
   设$a\in Z$，$b\in Z$，$a$和$b$不全为$0$，则在整数加群$(Z,+)$中集合$\{a,b\}$的生成子群为$H=\{ma+nb|m\in Z,n\in Z\}$。
   由于循环群$(Z,+)$的每个子群都为循环群，因此存在正整数$d$,使得$H=(d)$。这里$d$为$a$和$b$的最大公约数$(a,b)$。
   这是因为由$a\in H$知存在$p\in Z$，使得$a=pd$，即$d|a$；由$b\in H$知存在$q\in Z$，使得$b=qd$，即$d|b$；又因为$d\in H$，从而存在$m\in Z,n\in Z$，使得$d=ma+nb$，从而$\forall d'\in Z$，由$d'|a$并且$d'|b$，可以得到$d'|d$。
 \end{Example}
-
+\begin{Thm}
+  设$a,b\in Z$，$a$和$b$不全为$0$，则$\exists m,n\in Z$使得$(a,b)=ma+nb$。
+\end{Thm}
 \begin{Thm}
   设$a,b\in Z$，$b>0$，$a=qb+r$，$0\leq r < b$，则$(a,b)=(b,r)$。
 \end{Thm}
