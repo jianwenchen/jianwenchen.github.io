@@ -24,7 +24,42 @@
   \author{陈建文}
   \maketitle
   % \tableofcontents
-  
+  \begin{Def}
+    设$(G_1,\circ)$，$(G_2,*)$为两个群。如果存在一个双射$\phi:G_1\to G_2$，使得$\forall a,b\in G$，
+    \[\phi(a\circ b)=\phi(a)* \phi(b),\]
+    则称群$G_1$与$G_2$同构，记为$G_1\cong G_2$。$\phi$称为从$G_1$到$G_2$的一个同构。
+  \end{Def}
+
+  \begin{Def}
+    设$S$为一个非空集合，从$S$到$S$的所有双射构成的集合对映射的合成构成一个群，称为$S$上的对称群，记为$Sym(S)$。当$S=\{1,2,\cdots,n\}$时，$Sym(S)=S_n$。
+  \end{Def}
+
+\begin{Def}
+  $Sym(S)$的任意一个子群称为$S$上的一个变换群。$S_n$的任意一个子群称为一个置换群。
+\end{Def}
+
+\begin{Thm}
+  任何一个群都同构于某个变换群。
+\end{Thm}
+\begin{proof}[证明]
+  设$(G,\circ)$为一个群。$\forall a\in G$，令$f_a:G\to G$，$\forall x\in G$，$f_a(x)=ax$，则$f_a$为从$G$到$G$的双射。
+  （$f_a$为单射，这是因为$\forall x_1,x_2\in G$，如果$f_a(x_1)=f_a(x_2)$，则$ax_1=ax_2$，从而$x_1=x_2$；$f_a$为满射，这是因为$\forall y\in G$，$f_a(a^{-1}y)=a(a^{-1}y)=y$。）
+设$L(G)=\{f_a|f_a:G\to G,\forall x\in G,f_a(x)=ax,a\in G\}$，则$L(G)$对映射的合成构成一个群。实际上，$\forall f_a,f_b\in L(G)$，$\forall x\in G$，$f_a\circ f_b(x)=f_a(f_b(x))=f_a(bx)=abx=f_{ab}(x)$，所以$f_{ab}=f_a\circ f_b$，
+即$f_a\circ f_b\in L(G)$。因此，合成运算在$L(G)$中封闭。显然，合成运算满足结合律。$G$上的恒等映射$I_G=f_e\in L(G)$为$L(G)$中的单位元素（$\forall x\in G,f_e(x)=ex=x$）。又因为$\forall a\in G$，$\forall x\in G$，
+\[f_{a^{-1}}\circ f_a(x)=(a^{-1}a)x=x=f_e(x)\]
+所以$f_{a^{-1}}f_a=f_e$，$f_{a^{-1}}$为$f_a$的左逆元。因此，$L(G)$为一个群。
+
+令$\phi:G\to L(G)$，$\forall a\in G$，$\phi(a)=f_a$，则$\phi$为双射（$\phi$为单射，这是因为如果$\forall a,b\in G$，如果$\phi(a)=\phi(b)$，则$f_a=f_b$，从而$f_a(e)=f_b(e)$，即$ae=be$，于是$a=b$；$\phi$为满射，这是因为对任意的$f\in L(G)$，$\exists a\in G$使得$f=f_a$，从而$\phi(a)=f_a=f$）。
+
+$\forall a,b\in G, \phi(ab)=f_{ab}=f_a\circ f_b=\phi(a)\circ \phi(b)$，因此$\phi$为从$G$到$L(G)$的一个同构，即$G\cong L(G)$。
+\end{proof}
+设$(G,\circ)$为一个$n$阶群，$G=\{a_1,a_2,\cdots,a_n\}$，则$G\cong L(G)$，这里
+
+\[L(G)=\Big\{\begin{pmatrix}a_1&a_2&\cdots&a_n\\a_ia_1&a_ia_2&\cdots&a_ia_n\end{pmatrix}|a_i\in G\Big\}\]
+为一个置换群。
+\begin{Cor}
+  任意一个$n$阶有限群同构于$n$次对称群$S_n$的一个$n$阶子群，亦即任意一个有限群同构于某个置换群。
+\end{Cor}  
   
 课后作业题：
 \begin{Exercise}
@@ -35,7 +70,7 @@
   $(f\circ g)(x)=a(cx+d)+b=acx+(ad+b)$，这里$ac\neq 0$，因此$f\circ g\in G$。
 这验证了$G$中的函数关于函数的合成满足封闭性。
 
-设$h:R\to R,h(x)=x$,则$h\in G$，$h$为$G$的函数关于函数合成运算的单位元。
+设$h:R\to R,h(x)=x$,则$h\in G$，$h$为$G$中的函数关于函数合成运算的单位元。
 
 对任意的$f\in G$，设$f=ax+b$，$a,b\in R$，$a\neq 0$。
 
@@ -54,7 +89,7 @@
   设$R$为实数集合，$H$为一切形如$f(x)=x+b$的从$R$到$R$的函数之集，这里$b\in R$，试证：$H$为上题中$G$的一个子群。
 \end{Exercise}
 \begin{proof}[证明]
-  显然$H$非空，例如$h:R\to R$,$h(x)=x$，则$h\in H$。
+  显然$H$非空，例如$h:R\to R$,$\forall x\in R, h(x)=x$，则$h\in H$。
 
   $\forall f,g\in H$，$f(x)=x+b$，$g(x)=x+c$，$b,c\in R$，则$(f\circ g^{-1})(x)=(x-c)+b=x+(b-c)\in H$，因此$H$为上题中$G$的一个子群。
 \end{proof}
