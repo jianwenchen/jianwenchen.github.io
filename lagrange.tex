@@ -20,7 +20,7 @@
 \newtheorem{Cor}{推论}
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{第七讲 陪集、拉格朗日定理}
+  \title{第七讲 子群的陪集、拉格朗日定理}
   \author{陈建文}
   \maketitle
   % \tableofcontents
@@ -29,7 +29,9 @@
     \[AB=\{ab|a\in A \text{且} b\in B\}\]
     $\forall g\in G,A\in 2^G,\{g\}A$简写为$gA$，即$gA=\{ga|a\in A\}$。
   \end{Def}
-
+  \begin{Thm}
+    设$G$为一个群，则$\forall A,B,C\in 2^G$，$(AB)C=A(BC)$。
+  \end{Thm}
 \begin{Def}
   设$H$为群$G$的一个子群，$a\in G$，则集合$aH$称为子群$H$的一个左陪集，$Ha$称为$H$的一个右陪集。
 \end{Def}
@@ -82,32 +84,28 @@
   设$H$为群$G$的一个子群，$S_l$为$H$的所有左陪集构成的集合，$S_r$为$H$的所有右陪集构成的集合，则$|S_l|=|S_r|$。
 \end{Thm}
 
-\begin{Def}
-  设$a,b,n\in Z$，$n>0$，如果$n|(a-b)$，则称$a$与$b$模$n$同余，记为$a \equiv b(\mod n)$。
-\end{Def}
-
 \begin{Thm}
-  $\forall a,b\in Z, a\equiv b(\mod n)$等价于$a\mod n = b \mod n$。
+  设$p$为素数，整数$a$与$p$互素，则$a^{p-1}\equiv 1 \pmod p$。
 \end{Thm}
+\begin{proof}[证明]
+  以下证明$Z_p\setminus \{[0]\}=\{[1],[2],\cdots,[p-1]\}$对于乘法运算“$\cdot$”构成一个群。
 
-\begin{Thm}
-  1. $\forall a\in Z, a \equiv a (\mod n)$；
+  其中的乘法运算“$\cdot$”定义为：$\forall i,j\in Z$，$[i]\cdot [j]=[ij]$。
 
-  2. $\forall a, b\in Z$，如果$a\equiv b (\mod n)$，则$b\equiv a(\mod n)$；
+  $\forall i,j,i',j'\in Z$，如果$[i]=[i']$，$[j]=[j']$，则$[ij]=[i'j']$，这验证了“$\cdot$”为一个运算。
 
-  3. $\forall a,b,c\in Z$，如果$a\equiv b(\mod n)$并且$b\equiv c(\mod n)$，则$a\equiv c(\mod n)$；
+  $\forall i,j\in Z$，如果$[i]\neq [0]$，$[j]\neq 0$，则$p\nmid i$，$p\nmid j$，从而$p\nmid ij$，于是$[i]\cdot[j]=[ij]\neq [0]$，这验证了运算“$\cdot$”在$Z_p\setminus \{[0]\}$中封闭。
 
-  4. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$a+k\equiv b+k(\mod n)$；
+  $\forall i,j,k\in Z$，$([i]\cdot [j])\cdot [k]=[ij]\cdot [k]=[(ij)k]$，$[i]\cdot ([j]\cdot [k])=[i]\cdot [jk]=[i(jk)]$，$([i]\cdot [j])\cdot [k]=[i]\cdot ([j]\cdot [k])$，这验证了乘法运算“$\cdot$”满足结合律。
 
-  5. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$a+c\equiv b+d (\mod n)$；
+  $\forall i\in Z$，$[1]\cdot [i] =[i]$，这验证了$[1]$为左单位元。
 
-  6. $\forall a,b,k\in Z$，如果$a\equiv b(\mod n)$，则$ak\equiv bk(\mod n)$；
+  $\forall i\in Z$，$[i]\neq [0]$，则$(i,p)=1$，从而$\exists s,t\in Z,si+tp=1$，于是$p|(si-1)$，所以$[si]=[1]$，即$[s][i]=[1]$，这说明$[i]$有左逆元。
 
-  7. $\forall a,b,c,d\in Z$，如果$a\equiv b(\mod n)$并且$c\equiv d(\mod n)$，则$ac\equiv bd (\mod n)$
+  以上验证了$Z_p\setminus \{[0]\}$对于乘法运算“$\cdot$”构成一个群。
 
-  8. $\forall a,b\in Z$，$ab (\mod n)=(a\mod n)(b\mod n) (\mod n)$。
-\end{Thm}
-
+  $\forall a\in Z$，如果$a$与$p$互素，则$[a]\in Z_p\setminus \{[0]\}$，从而$[a]^{p-1}=[1]$，$a^{p-1}\equiv 1 \pmod {p}$。
+\end{proof}
 RSA算法：
 
 （1）随机选择两个大的素数$p$和$q$；
@@ -128,24 +126,24 @@ RSA算法：
 
 
 \begin{Thm}
-  在以上描述的RSA算法中，$(M^e \mod n)^d \mod n=M$。
+  在以上描述的RSA算法中，$(M^e \bmod n)^d \bmod n=M$。
 \end{Thm}
 
 \begin{proof}[证明]
-  由于$(M^e \mod n)^d \mod n &= (M^e)^d \mod n=m^{ed}\mod n$，
-  因此只需证$M^ed \mod n=M$。
+  由于$(M^e \mod n)^d \bmod n &= (M^e)^d \bmod n=m^{ed}\bmod n$，
+  因此只需证$M^{ed} \bmod n=M$。
   当$M$与$p$互素时，
 \begin{align*}
   &M^{ed}\mod p\\
-  =&M^{1+k(p-1)(q-1)} \mod p\\
-  =&M(M^{p-1})^{k(q-1)} \mod p\\
-  =&M(1)^{k(q-1)} \mod p\\
-  =&M \mod p\\
+  =&M^{1+k(p-1)(q-1)} \bmod p\\
+  =&M(M^{p-1})^{k(q-1)} \bmod p\\
+  =&M(1)^{k(q-1)} \bmod p\\
+  =&M \bmod p\\
 \end{align*}
-于是$(M^{ed})\equiv M (\mod p)$。当$p|M$时，该式显然也成立。
+于是$M^{ed}\equiv M \pmod p$。当$p|M$时，该式显然也成立。
 
-同理可证$(M^{ed})\equiv M (\mod q)$，进一步可得$M^{ed}\equiv M (\mod pq)$，
-即$M^{ed}\equiv M (\mod n)$，从而$M^{ed} \mod n = M\mod n=M$。
+同理可证$M^{ed}\equiv M \pmod q$，进一步可得$M^{ed}\equiv M \pmod{pq}$，
+即$M^{ed}\equiv M \pmod n$，从而$M^{ed} \bmod n = M\bmod n=M$。
 \end{proof}
 课后作业题：
 \begin{Exercise}

@@ -20,7 +20,7 @@
 \newtheorem{Cor}{推论}
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{第七讲 陪集、拉格朗日定理}
+  \title{第七讲 子群的陪集、拉格朗日定理}
   \author{陈建文}
   \maketitle
   % \tableofcontents
@@ -29,7 +29,9 @@
     \[AB=\{ab|a\in A \text{且} b\in B\}\]
     $\forall g\in G,A\in 2^G,\{g\}A$简写为$gA$，即$gA=\{ga|a\in A\}$。
   \end{Def}
-
+  \begin{Thm}
+    设$G$为一个群，则$\forall A,B,C\in 2^G$，$(AB)C=A(BC)$。
+  \end{Thm}
 \begin{Def}
   设$H$为群$G$的一个子群，$a\in G$，则集合$aH$称为子群$H$的一个左陪集，$Ha$称为$H$的一个右陪集。
 \end{Def}
@@ -38,10 +40,10 @@
   设$H$为群$G$的一个子群，则$\forall a\in G$，$aH=H$的充分必要条件是$a\in H$。
 \end{Thm}
 \begin{proof}[证明]
-$\Leftarrow$
+$\Rightarrow$
 设$aH=H$，则$a=ae\in aH=H$。
 
-$\Rightarrow$
+$\Leftarrow$
 设$a\in H$，则$\forall g\in aH$，$\exists h\in H$，$g=ah\in H$；
 $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
 \end{proof}
@@ -49,12 +51,12 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$的充分必要条件是$a^{-1}b\in H$。
 \end{Thm}
 \begin{proof}[证明]
-  $\Leftarrow$
+  $\Rightarrow$
   设$aH=bH$，则$b=be\in bH=aH$，从而$\exists h\in H$使得$b=ah$，于是，$a^{-1}b=h\in H$。
 
-  $\Rightarrow$
-  设$a^{-1}b\in H$，则$\forall g\in aH$，$\exists h\in H$，使得$g=ah=b((b^{-1}a)h)=b((a^{-1}b)^{-1}h)\in bH$，从而$aH\subseteq bH$；
-  由$a^{-1}b\in H$可得$b^{-1}a\in H$，从而$bH\subseteq aH$。
+  $\Leftarrow$
+  设$a^{-1}b\in H$，则$\forall g\in bH$，$\exists h\in H$，使得$g=bh=a((a^{-1}b)h)\in aH$，从而$bH\subseteq aH$；
+  由$a^{-1}b\in H$可得$b^{-1}a\in H$，从而$aH\subseteq bH$。
 \end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$aH=bH$或者$aH\cap bH=\phi$。
@@ -82,7 +84,7 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
  设$G$为一个有限群，$H$为$G$的一个子群，则$|G|=|H|\cdot [G:H]$。 
 \end{Thm}
 \begin{proof}[证明]
-  $H$在$G$中的所有不同的左陪集构成的集族为$G$的一个划分，每个左陪集均含有$n$个元素。因此，$|G|=n|G:H|$。
+  $H$在$G$中的所有不同的左陪集构成的集族为$G$的一个划分，每个左陪集元素的个数都相等。因此，$|G|=|H||G:H|$。
 \end{proof}
 \begin{Cor}
 有限群中每个元素的阶都能整除该有限群的阶。
@@ -98,7 +100,7 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
   设$G$为一个群，则$\forall a\in G$，$a^{|G|}=e$。
 \end{Cor}
 \begin{proof}[证明]
-  设$a$的阶为$n$，则$n|N$，于是$a^N=(a^n)^{(N/n)}=e^{(N/n)}=e$。
+  设$G$的阶为$N$，$a$的阶为$n$，则$n|N$，于是$a^N=(a^n)^{(N/n)}=e^{(N/n)}=e$。
 \end{proof}
 \begin{Example}
   证明：阶小于等于$5$的群为交换群。
@@ -118,21 +120,23 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
   设$p$为素数，整数$a$与$p$互素，则$a^{p-1}\equiv 1 \pmod p$。
 \end{Thm}
 \begin{proof}[证明]
-  以下证明$S_p\setminus \{[0]\}=\{[1],[2],\cdots,[p-1]\}$对于乘法运算“$\cdot$”构成一个群。
+  以下证明$Z_p\setminus \{[0]\}=\{[1],[2],\cdots,[p-1]\}$对于乘法运算“$\cdot$”构成一个群。
 
   其中的乘法运算“$\cdot$”定义为：$\forall i,j\in Z$，$[i]\cdot [j]=[ij]$。
 
-  $\forall i,j,i',j'\in Z$，\如果$[i]=[i']$，$[j]=[j']$，则$[ij]=[i'j']$，这验证了“$\cdot$”为一个运算。
+  $\forall i,j,i',j'\in Z$，如果$[i]=[i']$，$[j]=[j']$，则$[ij]=[i'j']$，这验证了“$\cdot$”为一个运算。
 
-  $\forall i,j,k\in Z$，$([i]\cdot [j])\cdot [k]=[ij]\cdot [k]=[(ij)k]$，$[i]\cdot ([j]\cdot [k])=[i]\cdot [jk]=[i(jk)]$，$([i]\cdot [j])\cdot [k]=[i]\cdot ([j]\cdot [k])$，这验证了乘法运算$\cdot$满足结合律。
+  $\forall i,j\in Z$，如果$[i]\neq [0]$，$[j]\neq 0$，则$p\nmid i$，$p\nmid j$，从而$p\nmid ij$，于是$[i]\cdot[j]=[ij]\neq [0]$，这验证了运算“$\cdot$”在$Z_p\setminus \{[0]\}$中封闭。
+
+  $\forall i,j,k\in Z$，$([i]\cdot [j])\cdot [k]=[ij]\cdot [k]=[(ij)k]$，$[i]\cdot ([j]\cdot [k])=[i]\cdot [jk]=[i(jk)]$，$([i]\cdot [j])\cdot [k]=[i]\cdot ([j]\cdot [k])$，这验证了乘法运算“$\cdot$”满足结合律。
 
   $\forall i\in Z$，$[1]\cdot [i] =[i]$，这验证了$[1]$为左单位元。
 
   $\forall i\in Z$，$[i]\neq [0]$，则$(i,p)=1$，从而$\exists s,t\in Z,si+tp=1$，于是$p|(si-1)$，所以$[si]=[1]$，即$[s][i]=[1]$，这说明$[i]$有左逆元。
 
-  以上验证了$S_p\setminus \{[0]\}$对于乘法运算“$\cdot$”构成一个群。
+  以上验证了$Z_p\setminus \{[0]\}$对于乘法运算“$\cdot$”构成一个群。
 
-  $\forall a\in Z$，如果$a$与$p$互素，则$[a]\in S_p\setminus \{[0]\}$，从而$[a]^{p-1}=[1]$，$a^{p-1}\equiv 1 \pmod {p}$。
+  $\forall a\in Z$，如果$a$与$p$互素，则$[a]\in Z_p\setminus \{[0]\}$，从而$[a]^{p-1}=[1]$，$a^{p-1}\equiv 1 \pmod {p}$。
 \end{proof}
 RSA算法：
 
