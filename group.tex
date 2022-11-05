@@ -69,17 +69,17 @@
    \end{align*}
    关于未知量$x$与$y$有解。
 \end{Thm}
-\begin{proof}[证明]
+% \begin{proof}[证明]
 
-  $\Leftarrow$
+%   $\Leftarrow$
 
-  由$G$非空知$\exists b,b\in G$。方程$yb=b$有解，设$e$为一个解，则$eb=b$。$\forall a\in G$,方程$bx=a$有解，设$c$为一个解，则$bc=a$。
-  于是
-  \[ea=e(bc)=(eb)c=bc=a\]
-  从而$e$为左单位元。
+%   由$G$非空知$\exists b,b\in G$。方程$yb=b$有解，设$e$为一个解，则$eb=b$。$\forall a\in G$,方程$bx=a$有解，设$c$为一个解，则$bc=a$。
+%   于是
+%   \[ea=e(bc)=(eb)c=bc=a\]
+%   从而$e$为左单位元。
 
-  $\forall a\in G$，方程$ya=e$有解，其解为$a$的左逆元。
-\end{proof}
+%   $\forall a\in G$，方程$ya=e$有解，其解为$a$的左逆元。
+% \end{proof}
 \begin{Thm}
   设$(G,\circ)$为一个群，则“$\circ$”运算满足消去律，即$\forall x, y, a\in G$，
 
@@ -95,18 +95,18 @@
 
   2. “$\circ$”运算满足左、右消去律。
 \end{Thm}
-\begin{proof}[证明]
-$\Leftarrow$
+% \begin{proof}[证明]
+% $\Leftarrow$
 
-先证$\forall a,b\in G$，方程$ax=b$有解。
+% 先证$\forall a,b\in G$，方程$ax=b$有解。
 
-令$f:G\to aG=\{ag|g\in G\}$，$\forall x\in G, f(x)=ax$。则$f$为单射,这是因为$\forall x_1,x_2\in G$，如果$f(x_1)=f(x_2)$，则$ax_1=ax_2$，由左消去律得$x_1=x_2$；
-同时，$f$为满射，这是因为$\forall y\in aG$，$\exists x\in G$，$y=ax$，于是$f(x)=ax=y$。
-此时必有$aG=G$，否则$aG\subseteq G$且$aG\neq G$，从而$aG$为$G$的真子集，于是$f$为有限集$G$与其真子集之间的一个双射，矛盾。
-由$f:G\to aG=G$为双射知，$\forall b\in G$，$\exists c\in G$，$ac=b$。所以，方程$ax=b$在$G$中有解。
+% 令$f:G\to aG=\{ag|g\in G\}$，$\forall x\in G, f(x)=ax$。则$f$为单射,这是因为$\forall x_1,x_2\in G$，如果$f(x_1)=f(x_2)$，则$ax_1=ax_2$，由左消去律得$x_1=x_2$；
+% 同时，$f$为满射，这是因为$\forall y\in aG$，$\exists x\in G$，$y=ax$，于是$f(x)=ax=y$。
+% 此时必有$aG=G$，否则$aG\subseteq G$且$aG\neq G$，从而$aG$为$G$的真子集，于是$f$为有限集$G$与其真子集之间的一个双射，矛盾。
+% 由$f:G\to aG=G$为双射知，$\forall b\in G$，$\exists c\in G$，$ac=b$。所以，方程$ax=b$在$G$中有解。
 
-同理可证，  $\forall a,b\in G$，方程$ya=b$有解。
-\end{proof}
+% 同理可证，  $\forall a,b\in G$，方程$ya=b$有解。
+% \end{proof}
 
 \begin{Example}
   3阶群是交换群。
@@ -117,7 +117,7 @@ $\Leftarrow$
 \begin{Thm}
 设$G$为一个群，$a\in G$，$m$，$n$为任意整数，则$a^ma^n=a^{m+n}$，$(a^m)^n=a^{mn}$。
 \end{Thm}
-设$(G,+)$为一个阿贝尔群，$G$的单位元记为$0$。$\forall a\in G$，定义$0a=0$，$(n+1)a=na+a$$(n\geq 0)$，$(-n)a=n(-a)$$(n\geq 1)$。
+设$(G,+)$为一个阿贝尔群，$G$的单位元记为$0$。$\forall a\in G$，$a$的逆元记为$-a$。$\forall a\in G$，定义$0a=0$，$(n+1)a=na+a$$(n\geq 0)$，$(-n)a=n(-a)$$(n\geq 1)$。
 对任意整数$m$，$n$，$ma+na=(m+n)a$，$(mn)a=m(na)$，$n(a+b)=na+nb$。
 \begin{Def}
   设$(G,\circ)$为一个群，$a\in G$，使$a^n=e$的最小正整数$n$称为$a$的阶。如果不存在这样的正整数$n$，则称$a$的阶为无穷大。
@@ -125,9 +125,9 @@ $\Leftarrow$
 \begin{Thm}
   有限群的每个元素的阶不超过该有限群的阶。
 \end{Thm}
-\begin{proof}[证明]
-  设群$G$的阶为$N$，则$a^0,a^1,a^2,\cdots,a^N$为$G$的$N+1$个元素，所以必有两个是相同的，设$a^k=a^l$，$0\leq k<l\leq N$。于是，$a^{l-k}=e$，$0<l-k\leq N$，从而$a$的阶不超过$N$。
-\end{proof}
+% \begin{proof}[证明]
+%   设群$G$的阶为$N$，则$a^0,a^1,a^2,\cdots,a^N$为$G$的$N+1$个元素，所以必有两个是相同的，设$a^k=a^l$，$0\leq k<l\leq N$。于是，$a^{l-k}=e$，$0<l-k\leq N$，从而$a$的阶不超过$N$。
+% \end{proof}
 课后作业题：
 
 \begin{Exercise}
@@ -153,7 +153,7 @@ $\Leftarrow$
 \end{Exercise}
 \begin{Exercise}
   设$a_1,a_2,\cdots,a_n$为$n$阶群中的$n$个元素（它们不一定各不相同）。证明：存在整数$p$和$q$（$1\leq p \leq q \leq n$），使得
-  \[a_pa_{p+1}\cdots a_q=e\]
+  \[a_pa_{p+1}\cdots a_q=e\text{。}\]
 \end{Exercise}
 \end{CJK*}
 \end{document}
