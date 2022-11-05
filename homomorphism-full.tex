@@ -36,12 +36,12 @@
   设$(G_1,\circ)$与$(G_2,*)$为两个群，$e_1$和$e_2$分别为其单位元，$\phi$为从$G_1$到$G_2$的同态，则
   \begin{align*}
     &\phi(e_1)=e_2\\
-    &\forall a\in G \phi(a^{-1})=(\phi(a))^{-1}\\
+    &\forall a\in G_1 \phi(a^{-1})=(\phi(a))^{-1}\\
   \end{align*}
 \end{Thm}
 \begin{proof}[证明]
   由$\phi(e_1)=\phi(e_1\circ e_1)=\phi(e_1)*\phi(e_1)$知$\phi(e_1)=e_2$。
-  $\forall a\in G, \phi(a^{-1})*\phi(a)=\phi(a^{-1}\circ a)=\phi(e_1)=e_2$，从而$(\phi(a))^{-1}=\phi(a^{-1})$。
+  $\forall a\in G_1, \phi(a^{-1})*\phi(a)=\phi(a^{-1}\circ a)=\phi(e_1)=e_2$，从而$(\phi(a))^{-1}=\phi(a^{-1})$。
 \end{proof}
 \begin{Thm}
   设$(G_1,\circ)$为一个群，$(G_2,*)$为一个代数系。如果存在一个满射$\phi:G_1\to G_2$使得$\forall a,b\in G_1$
@@ -49,12 +49,20 @@
   则$(G_2,*)$为一个群。
 \end{Thm}
 \begin{proof}[证明]
-  $\forall x,y,z\in G_2$，由$\phi$为满射知$\exists a,b,c\in G_1$使得$\phi(a)=x,\phi(b)=y,\phi(c)=z$，从而
+  验证$\forall x,y,z\in G_2,(x*y)*z=x*(y*z)$：由$\phi$为满射知$\exists a,b,c\in G_1$使得$\phi(a)=x,\phi(b)=y,\phi(c)=z$，从而
   $(x*y)*z=(\phi(a)*\phi(b))*\phi(c)=\phi(a\circ b)*\phi(c)=\phi((a\circ b)\circ c)$，$x*(y*z)=\phi(a)* (\phi(b)*\phi(c))=\phi(a)*\phi(b\circ c)=\phi(a\circ (b\circ c))$，$(x*y)*z=x*(y*z)$，这验证了在$G_2$中$*$运算满足结合律。
 
   $\forall x\in G_2$，由$\phi$为满射知$\exists a\in G_1$使得$\phi(a)=x$，于是$\phi(e)*x=\phi(e)*\phi(a)=\phi(e\circ a)=\phi(a)=x$。
 
   $\forall x\in G_2$，由$\phi$为满射知$\exists a\in G_1$使得$\phi(a)=x$，于是$\phi(a^{-1})*\phi(a)=\phi(a^{-1}\circ a)=\phi(e_1)$。
+\end{proof}
+
+\begin{Example}
+  设$n\in Z^+$，$Z_n'=\{0,1,\cdots, n-1\}$，在$Z_n'$上定义运算"$\oplus$"如下：$i\oplus j=(i+j)\bmod n$，
+  令$f:Z\to Z_n'$，$\forall m\in Z, f(m)= m \bmod n$，则$f$为从$Z$到$Z_n'$的满射，并且$\forall a,b\in Z$，$f(a+b)=f(a)\oplus f(b)$，从而$(Z_n',\oplus)$为一个群。
+\end{Example}
+\begin{proof}[证明]
+  $f$显然为从$Z$到$Z_n'$的满射。要证$\forall a,b\in Z$，$f(a+b)=f(a)\oplus f(b)$，就是要证$(a+b)\bmod n = ((a\bmod n) + (b\bmod n))\bmod n$，此式显然成立。
 \end{proof}
 \begin{Thm}
   设$\phi$为从群$(G_1,\circ)$到群$(G_2,*)$的同态，则
@@ -63,7 +71,9 @@
 
   （2）如果$H$为$G_2$的子群，那么$\phi^{-1}(H)$为$G_1$的子群；
 
-  （3）如果$N$为$G_2$的正规子群，那么$\phi^{-1}(N)$为$G_1$的正规子群。
+  （3）如果$N$为$G_1$的正规子群，那么$\phi(N)$为$\phi(G_1)$的正规子群；
+
+  （4）如果$N$为$\phi(G_1)$的正规子群，那么$\phi^{-1}(N)$为$G_1$的正规子群；
 \end{Thm}
 \begin{proof}[证明]
   以下设$G_1$的单位元为$e_1$，$G_2$的单位元为$e_2$。
@@ -74,27 +84,28 @@
 
   以上验证了$\phi(H)$为$G_2$的子群。
 
-  （2）由$\phi(e_1)=e_2$知$e_1\in \phi^{-1}(H)$，从而$\phi^{-1}(H)$非空。
+  （2）由$\phi(e_1)=e_2\in H$知$e_1\in \phi^{-1}(H)$，从而$\phi^{-1}(H)$非空。
 
+  以下证明$\forall a,b\in \phi^{-1}(H)$，$a\circ b^{-1}\in \phi^{-1}(H)$，即$\phi(a\circ b^{-1})\in H$。
+  
   $\forall a,b\in \phi^{-1}(H)$，则$\phi(a)\in H$，$\phi(b)\in H$，从而$\phi(a\circ b^{-1})=\phi(a)*\phi(b^{-1})=\phi(a)*\phi(b)^{-1}\in H$，于是$a\circ b^{-1}\in \phi^{-1}(H)$。
 
   这验证了$\phi^{-1}(H)$为$G_1$的子群。
 
-  （3）由（2）知$\phi^{-1}(N)$为$G_1$的子群。
+  (3) $\phi(N)$显然为$\phi(G_1)$的子群。
 
-  要证$\phi^{-1}(N)$为$G_1$的正规子群，就是要证$\forall a\in G, a\phi^{-1}(N)a^{-1}\subseteq \phi^{-1}(N)$，这就是要证$\forall g\in \phi^{-1}(N), a\circ g\circ a^{-1}\in \phi^{-1}(G)$，而\phi(a\circ g\circ a^{-1})=\phi(a)*\phi(g)*\phi(a^{-1})=\phi(a)*\phi(g)*\phi(a)^{-1}\in N$，从而$a\circ g\circ a^{-1}\in \phi^{-1}(N)$，结论得证。
+  以下证明$\forall h\in \phi(N), \forall g\in \phi(G_1), g*h*g^{-1}\in \phi(N)$。
+
+  $\forall h\in \phi(N)$，$\exists b\in N$使得$h=\phi(b)$，$\forall g\in \phi(G_1),\exists a\in G_1$，使得$g=\phi(a)$。于是，$g*h*g^{-1}=\phi(a)*\phi(b)*\phi(a)^{-1}=\phi(a\circ b)*\phi(a^{-1})=\phi(a\circ b\circ a^{-1})\in \phi(N)$，因此$\phi(N)$为$G_2$的正规子群。
+
+  （4）由（2）知$\phi^{-1}(N)$为$G_1$的子群。
+
+  要证$\phi^{-1}(N)$为$G_1$的正规子群，就是要证$\forall g\in \phi^{-1}(N), \forall a\in G_1, a\circ g\circ a^{-1}\in \phi^{-1}(N)$，而\phi(a\circ g\circ a^{-1})=\phi(a)*\phi(g)*\phi(a^{-1})=\phi(a)*\phi(g)*\phi(a)^{-1}\in N$，从而$a\circ g\circ a^{-1}\in \phi^{-1}(N)$，结论得证。
 
 \end{proof}
-\begin{Thm}
-设$\phi$为从群$G_1$到群$G_2$的满同态，$N$为$G_1$的正规子群，则$\phi(N)$为$G_2$的正规子群。
-\end{Thm}
-\begin{proof}[证明]
-  $\phi(N)$显然为$G_2$的子群。
 
-  $\forall g\in \phi(N)$，$\exists b\in G_1$使得$g=\phi(b)$，$\forall h\in G_2,\exists a\in G_1$，使得$h=\phi(a)$。于是，$h*g*h^{-1}=\phi(a)*\phi(b)*\phi(a)^{-1}=\phi(a\circ b)*\phi(a^{-1})=\phi(a\circ b\circ a^{-1})\in \phi(N)$，从而$h\phi(N)h^{-1}\subseteq \phi(N)$，因此$\phi(N)$为$G_2$的正规子群。
-\end{proof}
 \begin{Def}
-设$\phi$为群$(G_1,\circ)$到群$(G_2,*)$的一个同态，$e_2$为$G_2$的单位元，则$G_1$的子群$\phi^{-1}(e_2)$称为同态$\phi$的核，记为$Ker \phi$。$\phi(G_1)$称为$\phi$在$G_1$下的同态像。
+设$\phi$为从群$(G_1,\circ)$到群$(G_2,*)$的一个同态，$e_2$为$G_2$的单位元，则$G_1$的子群$\phi^{-1}(e_2)$称为同态$\phi$的核，记为$Ker \phi$。$\phi(G_1)$称为$\phi$在$G_1$下的同态像。
 \end{Def}
 
 \begin{Thm}
@@ -107,21 +118,24 @@
 \begin{proof}[证明]
   $\forall x,y\in G, \phi(xy)=(xy)N=(xN)(yN)=\phi(x)\phi(y)$，这验证了$\phi$为从$G$到$G/N$的一个同态。
 
+  $\phi$显然为从$G$到$G/N$的满射，因此$\phi$为从$G$到$G/N$的满同态。
+
   $\forall g\in G, g\in Ker\phi \Leftrightarrow \phi(g)=N \Leftrightarrow gN=N \Leftrightarrow g\in N$。
 \end{proof}
 \begin{Thm}[群的同态基本定理]
 设$\phi$为从群$(G_1,\circ)$到群$(G_2,*)$的同态，则$G_1/Ker G_1 \cong \phi(G_1)$。
 \end{Thm}
+\begin{proof}[证明]
 记$K=KerG_1$。令$f:G_1/K\to \phi(G_1)$，$\forall gK\in G_1/K, f(gK)=\phi(g)$。
 
 $\forall g_1,g_2\in G_1$，如果$g_1K=g_2K$，则$g_1^{-1}g_2\in K$，从而$\phi(g_1^{-1}\circ g_2)=e_2$，即$\phi(g_1)^{-1}*\phi(g_2)=e_2$，于是$\phi(g_1)=\phi(g_2)$，所以$f(g_1K)=f(g_2K)$，这验证了$f$为映射。
 
-$f$为单射，这是因为$\forall g_1K,g_2K\in G_1/K$，如果$f(g_1K)=f(g_2K)$，则$\phi(g_1)=\phi(g_2)$，从而$\phi(g_1)^{-1}*\phi(g_2)=e_2$，即$\phi(g_1^{-1})*\phi(g_2)=e_2$，因此$\phi(g_1^{-1}\circ g_2)=e_2$，于是$g_1^{-1}g_2\in K$，所以$g_1K=g_2K$。
+$f$为单射，这是因为$\forall g_1K,g_2K\in G_1/K$，如果$f(g_1K)=f(g_2K)$，则$\phi(g_1)=\phi(g_2)$，从而$\phi(g_1)^{-1}*\phi(g_2)=e_2$，即$\phi(g_1^{-1})*\phi(g_2)=e_2$，因此$\phi(g_1^{-1}\circ g_2)=e_2$，于是$g_1^{-1}\circ g_2\in K$，所以$g_1K=g_2K$。
 
-$f$为满射，这是因为$\forall g_2 \in \phi(G_1)$，$\exists g_1\in G$使得$\phi(g_1)=g_2$，于是$f(g_1K)=\phi(g_1)=g_2$。
+$f$为满射，这是因为$\forall g_2 \in \phi(G_1)$，$\exists g_1\in G_1$使得$\phi(g_1)=g_2$，于是$f(g_1K)=\phi(g_1)=g_2$。
 
-$\forall g_1K,g_2K\in G_1/K$，$f((g_1K)(g_2K))=f(g_1g_2K)=\phi(g_1g_2)=\phi(g_1)\phi(g_2)=f(g_1K)f(g_2K)$，因此$f$为从$G_1/K$到$\phi(G_1)$的同构。
-
+$\forall g_1K,g_2K\in G_1/K$，$f((g_1K)(g_2K))=f((g_1\circ g_2)K)=\phi(g_1\circ g_2)=\phi(g_1)*\phi(g_2)=f(g_1K)*f(g_2K)$，因此$f$为从$G_1/K$到$\phi(G_1)$的同构。
+\end{proof}
 课后作业题：
 \begin{Exercise}
 设$G$为$m$阶循环群，$\bar{G}$为$n$阶循环群，试证：$G \sim \bar{G}$当且仅当$n | m$。
