@@ -28,6 +28,7 @@
     设$G$为一个群，$G$的任意子集称为群子集。在$2^G$中借助于$G$的乘法引入一个代数运算，称为群子集的乘法：$\forall A,B\in 2^G$，
     \[AB=\{ab|a\in A \text{且} b\in B\}\]
     $\forall g\in G,A\in 2^G,\{g\}A$简写为$gA$，即$gA=\{ga|a\in A\}$。
+    $A\{g\}$简写为$Ag$，即$Ag=\{ag|a\in A\}$。
   \end{Def}
   \begin{Thm}
     设$G$为一个群，则$\forall A,B,C\in 2^G$，$(AB)C=A(BC)$。
@@ -68,13 +69,13 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
   设$H$为群$G$的一个子群，则$\forall a,b\in G$，$|aH|=|bH|$。
 \end{Thm}
 \begin{proof}[证明]
-  令$\phi:aH\to bH$，$\forall h\in H$，$\phi(ah)=bh$，则易验证$\phi$为双射，所以$|aH|=|bH|$。
+  只需证$\forall a\in G$，$|H|=|aH|$。令$\phi:H\to aH$，$\forall h\in H$，$\phi(h)=ah$，则易验证$\phi$为双射，所以$|H|=|aH|$。
 \end{proof}
 \begin{Thm}
   设$H$为群$G$的一个子群，则$H$的所有左陪集构成的集合为$G$的一个划分。
 \end{Thm}
 \begin{proof}[证明]
-  首先，不同的左陪集互不相交。其次，$\forall a\in G,a\in aH$，所以$G=\bigcup_{a\in G}aH$。因此，$H$的所有左陪集构成的集族为$G$的一个划分。
+  首先，不同的左陪集互不相交。其次，$\forall a\in G,a\in aH$，所以$G=\bigcup_{a\in G}aH$。因此，$H$的所有左陪集构成的集合为$G$的一个划分。
 \end{proof}
 \begin{Def}
   设$H$为群$G$的一个子群，如果$H$的所有不同的左陪集的个数为有限数$j$，则称$j$为$H$在$G$中的指数，记为$j=[G:H]$，否则称$H$在$G$中的指数为无穷大。
@@ -84,7 +85,7 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
  设$G$为一个有限群，$H$为$G$的一个子群，则$|G|=|H|\cdot [G:H]$。 
 \end{Thm}
 \begin{proof}[证明]
-  $H$在$G$中的所有不同的左陪集构成的集族为$G$的一个划分，每个左陪集元素的个数都相等。因此，$|G|=|H||G:H|$。
+  $H$在$G$中的所有不同的左陪集构成的集合为$G$的一个划分，每个左陪集元素的个数都相等。因此，$|G|=|H||G:H|$。
 \end{proof}
 \begin{Cor}
 有限群中每个元素的阶都能整除该有限群的阶。
@@ -93,7 +94,7 @@ $\forall h\in H$，$h=a(a^{-1}h)\in aH$。
   设$G$为一个$N$阶群，$a$为$G$的一个阶为$n$的元素，则由$a$生成的$G$的子群$(a)$的阶也为$n$，由Lagrange定理，$n|N$。
 \end{proof}
 \begin{Cor}
-  如果群$G$的阶为素数，则$G$为一个循环群。
+  如果群$G$的阶$p$为素数，则$G$为一个循环群。
 \end{Cor}
 因为$p$为素数，所以$p\geq 2$。于是，$G$中至少有一个非单位元素$a$。$a$的阶整除$p$，但$p$为素数，所以$a$的阶为$p$。因此，$G=(a)$。
 \begin{Cor}
@@ -144,9 +145,9 @@ RSA算法：
 
 （2）计算$n=pq$；
 
-（3）选择数$e$，使得$e$与$(p-1)(q-1)$互素；
+（3）选择正整数$e$，使得$e$与$(p-1)(q-1)$互素；
 
-（4）计算数$d$，使得对于某个整数$k$，$ed=1+k(p-1)(q-1)$；
+（4）计算正整数$d$，使得对于某个整数$k$，$ed=1+k(p-1)(q-1)$；
 
 （5）将$(e,n)$作为公钥发布，保留私钥$(d,n)$。
 
@@ -162,7 +163,7 @@ RSA算法：
 \end{Thm}
 
 \begin{proof}[证明]
-  由于$(M^e \mod n)^d \bmod n &= (M^e)^d \bmod n=m^{ed}\bmod n$，
+  由于$(M^e \bmod n)^d \bmod n &= (M^e)^d \bmod n=m^{ed}\bmod n$，
   因此只需证$M^{ed} \bmod n=M$。
   当$M$与$p$互素时，
 \begin{align*}
