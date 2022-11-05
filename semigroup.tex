@@ -28,16 +28,15 @@
 
 
 \begin{Def}
-设“$\circ$”为非空集合$S$上的一个二元代数运算。如果$\forall a,b,c \in S$，
-\[(a\circ b) \circ c = a \circ (b\circ c)\]
-则称集合$S$对“$\circ$”运算形成一个半群（semigroup），并记为$(S,\circ)$。  
+代数系$(S,\circ)$称为一个半群，如果二元代数运算“$\circ$”满足结合律，即$\forall a,b,c \in S$，
+\[(a\circ b) \circ c = a \circ (b\circ c)\text{。}\]  
 \end{Def}
 
 \begin{Example}
-  正整数集合$Z_+$对“$+$”运算构成一个半群。
+  正整数集合$Z^+$对“$+$”运算构成一个半群。
 \end{Example}
 
-$\forall a,b,c \in Z_+ (a+b)+c = a + (b + c)$
+$\forall a,b,c \in Z^+ (a+b)+c = a + (b + c)$
 
 \begin{Def}
   如果一个半群中的二元代数运算满足交换律，则称此半群为交换半群。
@@ -59,15 +58,15 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Thm}
   设$(S,\circ)$为一个代数系，如果二元代数运算$\circ$既有左单位元$e_l$，又有右单位元$e_r$，则$e_l=e_r$，从而有单位元且单位元是唯一的。
 \end{Thm}
-\begin{proof}[证明]
-  $e_r=e_l\circ e_r=e_l$
-\end{proof}
+% \begin{proof}[证明]
+%   $e_r=e_l\circ e_r=e_l$
+% \end{proof}
 \begin{Def}
   有单位元素的半群称为独异点(monoid)，或称为幺半群。
 \end{Def}
 
 \begin{Example}
-  自然数集合$N$对加法运算“$+$”构成幺半群，单位元为$0$。正整数集合$Z_+$对乘法运算“$\times$”构成幺半群，单位元为$1$。
+  自然数集合$N$对加法运算“$+$”构成幺半群，单位元为$0$。正整数集合$Z^+$对乘法运算“$\times$”构成幺半群，单位元为$1$。
 \end{Example}
 
 \begin{Example}
@@ -79,7 +78,7 @@ $\forall d\in N$，$2\times 2$矩阵
 \end{Def}
 
 \begin{Example}
-  设$S$为非空集合，$M(S)=\{f|f:S\to S\}$，则$M(S)$对映射的合成构成了一个以$I_S$为单位元的幺半群$(M(S),\circ,I_S)$，它是不可交换幺半群。
+  设$S$为非空集合，$S^S=\{f|f:S\to S\}$，则$S^S$对映射的合成构成了一个以$I_S$为单位元的幺半群$(S^S,\circ,I_S)$，它是不可交换幺半群。
 \end{Example}
 \begin{Example}
   设$M_n$为所有$n\times n$实矩阵构成的集合，则$M_n$对矩阵的乘法构成了一个以$I_n$为单位元的幺半群$(M_n,*,I_n)$。
@@ -93,9 +92,9 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Thm}
   如果幺半群$(S,\circ,e)$中的元素$a$既有左逆元素$a_l$，又有右逆元素$a_r$，则$a_l=a_r$。于是，$a$有逆元素且$a$的逆元素是唯一的，记为$a^{-1}$。
 \end{Thm}
-\begin{proof}[证明]
-  $a_r=e\circ a_r=(a_l\circ a)\circ a_r=a_l\circ(a\circ a_r)=a_l\circ e=a_l$
-\end{proof}
+% \begin{proof}[证明]
+%   $a_r=e\circ a_r=(a_l\circ a)\circ a_r=a_l\circ(a\circ a_r)=a_l\circ e=a_l$
+% \end{proof}
 \begin{Def}
   每个元素都有逆元素的幺半群称为群。
 \end{Def}
@@ -110,7 +109,7 @@ $\forall d\in N$，$2\times 2$矩阵
   III. 对$G$中的每个元素，关于$\circ$运算有一个逆元，
   即$\forall a\in G \exists b\in G b\circ a = a\circ b= e$。
 \end{Def}
-
+群$G$中的“$\circ$”运算通常称为乘法，$a\circ b$简写为$ab$。$a$的逆元记为$a^{-1}$。
 \begin{Example}
   整数集合$Z$,有理数集合$Q$，实数集合$R$，复数集合$C$对通常的加法运算构成群；
   非零有理数集合$Q^*$，非零实数集合$R^*$，非零复数集合$C^*$对通常的乘法运算构成群。
@@ -132,18 +131,15 @@ $\forall d\in N$，$2\times 2$矩阵
   设$a,b\in Z$，如果存在$q\in Z$使得$a=qb$，则称$b$整除$a$，记为$b|a$。
 \end{Def}
 \begin{Def}
-  设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<n$，则称$r$为$a$除以$n$所得到的余数，记为$a\bmod n$。
+  设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<b$，则称$r$为$a$除以$b$所得到的余数，记为$a\bmod b$。
 \end{Def}
 
 \begin{Def}
   设$a,b,n\in Z$，$n>0$，如果$a\bmod n=b\bmod n$，则称$a$与$b$模$n$同余，记为$a \equiv b\pmod{n}$。
 \end{Def}
 
-\begin{Def}
-
-\end{Def}
 \begin{Thm}
-  $\forall a,b\in Z, a\equiv b\pmod{n}$等价于$n|(a-b)$。
+  $\forall a,b,n\in Z, n>0, a\equiv b\pmod{n}$等价于$n|(a-b)$。
 \end{Thm}
 
 \begin{Thm}
@@ -167,17 +163,32 @@ $\forall d\in N$，$2\times 2$矩阵
 \begin{Def}
   设$n\in Z$，$n>0$，$\forall x\in Z$，定义$[x]=\{y|y\equiv x \pmod{n}\}$，称为整数集$Z$上在模$n$同余的等价关系下的一个等价类。
 \end{Def}
+\begin{Example}
+模$4$同余关系的所有等价类为：
+
+$[0]=\{\cdots,-8,-4,0,4,8,\cdots\}$
+
+$[1]=\{\cdots,-7,-3,1,5,9,\cdots\}$
+
+$[2]=\{\cdots,-6,-2,2,6,10,\cdots\}$
+
+$[3]=\{\cdots,-5,-1,3,7,11,\cdots\}$
+\end{Example}
 \begin{Thm}
-  设$n\in Z$，$n>0$，$\forall x\in z$，$[x]=[y]$当且仅当$x\equiv y\pmod{n}$。
+  设$n\in Z$，$n>0$，$\forall x,y\in Z$，$[x]=[y]$当且仅当$x\equiv y\pmod{n}$。
 \end{Thm}
 
 \begin{Example}
   设$Z_n=\{[0],[1],\cdots,[n-1]\}$为整数集$Z$上在模$n$同余的等价关系下所有等价类之集，
-  在$Z_n$上定义加法运算“$+$”如下：$\forall [i],[j]\in Z_n,[i]+[j]=[i+j]$，则$(Z_n,+)$构成一个交换群；
-
-  在$Z_n$上定义乘法运算“$*$”如下：$\forall [i],[j]\in Z_n,[i]*[j]=[i*j]$，则$(Z_n,*)$构成一个交换幺半群；
+  在$Z_n$上定义加法运算“$+$”如下：$\forall [i],[j]\in Z_n,[i]+[j]=[i+j]$，则$(Z_n,+)$构成一个交换群。
+  
+%  在$Z_n$上定义乘法运算“$*$”如下：$\forall [i],[j]\in Z_n,[i]*[j]=[i*j]$，则$(Z_n,*)$构成一个交换幺半群；
 \end{Example}
 
+
+\begin{Example}
+  设$Z'_n=\{0,1,2,\cdots,n-1\}$，在$Z'_n$上定义运算"$\oplus$"如下：$i\oplus j=(i+j)\bmod n$，则$(Z'_n,\oplus)$构成一个群。
+\end{Example}
 
 设用$n$个二进制位表示一个整数$x$，$x$的补码定义为
 
@@ -227,47 +238,58 @@ $x < 0$，$y < 0$：此时$x$的补码为$x+2^n$的原码，$y$的补码为$y+2^
   III. 对$G$中的每个元素，关于$\circ$运算有一个左逆元，
   即$\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
 \end{Def}
-在群$(G,\circ)$中，$a\circ b$简写为$ab$。
+
 \begin{Thm}
   设$G$为一个群，则$\forall a\in G$，$a$的左逆元也是$a$的右逆元。
 \end{Thm}
-\begin{proof}[证明]
-  $\forall a\in G$，设$a_l$为$a$的一个左逆元，则
-  \[a_la=e\]
-  两边同时右乘以$a_l$得
-  \[(a_la)a_l=ea_l\]
-  从而
-  \[a_l(aa_l)=a_l\]
-  两边同时左乘以$a_l$的左逆元得
-  \[aa_l=e\]
-\end{proof}
+% \begin{proof}[证明]
+%   $\forall a\in G$，设$a_l$为$a$的一个左逆元，则
+%   \[a_la=e\]
+%   两边同时右乘以$a_l$得
+%   \[(a_la)a_l=ea_l\]
+%   从而
+%   \[a_l(aa_l)=a_l\]
+%   两边同时左乘以$a_l$的左逆元得
+%   \[aa_l=e\]
+% \end{proof}
 \begin{Thm}
   设$G$为一个群，则$G$的左单位元$e$也是右单位元。
 \end{Thm}
-\begin{proof}[证明]
-  $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
-\end{proof}
-在群$(G,\circ)$中，$a$得逆元记为$a^{-1}$。
+% \begin{proof}[证明]
+%   $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
+% \end{proof}
 \begin{Thm}
   设$a$与$b$为群$G$的任意两个元素，则$(a^{-1})^{-1}=a$，$(ab)^{-1}=b^{-1}a^{-1}$。
 \end{Thm}
-\begin{proof}[证明]
-  由\[aa^{-1}=e\]
-  得\[(a^{-1})^{-1}=a\]
-由\[(b^{-1}a^{-1})(ab)=b^{-1}(a^{-1}a)b=b^{-1}eb=e\]
-得\[(ab)^{-1}=b^{-1}a^{-1}\]
-\end{proof}
+% \begin{proof}[证明]
+%   由\[aa^{-1}=e\]
+%   得\[(a^{-1})^{-1}=a\]
+% 由\[(b^{-1}a^{-1})(ab)=b^{-1}(a^{-1}a)b=b^{-1}eb=e\]
+% 得\[(ab)^{-1}=b^{-1}a^{-1}\]
+% \end{proof}
 
   课后作业题：
 
 \begin{Exercise}
   给出一个半群，它有无穷多个右单位元素。
 \end{Exercise}
+\begin{proof}[解]
+设$S$为一个无穷集合，在$S$上定义“$\circ$”运算如下：
 
+\[\forall x,y\in S, x\circ y=x\text{。}\]
+
+$S$中所有的元素都是右单位元。
+  
+\end{proof}
 \begin{Exercise}
   设$(S,\circ)$为一个半群，$a\in S$称为左消去元素，如果$\forall x, y\in S$，有$a\circ x=a\circ y$，则一定有$x=y$。试证：
   如果$a$和$b$均为左消去元，则$a\circ b$也是左消去元。
 \end{Exercise}
+\begin{proof}[证明]
+
+
+  
+\end{proof}
 
 \begin{Exercise}
   设$Z$为整数集合，$M=Z\times Z$。在$M$上定义二元运算$\circ$如下：
@@ -283,6 +305,17 @@ $x < 0$，$y < 0$：此时$x$的补码为$x+2^n$的原码，$y$的补码为$y+2^
   (3)运算“$\circ$”满足交换率。
 \end{Exercise}
 
+\begin{proof}[证明]
+
+  $\forall (x_1,x_2),(y_1,y_2),(z_1,z_2)\in M$，
+
+\begin{align*}
+  &((x_1,x_2)\circ (y_1,y_2))\circ (z_1,z_2)\\
+  =&
+\end{align*}
+  
+  
+\end{proof}
 
 \begin{Exercise}
   证明：有限半群中一定有一个元素$a$使得$a\circ a=a$。
