@@ -75,16 +75,49 @@ $\Leftarrow$设$AB=BA$，往证$AB$为$G$的子群。
 
  （4）$\forall a\in G, \forall h\in H, aha^{-1}\in H$。
 \end{Thm}
+\begin{proof}[证明]
+  先证（1）$\Leftrightarrow$（2）：
 
+  $\forall a\in G$，$aH=Ha\Leftrightarrow aHa^{-1}=H$。
+
+  再证（2）$\Leftrightarrow$（3）：
+
+  （2）$\Rightarrow$（3）显然成立。
+
+以下证明（3）$\Rightarrow$（2）。
+
+只需证$\forall a\in G, H\subseteq aHa^{-1}$。
+
+$\forall h\in H$，$h=a(a^{-1}ha)a^{-1}$=a(a^{-1}h(a^{-1})^{-1})a^{-1}\in aHa^{-1}$，这里$a^{-1}h(a^{-1})^{-1}\in H$是因为$a^{-1}H(a^{-1})^{-1}\subseteq H$。
+
+
+
+\end{proof}
 \begin{Thm}
 设$H$为群$G$的正规子群，则$H$的所有左陪集构成的集族$S_l$对群子集乘法形成一个群。
 \end{Thm}
+\begin{proof}[证明]
+  $\forall aH,bH\in S_l$，$(aH)(bH)=a(Hb)H=a(bH)H=(ab)(HH)=(ab)H\in S_l$，这验证了群子集乘法在$S_l$上封闭：。
 
+  群子集乘法显然满足结合律。
+
+  $\forall aH\in S_l,H(aH)=(eH)(aH)=aH$，所以$H$为$S_l$中乘法的左单位元。
+
+  $\forall aH\in S_l$，$(a^{-1}H)(aH)=(a^{-1}a)H=eH=H$，所以，$a^{-1}H$为$aH$的左逆元。因此，$S_l$对群子集乘法构成一个群。
+\end{proof}
 \begin{Thm}
   设$H$为群$G$的正规子群，$H$的所有左陪集构成的集族为$S_l$，在$S_l$上定义乘法运算如下：
   $\forall aH,bH\in S_l, (aH)(bH)=(ab)H$，则$S_l$对于在其上定义的乘法构成一个群。
 \end{Thm}
+\begin{proof}[证明]
+  首先证明：如果$aH=a'H$，$bH=b'H$，则$(ab)H=(a'b')H$。由$(ab)^{-1}(a'b')=b^{-1}a^{-1}a'b'=(b^{-1}b')b'^{-1}a^{-1}a'b'\in H$知$(ab)H=(a'b')H$。这验证了$S_l$上乘法运算的合理性。
 
+  $\forall aH,bH,cH\in S_l,((aH)(bH))(cH)=(abH)(cH)=((ab)c)H,(aH)((bH)(cH))=(aH)(bcH)=(a(bc))H$，从而$((aH)(bH))(cH)=(aH)((bH)(cH))$，这验证了乘法运算满足结合律。
+
+  $\forall aH\in S_l,H(aH)=(eH)(aH)=aH$，所以$H$为$S_l$中乘法的左单位元。
+
+  $\forall aH\in S_l$，$(a^{-1}H)(aH)=(a^{-1}a)H=eH=H$，所以，$a^{-1}H$为$aH$的左逆元。因此，$S_l$对乘法运算构成一个群。
+\end{proof}
 \begin{Def}
   群$G$的正规子群$H$的所有左陪集构成的集族，对群子集乘法构成的群称为$G$对$H$的商群，记为$G/H$。
 \end{Def}
