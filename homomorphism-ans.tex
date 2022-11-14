@@ -152,18 +152,24 @@
 
 设$G=(a)$，$\bar{G}=(b)$。
 
-令$\phi:G\to \bar{G}$，$\forall i\in Z$，$\phi(a^i)=b^{i \mod n}$。
+令$\phi:G\to \bar{G}$，$\forall i\in Z$，$\phi(a^i)=b^i$。
 
-$\forall i,j\in Z, i\neq j$，如果$a^i=a^j$，则$a^{j-i}=e$，从而$m|(j-i)$，由$n|m$知$n|(j-i)$，于是$i\bmod n=j\bmod n$，从而$b^{i\bmod n}=b^{j\bmod n}$，这验证了映射定义的合理性。
+$\forall i,j\in Z, i\neq j$，如果$a^i=a^j$，则$a^{j-i}=e$，从而$m|(j-i)$，由$n|m$知$n|(j-i)$，于是$b^{j-i}=e$，所以$b^i=b^j$，这验证了映射定义的合理性。
 
-$\forall i,j\in Z$，$\phi(a^i\circ a^j)=\phi(a^{i+j})=b^{(i+j) \bmod n} = b^{(i\bmod n+j\bmod n)\bmod n}=b^{i\bmod n+j\bmod n}=b^{i\bmod n}\cdot b^{j\bmod n}=\phi(a^i)\cdot \phi(a^j)$。 
+$\forall i,j\in Z$，$\phi(a^i\circ a^j)=\phi(a^{i+j})=b^{i+j} =b^i\cdot b^j=\phi(a^i)\cdot \phi(a^j)$。 
 这证明了$\phi$为从$G$到$\bar{G}$的同态，$\phi$显然为满同态，于是$G\sim \bar{G}$。
 \end{proof}
 \begin{Exercise}
 设$G$为一个循环群，$H$为群$G$的子群，试证：$G/H$也为循环群。
 \end{Exercise}
 \begin{proof}[证明]
-由$G$为循环群知$G$为交换群，从而$H$为$G$的正规子群。设$G=(a)$，$\forall x\in G/H$，存在自然数$i$使得$x=a^iH=(aH)^i$，于是$G/H=(aH)$，即$G/H$为循环群。
+由$G$为循环群知$G$为交换群，从而$H$为$G$的正规子群。设$G=(a)$，以下证明$G/H=(aH)$，从而$G/H$为循环群。
+
+$\forall x\in G/H$，存在整数$i$使得$x=a^iH=(aH)^i\in (aH)$，于是$G/H\subseteq (aH)$；
+
+$\forall x\in (aH)$，存在整数$i$使得$x=(aH)^i=a^iH\in G/H$，于是$(aH)\subseteq G/H$。
+
+以上证明了$G/H=(aH)$。
 \end{proof}
 \end{CJK*}
 \end{document}
