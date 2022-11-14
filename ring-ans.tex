@@ -44,9 +44,9 @@
     a\circ(b+c)=(a\circ b)+(a\circ c)\\
     (b+c)\circ a=(b\circ a) + (c\circ a)
   \end{align*}
-  则称代数系$(R,\circ,+)$为一个环（ring）。
+  则称代数系$(R,+,\circ)$为一个环（ring）。
   \end{Def}
-  以下$a\circ b$简写为$ab$。
+  在环$R$中，$a\circ b$简写为$ab$。
   \begin{Example}
     整数集合$Z$对通常数的加法和乘法构成一个环$(R,+,\cdot)$，称为整数环。
   \end{Example}
@@ -55,6 +55,7 @@
     文字$x$的整系数多项式之集$Z[x]$对多项式的加法和乘法构成一个环。
   \end{Example}
   
+
   \begin{Def}
   环$(R,+,\circ)$称为交换环或可换环，如果其中的乘法满足交换律，即$\forall a,b\in R$，$ab=ba$。
   \end{Def}
@@ -63,6 +64,14 @@
     设$M_n$为一切$n\times n$实矩阵之集，则$M_n$对矩阵的加法和乘法构成一个非交换环$(M_n,+,\cdot)$，称为$n$阶矩阵环。
   \end{Example}
   
+  \begin{Def}
+    如果环$R$的乘法有单位元，则环$R$对于乘法运算的单位元简称为环$R$的单位元。
+  \end{Def}
+
+  \begin{Example}
+整数环$(Z,+,\cdot)$有单位元$1$。偶数集合对于通常数的乘法和加法构成一个没有单位元的环。
+  \end{Example}
+
   \begin{Def}
     环$(R,+,\circ)$称为有限环，如果$R$为有限非空的集合。
   \end{Def}
@@ -325,7 +334,7 @@
   \[(a-b^{-1})^{-1}(aba-a)=ba\]
   只需证
   \[(a-b^{-1})(ba)=aba-a\]
-  该等式显然成立。
+  如果$a-b^{-1}$可逆，该等式显然成立。
 
   我们还需要证明$a-b^{-1}$可逆。
 
@@ -361,6 +370,19 @@
   =&a^{(k+1)}+(\binom{k}{0}+\binom{k}{1})a^{(k+1)-1}b+(\binom{k}{1}+\binom{k}{2})a^{(k+1)-2}b^2+\cdots+(\binom{k}{k-1}+\binom{k}{k})ab^{(k+1)-1}+b^{(k+1)}\\
   =&a^{(k+1)}+\binom{k+1}{1}a^{(k+1)-1}b+\binom{k+1}{2}a^{(k+1)-2}b^2+\cdots+\binom{k+1}{(k+1)-1}ab^{(k+1)-1}+b^{(k+1)}\\
 \end{align*}
+\end{proof}
+
+\begin{Exercise}
+  给出一个环$R$的例子，环$R$中有单位元，但$R$的某个子环的单位元与$R$的单位元不同。
+\end{Exercise}
+\begin{proof}[证明]
+  在环$Z_6=\{[0],[1],[2],[3],[4],[5]\}$中，$S=\{[0],[2],[4]\}$对于$Z_6$中的加法和乘法构成$Z_6$的子环，$Z_6$的单位元为$[1]$，$S$的单位元为$[4]$。
+\end{proof}
+\begin{Exercise}
+证明：对于一个有单位元的环，加法的交换律是环的定义里其他条件的结果。
+\end{Exercise}
+\begin{proof}[证明]
+  设$1$为环$R$的单位元。$\forall a,b\in R$，$(a+b)-(b+a)=(a+b)-1\cdot(b+a)=(a+b)+(-1)(b+a)=(1a+1b)+((-1)b+(-1)a)=1a+(1+(-1))b+(-1)a=1a+0+(-1)a=1a+(-1)a=(1+(-1))a=0a=0$，故$a+b=b+a$，即$R$中的加法满足交换律。
 \end{proof}
 \end{CJK*}
 \end{document}

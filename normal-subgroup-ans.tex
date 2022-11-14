@@ -210,6 +210,19 @@ $a_iB\cap a_jB=\phi$。假设存在$i,j$,$1\leq i \leq n$，$1\leq j \leq n$，�
   $\forall a\in G$，$(aH)(a^{-1}H)=(aa^{-1})H=eH=H$，从而$\forall h\in H$，$aha^{-1}h\in H$，于是$\exists h_1\in H, aha^{-1}h=h_1$，由此可得$aha^{-1}=h_1h^{-1}\in H$，
   这证明了$aHa^{-1}\subseteq H$，即$H$为群$G$的正规子群。
 \end{proof}
+
+\begin{Exercise}
+  设$H$为群$G$的子群。证明：$H$为$G$的正规子群的充分必要条件是$H$的任意两个左陪集关于群子集的乘法所得到的乘积还是$H$的一个左陪集。
+\end{Exercise}
+\begin{proof}[证明]
+  由教材定理知如果$H$为群$G$的正规子群，则$H$的任意两个左陪集关于群子集的乘法所得到的乘积还是$H$的一个左陪集。
+
+  以下假设$H$的任意两个左陪集关于群子集的乘法所得到的乘积还是$H$的一个左陪集，往证$H$为群$G$的正规子群。
+
+  $\forall a\in G$，设$(aH)(a^{-1}H)=bH$，则$e=(ae)(a^{-1}e)\in (aH)(a^{-1}H)=bH$，从而$\exists h\in H$使得$e=bh$，所以$H=eH=(bh)H=b(hH)=bH$，于是$(aH)(a^{-1}H)=H$。
+
+$\forall h\in H, aha^{-1}=(ah)(a^{-1}e)\in (aH)(a^{-1}H)=H$，这证明了$H$为$G$的正规子群。
+\end{proof}
 \end{CJK*}
 \end{document}
 
