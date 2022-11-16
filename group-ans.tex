@@ -310,6 +310,21 @@ $ab\neq a$，否则$b=e$，矛盾；$ab\neq b$，否则$a=e$，也矛盾。于�
 两边依次同时左乘$a_1^{-1}$，$a_2^{-1}$，$\cdots$，$a_{p-1}^{-1}$，可得$a_pa_{p+1}\cdots a_q=e$。
 
 \end{proof}
+\begin{Exercise}
+  设$a$和$b$为群$G$的两个元素，$ab=ba$，$a$的阶为$m$，$b$的阶为$n$。试证：乘积$ab$的阶为$m$与$n$的最小公倍数的约数。何时$ab$的阶为$mn$？
+\end{Exercise}
+\begin{proof}[证明]
+  设$m$和$n$的最小公倍数为$k$，则$m|k$，$n|k$。设$k=xm$，$k=yn$，则$(ab)^k=a^kb^k=(a^m)^x(b^n)^y=e$，于是$ab$的阶整除$k$，即$ab$的阶为$m$与$n$的最小公倍数的约数。
+
+  当$m$与$n$互素时，$ab$的阶为$mn$。
+
+
+  设$ab$的阶为$t$，则$e=(ab)^{mt}=a^m^tb^{mt}=b^{mt}$，从而$n|mt$，由$n$与$m$互素知$n|t$。同理，$e=(ab)^{nt}=a^{nt}(b^n)^t=a^{nt}$，从而$m|nt$，由$m$与$n$互素知$m|t$。由$n|t$知$\exists s\in Z,t=ns$，再由$m|t$知$m|ns$，进一步，由$m$与$n$互素知$m|s$，从而$\exists p\in Z,s=pm$，于是$t=ns=n(pm)=p(mn)$，即$mn|t$。
+
+  由$(ab)^{mn}=a^{mn}b^{mn}=e$知$t|mn$，所以$t=mn$。
+
+  当$ab$的阶为$mn$时，必有$m$与$n$互素，否则设$d=(m,n)$，$d>1$，则$m$与$n$的最小公倍数$<mn$，而$ab$的阶为$m$与$n$的最小公倍数的约数，从而$ab$的阶$<mn$，矛盾。
+\end{proof}
 \end{CJK*}
 \end{document}
 
