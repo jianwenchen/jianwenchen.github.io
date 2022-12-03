@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{命题逻辑演算形式系统}
+  \author{陈建文}
+  \maketitle
+
+  课后作业题
+
+  \begin{Exercise}
+    在$PC$中证明下列事实：
+  \end{Exercise}
+
+  $1.\vdash (A\to(A\to B))\to (A\to B)$
+
+\begin{proof}[证明]$\quad$
+  
+  $(1)(A\to(A\to B))\to ((A\to A)\to (A\to B))$ 公理2
+
+  $(2)((A\to(A\to B))\to ((A\to A)\to (A\to B)))\to ((A\to A) \to ((A\to (A\to B))\to (A\to B)))
+
+  $(3)(A\to A) \to ((A\to (A\to B))\to (A\to B))(1)(2)r_{mp}$
+
+  $(4)A\to A$
+
+  $(5)(A\to(A\to B))\to (A\to B) (3)(4)r_{mp}$
+
+
+\end{proof}
+
+$9.((A\to B)\to A)\to A$
+
+\begin{proof}[证明]$\squad$
+
+  $(1)(\lnot(A\to B)\to A)\to((A\to A)\to (((A\to B)\to A)\to A))$
+
+  $(2)((\lnot(A\to B)\to A)\to((A\to A)\to (((A\to B)\to A)\to A)))\to ((A\to A)\to ((\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A)))$
+
+  $(3)(A\to A)\to ((\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A))(1)(2)r_{mp}$
+
+  $(4)A\to A$
+
+  $(5)(\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A)(3)(4)r_{mp}$
+
+  $(6)\lnot A\to (A\to B)$
+
+  $(7)(\lnot A\to (A\to B))\to(\lnot(A\to B)\to A)$
+
+  $(8)((A\to B)\to A)\to A(5)(7)r_{mp}$
+
+\end{proof}
+
+$10.((A\to B)\to C)\to ((C\to A)\to A)$
+
+\begin{proof}[证明]$\squad$
+
+  $(1)((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A))$
+
+  $(2)((A\to B)\to A)\to A$
+
+  $(3)(((A\to B)\to A)\to A)\to (((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A))$
+
+$(4)((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)(2)(3)r_{mp}$
+
+$(5)(((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A)))\to ((((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)) \to (((A\to B)\to C)\to ((C\to A)\to A)))$
+
+$(6)(((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)) \to (((A\to B)\to C)\to ((C\to A)\to A))(1)(5)r_{mp}$
+
+$(7)((A\to B)\to C)\to ((C\to A)\to A)(4)(6)r_{mp}$
+\end{proof}
+
+$11.((A\to B)\to C)\to ((A\to C)\to C)$
+\begin{proof}[证明]$\squad$
+
+  $(1)(\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C))$
+
+  $(2)((\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C)))\to ((C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C)))$
+
+  $(3)(C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C))(1)(2)r_{mp}$
+
+  $(4)C\to C$
+
+  $(5)(\lnot A\to C)\to ((A\to C)\to C)(3)(4)r_{mp}$
+
+  $(6)(\lnot A\to (A\to B))\to (((A\to B)\to C)\to (\lnot A\to C))$
+
+  $(7)\lnot A\to (A\to B)$
+
+  $(8)((A\to B)\to C)\to (\lnot A\to C)(6)(7)r_{mp}$
+
+  $(9)(((A\to B)\to C)\to (\lnot A\to C))\to (((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C)) )$
+
+  $(10)((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C))(8)(9)r_{mp}$
+
+  $(11)((A\to B)\to C)\to ((A\to C)\to C)(5)(10)r_{mp}$
+
+\end{proof}
+\begin{Exercise}
+  利用演绎定理在$PC$中证明：
+\end{Exercise}
+
+$1.\vdash ((A\to B)\to A)\to A$
+
+\begin{proof}[证明]
+  只需证$(A\to B)\to A\vdash A$。
+
+  $(1)(A\to B)\to A$前提
+
+  $(2)\lnot A\to (A\to B)$
+
+  $(3)((A\to B)\to A)\to ((\lnot A\to (A\to B))\to (\lnot A\to A))$
+
+  $(4)(\lnot A\to (A\to B))\to (\lnot A\to A)(1)(3)r_{mp}$
+
+  $(5)\lnot A\to A(2)(4)r_{mp}$
+
+  $(6)(\lnot A\to A)\to A$
+
+  $(7)A (5)(6)r_{mp}$
+
+
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
