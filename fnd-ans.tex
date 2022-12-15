@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{FND谓词演算系统}
+  \author{陈建文}
+  \maketitle
+
+  谓词演算自然推理系统FND(First order Natural Deduction)在命题演算自然推理系统的基础上添加了下列规则：
+  
+  1.$\forall$引入规则
+
+  $\frac{\Gamma \vdash A}{\Gamma \vdash \forall v A}$，$v$在$\Gamma$中无自由出现。
+
+  2.$\forall$消除规则
+
+  $\frac{\Gamma \vdash \forall v A}{\Gamma \vdash A_t^v}$，项$t$对变元$v$可代入。
+
+  3.$\exists$引入规则
+
+  $\frac{\Gamma \vdash A_t^v}{\Gamma \vdash \exists v A}$，项$t$对变元$v$可代入。
+
+  4.$\exists$消除规则
+
+  $\frac{\Gamma \vdash \exists vA, \Gamma;A_c^v\vdash B}{\Gamma \vdash B}$，其中常元$c$在$\Gamma$及公式$A$，$B$中均无出现。
+
+
+  \begin{Example}
+    $\vdash \forall v(A\to B)\to (\forall v A\to \forall v B)$
+  \end{Example}
+  \begin{proof}[证明]
+
+  \end{proof}
+
+  \begin{Example}
+    $\vdash \exists vA\to \lnot \forall v\lnot A$
+  \end{Example}
+  \begin{proof}[证明]
+
+  \end{proof}
+  
+  \begin{Example}
+    $\forall v(A\land B)\vdash \dashv  \forall v A\land \forall v B$
+  \end{Example}
+  \begin{proof}[证明]
+
+  \end{proof}
+
+  \begin{Example}
+    $\exists v(A\lor B)\vdash \dashv  \exists v A\lor \exists v B$
+  \end{Example}
+  \begin{proof}[证明]
+
+  \end{proof}
+
+  课后作业题
+
+  \begin{Exercise}
+    在FND中，对任意的公式$A$，证明：
+  \end{Exercise}
+
+$1.\vdash \lnot \forall v\lnot A\to \exists vA$
+\begin{proof}[证明]$\quad$
+
+$(1)\lnot \forall v\lnot A, A \vdash A\quad\quad$ 公理
+
+$(2)\lnot \forall v\lnot A, A \vdash \exists v A \quad\quad\quad(1)\exists $引入 
+
+$(3)\lnot \forall v\lnot A, \lnot A \vdash \lnot A \quad\quad$ 公理
+
+$(4)\lnot \forall v\lnot A, \lnot A \vdash \forall v \lnot A \quad\quad\quad(3)\forall$引入
+
+$(5)\lnot \forall v\lnot A, \lnot A \vdash \lnot \forall \lnot A\quad\quad$ 公理
+
+$(6)\lnot \forall v\lnot A, \lnot A \vdash \exists v A \quad\quad\quad(4)(5)\lnot$消除 
+
+$(7)\lnot \forall v\lnot A \vdash \exists v A\quad\quad\quad(2)(6)$假设消除
+\end{proof}
+
+$(2)\exists v\forall u A\vdash \forall u\exists v A$
+ \begin{proof}[证明]$\quad$
+
+  $(1)\exists v\forall u A\vdash \exists v\forall u A\quad\quad$ 公理
+
+  $(2)\exists v\forall u A, \forall u A^v_c   \vdash \forall u A^v_c\quad\quad$ 公理
+
+  $(3)\exists v\forall u A, \forall u A^v_c   \vdash  A^v_c \quad\quad\quad(2)\forall$消除
+
+  $(4)\exists v\forall u A, \forall u A^v_c   \vdash  \exists v A\quad\quad\quad(3)\exists$引入
+
+  $(5)\exists v\forall u A, \forall u A^v_c   \vdash  \forall u\exists v A\quad\quad\quad(4)\forall$引入
+
+  $(6)\exists v\forall u A  \vdash  \forall u\exists v A\quad\quad\quad(1)(5)\exists$消除
+\end{proof} 
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
