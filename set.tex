@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -8,21 +8,20 @@
 \usepackage{titletoc}
 \usepackage{xCJKnumb}
 \usepackage{tikz}
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
-  % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
+
+
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
 
 \newtheorem*{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第一章 集合及其基本概念}
   \author{陈建文}
   \maketitle
   % \tableofcontents
@@ -50,8 +49,7 @@
 % 末考试将以证明题为主，这与我们的学习目标是一致的。
 
 
-  \setcounter{chapter}{0}
-  \chapter{集合及其运算}
+
 
 
   \begin{Def}
@@ -113,17 +111,19 @@
     
 \end{proof}
 
-“空集为任一集合的子集”这一结论初学时，也可以用反证法证明其正确性，以帮助我们理解其中的逻辑。为了用反证法证明该结论，首先让我们分析一下对于任意的集合$A$和$B$，$A$不是$B$的子集（$A\nsubseteq B$）的含义：
-\begin{equation*}
-  \begin{split}
-    A\nsubseteq B &\Leftrightarrow \lnot(A \subseteq B)\\
-    &\Leftrightarrow \lnot( \forall x x \in A \to x \in B)\\
-    &\Leftrightarrow \exists x \lnot(x \in A \to x \in B)\\
-    &\Leftrightarrow \exists x \lnot( \lnot (x \in A) \lor (x \in B))\\
-    &\Leftrightarrow \exists x (\lnot( \lnot (x \in A)) \land \lnot ( x \in B))\\
-    &\Leftrightarrow \exists x (x \in A \land x \notin B)\\
-  \end{split}
-\end{equation*}
+“空集为任一集合的子集”这一结论初学时，也可以用反证法证明其正确性。
+
+% 以帮助我们理解其中的逻辑。为了用反证法证明该结论，首先让我们分析一下对于任意的集合$A$和$B$，$A$不是$B$的子集（$A\nsubseteq B$）的含义：
+% \begin{equation*}
+%   \begin{split}
+%     A\nsubseteq B &\Leftrightarrow \lnot(A \subseteq B)\\
+%     &\Leftrightarrow \lnot( \forall x x \in A \to x \in B)\\
+%     &\Leftrightarrow \exists x \lnot(x \in A \to x \in B)\\
+%     &\Leftrightarrow \exists x \lnot( \lnot (x \in A) \lor (x \in B))\\
+%     &\Leftrightarrow \exists x (\lnot( \lnot (x \in A)) \land \lnot ( x \in B))\\
+%     &\Leftrightarrow \exists x (x \in A \land x \notin B)\\
+%   \end{split}
+% \end{equation*}
 
 
    空集为任一个集合的子集。 
@@ -147,17 +147,12 @@
   $2^{\{\phi, \{\phi\}\}}=\{\phi, \{\phi\},\{\{\phi\}\}, \{\phi, \{\phi\}\}\}$
 \end{Example}
 
-\begin{Example}
-  对于任意的集合$A$，${\{\phi, \{\phi\}\}} \in 2^{2^{2^{A}}}$。
-\end{Example}
-\begin{proof}[证明]
-  根据幂集的定义，$\phi \in 2^{A}$，从而$\{\phi\} \subseteq 2^{A}$，即$\{\phi\} \in 2^{2^A}$。又因为$\phi \in 2^{2^{A}}$，所以$\{\phi, \{\phi\}\}\subseteq 2^{2^{A}}$，从而$\{\phi, \{\phi\}\}\in 2^{2^{2^{A}}}$。
-\end{proof}
+
 {
 \flushleft
 \begin{minipage}{0.70\linewidth}
   \begin{Def}
-    设$A,B$为任意的两个集合，至少属于集合 $A$ 与集合$B$之一的那些元素构成的集合称为$A$与$B$的并集，记为$A \cup B$。
+    设$A,B$为任意的两个集合，至少属于集合$A$与集合$B$之一的那些元素构成的集合称为$A$与$B$的并集，记为$A \cup B$。
   \begin{equation*}
       A\cup B = \{x|x \in A \lor x \in B\} 
     \end{equation*}
@@ -182,7 +177,7 @@
 {\flushleft
 \begin{minipage}{0.70\linewidth}
   \begin{Def}
-    设$A,B$为任意的两个集合，由既属于集合 $A$ 又属于集合$B$的所有元素构成的集合称为$A$与$B$的交集，记为$A \cap B$。
+    设$A,B$为任意的两个集合，由既属于集合$A$又属于集合$B$的所有元素构成的集合称为$A$与$B$的交集，记为$A \cap B$。
     \begin{equation*}
       A\cap B = \{x|x \in A \land x \in B\}
     \end{equation*}
@@ -234,7 +229,7 @@
 {\flushleft
 \begin{minipage}{0.70\linewidth}
   \begin{Def}
-    在许多实际问题中，常以某个集合$S$为出发点，而所涉及的集合都是$S$的子集。这个包含所考虑的所有集合的集合$S$，称为该问题的全集。如果$A$为$S$的子集，则差集$S \setminus A$称为集合$A$对集合$S$的余集，记为$A^c$。
+    在许多实际问题中，常以某个集合$S$为出发点，而所涉及的集合都是$S$的子集。这个包含所考虑的所有集合的集合$S$，称为该问题的全集。如果$A$为$S$的子集，则差集$S \setminus A$称为集合$A$对集合$S$的补集，记为$A^c$。
     \begin{equation*}
       A^c = \{x|x \in S \land x \notin A\}
     \end{equation*}
@@ -266,7 +261,7 @@
 7. $C \setminus (A \cap B) = (C \setminus A) \cup (C \setminus B)$, $C\setminus (A \cup B) = (C \setminus A) \cap (C \setminus B)$.\\ 
 7'.  $(A \cap B)^c = A^c \cup B^c$, $(A \cup B)^c = A^c \cap B^c$.\\
 \end{Thm}
-  以下只证明结论5和结论7，其他结论的证明留给读者自己完成。
+  以下只证明结论5和结论7的第一条，其他结论的证明留给读者自己完成。
 
   首先证明结论5的第一条,我们先在草稿纸上做如下的分析：
   \begin{equation*}
@@ -289,7 +284,7 @@
   再证$(A \cup B) \cap (A \cup C) \subseteq A \cup (B \cap C)$。
 
     对任意的$x$，如果$x \in (A \cup B) \cap (A \cup C)$，则 $x \in A \cup B$ 并且$x \in A \cup C$，从而$x \in A$或者$x \in B$，并且$x \in A$或者$ x \in C$，
-  因此，$x \in A$，或者$x \in B$并且$ x \in C$，即，$x \in A$或者$x \in (B \cap C)$，于是，$x \in A \cup (B \cap C)$。
+  因此，$x \in A$，或者$x \in B$并且$ x \in C$，即，$x \in A$或者$x \in B \cap C$，于是，$x \in A \cup (B \cap C)$。
 
 \end{proof}
 接下来证明结论7的第一条，我们先在草稿纸上做如下的分析：
@@ -390,10 +385,25 @@
   所以
   \begin{equation}
     \begin{split}
-      x \notin A \bigtriangleup B &\Leftrightarrow
+      x \notin A \bigtriangleup B &\Leftrightarrow \lnot (x\in A \bigtriangleup B)\\
+      &\Leftrightarrow \lnot((x \in A \land x \notin B) \lor (x \notin A \land x
+      \in B))\\
+      &\Leftrightarrow \lnot(x \in A \land x \notin B) \land \lnot(x \notin A \land x
+      \in B)\\
+      &\Leftrightarrow
   (x \notin A \lor x \in B) \land (x \in A \lor x
   \notin B)\\
-  &\Leftrightarrow (x \notin A \land x \notin B) \lor (x \in A \land x \in B )
+  &\Leftrightarrow
+  ((x \notin A \lor x \in B) \land x \in A) \lor
+  ((x \notin A \lor x \in B) \land  x
+  \notin B)\\
+  &\Leftrightarrow
+  ((x \notin A \land x \in A)\lor (x \in B \land  x \in A) ) \\
+  &\lor
+  ((x \notin A \land  x
+  \notin B) \lor (x \in B \land  x
+  \notin B) )\\
+  &\Leftrightarrow  (x \in A \land x \in B ) \lor(x \notin A \land x \notin B) 
     \end{split}
   \end{equation}
 
@@ -403,7 +413,7 @@
       &x \in (A \bigtriangleup B) \bigtriangleup C\\
       &\Leftrightarrow (x \in A \bigtriangleup B \land x \notin C) \lor (x \notin A \bigtriangleup B \land x \in C)\\
       &\Leftrightarrow (((x \in A \land x \notin B) \lor (x \notin A \land x \in B)) \land x \notin C)\\
-      &\lor (((x \notin A \land x \notin B) \lor (x \in A \land x \in B )) \land x \in C)\\
+      &\lor (((x \in A \land x \in B ) \lor(x \notin A \land x \notin B)) \land x \in C)\\
       &\Leftrightarrow (x \in A \land x \notin B \land x \notin C) \lor (x \notin A \land x \in B \land x \notin C)\\
       &\lor (x \notin A \land x \notin B \land x \in C) \lor (x \in A \land x \in B \land x \in C)
     \end{split}
@@ -603,7 +613,7 @@ $A$为有穷集;如果A不是有穷集，则称$A$为无穷集。
     设$A_1,A_2, \ldots, A_n$为$n$个有穷集，则\[|A_1 \times A_2 \times \cdots \times A_n|=|A_1|\cdot |A_2| \cdot \cdots \cdot |A_n|.\]
   \end{Thm}
 \begin{Thm}
-  设$S$为有穷集，$A \subseteq S$， 则$|A^c| = |S| - |A|$。
+  设$A$为有穷集，$B \subseteq A$， 则$|A\setminus B| = |A| - |B|$。
 \end{Thm}
 \begin{Thm}
   设$A,B$为有穷集，则
@@ -692,6 +702,12 @@ $|A \cup B| = |A| + |B| - |A \cap B|$。
   解得英语、日语、俄语全掌握的人数$|A \cap B \cap C|=68$。
 \end{proof}
 
+\begin{Exercise}
+  对于任意的集合$A$，${\{\phi, \{\phi\}\}} \in 2^{2^{2^{A}}}$。
+\end{Exercise}
+\begin{proof}[证明]
+  根据幂集的定义，$\phi \in 2^{A}$，从而$\{\phi\} \subseteq 2^{A}$，即$\{\phi\} \in 2^{2^A}$。又因为$\phi \in 2^{2^{A}}$，所以$\{\phi, \{\phi\}\}\subseteq 2^{2^{A}}$，从而$\{\phi, \{\phi\}\}\in 2^{2^{2^{A}}}$。
+\end{proof}
 \chapter{}
 %%% Local Variables:
 %%% mode: latex
