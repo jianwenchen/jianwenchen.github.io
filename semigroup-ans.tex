@@ -265,27 +265,28 @@
   
     II. 对“$\circ$”运算，$G$中有一个左单位元$e$，即$\forall a\in G$ $e\circ a = a$；
   
-    III. 对$G$中的每个元素，关于$\circ$运算有一个左逆元，
-    即$\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
+    III. $\forall a\in G \exists b\in G b\circ a = e$，其中$e$为II中的同一个左单位元素。
   \end{Def}
+  在群$(G,\circ)$中，$\forall a,b\in G, a\circ b$简写为$ab$。
   \begin{Thm}
-    设$G$为一个群，则$\forall a\in G$，$a$的左逆元也是$a$的右逆元。
+    设$G$为一个群，则$\forall a,b\in G$，如果$ba=e$，则$ab=e$。
   \end{Thm}
   \begin{proof}[证明]
-    $\forall a\in G$，设$a_l$为$a$的一个左逆元，则
-    \[a_la=e\]
-    两边同时右乘以$a_l$得
-    \[(a_la)a_l=ea_l\]
+    在\[ba=e\]的
+    两边同时右乘以$b$得
+    \[(ba)b=eb\]
     从而
-    \[a_l(aa_l)=a_l\]
-    两边同时左乘以$a_l$的左逆元得
-    \[aa_l=e\]
+    \[b(ab)=b\]
+    在$G$中存在$c$使得$cb=e$，于是
+    \[c(b(ab))=cb\]
+    所以
+    \[ab=e\]
   \end{proof}
   \begin{Thm}
     设$G$为一个群，则$G$的左单位元$e$也是右单位元。
   \end{Thm}
   \begin{proof}[证明]
-    $\forall a\in G$，设$a_l$为$a$的左逆元，则$ae=a(a_la)=(aa_l)a=ea=a$，所以$e$也是右单位元。
+    $\forall a\in G$，设$b\in G$，$ba=e$，则$ae=a(ba)=(ab)a=ea=a$，所以$e$也是右单位元。
   \end{proof}
   \begin{Thm}
     设$a$与$b$为群$G$的任意两个元素，则$(a^{-1})^{-1}=a$，$(ab)^{-1}=b^{-1}a^{-1}$。
@@ -394,7 +395,7 @@ $\forall d\in N$，$2\times 2$矩阵
 
 \begin{proof}[证明]
   设$(S,\circ)$为有限半群，$x\in S$。由$S$为有限半群知，存在正整数$i$和$j$，使得$x^i=x^j$。
-  不妨设$j>i$。$\forall m\in Z^+$，如果$m\geq j$，则$x^m=x^{m-j}x^j=x^{m-j}x^i=x^{m-(j-i)}$。取正整数$n$，使得$(n+1)(j-i)\geq j$，则$x^{2n(j-i)}=x^{n(j-i)}$，于是$(x^{n(j-1)})^2=x^{n(j-i)}$。
+  不妨设$j>i$。$\forall m\in Z^+$，如果$m\geq j$，则$x^m=x^{m-j}x^j=x^{m-j}x^i=x^{m-(j-i)}$。取正整数$n$，使得$(n+1)(j-i)\geq j$，则$x^{2n(j-i)}=x^{n(j-i)}$，于是$(x^{n(j-i)})^2=x^{n(j-i)}$。
 \end{proof}
 \begin{Exercise}
   设$R$为实数集合，$S=\{(a,b)|a\neq 0,a,b\in R\}$。在$S$上利用通常的加法和乘法定义二元运算“$\circ$”如下：

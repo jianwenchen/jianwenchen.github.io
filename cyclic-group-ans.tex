@@ -104,7 +104,7 @@
   
     设$n=qm+r$，$0\leq r < m$，则$a^n=a^{qm+r}=(a^m)^qa^r$，由$a$的阶为$n$知$a^n=e$，从而$e=(a^m)^qa^r$，于是$a^r=(a^m)^{-q}\in (a^m)=(a^k)$，此时必有$r=0$，否则与$m$的定义矛盾，所以$m|n$。
   
-    由$(a^m)^{\frac{n}{m}}=e$，当$0<k<\frac{n}{m}$时，$(a^m)^k\neq e$知$a^m$的阶为$\frac{n}{m}$，此时$(a^m)=\{e,a^m,a^{2m},\cdots,a^{\frac{n}{m}-1}m\}$，$|(a^m)|=\frac{n}{m}$。
+    由$(a^m)^{\frac{n}{m}}=e$，当$0<k<\frac{n}{m}$时，$(a^m)^k\neq e$知$a^m$的阶为$\frac{n}{m}$，此时$(a^m)=\{e,a^m,a^{2m},\cdots,a^{(\frac{n}{m}-1)m}\}$，$|(a^m)|=\frac{n}{m}$。
   \end{proof}
   \begin{Example}
     设$a\in Z$，$b\in Z$，$a$和$b$不全为$0$，则在整数加群$(Z,+)$中集合$\{a,b\}$的生成子群为$H=\{ma+nb|m\in Z,n\in Z\}$。
@@ -181,7 +181,7 @@
   由$(r,n)=d$知存在$s,t\in Z$使得$d=sr+tn$，从而$a^d=a^{(sr+tn)}=(a^r)^s(a^n)^t=(a^r)^se^t=(a^r)^s$，
   于是$a^d\in (a^r)$，由此可得$(a^d)\subseteq (a^r)$。
 
-  设$r=kd$，这里$k\in n$，于是$a^r=(a^d)^k$，从而$a^r\in (a^d)$，由此可得$(a^r)\subseteq (a^d)$。
+  设$r=kd$，这里$k\in N$，于是$a^r=(a^d)^k$，从而$a^r\in (a^d)$，由此可得$(a^r)\subseteq (a^d)$。
 \end{proof}
 \end{CJK*}
 \end{document}
