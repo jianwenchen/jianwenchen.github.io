@@ -121,10 +121,10 @@ G
  \node[specification] (B)  at (0,1.5)  {};
  \node[specification] (C)  at (1.5,1.5)  {};
  \node[specification] (D) at (1.5,0)  {};
- \draw[thick] (A) to  (C);
- \draw[thick] (C) to  (D);
- \draw[thick] (D) to (A);
- \draw[thick] (C) to (B);
+ \draw[thick] (A) to (B);
+ \draw[thick] (B) to (C);
+    \draw[thick] (B) to (D);
+    \draw[thick] (C) to (D);  
 \end{tikzpicture}\\
 \vspace*{0.5cm}
 H
@@ -141,9 +141,9 @@ H
  \node[specification] (C)  at (1.5,1.5)  {};
  \node[specification] (D) at (1.5,0)  {};
  \draw[thick] (A) to (B);
- \draw[thick] (B) to (D);
- \draw[thick] (D) to (C);
-    \draw[thick] (C) to (A);
+ \draw[thick] (B) to (C);
+ \draw[thick] (C) to (D);
+    \draw[thick] (D) to (A);
 \end{tikzpicture}\\
 \vspace*{0.5cm}
 I
@@ -158,7 +158,7 @@ I
  \node[specification] (D) at (1.5,0)  {};
  \draw[thick] (A) to  (B);
     \draw[thick] (C) to (D);
- \draw[thick] (D) to (A);
+ \draw[thick] (B) to (C);
  \draw[thick] (A) to (C);
  \draw[thick] (B) to (D);
 \end{tikzpicture}\\
