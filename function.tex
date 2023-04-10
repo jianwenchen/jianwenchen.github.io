@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -9,30 +9,24 @@
 \usepackage{tikz}
 \usepackage{ragged2e}
 \justifying\let\raggedright\justifying
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Exercise}{练习}[chapter]
-\newtheorem{Cor}{推论}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+\newtheorem{Cor}{推论}
 
 \newtheorem*{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第二章映射}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
- 
-
-  \setcounter{chapter}{1}
-  \chapter{映射}
 
   \begin{Def}
     设$X$和$Y$为两个集合。一个从$X$到$Y$的{\bfseries 映射}$f$为一个法则，根据$f$，对$X$中的每个元素$x$都有$Y$中唯一确定的元素$y$与之对应。
@@ -497,7 +491,7 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
    以下先假设$g$满足定义\ref{inverse1}，往证$g$满足定义\ref{inverse2}。
 
-   假设$f$为从集合$X$到集合$Y$的双射，$g$为从集合$Y$到集合$X$的映射，$g=\{(y,x)|(x,y)\in f\}$，则$(y,x)\in g$等价于$(x,y)\in f$，即$g(y)=x$等价于$f(x)=y$，易验证$f\circ g = I_{Y}$且$g\circ f = I_{X}$。
+   假设$f$为从集合$X$到集合$Y$的双射，$g$为从集合$Y$到集合$X$的映射，$g=\{(y,x)|(x,y)\in f\}$，则$(y,x)\in g$等价于$(x,y)\in f$，即$x=g(y)$等价于$y=f(x)$，易验证$f\circ g = I_{Y}$且$g\circ f = I_{X}$。
 
    接下来，假设$g$满足定义\ref{inverse2}，往证$g$满足定义\ref{inverse1}。
 
@@ -505,11 +499,11 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 
    对任意的$x_1\in X$，$x_2\in X$，如果$f(x_1)=f(x_2)$，则$g(f(x_1))=g(f(x_2))$，再由$g\circ f = I_{X}$知$x_1=x_2$，从而$f$为单射。对任意的$y\in Y$，由$f\circ g = I_{Y}$知$f(g(y))=y$，从而$f$为满射。这证明了$f$为双射。
 
-   以下证明$g=\{(y,x)|(x,y)\in f\}$，这就是要证明左边的集合等于右边的集合。
+   以下证明$g=\{(y,x)|(x,y)\in f\}$，这就是要证$(y,x)\in g$等价于$(x,y)\in f$，即要证$x=g(y)$等价于$y=f(x)$。如果$x=g(y)$，则$f(x)=f(g(y))$，由$f\circ g=I_Y$知$y=f(x)$；如果$y=f(x)$，则$g(y)=g(f(x))$，由$g\circ f=I_X$知$x=g(y)$。
 
-   对任意的$(y,x)\in g$，则$x=g(y)$，从而$f(x)=f(g(y))$，由$f\circ g = I_{Y}$知$f(x)=y$，从而$(x,y)\in f$。
+   %对任意的$(y,x)\in g$，则$x=g(y)$，从而$f(x)=f(g(y))$，由$f\circ g = I_{Y}$知$f(x)=y$，从而$(x,y)\in f$。
 
-   对任意的$(x,y)\in f$，则$y=f(x)$，从而$g(y)=g(f(x))$，由$g\circ f = I_{X}$知$g(y)=x$，从而$(y,x) \in g$。
+   %对任意的$(x,y)\in f$，则$y=f(x)$，从而$g(y)=g(f(x))$，由$g\circ f = I_{X}$知$g(y)=x$，从而$(y,x) \in g$。
  \end{proof}
  \begin{Thm}
     设$f:X\to Y$为可逆映射，则$(f^{-1})^{-1}=f$。
@@ -551,7 +545,7 @@ $\{2,3\}^{\{0,1\}} = \{\{(0,2),(1,2)\},\{(0,3),(1,3)\},\{(0,2),(1,3)\},\{(0,3),(
 \[\sigma=\begin{pmatrix}1&2&\ldots&n\\k_1&k_2&\ldots&k_n\end{pmatrix}\]
 $S$上所有的$n$次置换构成的集合记为$S_n$。
 \begin{Example}
-  设$S=\{1,2,3,4\}$，$\sigma(1) = 3$，　$\sigma(2) = 2$，　$\sigma(3) = 4$，　$\sigma(4) = 1$，则$\sigma$可以表示为
+  设$S=\{1,2,3,4\}$，$\sigma:S\to S$，$\sigma(1) = 3$，　$\sigma(2) = 2$，　$\sigma(3) = 4$，　$\sigma(4) = 1$，则$\sigma$可以表示为
   \[\sigma=\begin{pmatrix}1&2&3&4\\3&2&4&1\end{pmatrix}\]
   这里，列的次序无关紧要，例如，$\sigma$还可以表示为
   \[\sigma=\begin{pmatrix}2&1&3&4\\2&3&4&1\end{pmatrix}\]
@@ -592,7 +586,7 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
     如果把置换分解成若干个对换的乘积，则对换个数的奇偶性是不变的。
   \end{Thm}
   \begin{proof}[证明]
-    设$\sigma$为一个$n$次置换。$\sigma$的符号$sign(\sigma)$定义为$(-1)^{|\{(x,y)|x < y \land (x)\sigma > (y)\sigma \}|}$。
+    设$\sigma$为一个$n$次置换。$\sigma$的符号$sign(\sigma)$定义为$(-1)^{|\{(x,y)|x < y \land (x)\sigma^{-1} > (y)\sigma^{-1} \}|}$。
 
 设$\alpha = \beta (i,j)$，则$sign(\alpha) = -sign(\beta)$。
 
@@ -797,18 +791,17 @@ $S$上所有的$n$次置换构成的集合记为$S_n$。
         对任意的$x_1\in X$，$x_2\in X$，如果$f(x_1)=f(x_2)$,则$f(\{x_1\})=f(\{x_2\})$，于是$f^{-1}(f(\{x_1\}))=f^{-1}(f(\{x_2\}))$，从而$\{x_1\}=\{x_2\}$，于是$x_1=x_2$。
         
       \end{proof}
-       
+  \clearpage     
   \begin{Exercise}
     试证：每个$n$次置换均可被分解成这样的一些置换的乘积：每个置换或为$(12)$，或为
     $(23\cdots n)$。  
     \end{Exercise}
     \begin{proof}[证明]
-      \[(23\cdots n)(12) = (12\cdots n)\]
-      \[(12\cdots n)^{-1}(12)(12\cdots n) = (23)\]
-      \[(12\cdots n)^{-1}(23)(12\cdots n) = (34)\]
+      \[(23\cdots n)^{-1}(12)(23\cdots n) = (13)\]
+      \[(23\cdots n)^{-1}(13)(23\cdots n) = (14)\]
       $\ldots$
-      \[(12\cdots n)^{-1}(n-2 n-1)(12\cdots n) = (n-1 n)\]
-      每个置换均可被分解成(12)，(23)，$\cdots$，(n-1 n)的乘积，故结论成立。
+      \[(23\cdots n)^{-1}(1 n-1)(23\cdots n) = (1 n)\]
+      每个置换均可被分解成(12)，(13)，$\cdots$，(1n)的乘积，故结论成立。
     \end{proof}
 
     \begin{Exercise}

@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -9,27 +9,27 @@
 \usepackage{clrscode3e}
 
 \usepackage{tikz}
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
+%\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
+%    章}{1em}{}
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
 
-\newtheorem{Example}{例}[chapter]
+\newtheorem{Example}{例}
 \newtheorem{Cor}{推论}
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第三章 关系}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
-  \setcounter{chapter}{2}
-  \chapter{关系}
+%  \setcounter{chapter}{2}
+%  \chapter{关系}
 \begin{Def}
     设$A$与$B$为两个集合。一个从$A\times B$到$\{T,F\}$的映射$R$，称为从$A$到$B$的一个{\bfseries 二元关系}。
     $\forall (a,b) \in A \times B$，如果$(a,b)$在$R$下的象为$T$，则称$a$与$b$符合关系$R$，记为$aRb$;
@@ -211,6 +211,12 @@ Information Retrieval, 13(6): 1970.
   \begin{Example}
     设$X=\{1,2,3\}, R=\{(1,2),(2,3),(1,3)\}$，则$R^{-1}=\{(2,1),(3,2),(3,1)\}$。
   \end{Example}
+  \begin{Thm}
+    设$R$和$S$为集合$X$上的二元关系，$R\subseteq S$，则$R^{-1}\subseteq S^{-1}$。
+  \end{Thm}  
+  \begin{Thm}
+    设$R$为集合$X$上的二元关系，则$(R^{-1})^{-1}=R$。
+  \end{Thm}  
 
   \begin{Thm}
     设$R$为集合$X$上的二元关系，则$R$为对称的当且仅当$R^{-1}\subseteq R$。
@@ -237,13 +243,7 @@ Information Retrieval, 13(6): 1970.
 
     对任意的$x\in X$，$y\in X$，如果$(x,y)\in R$，则$(y,x)\in R^{-1}$，由$R^{-1}\subseteq R$知$(y,x)\in R$，从而$(x,y)\in R^{-1}$。
   \end{proof}
-  \begin{Thm}
-    设$R$和$S$为集合$X$上的二元关系，$R\subseteq S$，则$R^{-1}\subseteq S^{-1}$。
-  \end{Thm}  
-  \begin{Thm}
-    设$R$和$S$为集合$X$上的二元关系，则$(R^{-1})^{-1}=R$。
-  \end{Thm}  
-
+  
 
     \begin{Def}
     设$R$为从集合$A$到集合$B$，$S$为从集合$B$到集合$C$的二元关系。$R$与$S$的合成
@@ -362,11 +362,11 @@ Information Retrieval, 13(6): 1970.
 
 
    \begin{Def}
-    设$B$，$C$为两个布尔矩阵，$B$与$C$的逻辑乘为$B$与$C$的对应元素进行逻辑乘，所得到的布尔矩阵记为$B \land C$，即
+    设$B$，$C$为两个布尔矩阵，$B$与$C$的逻辑乘为$B$与$C$的对应元素进行逻辑乘所得到的布尔矩阵，记为$B \land C$，即
     \begin{equation*}
       B \land C = (b_{ij} \land c_{ij})
     \end{equation*}
-    $B$与$C$的逻辑加为$B$与$C$的对应元素进行逻辑加，所得到的布尔矩阵记为$B \lor C$，即
+    $B$与$C$的逻辑加为$B$与$C$的对应元素进行逻辑加所得到的布尔矩阵，记为$B \lor C$，即
     \begin{equation*}
       B \lor C = (b_{ij} \lor c_{ij})
     \end{equation*}
@@ -674,45 +674,26 @@ Information Retrieval, 13(6): 1970.
   \end{Def}
 
   这是在我们这门课中迄今为止所学的所有概念中最重要的概念之一，是不是有点抽象？我们可以借助一个具体的例子，帮助我们理解这些抽象的概念。从小学到现在，我们是不是学了许多类似于“$\frac{1}{4}+\frac{1}{4}=\frac{1}{2}$”的等式？这里的等价关系就是从“$=$”抽象出来的。（１）$x=x$；（２）如果$x=y$，那么$y=x$;（３）如果$x=y$并且$y=z$，那么$x=z$。是不是显然成立呀?我们可以借助熟知的"="来理解等价关系的定义。
+  \begin{Def}
+    设$a,b\in Z$，如果存在$q\in Z$使得$a=qb$，则称$b$整除$a$，记为$b|a$。
+  \end{Def}
+  \begin{Def}
+    设$a,b\in Z$，$b>0$，$a=qb+r$，$q\in Z$，$0\leq r<b$，则称$r$为$a$除以$b$所得到的余数，记为$a\bmod b$。
+  \end{Def}
+  
+  \begin{Def}
+    设$a,b,n\in Z$，$n>0$，如果$a\bmod n=b\bmod n$，则称$a$与$b$模$n$同余，记为$a \equiv b\pmod{n}$。
+  \end{Def}
+  
+  \begin{Thm}
+    $\forall a,b,n\in Z, n>0, a\equiv b\pmod{n}$等价于$n|(a-b)$。
+  \end{Thm}
+  
   \begin{Example}\label{mod}
     整数集$\mathbb{Z}$上的模$n$同余关系为$\mathbb{Z}$上的等价关系。
   \end{Example}
-  \begin{proof}[证明]
-    只需验证整数集$\mathbb{Z}$上的模$n$同余关系满足自反性，对称性和传递性。
-
-    (1) 自反性成立，这是因为对任意的$m\in \mathbb{Z}$，$m\equiv m \pmod{n}$。(注：我们用$m\equiv k \pmod{n}$表示$m$与$k$模$n$同余,即$n | (m-k)$)
-
-    (2) 对称性成立，这是因为对任意的$m\in \mathbb{Z}$，$k\in \mathbb{Z}$，如果$m\equiv k \pmod{n}$，则$n | (m-k)$，于是$n | (k-m)$，即$k\equiv m \pmod{n}$。
-
-    (3) 传递性成立，这是因为对任意的$m\in \mathbb{Z}$，$k\in \mathbb{Z}$，$l\in \mathbb{Z}$，如果$m\equiv k \pmod{n}$并且$k\equiv l \pmod{n}$，则$n | (m-k)$并且$n | (k-l)$，从而$n | ((m-k) + (k-l))$，即$n | (m-l)$，因此$m\equiv l \pmod{n}$。
-  \end{proof}
-  \begin{Exercise}
-    设$X = \{1,2,3\}$， $Y = \{1,2\}$，$S = \{f|f:X \to Y\}$。$S$上的二元关系$\cong$定义如下：$\forall f,g\in S$，$f \cong g$当且仅当\[I_m(f) = I_m(g)\]证明$\cong$是$S$上的等价关系，并求出等价类之集。      
-   \end{Exercise}
-   \begin{proof}[解]
-     首先验证$\cong$为$S$上的等价关系：
-     
-     $\cong$为自反的，这是因为对任意的映射$f:X\to Y$，$I_m(f)=I_m(f)$；
- 
-     $\cong$为对称的，这是因为对任意的映射$f:X\to Y$，$g:X\to Y$，如果$I_m(f)=I_m(g)$，则$I_m(g)=I_m(f)$；
- 
-     $\cong$为传递的，这是因为对任意的映射$f:X\to Y$，$g:X\to Y$，$h:X\to Y$，如果$I_m(f)=I_m(g)$并且$I_m(g)=I_m(h)$，则$I_m(f)=I_m(h)$。
-     
-     $S=\{f_1,f_2,f_3,f_4,f_5,f_6,f_7,f_8\}$，
-     其中
-     \begin{align*}
-       &f_1:X\to Y, f_1(1)=1,f_1(2)=1,f_1(3) = 1, Im(f_1)=\{1\}\\
-       &f_2:X\to Y, f_2(1)=1,f_2(2)=1,f_2(3) = 2, Im(f_2)=\{1,2\}\\
-       &f_3:X\to Y, f_3(1)=1,f_3(2)=2,f_3(3) = 1, Im(f_3)=\{1,2\}\\
-       &f_4:X\to Y, f_4(1)=1,f_4(2)=2,f_4(3) = 2, Im(f_4)=\{1,2\}\\
-       &f_5:X\to Y, f_5(1)=2,f_5(2)=1,f_5(3) = 1, Im(f_5)=\{1,2\}\\
-       &f_6:X\to Y, f_6(1)=2,f_6(2)=1,f_6(3) = 2, Im(f_6)=\{1,2\}\\
-       &f_7:X\to Y, f_7(1)=2,f_7(2)=2,f_7(3) = 1, Im(f_7)=\{1,2\}\\
-       &f_8:X\to Y, f_8(1)=2,f_8(2)=2,f_8(3) = 2, Im(f_8)=\{2\}\\
-     \end{align*}
-     则$S/\cong=\{\{f_1\},\{f_2,f_3,f_4,f_5,f_6,f_7\},\{f_8\}\}$
-   \end{proof}
- 
+  
+  
   \begin{Example}\label{number}
     设集合
     $X=\{1,2,3,4,5,6 \}$上的关系$R$定义如下：
@@ -858,7 +839,7 @@ Information Retrieval, 13(6): 1970.
     \end{Thm}
     \begin{proof}[证明]
 
-      对任意的$x\in X$，$y\in X$，由$x\cong y$往证$[x]=[y]$。这里是要证明两个集合相等。对任意的$z\in [x]$，则$x\cong z$，由$\cong$的对称性知$z\cong x$，再由$\cong$的传递性及$x\cong y$知$z\cong y$，由$\cong$的对称性知$y\cong z$，从而$z\in [y]$。对任意的$z\in [y]$，则$y\cong z$，由$\cong$的传递性及$x\cong y$知$x\cong z$，从而$z\in [x]$。这证明了$[x]=[y]$。
+      对任意的$x\in X$，$y\in X$，由$x\cong y$往证$[x]=[y]$。这里是要证明两个集合相等。对任意的$z\in [x]$，则$x\cong z$，由$x\cong y$及$\cong$的对称性知$y\cong x$，再由$\cong$的传递性知$y\cong z$，从而$z\in [y]$。对任意的$z\in [y]$，则$y\cong z$，由$x\cong y$及$\cong$的传递性知$x\cong z$，从而$z\in [x]$。这证明了$[x]=[y]$。
 
       对任意的$x\in X$，$y\in X$，由$[x]=[y]$往证$x\cong y$。由$\cong$的自反性知$x\cong x$，从而$x\in [x]$，再由$[x]=[y]$知$x\in [y]$，从而$y\cong x$，由$\cong$的对称性得$x\cong y$。
     \end{proof}
@@ -866,7 +847,7 @@ Information Retrieval, 13(6): 1970.
     设$X$为集合, $X$的一些非空子集形成的集族$\mathscr{A}$称为$X$的一个{\bfseries 划分}，如果$\mathscr{A}$具有性质
     \begin{enumerate}
     \item $\forall A, B \in \mathscr{A}$，如果$A \neq B$，则$A \cap B = \phi$；
-      \item $\bigcup_{A \in \mathscr{A}} = X$
+      \item $\bigcup_{A \in \mathscr{A}} A= X$
     \end{enumerate}
   \end{Def}
 
@@ -1002,6 +983,34 @@ Information Retrieval, 13(6): 1970.
   \begin{Example}
     设集合$X=\{1,2,3,4,5,6\}$，$\cong$为集合$X$的等价关系，$X/\cong=\{\{1,2\},\{3,5\},\{4,6\}\}$，试求$\cong$。
   \end{Example}
+
+  \begin{Exercise}
+    设$X = \{1,2,3\}$， $Y = \{1,2\}$，$S = \{f|f:X \to Y\}$。$S$上的二元关系$\cong$定义如下：$\forall f,g\in S$，$f \cong g$当且仅当\[I_m(f) = I_m(g)\]证明$\cong$是$S$上的等价关系，并求出等价类之集。      
+   \end{Exercise}
+   \begin{proof}[解]
+     首先验证$\cong$为$S$上的等价关系：
+     
+     $\cong$为自反的，这是因为对任意的映射$f:X\to Y$，$I_m(f)=I_m(f)$；
+ 
+     $\cong$为对称的，这是因为对任意的映射$f:X\to Y$，$g:X\to Y$，如果$I_m(f)=I_m(g)$，则$I_m(g)=I_m(f)$；
+ 
+     $\cong$为传递的，这是因为对任意的映射$f:X\to Y$，$g:X\to Y$，$h:X\to Y$，如果$I_m(f)=I_m(g)$并且$I_m(g)=I_m(h)$，则$I_m(f)=I_m(h)$。
+     
+     $S=\{f_1,f_2,f_3,f_4,f_5,f_6,f_7,f_8\}$，
+     其中
+     \begin{align*}
+       &f_1:X\to Y, f_1(1)=1,f_1(2)=1,f_1(3) = 1, Im(f_1)=\{1\}\\
+       &f_2:X\to Y, f_2(1)=1,f_2(2)=1,f_2(3) = 2, Im(f_2)=\{1,2\}\\
+       &f_3:X\to Y, f_3(1)=1,f_3(2)=2,f_3(3) = 1, Im(f_3)=\{1,2\}\\
+       &f_4:X\to Y, f_4(1)=1,f_4(2)=2,f_4(3) = 2, Im(f_4)=\{1,2\}\\
+       &f_5:X\to Y, f_5(1)=2,f_5(2)=1,f_5(3) = 1, Im(f_5)=\{1,2\}\\
+       &f_6:X\to Y, f_6(1)=2,f_6(2)=1,f_6(3) = 2, Im(f_6)=\{1,2\}\\
+       &f_7:X\to Y, f_7(1)=2,f_7(2)=2,f_7(3) = 1, Im(f_7)=\{1,2\}\\
+       &f_8:X\to Y, f_8(1)=2,f_8(2)=2,f_8(3) = 2, Im(f_8)=\{2\}\\
+     \end{align*}
+     则$S/\cong=\{\{f_1\},\{f_2,f_3,f_4,f_5,f_6,f_7\},\{f_8\}\}$
+   \end{proof}
+ 
   \begin{Def}
     集合$X$上的二元关系$R$称为{\bfseries 偏序关系}，如果$R$同时满足以下三个性质：
     \begin{enumerate}
@@ -1088,7 +1097,9 @@ Information Retrieval, 13(6): 1970.
     \begin{Def}
       设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果$A$有上界且$A$的一切上界之集有最小元素，则这个最小上界称为$A$的{\bfseries 上确界}，记为$\sup A$；如果$A$有下界且$A$的一切下界之集有最大元素，则这个最大下界称为$A$的{\bfseries 下确界}，记为$\inf A$。
   \end{Def}
-
+\begin{Def}
+  设$(X,\leq)$为一个偏序集，$A\subseteq X$。如果$\forall a,b\in A$，$a\leq b$与$b\leq a$必有一个成立，则称$A$为$X$中的链；如果对$A$中任意两个不同的元素$a$和$b$，$a\leq b$与$b\leq a$均不成立，则称$A$为$X$中的一个反链。$|A|$称为链（反链）的长度。
+\end{Def}
   \begin{Thm}
     设$(X,\leq)$为一个偏序集，如果$X$中所有链长度的最大值为$n$，则$X$的全部元素可以被分成$n$个非空不相交反链的并集。
   \end{Thm}
@@ -1100,7 +1111,7 @@ Information Retrieval, 13(6): 1970.
 
     假设当$n=k(k\geq 1)$时结论成立，往证当$n=k+1$时结论也成立。设$(X,\leq)$中最长链的长度为$k+1$，
     则$X$中有极大元。令$M$为$X$的所有极大元之集，则$M\neq \phi$且$M\neq X$。易证$X\setminus M$中最长链的长度为$k$。
-    由归纳假设，$X\setminus M$可分解成$k$个不相交反链之并。$M$也是一个反链，所以$X$被分解成$k+1$个反链之并。
+    由归纳假设，$X\setminus M$可分解成$k$个非空不相交反链之并。$M$也是一个非空反链，所以$X$可以被分解成$k+1$个非空不相交反链之并。
   \end{proof}
   \begin{Cor}
     设$(X,\leq)$为一个偏序集，$|X|=mn+1$，则$X$中或存在一个长至少为$n+1$的链，或存在一个长至少为$m+1$的反链。
@@ -1115,20 +1126,18 @@ Information Retrieval, 13(6): 1970.
     证明：每个由$n^2+1$个实数组成的序列$a_1,a_2,\cdots,a_{n^2+1}$中必有长至少为$n+1$的不减子序列，或有一个长至少为$n+1$的不增子序列。
   \end{Example}
 \begin{proof}[证明]
-  记$A=\{a_1,a_2,\ldots, a_{n^2+1}\}$，在$A$上定义二元关系$\leq'$为：$a_i\leq'a_j$当且仅当$a_i\leq a_j$并且$i\leq j$，
+  记$A=\{(a_i,i)|1\leq i \leq n^2+1\}$，在$A$上定义二元关系$\leq'$为：$(a_i,i)\leq'(a_j,j)$当且仅当$a_i\leq a_j$并且$i\leq j$，
   这里$\leq$为实数间通常的小于等于关系。
 
   易验证$\leq'$为自反的，反对称的和传递的，从而为集合$A$上的偏序关系。
 
-  $A$中或有长至少为$n+1$的链，或有长至少为$n+1$的反链。$A$中长至少为$n+1$的链，就是
-  序列$a_1,a_2,\ldots,a_{n^2+1}$的不减子序列。而$A$的长至少为$n+1$的反链，就是
-  序列$a_1,a_2,\ldots,a_{n^2+1}$的不增子序列。设反链中元素按下标递增顺序排列成
+  $A$中或有长为$n+1$的链，或有长为$n+1$的反链。如果$A$中有长为$n+1$的链$\{(a_{i_1},i_1),(a_{i_2},i_2),\cdots, (a_{i_{n+1}},i_{n+1})\}$，这里$i_1<i_2<\ldots<i_{n+1}$，则$a_{i_1},a_{i_2},\cdots,a_{i_n}$为
+  序列$a_1,a_2,\ldots,a_{n^2+1}$的不减子序列。如果$A$中有长为$n+1$的反链$\{(a_{j_1},j_1),(a_{j_2},j_2),\cdots, (a_{j_{n+1}},j_{n+1})\}$，这里$j_1<j_2<\ldots<j_{n+1}$，则$a_{j_1},a_{j_2},\cdots,a_{j_n}$为
+  序列$a_1,a_2,\ldots,a_{n^2+1}$的不增子序列。
 
-  \[a_{i_1},a_{i_2},\ldots, a_{i_{n+1}}(i_1<i_2<\ldots<i_{n+1})\]
-
-  因为$a_{i_k}\leq'a_{i_{k+1}}$不成立，而$i_k<i_{k+1}$，所以$a_{i_k}\leq a_{i_{k+1}}$不成立，从而$a_{i_k}\geq a_{i_{k+1}}$，
+  这是因为$(a_{j_k},j_k)\leq'(a_{j_{k+1},j_{k+1})}$不成立，而$j_k<j_{k+1}$，所以$a_{j_k}\leq a_{j_{k+1}}$不成立，从而$a_{j_k}> a_{j_{k+1}}$，
   于是
-  \[a_{i_1}\geq a_{i_2}\geq \ldots\geq a_{i_{n+1}}\]
+  \[a_{j_1}> a_{j_2}> \ldots> a_{j_{n+1}}\]
 
 \end{proof}
 \begin{Exercise}
@@ -1199,7 +1208,7 @@ $a_1\sim a_2$，$b_1\sim b_2$，则$a_2 R a_1, a_1 R b_1, b_1 R b_2$，由$R$的
       \begin{proof}[证法一]
         首先证明$R\circ S\subseteq (R\cup S)^+$。
 
-        设$T$为任意一个包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$,如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$。从而$(a,b)\in R\cup S \subseteq T$，$(b,c)\in R\cup S \subseteq T$，再由$T$为传递关系知$(a,c)\in T$。这证明了$R\circ S \subseteq \bigcap_{R\cup S\subseteq T\text{且} T\text{是传递的}}T=(R\cup S)^+$。
+        设$T$为任意一个包含$R\cup S$的传递关系。对任意的$a\in X,c\in X$,如果$(a,c)\in R\circ S$，则存在$b\in X$，$(a,b)\in R$并且$(b,c)\in S$。从而$(a,b)\in R\cup S \subseteq T$，$(b,c)\in R\cup S \subseteq T$，再由$T$为传递关系知$(a,c)\in T$。因此，$R\circ S\subseteq T$。这证明了$R\circ S \subseteq \bigcap_{R\cup S\subseteq T'\text{且} T'\text{是传递的}}T'=(R\cup S)^+$。
       
         其次证明$(R\cup S)^+\subseteq R \circ S$。
 

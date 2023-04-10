@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -8,31 +8,29 @@
 \usepackage{xCJKnumb}
 
 \usepackage{tikz}
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
+%\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
+%    章}{1em}{}
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Cor}{推论}[chapter]
-\newtheorem{Ax}{公理}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Ax}{公理}
 
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Exercise}{练习}
 
-\newtheorem{Example}{例}[chapter]
+\newtheorem{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第四章 无穷集合}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
 
-  \setcounter{chapter}{3}
-  \chapter{无穷集合}
   \begin{Def}
     如果从集合$X$到集合$Y$存在一个双射，则称$X$与$Y$对等，记为$X \sim Y$。
   \end{Def}
@@ -110,12 +108,11 @@
   \end{Def}
   \begin{Def}
     设$\alpha$，$\beta$为任意两个基数，$A$,$B$为分别以$\alpha$，$\beta$为其基数的
-    集合。如果$A$与$B$的一个真子集对等，但$A$却不能与$B$对等，则称基数$\alpha$小于基数$\beta$，记为$\alpha < \beta$。
+    集合。如果从$A$到$B$存在一个单射，则称基数$\alpha$小于等于基数$\beta$，记为$\alpha \leq \beta$。
   \end{Def}
-  显然，
-  $\alpha \leq \beta$当且仅当存在单射$f:A \to B$。
 
-  $\alpha < \beta$当且仅当存在单射$f:A \to B$且不存在$A$到$B$的双射。
+
+  $\alpha < \beta$当且仅当$\alpha \leq \beta$并且$\alpha \neq \beta$,即存在从$A$到$B$的单射但不存在$A$到$B$的双射。
 
   \begin{Thm}[康托]
     对任一集合$M$，$|M| < |2^{M}|$。
@@ -169,30 +166,45 @@
 
   \end{proof}
 
-  %   \begin{Def}
-  %   设$\alpha$,$\beta$为两个基数，$A$与$B$为两个不相交集合，$|A|=\alpha$,$|B|=\beta$，则集合$A\cup B$的基数称为基数$\alpha$与$\beta$的和，记为$\alpha + \beta$。
-  % \end{Def}
-  % \begin{Def}
-  %   设$\alpha$,$\beta$为两个基数，$A$与$B$为两个集合，$|A|=\alpha$,$|B|=\beta$，则集合$A\times B$的基数称为基数$\alpha$与$\beta$的积，记为$\alpha \cdot \beta$ 或者$\alpha \beta$。
-  % \end{Def}
-  % \begin{Def}
-  %   设$\alpha$,$\beta$为两个基数，$A$与$B$为两个集合，$|A|=\alpha$,$|B|=\beta$，则集合$B^A=\{f|f:A\to B\}$的基数称为$\beta$的$\alpha$次幂，记为$\beta^{\alpha}$。
-  % \end{Def}  
+    \begin{Def}
+    设$\alpha$,$\beta$为两个基数，$A$与$B$为两个不相交集合，$|A|=\alpha$,$|B|=\beta$，则集合$A\cup B$的基数称为基数$\alpha$与$\beta$的和，记为$\alpha + \beta$。
+  \end{Def}
+  \begin{Def}
+    设$\alpha$,$\beta$为两个基数，$A$与$B$为两个集合，$|A|=\alpha$,$|B|=\beta$，则集合$A\times B$的基数称为基数$\alpha$与$\beta$的积，记为$\alpha \cdot \beta$ 或者$\alpha \beta$。
+  \end{Def}
+  \begin{Def}
+    设$\alpha$,$\beta$为两个基数，$A$与$B$为两个集合，$|A|=\alpha$,$|B|=\beta$，则集合$B^A=\{f|f:A\to B\}$的基数称为$\beta$的$\alpha$次幂，记为$\beta^{\alpha}$。
+  \end{Def}  
 
-  %   \begin{Thm}
-  % 设$a$为可数集的基数，$c$为连续统的基数，则
-  % \begin{enumerate}
-  % \item $\forall n\in N\cup \{0\}, n + a = a$.
-  % \item $\forall n\in N, n \cdot a = a$.
-  % \item $\forall n\in N, n \cdot c = c$.
-  % \item $a\cdot c =c$.
-  % \item $c\cdot c = c$.
-  % \item $2^a=c$.
-  % \item $(2^a)^a=c$.
-  % \item $a^a=2^a$.
-  % \end{enumerate}    
-  % \end{Thm}
+    \begin{Thm}
+  设$a$为可数集的基数，$c$为连续统的基数，则
+  \begin{enumerate}
+  \item $\forall n\in N\cup \{0\}, n + a = a$.
+  \item $\forall n\in N, n \cdot a = a$.
+  \item $\forall n\in N, n \cdot c = c$.
+  \item $a\cdot c =c$.
+  \item $c\cdot c = c$.
+  \item $2^a=c$.
+  \item $(2^a)^a=c$.
+  \item $a^a=2^a$.
+  \end{enumerate}    
+  \end{Thm}
+\begin{Thm}
+  设$\alpha$，$\beta$，$\gamma$为任意基数，则
 
+  （1）基数的加法和乘法分别满足交换律，即
+  \[\alpha + \beta = \beta + \alpha, \alpha \beta = \beta \alpha.\]
+
+  （2）基数的加法和乘法分别满足结合律，即
+  \[(\alpha + \beta)+\gamma = \alpha + (\beta + \gamma), (\alpha\beta)\gamma = \alpha(\beta\gamma)\]
+
+  （3）基数的乘法对加法满足分配律，即
+\[\alpha(\beta + \gamma) = \alpha \beta + \alpha \gamma\]
+
+  （4）幂运算的指数性质成立，即
+
+  $a)\alpha^{\beta + \gamma}=\alpha^\beta\alpha^\gamma$ $b)(\alpha^\beta)^\gamma = \alpha^{\beta\gamma}$ $c)(\alpha\beta)^\gamma = \alpha^\gamma\beta^\gamma$
+\end{Thm}
 刻画集合的ZFC公理系统（Zermelo-Fraenkel-Choice axioms of set theory）：
   \begin{Ax}[外延公理]
     \begin{equation*}
@@ -264,148 +276,148 @@
   %   \item $(P(0) \land \forall n \in \mathbb{N} p(n) \rightarrow p(n++) )\rightarrow \forall n p(n)$。 
   % \end{enumerate}
 
-  刻画实数的公理系统：
+  % 刻画实数的公理系统：
 
-    设$x, y, z \in \mathbb{R}$，则
-   \begin{enumerate}
-   \item   $x + y = y + x$
-   \item   $(x + y) + z = x + (y + z)$
-   \item   $0 + x = x + 0 = x$
-   \item   $(-x) + x =x + (-x) = 0$
-   \item   $x * y = y * x$
-   \item   $(x * y) * z = x * (y *z)$
-   \item   $1 * x = x * 1 = x$
-   \item   $x^{-1} * x = x * x^{-1} = 1 (x \neq 0)$
-   \item   $x* (y + z) = x * y + x * z$
-   \item   $(y + z) * x = y * x + z * x$
-   \item 对任意的$x\in R$，$x\leq x$。
-   \item 对任意的$x\in R$，$y\in R$，如果$x\leq y$并且$y\leq x$，则$x=y$。 
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x\leq y$并且$y\leq z$，则$x\leq z$。
-  \item 对任意的$x\in R$，$y\in R$，$x\leq y$和$y\leq x$两者中必有其一成立。
+  %   设$x, y, z \in \mathbb{R}$，则
+  %  \begin{enumerate}
+  %  \item   $x + y = y + x$
+  %  \item   $(x + y) + z = x + (y + z)$
+  %  \item   $0 + x = x + 0 = x$
+  %  \item   $(-x) + x =x + (-x) = 0$
+  %  \item   $x * y = y * x$
+  %  \item   $(x * y) * z = x * (y *z)$
+  %  \item   $1 * x = x * 1 = x$
+  %  \item   $x^{-1} * x = x * x^{-1} = 1 (x \neq 0)$
+  %  \item   $x* (y + z) = x * y + x * z$
+  %  \item   $(y + z) * x = y * x + z * x$
+  %  \item 对任意的$x\in R$，$x\leq x$。
+  %  \item 对任意的$x\in R$，$y\in R$，如果$x\leq y$并且$y\leq x$，则$x=y$。 
+  % \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x\leq y$并且$y\leq z$，则$x\leq z$。
+  % \item 对任意的$x\in R$，$y\in R$，$x\leq y$和$y\leq x$两者中必有其一成立。
   
-  我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
+  % 我们用$x<y$表示$x\leq y$并且$x\neq y$，$x\geq y$表示$y\leq x$，$x > y$表示$x\geq y$并且$x\neq y$。
   
-  \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
-  \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
-  \item 设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
-  \end{enumerate}
+  % \item 对任意的$x\in R$，$y\in R$，$z\in R$，如果$x<y$，则$x+z<y+z$。
+  % \item 对任意的$x\in R$，$y\in R$，如果$x>0$，$y>0$，则$xy>0$。
+  % \item 设$A_1$, $A_2$，$\cdots$，$A_i$，$\cdots$为实数集$R$上的闭区间，$A_1\supseteq A_2 \supseteq A_3 \supseteq \cdots \supseteq A_i \supseteq \cdots$，则$\bigcap_{i=1}^{\infty}A_i$非空。
+  % \end{enumerate}
 
-  \begin{Exercise}
-    设$A$为$R$的任意一个非空子集，如果$A$有上界，则$A$有上确界。
-  \end{Exercise}
+%   \begin{Exercise}
+%     设$A$为$R$的任意一个非空子集，如果$A$有上界，则$A$有上确界。
+%   \end{Exercise}
   
 
-\begin{proof}[证明]
-  设$b$为$A$的一个上界，由$A$非空知，存在$a\in A$。
+% \begin{proof}[证明]
+%   设$b$为$A$的一个上界，由$A$非空知，存在$a\in A$。
 
-  将闭区间$[a,b]$二等分，得到两个小的闭区间$I_1=[a,\frac{a+b}{2}]$和$I_2=[\frac{a+b}{2}, b]$。
-  如果$I_2$中存在$A$中的点，则记$A_1=I_2$；否则，$I_1$中必存在$A$中的点，记$A_1=I_1$。
-  这样得到的闭区间$A_1$中必存在$A$中的点，并且其右边界为$A$的上界。
+%   将闭区间$[a,b]$二等分，得到两个小的闭区间$I_1=[a,\frac{a+b}{2}]$和$I_2=[\frac{a+b}{2}, b]$。
+%   如果$I_2$中存在$A$中的点，则记$A_1=I_2$；否则，$I_1$中必存在$A$中的点，记$A_1=I_1$。
+%   这样得到的闭区间$A_1$中必存在$A$中的点，并且其右边界为$A$的上界。
 
-  按照同样的方法将$A_1$二等分，这样依次可以得到闭区间$A_2,A_3,\cdots$，每个闭区间中存在$A$中的点，
-  并且其右边界为$A$的上界。
+%   按照同样的方法将$A_1$二等分，这样依次可以得到闭区间$A_2,A_3,\cdots$，每个闭区间中存在$A$中的点，
+%   并且其右边界为$A$的上界。
 
-  $\cap_{i=0}^{\infty}A_i$非空，取$x\in \cap_{i=0}^{\infty}A_i$，以下证明$x$为$A$的上确界。
+%   $\cap_{i=0}^{\infty}A_i$非空，取$x\in \cap_{i=0}^{\infty}A_i$，以下证明$x$为$A$的上确界。
 
-  首先证明$x$为$A$的上界。用反证法，假设$x$不是$A$的上界，则存在$y\in A$，$y> x$。
-  由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在正整数$N$，$A_N$的右边界$-x<A_N$的长度$<y-x$，从而$A_N$的右边界$<y$，这与$A_N$的右边界为$A$的上界矛盾。
+%   首先证明$x$为$A$的上界。用反证法，假设$x$不是$A$的上界，则存在$y\in A$，$y> x$。
+%   由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在正整数$N$，$A_N$的右边界$-x<A_N$的长度$<y-x$，从而$A_N$的右边界$<y$，这与$A_N$的右边界为$A$的上界矛盾。
 
-  其次证明$x$为$A$的最小上界。用反证法，假设$x$不是$A$的最小上界，则存在上界$x'$，$x'<x$。
-  由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在整数$M$，$x-A_M$的左边界$<A_M$的长度$<x-x'$，从而$A_M$的左边界$>x'$，而$A_M$中存在$A$中的点$z$，$z>x'$，与$x'$为$A$的上界矛盾。
-\end{proof}
+%   其次证明$x$为$A$的最小上界。用反证法，假设$x$不是$A$的最小上界，则存在上界$x'$，$x'<x$。
+%   由于当$i\to \infty$时，$A_i$的长度$\to 0$，所以存在整数$M$，$x-A_M$的左边界$<A_M$的长度$<x-x'$，从而$A_M$的左边界$>x'$，而$A_M$中存在$A$中的点$z$，$z>x'$，与$x'$为$A$的上界矛盾。
+% \end{proof}
 
-  \begin{Exercise}
-    有下界的单调下降序列必收敛。
-  \end{Exercise}
-  \begin{proof}[证明]
-    设$a_1,a_2,\cdots,a_n,\cdots$为有下界的单调下降序列，则其所有元素构成的集合$A$有下界，从而有下确界，记为$a$。
+%   \begin{Exercise}
+%     有下界的单调下降序列必收敛。
+%   \end{Exercise}
+%   \begin{proof}[证明]
+%     设$a_1,a_2,\cdots,a_n,\cdots$为有下界的单调下降序列，则其所有元素构成的集合$A$有下界，从而有下确界，记为$a$。
   
-    以下证明$\lim_{n\to \infty}a_n=a$。
+%     以下证明$\lim_{n\to \infty}a_n=a$。
   
-    对任给的$\epsilon>0$，由于$a+\epsilon$不是$A$的下界，从而存在自然数$N$使得$a_N<a+\epsilon$。由$a$为$A$的下界知$a\leq a_N$。
+%     对任给的$\epsilon>0$，由于$a+\epsilon$不是$A$的下界，从而存在自然数$N$使得$a_N<a+\epsilon$。由$a$为$A$的下界知$a\leq a_N$。
   
-    由序列$a_1,a_2,\cdots,a_n,\cdots$单调下降且$A$的下确界为$a$知当$n\geq N$时，$a\leq a_n < a_N + \epsilon$，这证明了$\lim_{n\to \infty}a_n=a$。
-  \end{proof}
-  \begin{proof}[证明]
-  \end{proof}
-  \begin{Exercise}
-    设\[
-    \begin{cases}
-      x_0&=2\\
-      x_n&=\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})\\
-    \end{cases}
-    \]
+%     由序列$a_1,a_2,\cdots,a_n,\cdots$单调下降且$A$的下确界为$a$知当$n\geq N$时，$a\leq a_n < a_N + \epsilon$，这证明了$\lim_{n\to \infty}a_n=a$。
+%   \end{proof}
+%   \begin{proof}[证明]
+%   \end{proof}
+%   \begin{Exercise}
+%     设\[
+%     \begin{cases}
+%       x_0&=2\\
+%       x_n&=\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})\\
+%     \end{cases}
+%     \]
   
-  （1）令$[a,b]$表示$\{x\in R|a\leq x \leq b\}$，这里$R$为实数集，则$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\underline{\quad\quad\quad\quad}$。
+%   （1）令$[a,b]$表示$\{x\in R|a\leq x \leq b\}$，这里$R$为实数集，则$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\underline{\quad\quad\quad\quad}$。
   
-  （2）令$[a,b]$表示$\{x\in Q|a\leq x \leq b\}$，这里$Q$为有理数集，则$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\underline{\quad\quad\quad\quad}$。
-  \end{Exercise}
-  \begin{proof}[解]
-    （1）$x_n=\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})\geq \frac{1}{2}*2\sqrt{x_{n-1}*\frac{2}{x_{n-1}}}=\sqrt{2}$
+%   （2）令$[a,b]$表示$\{x\in Q|a\leq x \leq b\}$，这里$Q$为有理数集，则$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\underline{\quad\quad\quad\quad}$。
+%   \end{Exercise}
+%   \begin{proof}[解]
+%     （1）$x_n=\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})\geq \frac{1}{2}*2\sqrt{x_{n-1}*\frac{2}{x_{n-1}}}=\sqrt{2}$
   
-    \begin{align*}
-      &x_n-x_{n-1}\\
-      =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})-x_{n-1}\\
-      =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}-2x_{n-1})\\
-      =&\frac{1}{2}(\frac{2}{x_{n-1}}-x_{n-1})\\
-      =&\frac{2-x_{n-1}^2}{2x_{n-1}}\\
-      \leq& 0\\
-    \end{align*}
-    这说明序列$x_0,x_1,\cdots,x_n,\cdots$单调下降且有下界，因此收敛，设极限为$x$，
-    则\[x=\frac{1}{2}(x+\frac{2}{x})\]
-    解得$x=\sqrt{2}$。
+%     \begin{align*}
+%       &x_n-x_{n-1}\\
+%       =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})-x_{n-1}\\
+%       =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}-2x_{n-1})\\
+%       =&\frac{1}{2}(\frac{2}{x_{n-1}}-x_{n-1})\\
+%       =&\frac{2-x_{n-1}^2}{2x_{n-1}}\\
+%       \leq& 0\\
+%     \end{align*}
+%     这说明序列$x_0,x_1,\cdots,x_n,\cdots$单调下降且有下界，因此收敛，设极限为$x$，
+%     则\[x=\frac{1}{2}(x+\frac{2}{x})\]
+%     解得$x=\sqrt{2}$。
   
-    由$x_n\geq \sqrt{2}$知$\frac{2}{x_n}\leq \sqrt{2}$，由序列$x_0,x_1,\cdots,x_n,\cdots$单调下降知序列$\frac{2}{x_0},\frac{2}{x_1},\cdots,\frac{2}{x_n},\cdots$单调上升，
-  由$\lim_{n\to \infty}x_n=\sqrt{2}$知$\lim_{n\to \infty}\frac{2}{x_{n}}=\sqrt{2}$。
+%     由$x_n\geq \sqrt{2}$知$\frac{2}{x_n}\leq \sqrt{2}$，由序列$x_0,x_1,\cdots,x_n,\cdots$单调下降知序列$\frac{2}{x_0},\frac{2}{x_1},\cdots,\frac{2}{x_n},\cdots$单调上升，
+%   由$\lim_{n\to \infty}x_n=\sqrt{2}$知$\lim_{n\to \infty}\frac{2}{x_{n}}=\sqrt{2}$。
   
-  综上，$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\{\sqrt{2}\}$。
+%   综上，$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\{\sqrt{2}\}$。
   
-  （2）
+%   （2）
   
-  $x_n^2=(\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}))^2=\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}+4)\geq \frac{1}{4}(2*x_{n-1}*\frac{2}{x_{n-1}}+4)=2$
+%   $x_n^2=(\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}))^2=\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}+4)\geq \frac{1}{4}(2*x_{n-1}*\frac{2}{x_{n-1}}+4)=2$
   
-  \begin{align*}
-    &x_n-x_{n-1}\\
-    =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})-x_{n-1}\\
-    =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}-2x_{n-1})\\
-    =&\frac{1}{2}(\frac{2}{x_{n-1}}-x_{n-1})\\
-    =&\frac{2-x_{n-1}^2}{2x_{n-1}}\\
-    \leq& 0\\
-  \end{align*}
+%   \begin{align*}
+%     &x_n-x_{n-1}\\
+%     =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}})-x_{n-1}\\
+%     =&\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}-2x_{n-1})\\
+%     =&\frac{1}{2}(\frac{2}{x_{n-1}}-x_{n-1})\\
+%     =&\frac{2-x_{n-1}^2}{2x_{n-1}}\\
+%     \leq& 0\\
+%   \end{align*}
   
-  这说明序列$x_0,x_1,\cdots,x_n,\cdots$单调下降，从而序列$\frac{2}{x_0},\frac{2}{x_1},\cdots,\frac{2}{x_n},\cdots$单调上升。
+%   这说明序列$x_0,x_1,\cdots,x_n,\cdots$单调下降，从而序列$\frac{2}{x_0},\frac{2}{x_1},\cdots,\frac{2}{x_n},\cdots$单调上升。
   
-  \begin{align*}
-    &x_n-\frac{2}{x_n}\\
-  =&\frac{x_n^2-2}{x_n}\\
-  =&\frac{(\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}))^2-2}{x_n}\\
-  =&\frac{\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}+4)-2}{x_n}\\
-  =&\frac{\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}-4)}{x_n}\\
-  =&\frac{x_{n-1}-\frac{2}{x_{n-1}}}{4x_n}(x_{n-1}-\frac{2}{x_{n-1}})\\
-  \leq &\frac{1}{4}(x_{n-1}-\frac{2}{x_{n-1}})
-  \end{align*}
+%   \begin{align*}
+%     &x_n-\frac{2}{x_n}\\
+%   =&\frac{x_n^2-2}{x_n}\\
+%   =&\frac{(\frac{1}{2}(x_{n-1}+\frac{2}{x_{n-1}}))^2-2}{x_n}\\
+%   =&\frac{\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}+4)-2}{x_n}\\
+%   =&\frac{\frac{1}{4}(x_{n-1}^2+\frac{4}{x_{n-1}^2}-4)}{x_n}\\
+%   =&\frac{x_{n-1}-\frac{2}{x_{n-1}}}{4x_n}(x_{n-1}-\frac{2}{x_{n-1}})\\
+%   \leq &\frac{1}{4}(x_{n-1}-\frac{2}{x_{n-1}})
+%   \end{align*}
   
-  这说明$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$。
-  以下证明$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\phi$。
+%   这说明$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$。
+%   以下证明$\bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]=\phi$。
   
-  用反证法。设存在$x\in \bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]$，由$x$为有理数知$x^2\neq 2$。
+%   用反证法。设存在$x\in \bigcap_{n=0}^{\infty}[\frac{2}{x_n},x_n]$，由$x$为有理数知$x^2\neq 2$。
   
-  如果$x^2>2$，则$\frac{1}{x^2}<\frac{1}{2}$，从而$(\frac{2}{x})^2<2<x^2$，于是$\frac{2}{x}<x$。对任意的自然数$n$，由$x\leq x_n$知$\frac{2}{x}\geq \frac{2}{x_n}$，
-  从而$x_n-\frac{2}{x_n}\geq x-\frac{2}{x}$，这与$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$矛盾。
+%   如果$x^2>2$，则$\frac{1}{x^2}<\frac{1}{2}$，从而$(\frac{2}{x})^2<2<x^2$，于是$\frac{2}{x}<x$。对任意的自然数$n$，由$x\leq x_n$知$\frac{2}{x}\geq \frac{2}{x_n}$，
+%   从而$x_n-\frac{2}{x_n}\geq x-\frac{2}{x}$，这与$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$矛盾。
   
-  如果$x^2<2$，则$\frac{1}{x^2}>\frac{1}{2}$，从而$(\frac{2}{x})^2>2>x^2$，于是$\frac{2}{x}>x$。对任意的自然数$n$，由$x\geq \frac{2}{x_n}$知$\frac{2}{x}\leq x_n$，
-  从而$x_n-\frac{2}{x_n}\geq \frac{2}{x}-x$，这也与$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$矛盾。
+%   如果$x^2<2$，则$\frac{1}{x^2}>\frac{1}{2}$，从而$(\frac{2}{x})^2>2>x^2$，于是$\frac{2}{x}>x$。对任意的自然数$n$，由$x\geq \frac{2}{x_n}$知$\frac{2}{x}\leq x_n$，
+%   从而$x_n-\frac{2}{x_n}\geq \frac{2}{x}-x$，这也与$\lim_{n\to\infty}(x_n-\frac{2}{x_n})=0$矛盾。
   
-  \end{proof}
+%   \end{proof}
   
-  证明：任何有理数的平方不等于2。
-\begin{proof}[证明]
-  用反证法。假设存在有理数$x=\frac{n}{m}$使得$x^2=2$，这里$m$与$n$互素，于是$(\frac{n}{m})^2=2$，即
-  \begin{equation}\label{eq_1}
-    2m^2=n^2
-  \end{equation}
-  这说明$n$为偶数，从而存在整数$k$，使得$n=2k$。带入\eqref{eq_1}得，$m^2=2k^2$，从而$m$为偶数，这与$m$和$n$互素矛盾，结论得证。
-\end{proof}
+%   证明：任何有理数的平方不等于2。
+% \begin{proof}[证明]
+%   用反证法。假设存在有理数$x=\frac{n}{m}$使得$x^2=2$，这里$m$与$n$互素，于是$(\frac{n}{m})^2=2$，即
+%   \begin{equation}\label{eq_1}
+%     2m^2=n^2
+%   \end{equation}
+%   这说明$n$为偶数，从而存在整数$k$，使得$n=2k$。带入\eqref{eq_1}得，$m^2=2k^2$，从而$m$为偶数，这与$m$和$n$互素矛盾，结论得证。
+% \end{proof}
 
 
 \chapter{}
