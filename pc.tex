@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第五讲 命题逻辑演算形式系统}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  \section{命题逻辑演算形式系统（PC）的组成}
+
+  PC:Propositional Calculus
+
+  \begin{enumerate}
+    \item 字符集
+    \begin{enumerate}
+      \item 原子变元符：$p_1,p_2,\cdots,p_n,\cdots$
+      \item 联结词完备集：$\{\lnot, \to\}$
+      \item 辅助符号：$()$
+    \end{enumerate}
+    \item 形成规则：由原子变元符及联结词形成命题公式的规则
+
+    \begin{enumerate}
+      \item 原子变元符是命题公式；
+      \item 若A，B是命题公式，则$(\lnot A), (A\to B)$是命题公式；
+      \item 有限次使用（1）与（2）所得到的结果均是命题公式。
+    \end{enumerate}
+
+    \item 公理  
+  
+    $A1:A\to(B\to A)$
+
+    $A2:(A\to(B\to C))\to((A\to B)\to (A\to C))$
+
+    $A3:(\lnot A\to \lnot B)\to (B \to A)$
+
+    \item 推理规则 
+    
+    $r_{mp}:A,A\to B, B$
+
+    \item 定理推导
+    
+
+    证明：称下列公式序列为公式$A$在$PC$中的一个证明：
+
+    \[A_1,A_2,\cdots,A_m(=A)\]
+
+    其中$A_i(i=1,2,\cdots,m)$或为$PC$的公理，或为$A_j(j<i)$，或为$A_j,A_k(j,k<i)$使用$r_{mp}$导出的，而$A_m$即为公式$A$。
+
+
+    定理：如果公式$A$在$PC$中有一个证明序列，则称$A$为$PC$的定理，记为$\vdash_{PC}A$,简记为$\vdash A$。
+
+  \end{enumerate}
+
+  
+  \begin{Thm}$\vdash A\to A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+
+    \begin{enumerate}
+      \item $(A\to ((B\to A) \to A))\to ((A\to (B\to A)) \to (A\to A)) \quad\quad A_2$
+      \item $A\to ((B\to A) \to A) \quad\quad A_1$
+      \item $(A\to (B\to A)) \to (A\to A) \quad\quad (1)(2)r_{mp}$
+      \item $A\to (B\to A) \quad\quad A_1$
+      \item $A\to A \quad\quad (3)(4)r_mp$  
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}若$\Gamma\vdash P$，则$\Gamma\vdash A\to P$。\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $P \quad\quad$ 定理
+      \item $P\to (A\to P) \quad\quad A_1$
+      \item $A\to P \quad\quad (1)(2)r_{mp}$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}若$\vdash A\to B$，$\vdash B\to C$，则$\vdash A\to C$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $B \to C$
+      \item $A\to (B\to C)$
+      \item $(A\to (B\to C)) \to ((A\to B)\to (A\to C))\quad \quad A_2$
+      \item $(A\to B)\to (A\to C) \quad\quad(2)(3)r_{mp}$
+      \item $A\to B$
+      \item $A\to C \quad\quad(4)(5)r_{mp}$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash \lnot A\to (A\to B)$
+  \end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ \lnot A \to (\lnot B \to \lnot A) \quad\quad A_1$ 
+      \item $ (\lnot B \to \lnot A)\to (A\to B)\quad\quad A_3$
+      \item  $\lnot A \to (A\to B)$ 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\lnot \lnot A\vdash A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $\lnot \lnot \lnot \lnot A \to \lnot \lnot A$
+      \item $(\lnot \lnot \lnot \lnot A \to \lnot \lnot A) \to ( \lnot A \to \lnot \lnot \lnot A) \quad \quad A_3$
+      \item $ \lnot A \to \lnot \lnot \lnot A \quad\quad (1)(2)r_{mp}$
+      \item  $( \lnot A \to \lnot \lnot \lnot A)\to (\lnot \lnot A \to A) \quad \quad A_3$
+      \item $\lnot \lnot A \to A \quad\quad (3)(4)r_{mp}$
+      \item $\lnot \lnot A$
+      \item $A$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash(B\to C)\to ((A\to B)\to (A\to C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $(A\to (B\to C)) \to ((A\to B)\to (A\to C)) \quad\quad A_2$
+      \item $(B\to C) \to (A\to (B\to C)) \quad\quad A_1$
+      \item $(B\to C)\to ((A\to B)\to (A\to C))$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (A\to B) \to ((B\to C)\to (A\to C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item  $(B\to C)\to ((A\to B)\to (A\to C))$
+      \item $((B\to C)\to (A\to B))\to ((B\to C)\to (A\to C))\quad\quad (1)A_2 r_{mp}$
+      \item $(A\to B) \to ((B\to C)\to (A\to B)) A_1$
+      \item $(A\to B) \to ((B\to C)\to (A\to C)) \quad\quad(2)(3)\text{传递}$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (A\to(B\to C))\to (B\to (A\to C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $(A\to(B\to C))\to ((A\to B)\to (A\to C))\quad\quad A_2$
+      \item $B\to (A\to B) \quad\quad A_1$
+      \item $(B\to (A\to B)) \to (((A\to B)\to (A\to C))\to (B\to (A\to C)))$
+      \item $((A\to B)\to (A\to C))\to (B\to (A\to C))\quad\quad (2)(3)r_{mp}$
+      \item $(A\to(B\to C))\to (B\to (A\to C))\quad\quad (1)(4)\text{传递}$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash(\lnot A\to A)\to A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash \lnot\lnot A\to A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash A\to \lnot\lnot A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (A\to \lnot B)\to (B\to \lnot A)$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (A\to B)\to (\lnot B\to \lnot A)$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (\lnot A \to B)\to (\lnot B\to A)$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash (A\to C)\to ((B\to C)\to ((\lnot A\to B)\to C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\vdash$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item 
+    \end{enumerate}
+  \end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

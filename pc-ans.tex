@@ -36,7 +36,7 @@
   
   $(1)(A\to(A\to B))\to ((A\to A)\to (A\to B))$ 公理2
 
-  $(2)((A\to(A\to B))\to ((A\to A)\to (A\to B)))\to ((A\to A) \to ((A\to (A\to B))\to (A\to B)))
+  $(2)((A\to(A\to B))\to ((A\to A)\to (A\to B)))\to ((A\to A) \to ((A\to (A\to B))\to (A\to B))$
 
   $(3)(A\to A) \to ((A\to (A\to B))\to (A\to B))(1)(2)r_{mp}$
 
@@ -47,31 +47,89 @@
 
 \end{proof}
 
-$9.((A\to B)\to A)\to A$
 
-\begin{proof}[证明]$\squad$
+$2.\lnot A\vdash A\to B$
 
-  $(1)(\lnot(A\to B)\to A)\to((A\to A)\to (((A\to B)\to A)\to A))$
+\begin{proof}[证明]$\quad$
+  
 
-  $(2)((\lnot(A\to B)\to A)\to((A\to A)\to (((A\to B)\to A)\to A)))\to ((A\to A)\to ((\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A)))$
 
-  $(3)(A\to A)\to ((\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A))(1)(2)r_{mp}$
 
-  $(4)A\to A$
+\end{proof}
 
-  $(5)(\lnot(A\to B)\to A)\to (((A\to B)\to A)\to A)(3)(4)r_{mp}$
+$3.A\to B, \lnot(B\to C)\to \lnot A\vdash A\to C$
 
-  $(6)\lnot A\to (A\to B)$
+\begin{proof}[证明]$\quad$
+  
 
-  $(7)(\lnot A\to (A\to B))\to(\lnot(A\to B)\to A)$
 
-  $(8)((A\to B)\to A)\to A(5)(7)r_{mp}$
+
+\end{proof}
+
+$4.\vdash (A\to (B\to C))\to ((A\to (D\to B))\to (A\to (D\to C)))$
+
+\begin{proof}[证明]$\quad$
+ 
+
+
+\end{proof}
+
+$5.\vdash (A\to (B\to C))\to ((C\to D)\to (A\to (B\to D)))$
+
+\begin{proof}[证明]$\quad$
+  
+ 
+
+
+\end{proof}
+$6.\vdash (A\to (B\to C))\to (B\to C)$
+
+\begin{proof}[证明]$\quad$
+  
+  
+
+\end{proof}
+$7.\vdash ((A\to B)\to (B\to A))\to (B\to A)$
+
+\begin{proof}[证明]$\quad$
+
+$(1)(B\to (B\to A))\to (B\to A)\quad\quad$第1小题
+
+ $(2)B\to (A\to B)$
+ 
+ $(3)(B\to (A\to B))\to (((A\to B)\to(B\to A))\to(B\to (B\to A)))$
+
+$(4)((A\to B)\to(B\to A))\to(B\to (B\to A))\qquad (2)(3)r_{mp}$
+
+$(5)((A\to B)\to (B\to A))\to (B\to A) \qquad (4)(1)\text{传递}$
+\end{proof}
+$8.\vdash A\to ((A\to B)\to (C\to B))$
+
+\begin{proof}[证明]$\quad$
+  
+  
+
+
+\end{proof}
+$9.\vdash ((A\to B)\to A)\to A$
+
+\begin{proof}[证明]$\quad$
+
+  $(1) (\lnot A\to (A\to B))\to (((A\to B)\to A)\to (\lnot A\to A))$
+
+  $(2) \lnot A\to (A\to B)$
+
+  $(3) ((A\to B)\to A)\to (\lnot A\to A)$
+
+  $(4) (\lnot A\to A) \to A$
+
+  $(5) ((A\to B)\to A)\to A$
 
 \end{proof}
 
 $10.((A\to B)\to C)\to ((C\to A)\to A)$
 
-\begin{proof}[证明]$\squad$
+\begin{proof}[证明]$\quad$
 
   $(1)((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A))$
 
@@ -89,7 +147,7 @@ $(7)((A\to B)\to C)\to ((C\to A)\to A)(4)(6)r_{mp}$
 \end{proof}
 
 $11.((A\to B)\to C)\to ((A\to C)\to C)$
-\begin{proof}[证明]$\squad$
+\begin{proof}[证明]$\quad$
 
   $(1)(\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C))$
 
@@ -113,6 +171,42 @@ $11.((A\to B)\to C)\to ((A\to C)\to C)$
 
   $(11)((A\to B)\to C)\to ((A\to C)\to C)(5)(10)r_{mp}$
 
+\end{proof}
+
+$12.\vdash (((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
+
+\begin{proof}[证明]$\quad$
+
+  $(1)\lnot B\to (B\to C)$
+
+  $(2)B\to (\lnot B\to C)$
+
+  $(3)A\to (B\to (\lnot B\to C))$
+
+  $(4)(A\to B)\to (A\to (\lnot B\to C))$
+
+  $(5)A\to ((A\to B)\to (\lnot B\to C))$
+
+  $(6)((A\to B)\to (\lnot B\to C))\to (\lnot B\to ((A\to B)\to C))$
+
+  $(7)A\to (\lnot B\to ((A\to B)\to C))$
+
+  $(8)\lnot B\to (A\to ((A\to B)\to C))$
+
+  $(9)(A\to ((A\to B)\to C))\to (\lnot((A\to B)\to C)\to \lnot A)$
+
+  $(10)\lnot B\to (\lnot((A\to B)\to C)\to \lnot A)$
+
+  $(11)\lnot((A\to B)\to C) \to (\lnot B\to \lnot A)$
+
+
+  $(12)(\lnot D\to \lnot((A\to B)\to C)) \to(\lnot D\to  (\lnot B\to \lnot A))$
+
+  $(13)(\lnot D\to  (\lnot B\to \lnot A))\to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
+
+  $(14)(\lnot D\to \lnot((A\to B)\to C)) \to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
+
+  $(15)(((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
 \end{proof}
 \begin{Exercise}
   利用演绎定理在$PC$中证明：
