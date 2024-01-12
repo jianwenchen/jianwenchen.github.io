@@ -24,103 +24,7 @@
   \author{陈建文}
   \maketitle
   % \tableofcontents
-  \begin{Def}
-    设$G$为一个群，$G$的任意子集称为群子集。在$2^G$中借助于$G$的乘法引入一个代数运算，称为群子集的乘法：$\forall A,B\in 2^G$，
-    \[AB=\{ab|a\in A \text{且} b\in B\}\]
-    对任意的$A\in 2^G$，定义
-  \[A^{-1}=\{a^{-1}|a\in A\}\]
-  \end{Def}
-  
-  \begin{Thm}
-    设$G$为一个群，则$\forall A,B,C\in 2^G$，$(AB)C=A(BC)$。
-  \end{Thm}
-  
-  \begin{Thm}
-    设$G$为一个群，则$\forall A,B\in 2^G$，$(AB)^{-1}=B^{-1}A^{-1}$。
-  \end{Thm}
-  
-  \begin{Thm}
-    设$G$为一个群，$H$为$G$的一个子群，则$HH=H,H^{-1}=H,HH^{-1}=H$。
-  \end{Thm}
-  
-  \begin{Thm}
-  设$A$，$B$为群$G$的子群，则$AB$为$G$的子群的充分必要条件为$AB=BA$。
-  \end{Thm}
-  \begin{proof}[证明]
-    $\Rightarrow$设$AB$为$G$的子群，则$AB=(AB)^{-1}=B^{-1}A^{-1}=BA$。
-  
-  $\Leftarrow$设$AB=BA$，往证$AB$为$G$的子群。
-  
-  由$(AB)(AB)=A(BA)B=A(AB)B=(AA)(BB)=AB$知$G$中的运算在$AB$中封闭。其次，$\forall a\in A, b\in B$，$(ab)^{-1}=b^{-1}a^{-1}\in BA=AB$。所以$AB$为$G$的子群。
-  \end{proof}
-  \begin{Example}
-  设$H$为$G$的一个子群且$H\neq \{e\}$。如果存在一个元素$x_0\in G$使得$H(x_0^{-1}Hx_0)=G$，则$H\cap (x_0^{-1}Hx_0)\neq \{e\}$。
-  \end{Example}
-  \begin{proof}[证明]
-    因为$x_0\in G=H(x_0^{-1}Hx_0)$，所以$\exists h_1,h_2\in H$使得$x_0=h_1x_0^{-1}h_2x_0$，从而$e=h_1x_0^{-1}h_2$。于是，$x_0=(h_1^{-1}h_2^{-1})^{-1}=h_2h_1\in H$，从而$x_0^{-1}Hx_0=H$。因此，$H\cap (x_0^{-1}Hx_0)=H\neq \{e\}$。
-  \end{proof}
-  \begin{Def}
-    设$H$为群$G$的子群，如果$\forall a\in G$，$aH=Ha$，则称$H$为$G$的正规子群。
-  \end{Def}
-  \begin{Thm}
-   设$H$为群$G$的一个子群，则下列四个命题等价：
-  
-   （1）$H$为群$G$的正规子群；
-  
-   （2）$\forall a\in G, aHa^{-1}=H$；
-  
-   （3）$\forall a\in G, aHa^{-1}\subseteq H$；
-  
-   （4）$\forall a\in G, \forall h\in H, aha^{-1}\in H$。
-  \end{Thm}
-  \begin{proof}[证明]
-    先证（1）$\Leftrightarrow$（2）：
-  
-    $\forall a\in G$，$aH=Ha\Leftrightarrow aHa^{-1}=H$。
-  
-    再证（2）$\Leftrightarrow$（3）：
-  
-    （2）$\Rightarrow$（3）显然成立。
-  
-  以下证明（3）$\Rightarrow$（2）。
-  
-  只需证$\forall a\in G, H\subseteq aHa^{-1}$。
-  
-  $\forall h\in H$，$h=a(a^{-1}ha)a^{-1}$=a(a^{-1}h(a^{-1})^{-1})a^{-1}\in aHa^{-1}$，这里$a^{-1}h(a^{-1})^{-1}\in H$是因为$a^{-1}H(a^{-1})^{-1}\subseteq H$。
-  
-  
-  
-  \end{proof}
-  \begin{Thm}
-  设$H$为群$G$的正规子群，则$H$的所有左陪集构成的集族$S_l$对群子集乘法构成一个群。
-  \end{Thm}
-  \begin{proof}[证明]
-    $\forall aH,bH\in S_l$，$(aH)(bH)=a(Hb)H=a(bH)H=(ab)(HH)=(ab)H\in S_l$，这验证了群子集乘法在$S_l$上封闭：。
-  
-    群子集乘法显然满足结合律。
-  
-    $\forall aH\in S_l,H(aH)=(eH)(aH)=aH$，所以$H$为$S_l$中乘法的左单位元。
-  
-    $\forall aH\in S_l$，$(a^{-1}H)(aH)=(a^{-1}a)H=eH=H$，所以，$a^{-1}H$为$aH$的左逆元。因此，$S_l$对群子集乘法构成一个群。
-  \end{proof}
-  \begin{Thm}
-    设$H$为群$G$的正规子群，$H$的所有左陪集构成的集族为$S_l$，在$S_l$上定义乘法运算如下：
-    $\forall aH,bH\in S_l, (aH)(bH)=(ab)H$，则$S_l$对于在其上定义的乘法构成一个群。
-  \end{Thm}
-  \begin{proof}[证明]
-    首先证明：如果$aH=a'H$，$bH=b'H$，则$(ab)H=(a'b')H$。由$(ab)^{-1}(a'b')=b^{-1}a^{-1}a'b'=(b^{-1}b')b'^{-1}a^{-1}a'b'\in H$知$(ab)H=(a'b')H$。这验证了$S_l$上乘法运算的合理性。
-  
-    $\forall aH,bH,cH\in S_l,((aH)(bH))(cH)=(abH)(cH)=((ab)c)H,(aH)((bH)(cH))=(aH)(bcH)=(a(bc))H$，从而$((aH)(bH))(cH)=(aH)((bH)(cH))$，这验证了乘法运算满足结合律。
-  
-    $\forall aH\in S_l,H(aH)=(eH)(aH)=aH$，所以$H$为$S_l$中乘法的左单位元。
-  
-    $\forall aH\in S_l$，$(a^{-1}H)(aH)=(a^{-1}a)H=eH=H$，所以，$a^{-1}H$为$aH$的左逆元。因此，$S_l$对乘法运算构成一个群。
-  \end{proof}
-  \begin{Def}
-    群$G$的正规子群$H$的所有左陪集构成的集族，对群子集乘法构成的群称为$G$对$H$的商群，记为$G/H$。
-  \end{Def}  
 
-\clearpage
 
 课后作业题：
 \begin{Exercise}
@@ -130,13 +34,13 @@
 \begin{proof}[证明]
   因为$A\cap B$为$A$的子群，因此存在$a_1,a_2,\cdots,a_n\in A$，使得
   \[A=a_1(A\cap B)\cup a_2(A\cap B)\cup \cdots \cup a_n(A\cap B)\]
-  这里$n=\frac{|A|}{|A\cap B|}$。以下验证$AB=a_1B\cup a_2B\cup \cdots \cup a_nB$，并且对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，
+  这里$n=\frac{|A|}{|A\cap B|}$。以下验证$AB=a_1B\cup a_2B\cup \cdots \cup a_nB$，并且对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，如果$i\neq j$，则
   $a_iB\cap a_jB=\phi$，于是$|AB|=n|B|=\frac{|A||B|}{|A\cap B|}$。
 
   $\forall g\in AB$，存在$a\in A$，$b\in B$使得$g=ab$。进一步，存在$i$，$1\leq i\leq n$，$x\in A\cap B$使得$a=a_ix$，于是$g=a_ixb\in a_iB$（因为$x\in A\cap B\subseteq B$，$b\in B$，从而$xb\in B$）。
 
-以下用反正法证明对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，
-$a_iB\cap a_jB=\phi$。假设存在$i,j$,$1\leq i \leq n$，$1\leq j \leq n$，使得$a_iB\cap a_jB\neq \phi$，则存在$x$，$x\in a_iB\cap a_jB$。
+以下用反证法证明对任意的$i,j$，$1\leq i \leq n$，$1\leq j \leq n$，如果$i\neq j$，
+$a_iB\cap a_jB=\phi$。假设存在$i,j$,$1\leq i \leq n$，$1\leq j \leq n$，$i\neq j$，使得$a_iB\cap a_jB\neq \phi$，则存在$x$，$x\in a_iB\cap a_jB$。
 设$x=a_ib_1=a_jb_2$，这里$b_1\in B$，$b_2\in B$，则$a_i^{-1}a_j=b_1b_2^{-1}\in A\cap B$，从而$a_i(A\cap B)=a_j(A\cap B)$，与$a_i(A\cap B)\cap a_j(A\cap B)=\phi$矛盾。
 
 \end{proof}
@@ -198,18 +102,7 @@ $a_iB\cap a_jB=\phi$。假设存在$i,j$,$1\leq i \leq n$，$1\leq j \leq n$，�
 \begin{proof}[证明]
   由以前作业题知$G$中存在一个阶为$2$的元素$a$，则$G/(a)$为$G$的一个$n$阶商群。
 \end{proof}
-\begin{Exercise}
-设$H$为群$G$的子群，证明：$H$为群$G$的正规子群的充分必要条件是$\forall a,b\in G,(aH)(bH)=(ab)H$。
-\end{Exercise}
 
-\begin{proof}[证明]
-  由教材定理知如果$H$为群$G$的正规子群，则$\forall a,b\in G,(aH)(bH)=(ab)H$。
-
-  以下假设$\forall a,b\in G,(aH)(bH)=(ab)H$，往证$H$为群$G$的正规子群。
-
-  $\forall a\in G$，$(aH)(a^{-1}H)=(aa^{-1})H=eH=H$，从而$\forall h\in H$，$aha^{-1}h\in H$，于是$\exists h_1\in H, aha^{-1}h=h_1$，由此可得$aha^{-1}=h_1h^{-1}\in H$，
-  这证明了$aHa^{-1}\subseteq H$，即$H$为群$G$的正规子群。
-\end{proof}
 
 \begin{Exercise}
   设$H$为群$G$的子群。证明：$H$为$G$的正规子群的充分必要条件是$H$的任意两个左陪集关于群子集的乘法所得到的乘积还是$H$的一个左陪集。
