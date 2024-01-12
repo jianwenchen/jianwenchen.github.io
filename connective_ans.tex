@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第三讲 联结词的扩充与规约}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+
+  课后作业题：
+  \begin{Exercise}
+    用$\{\lnot,\to\}$等价表示下列公式：
+    \[(p\lor(p\land q))\leftrightarrow p\]
+  \end{Exercise}
+
+  \begin{proof}[解]
+    \begin{align*}
+      &(p\lor(p\land q))\leftrightarrow p\\
+      \Leftrightarrow&((p\lor(p\land q))\to p)\land (p\to (p\lor(p\land q)))\\
+      \Leftrightarrow&(\lnot (p\lor(p\land q))\lor p)\land (\lnot p \lor (p\lor(p\land q)))\\
+      \Leftrightarrow&(\lnot (p\lor(p\land q))\lor p\\
+      \Leftrightarrow&(\lnot p \land \lnot (p\land q))\lor p\\
+      \Leftrightarrow&(\lnot p\land \lnot p)\lor (\lnot p\land \lnot q)\lor p\\
+      \Leftrightarrow&\lnot p\lor (\lnot p\land \lnot q)\lor p\\
+      \Leftrightarrow&\lnot p \lor p\\
+      \Leftrightarrow&p \to p\\
+    \end{align*}
+    
+  \end{proof}
+  \begin{Exercise}
+    用$\{\uparrow, \downarrow \}$分别等价表示下列公式：
+    \begin{enumerate}
+      \item $\lnot p\lor q$
+      \item $p\land \lnot q$
+      \item $\lnot p \lor \lnot q$
+      \item $p\leftrightarrow q$
+    \end{enumerate}
+    
+  \end{Exercise}
+
+  \begin{proof}[解]
+    \begin{align*}
+      (1)&\lnot p\lor q\Leftrightarrow(p\downarrow p)\lor q
+      \Leftrightarrow\lnot \lnot ((p\downarrow p)\lor q)
+      \Leftrightarrow\lnot ((p\downarrow p)\downarrow q)\\
+      &\Leftrightarrow ((p\downarrow p)\downarrow q)\downarrow ((p\downarrow p)\downarrow q)\\
+      &\lnot p\lor q
+      \Leftrightarrow\lnot\lnot (\lnot p \lor q)
+      \Leftrightarrow\lnot (p \land \lnot q)
+      \Leftrightarrow p\uparrow \lnot q
+      \Leftrightarrow p\uparrow(q\uparrow q)\\ 
+      (2)&p\land \lnot q
+      \Leftrightarrow\lnot\lnot (p\land \lnot q)
+      \Leftrightarrow\lnot (\lnot p \lor q)
+      \Leftrightarrow(\lnot q)\downarrow q
+      \Leftrightarrow(p\downarrow p)\downarrow q\\
+      &p\land \lnot q
+      \Leftrightarrow  \lnot \lnot (p\land \lnot q)
+      \Leftrightarrow  \lnot (p\uparrow \lnot q)
+      \Leftrightarrow(p\uparrow \lnot q)\uparrow (p\uparrow \lnot q)\\
+      &\Leftrightarrow(p\uparrow (q\uparrow q))\uparrow (p\uparrow (q\uparrow q))\\
+      (3)&\lnot p \lor \lnot q
+      \Leftrightarrow \lnot\lnot (\lnot p \lor \lnot q)
+      \Leftrightarrow \lnot (p \land q)
+      \Leftrightarrow p\uparrow q\\
+      &\lnot p \lor \lnot q
+      \Leftrightarrow \lnot\lnot (\lnot p \lor \lnot q)
+      \Leftrightarrow \lnot (\lnot p\downarrow \lnot q)
+      \Leftrightarrow (\lnot p\downarrow \lnot q)\downarrow(\lnot p\downarrow \lnot q)\\
+      &\Leftrightarrow (( p\downarrow p)\downarrow ( q\downarrow q))\downarrow(( p\downarrow p)\downarrow ( q\downarrow q))\\
+      (4)&p\leftrightarrow q\Leftrightarrow (p\to q)\land (q\to p)\Leftrightarrow (\lnot p \lor q) \land (\lnot q\lor p) \Leftrightarrow \lnot \lnot (\lnot p \lor q) \land \lnot\lnot(\lnot q\lor p)\\
+      &\Leftrightarrow\lnot (p\land \lnot q)\land \lnot (q\land \lnot p)\Leftrightarrow (p\uparrow \lnot q)\land (q\uparrow \lnot p)\Leftrightarrow \lnot\lnot ((p\uparrow \lnot q)\land (q\uparrow \lnot p))\\
+      &\Leftrightarrow  \lnot((p\uparrow \lnot q)\uparrow (q\uparrow \lnot p))\Leftrightarrow\lnot((p\uparrow  (q\uparrow q))\uparrow (q\uparrow (p\uparrow p)))\\
+      &\Leftrightarrow((p\uparrow  (q\uparrow q))\uparrow (q\uparrow (p\uparrow p)))\uparrow ((p\uparrow  (q\uparrow q))\uparrow (q\uparrow (p\uparrow p)))\\
+      &p\leftrightarrow q\Leftrightarrow (p\to q)\land (q\to p)\Leftrightarrow (\lnot p \lor q) \land (\lnot q\lor p) \Leftrightarrow\lnot \lnot ((\lnot p \lor q) \land (\lnot q\lor p))\\
+      &\Leftrightarrow \lnot (\lnot (\lnot p \lor q) \lor \lnot (\lnot q\lor p)) \Leftrightarrow \lnot ((\lnot p \downarrow q) \lor (\lnot q\downarrow p)) \Leftrightarrow (\lnot p \downarrow q) \downarrow (\lnot q\downarrow p) \\
+      &\Leftrightarrow( (p\downarrow p) \downarrow q) \downarrow ((q\downarrow q)\downarrow p)
+    \end{align*}
+  \end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Exercise}{练习}
+\newtheorem*{Thm}{定理}
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+  \title{第一讲 命题与联结词}
+  \author{陈建文}
+  \maketitle
+
+  课后作业题：
+  \begin{Exercise}
+    判定下列逻辑蕴含和逻辑等价是否成立，其中$A,B,C$为任意公式。
+    \begin{enumerate}
+      \item $A\Rightarrow  B\to A$
+      \item $A\to (B\to C)\Rightarrow (A\to B)\to (A\to C)$
+      \item $\lnot A\to \lnot B\Leftrightarrow B\to A$
+      \item $A\to (B\to C)\Leftrightarrow (A\land B)\to C$
+      \item $(A\lor B)\to C\Leftrightarrow (A\to C)\land (B\to C)$
+      \item $\lnot A\lor B,A\to (B\land C),D\to B\Rightarrow \lnot B\to C$   
+    \end{enumerate}
+
+    \begin{proof}[解]
+      \begin{enumerate}
+        \item 成立。这是因为对任意的指派$\alpha$，如果$\alpha(A)=T$，则$\alpha(B\to A)=T$。
+        \item 成立。这是因为对任意的指派$\alpha$，如果$\alpha((A\to B)\to(A\to C))=F$，则$\alpha(A\to B)=T$并且$\alpha(A\to C)=F$，从而$\alpha(A)=T,\alpha(C)=F,\alpha(B)=T$，于是$\alpha(A\to(B\to C))=F$。
+        \item 成立。这是因为对任意的指派$\alpha$，$\alpha(\lnot A \to \lnot B)=F$等价于$\alpha(A)=F$并且$\alpha(B)=T$，等价于$\alpha(B\to A)=F$。
+        \item 成立。这是因为对任意的指派$\alpha$，$\alpha(A\to(B\to C))=F$等价于$\alpha(A)=T,\alpha(B)=T,\alpha(C)=F$，等价于$\alpha((A\land B)\to C)=F$。
+        \item 成立。这是因为对任意的指派$\alpha$，$\alpha((A\lor B)\to C)=F$等价于$\alpha(A\lor B)=T$并且$\alpha(C)=F$，等价于$\alpha(A)=T$或者$\alpha(B)=T$，并且$\alpha(C)=F$，等价于$\alpha(A\to C)=F$或者$\alpha(B\to C)=F$，等价于$\alpha((A\to C)\land (B\to C))=F$。
+        \item 不成立。这是因为对于指派$\alpha$，$\alpha(A)=F,\alpha(B)=F,\alpha(C)=F,\alpha(D)=F$，则$\alpha(\lnot A\lor B)=T,\alpha(A\to (B\land C))=T,\alpha(D\to B)=T$，而$\alpha(\lnot B\to C)=F$。
+      \end{enumerate}
+    \end{proof}
+  \end{Exercise}
+  % 我们还可以利用真值表检验$(p\to q) \land (p\to \lnot q) \to \lnot p$是永真的。
+  
+  %     \begin{tabular}{cc|cc}
+  %   $p$& $q$&$(p\to q) \land (p\to \lnot q) \to \lnot p$\\
+  %   \hline
+  %   T&T&T\\
+  %   T&F&T\\
+  %   F&T&T\\
+  %   F&F&T\\      
+  %     \end{tabular}
+
+  %     假设我约定"$\to$"的真值表如下：
+
+  %   \begin{tabular}{cc|c}
+  %   p& q& p $\to$ q\\
+  %   \hline
+  %   T&T&T\\
+  %   T&F&F\\
+  %   F&T&F\\
+  %   F&F&T\\
+  %   \end{tabular}\hspace{0.87cm}
+
+  %   我们会发现复合命题$(p\to q) \land (p\to \lnot q) \to \lnot p$不是永真的，这将与我们关于“蕴含”的思维不相符。
+
+  %   同时我们还会发现$p \to q$和$q\to p$在逻辑上是等价的。
+
+  %   \begin{tabular}{cc|cc}
+  %   p& q& p $\to$ q&q $\to$ p\\
+  %   \hline
+  %   T&T&T&T\\
+  %   T&F&F&F\\
+  %   F&T&F&F\\
+  %   F&F&T&T\\
+  %   \end{tabular}\hspace{0.87cm}
+
+  %   这也与我们的思维习惯不相符。
+
+    
+
+  
+  % 有些逻辑术语从外文翻译成中文时产生了不同的称谓，在本门课程中关于逻辑术语我们做如下的约定：
+
+
+  % The negation of a proposition $P$: $\lnot P$
+
+  % 命题$P$的否定：$\lnot P$
+
+  % The converse of $P\to Q$: $Q \to P$
+
+  % 命题$P\to Q$的逆命题：$Q\to P$
+
+
+
+  % The inverse of $P\to Q$: $\lnot P \to \lnot Q$
+  
+  % 在较深入的探讨数理逻辑的教材中，该概念用的很少，因此我们不给出具体的翻译称谓，在需要表达该概念时明确说明为$\lnot P \to \lnot Q$即可。
+
+  
+  % The contrapositive of $P\to Q$: $\lnot Q \to \lnot P$
+
+  % 命题$P\to Q$的逆否命题：$\lnot Q \to \lnot P$
+
+  % 需要特别说明的是，命题$P\to Q$的否定为$\lnot (P \to Q)$，而不是$P \to \lnot Q$。 
+
+  
+  
+
+  
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

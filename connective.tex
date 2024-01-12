@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第三讲 联结词的扩充与规约}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+
+  \section{联结词的扩充}
+
+  一元逻辑运算：
+
+  \begin{tabular}{c|c}
+    p& $\lnot$ p\\
+    \hline
+    T&F\\
+    F&T\\
+  \end{tabular}
+
+  $\lnot: \{T,F\}\to\{T,F\}$
+
+  \begin{tabular}{c|cccc}
+    p& $f_1(p)$ & $f_2(p)$ & $f_3(p)$ & $f_4(p)$ \\
+    \hline
+    T&T&T&F&F\\
+    F&T&F&T&F\\
+  \end{tabular}
+
+  $f_i:\{T,F\}\to \{T,F\}$
+
+  二元逻辑运算：
+
+  \begin{tabular}{cc|c}
+    p& q& p $\land$ q\\
+    \hline
+    T&T&T\\
+    T&F&F\\
+    F&T&F\\
+    F&F&F\\
+  \end{tabular}
+
+  $\land : \{T,F\}\times \{T,F\}\to \{T,F\}$
+
+
+  \begin{tabular}{cc|c}
+    p& q& p $\downarrow$ q\\
+    \hline
+    T&T&F\\
+    T&F&F\\
+    F&T&F\\
+    F&F&T\\
+  \end{tabular}
+
+  $p\downarrow q \Leftrightarrow \lnot (p\lor q)$
+
+
+  \begin{tabular}{cc|c}
+    p& q& p $\uparrow$ q\\
+    \hline
+    T&T&F\\
+    T&F&T\\
+    F&T&T\\
+    F&F&T\\
+  \end{tabular}
+
+  $p\uparrow q \Leftrightarrow \lnot (p\land q)$
+
+  \begin{tabular}{cc|c}
+    p& q& p $\oplus $ q\\
+    \hline
+    T&T&F\\
+    T&F&T\\
+    F&T&T\\
+    F&F&F\\
+  \end{tabular}
+
+  $p\oplus q \Leftrightarrow \lnot (p\leftrightarrow q)$
+
+  \section{联结词的规约}
+
+  \begin{Def}[联结词的可表示性]
+    设$h$为一个$n$元联结词，$A$为由$m$个联结词$g_1,g_2,\cdots, g_m$构成的命题公式，如果$h(p_1,p_2,\ldots,p_n)\Leftrightarrow A$，则称联结词$h$可由联结词$g_1,g_2,\cdots, g_m$表示。
+  \end{Def}
+  \begin{Def}[完备的联结词集合]
+    设$C$为一个联结词的集合，如果任意一个$n$元联结词都与由$C$中的联结词表示的一个命题公式逻辑等价，则称$C$为完备的联结词集合。
+  \end{Def}
+  \begin{Thm}
+    $\{\lnot, \land, \lor\}$是完备的联结词集合。
+  \end{Thm}
+
+  \begin{tabular}{ccc|c}
+    $p$& $q$& $r$& $h(p,q,r)$\\
+    \hline
+   T& T&T&T\\
+    T&T&F&T\\
+    T&F&T&T\\
+     T& F&F&F\\
+    F&T&T&T\\
+    F&T&F&F\\
+   F& F&T&F\\
+    F&  F&F&F\\      
+  \end{tabular}
+
+主合取范式：$(\lnot p\lor q\lor r)\land (p\lor \lnot q\lor r)\land (p\lor q\lor \lnot r) \land (p\lor q\lor r)$
+
+主析取范式：$(p\land q\land r)\lor (p\land q\land \lnot r)\lor (p\land \lnot q\land r) \lor (\lnot p\land q\land r)$
+
+
+  \begin{Thm}
+    $\{\lnot, \lor\}$是完备的联结词集合。
+  \end{Thm}
+  \begin{proof}[证明]
+    $p\land q\Leftrightarrow \lnot (\lnot p\lor \lnot q)$
+  \end{proof}
+  \begin{Thm}
+    $\{\lnot, \land\}$是完备的联结词集合。
+  \end{Thm}
+  \begin{proof}[证明]
+    $p\lor q\Leftrightarrow \lnot (\lnot p\land \lnot q)$
+  \end{proof}
+  \begin{Thm}
+    $\{\lnot, \to\}$是完备的联结词集合。
+  \end{Thm}
+  \begin{proof}[证明]
+    $p\lor q\Leftrightarrow \lnot \lnot p \lor q \Leftrightarrow \lnot p \to q$
+  \end{proof}
+  \begin{Thm}
+    $\{\downarrow\}$是完备的联结词集合。
+  \end{Thm}
+  \begin{proof}[证明]
+    $\lnot p \Leftrightarrow \lnot (p\lor p) \Leftrightarrow p \downarrow p$
+
+    $p\lor q \Leftrightarrow \lnot \lnot (p\lor q) \Leftrightarrow \lnot (p\downarrow q) \Leftrightarrow (p\downarrow q)\downarrow (p\downarrow q)$
+  \end{proof}
+  \begin{Thm}
+    $\{\uparrow\}$是完备的联结词集合。
+  \end{Thm}
+  \begin{proof}[证明]
+    $\lnot p \Leftrightarrow \lnot (p\land p) \Leftrightarrow p \uparrow p$
+
+    $p\land q \Leftrightarrow \lnot \lnot (p\land q) \Leftrightarrow \lnot (p\uparrow q) \Leftrightarrow (p\uparrow q)\uparrow (p\uparrow q)$
+  \end{proof}
+  \begin{Example}
+    用$\uparrow$表示公式$(p\to \lnot q)\to \lnot r$。
+  \end{Example}
+  \begin{proof}[解]
+    \begin{align*}
+      &(p\to \lnot q)\to \lnot r\Leftrightarrow (\lnot p \lor \lnot q)\to \lnot r\\
+      &\Leftrightarrow \lnot (\lnot p \lor \lnot q)\lor \lnot r \Leftrightarrow\lnot ((\lnot p \lor \lnot q)\land r)\\
+      &\Leftrightarrow (\lnot p \lor \lnot q)\uparrow r \Leftrightarrow (\lnot (p \land q))\uparrow r\Leftrightarrow (p\uparrow q)\uparrow r\\
+    \end{align*}
+  \end{proof}
+  课后作业题：
+  % \begin{Exercise}
+  %   用$\{\lnot,\to\}$等价表示下列公式：
+  %   \[(p\lor(p\land q))\leftrightarrow p\]
+  % \end{Exercise}
+  \begin{Exercise}
+    用$\{\downarrow, \uparrow \}$分别等价表示下列公式：
+    \begin{enumerate}
+      \item $\lnot p\lor q$
+      \item $p\land \lnot q$
+      \item $\lnot p \lor \lnot q$
+      \item $p\leftrightarrow q$
+    \end{enumerate}
+
+    
+  \end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

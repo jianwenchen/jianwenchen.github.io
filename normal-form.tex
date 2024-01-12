@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第二讲 范式}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+
+  \section{范式}
+\begin{Def}[文字]
+一个命题符号或者其否定称为一个文字。
+\end{Def}
+\begin{Example}
+  $p$，$\lnot p$都是文字。
+\end{Example}
+\begin{Def}[合取式]
+  $B_1\land B_2 \land \cdots \land B_n(n\geq 1)$称为一个合取式，其中$B_i (1\leq i \leq n)$为一个文字。单独的一个文字也称为一个合取式。
+\end{Def}
+\begin{Example}
+  $p\land \lnot q$，$\lnot p\land \lnot q$都是合取式。
+\end{Example}
+\begin{Def}[析取式]
+  $B_1\lor B_2 \lor \cdots \lor B_n(n\geq 1)$称为一个析取式，其中$B_i (1\leq i \leq n)$为一个文字。单独的一个文字也称为一个析取式。
+\end{Def}
+\begin{Example}
+  $p\lor \lnot q$，$\lnot p\lor \lnot q$都是析取式。
+\end{Example}
+\begin{Def}[合取范式]
+$A_1\land A_2\land \cdots \land A_n(n\geq 1)$称为一个合取范式，其中$A_i(1\leq i \leq n)$为析取式，称为一个合取项。
+\end{Def}
+\begin{Example}
+  $(\lnot p\lor q)\land(r \lor s)$，$\lnot p\lor r \lor s$都是合取范式。
+\end{Example}
+\begin{Def}[析取范式]
+  $A_1\lor A_2\lor \cdots \lor A_n(n\geq 1)$称为一个析取范式，其中$A_i(1\leq i \leq n)$为合取式，称为一个析取项。
+  \end{Def}
+  \begin{Example}
+    $(\lnot p\land q)\lor(r \land s)$，$\lnot p\land r \land s$都是析取范式。
+  \end{Example}
+\begin{Example}
+  求公式$(p\land q)\to (\lnot q \land r)$的合取范式和析取范式。
+\end{Example}
+\begin{proof}[解]
+  \begin{equation*}
+    \begin{split}
+      &(p\land q)\to (\lnot q \land r)\\
+      \Leftrightarrow&\lnot(p\land q)\lor (\lnot q \land r)\\ 
+      \Leftrightarrow&\lnot p\lor \lnot q \lor (\lnot q \land r)\quad\text{析取范式}\\
+      \Leftrightarrow&(\lnot p\lor \lnot q \lor \lnot q)\land (\lnot p\lor \lnot q \lor   r)\\
+      \Leftrightarrow&(\lnot p\lor \lnot q)\land (\lnot p\lor \lnot q \lor   r)\quad \text{合取范式}\\
+      \Leftrightarrow&\lnot p\lor \lnot q \quad \text{既是析取范式又是合取范式}
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+合取范式和析取范式的求解过程：
+
+\begin{enumerate}
+  \item 消去“$\leftrightarrow$”：$A\leftrightarrow B\Leftrightarrow (A\to B)\land(B\to A)$
+  \item 消去“$\to$”：$A\to B\Leftrightarrow \lnot A\lor B$
+  \item 进行公式变形：$\lnot (A\lor B)\Leftrightarrow \lnot A\land \lnot B,\lnot (A\land B)\Leftrightarrow \lnot A\lor \lnot B,\lnot\lnot A \Leftrightarrow A,A\land (B\lor C)\Leftrightarrow (A\land B)\lor (A\land C),A\lor (B\land C)\Leftrightarrow (A\lor B)\land (A\lor C)$
+  \item 公式化简：$A\lor A\Leftrightarrow A,A\land A\Leftrightarrow A$
+\end{enumerate}
+
+  \section{主范式}
+
+\begin{Def}[主合取范式]
+  设命题公式$A(p_1,p_2,\cdots, p_n)$的合取范式为$A_1\land A_2\land \cdots \land A_k(k\geq 1)$，如果其中每一个合取项$A_j(1\leq j \leq k)$的形式为$A_j=Q_1\lor Q_2\lor \cdots \lor Q_n$，这里$Q_i=p_i$或者$\lnot p_i(1\leq i \leq n)$，则称$A_1\land A_2\land \cdots \land A_k(k\geq 1)$为$A$的主合取范式。
+\end{Def}  
+\begin{Def}[主析取范式]
+  设命题公式$A(p_1,p_2,\cdots, p_n)$的析取范式为$A_1\lor A_2\lor \cdots \lor A_k(k\geq 1)$，如果其中每一个析取项$A_j(1\leq j \leq k)$的形式为$A_j=Q_1\land Q_2\land \cdots \land Q_n$，这里$Q_i=p_i$或者$\lnot p_i(1\leq i \leq n)$，则称$A_1\lor A_2\lor \cdots \lor A_k(k\geq 1)$为$A$的主析取范式。
+\end{Def} 
+  \begin{Example}
+    求公式$(p\land q)\to (\lnot q \land r)$的主合取范式和主析取范式。
+  \end{Example}
+  \begin{proof}[解法一]
+    \begin{equation*}
+      \begin{split}
+        &(p\land q)\to (\lnot q \land r)\\
+        \Leftrightarrow&\lnot p\lor \lnot q\\
+        \Leftrightarrow&\lnot p\lor \lnot q \lor (r\land \lnot r)\\
+        \Leftrightarrow&(\lnot p\lor \lnot q \lor r)\land (\lnot p\lor \lnot q \lor \lnot r)\quad\text{主合取范式}\\
+        &(p\land q)\to (\lnot q \land r)\\
+        \Leftrightarrow&\lnot p\lor \lnot q\\
+        \Leftrightarrow&(\lnot p \land (q\lor \lnot q))\lor ((p\lor \lnot p)\land \lnot q)\\
+        \Leftrightarrow&(\lnot p \land q)\lor(\lnot p \land \lnot q)\lor (p\land \lnot q)\lor (\lnot p\land \lnot q)\\
+        \Leftrightarrow&(\lnot p \land q)\lor(\lnot p \land \lnot q)\lor (p\land \lnot q)\\
+        \Leftrightarrow&(\lnot p \land q \land (r\lor \lnot r))\lor(\lnot p \land \lnot q\land (r\lor \lnot r))\lor (p\land \lnot q\land (r\lor \lnot r))\\
+        \Leftrightarrow&(\lnot p \land q \land r)\lor(\lnot p \land q \land \lnot r)\\
+        &\lor(\lnot p \land \lnot q\land r)\lor( \lnot p \land \lnot q\land\lnot r)\\
+        &\lor (p\land \lnot q\land r)\lor(p\land \lnot q\land \lnot r)\quad \text{主析取范式}\\
+      \end{split}
+    \end{equation*}
+  \end{proof}
+  \begin{proof}[解法二]$\quad$
+
+    \begin{tabular}{ccc|c}
+      $p$& $q$& $r$& $(p\land q)\to (\lnot q \land r)$\\
+      \hline
+     T& T&T&F\\
+      T&T&F&F\\
+      T&F&T&T\\
+       T& F&F&T\\
+      F&T&T&T\\
+      F&T&F&T\\
+     F& F&T&T\\
+      F&  F&F&T\\      
+    \end{tabular}
+
+    主析取范式为$(p\land \lnot q\land r)\lor(p\land \lnot q\land \lnot r)\lor(\lnot p \land q \land r)\lor(\lnot p \land q \land \lnot r)
+    \lor(\lnot p \land \lnot q\land r)\lor( \lnot p \land \lnot q\land\lnot r)
+     $
+
+    主合取范式为$ (\lnot p\lor \lnot q \lor \lnot r)\land (\lnot p\lor \lnot q \lor r)$
+  \end{proof}
+  课后作业题：
+
+  \begin{Exercise}
+    求下列公式的主合取范式与主析取范式：
+    \begin{enumerate}
+      \item $p\to (p\land q)$
+      \item $(p\to q)\to (q\to r)$
+      \item $(p\to (p\land q))\lor r$
+    \end{enumerate}
+  \end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

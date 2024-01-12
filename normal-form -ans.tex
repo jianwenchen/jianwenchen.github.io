@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第二讲 范式}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+
+
+  课后作业题：
+
+  \begin{Exercise}
+    求下列公式的主合取范式与主析取范式：
+    \begin{enumerate}
+      \item $p\to (p\land q)$
+      \item $(p\to q)\to (q\to r)$
+      \item $(p\to (p\land q))\lor r$
+    \end{enumerate}
+  \end{Exercise}
+  \begin{proof}[解]
+    (1)
+    \begin{align*}
+      &p\to(p\land q)\\
+      \Leftrightarrow & \lnot p \lor (p\land q)\\
+      \Leftrightarrow & (\lnot p \lor p)\land (\lnot p \lor q)\\
+      \Leftrightarrow & \lnot p \lor q\quad \text{主合取范式}\\
+      &p\to(p\land q)\\
+      \Leftrightarrow & \lnot p \lor (p\land q)\\
+      \Leftrightarrow & (\lnot p \land (q \lor \lnot q))\lor (p\land q)\\
+      \Leftrightarrow &(\lnot p \land q)\lor (\lnot p \land \lnot q)\lor (p\land q)\quad \text{主析取范式}\\
+    \end{align*}
+
+
+    (2)画出$(p\to q)\to (q\to r)$的真值表如下：
+
+    \begin{tabular}{ccc|c}
+      $p$& $q$& $r$& $(p\to q)\to (q\to r)$\\
+      \hline
+     T& T&T&T\\
+      T&T&F&F\\
+      T&F&T&T\\
+       T& F&F&T\\
+      F&T&T&T\\
+      F&T&F&F\\
+     F& F&T&T\\
+      F&  F&F&T\\      
+    \end{tabular}
+
+    主合取范式为$(\lnot p \lor \lnot q \lor r)\land (p \lor \lnot q \lor r)$
+
+    主析取范式为$(p \land q \land r) \lor (p \land \lnot q \land r) \lor (p \land \lnot q \land \lnot r) \lor (\lnot p \land q \land r) \lor (\lnot p \land \lnot q \land r) \lor (\lnot p \land \lnot q \land \lnot r)$
+
+    
+
+    (3)画出$(p\to (p\land q))\lor r$的真值表如下：
+
+    \begin{tabular}{ccc|c}
+      $p$& $q$& $r$& $(p\to (p\land q))\lor r$\\
+      \hline
+     T& T&T&T\\
+      T&T&F&T\\
+      T&F&T&T\\
+       T& F&F&F\\
+      F&T&T&T\\
+      F&T&F&T\\
+     F& F&T&T\\
+      F&  F&F&T\\      
+    \end{tabular}
+
+    主合取范式为$\lnot p \lor q \lor r$
+
+    主析取范式为$(p \land q \land r) \lor (p \land q \land \lnot r) \lor (p \land \lnot q \land r) \lor (\lnot p \land q \land r) \lor (\lnot p \land q \land \lnot r) \lor (\lnot p \land \lnot q \land r)  \lor (\lnot p \land \lnot q \land \lnot r)$
+
+  \end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

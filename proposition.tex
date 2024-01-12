@@ -1,0 +1,411 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Exercise}{练习}
+\newtheorem*{Thm}{定理}
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+  \title{第一讲 命题与联结词}
+  \author{陈建文}
+  \maketitle
+  \section{命题}
+  命题：可以判断真假的陈述句。通常，我们用$T$表示真，用$F$表示假。
+  \begin{Example}\quad
+    
+    \begin{enumerate}
+    \item 对任意的自然数$a,b,c$，$(a + b) + c = a + (b + c)$。(真命题)
+    \item $\sqrt{2}$是无理数。(真命题)
+    \item $\sqrt{2}$是有理数。(假命题）
+    \item 设$f:[a,b] \to R$为一个Riemann可积函数，$F:[a,b] \to R$在$[a,b]$上满足$F'(x)=f(x)$，那么$\int_{a}^{b}f(x)dx = F(b) - F(a)$。(真命题)
+    % \item 任何一幅地图都可以用四种颜色进行着色，使得相邻的区域着以不同的颜色。
+     \end{enumerate}
+  \end{Example}
+  谓词：命题的谓语部分。
+  
+  \begin{Example}\quad
+    
+    \begin{description}
+    \item     [$P(x): x$ 是偶数]　这里$P$为一元谓词，表示“是偶数”。当$x$为某个确定的数字时，$P(x)$则对应一个命题。例如$P(2)$为真命题，$P(1)$为假命题。这里,$P$之所以被称为一元谓词，是因为$P(x)$只包含一个变量$x$。
+    \item     [$P(x,y): x >y$]  这里$P$为二元谓词，表示$>$。当$x$和$y$为确定的数字时，$P(x,y)$则对应一个命题。例如$1>0$为真命题，$0>1$为假命题。这里，$P$之所以被称为二元谓词，是因为$P(x,y)$包含两个变量$x$和$y$。
+    \end{description}
+相应的，有三元谓词，四元谓词，......
+\end{Example}
+
+我们还可以用如下方式由谓词得到命题：
+
+\begin{description}
+\item [$\forall x P(x)$:] 对任意的$x$，$P(x)$。For All中的$A$上下颠倒可以得到$\forall$。
+\item [$\exists x P(x)$:] 存在$x$，$P(x)$。There Exists中的$E$左右颠倒可以得到$\exists$。
+\end{description}
+ 
+\section{命题联结词及真值表}
+命题可以由联结词$\lnot$，$\land$，$\lor$，$\to$，$\leftrightarrow$联结而构成复合命题。
+
+设$p$为命题，则$\lnot p$表示“$p$不成立”。
+
+ \begin{tabular}{c|c}
+    p& $\lnot$ p\\
+    \hline
+    T&F\\
+    F&T\\
+  \end{tabular}
+
+  设$p$和$q$为两个命题，则$p\land q$表示“$p$成立，并且$q$成立”。
+  
+  \begin{tabular}{cc|c}
+    p& q& p $\land$ q\\
+    \hline
+    T&T&T\\
+    T&F&F\\
+    F&T&F\\
+    F&F&F\\
+  \end{tabular}
+
+  设$p$和$q$为两个命题，则$p\lor q$表示“$p$成立，或者$q$成立”。
+  
+  \begin{tabular}{cc|c}
+    p& q& p $\lor$ q\\
+    \hline
+    T&T&T\\
+    T&F&T\\
+    F&T&T\\
+    F&F&F\\
+  \end{tabular}
+
+设$p$和$q$为两个命题，则$p\to q$表示“如果$p$成立，那么$q$成立”。  
+
+    \begin{tabular}{cc|c}
+    p& q& p $\to$ q\\
+    \hline
+    T&T&T\\
+    T&F&F\\
+    F&T&T\\
+    F&F&T\\
+    \end{tabular}\hspace{0.87cm}
+
+    这里需要注意的是，当$p$为假时，则$p\to q$一定为真，这是所有数学家共同的约定。
+    下面的例子可以帮助大家更好的理解其实我们已经用到了这个约定。
+
+    对任意的实数$x$,当$x>1$时，$x^2 > 1$。该命题显然是真命题，可以符号化为$\forall x \; x > 1 \to x^2 > 1$。那么，既然对于任意的$x$，$x>1 \to x^2>1$成立，则
+
+    １）当$x=2$时, $2 > 1 \to 2^2 >1$成立，这对应于以上真值表的第一行；
+
+    ２）当$x=0$时，$0 > 1 \to 0^2 > 1$成立，这对应于以上真值表的第四行；
+
+    ３）当$x=-2$时，$-2>1 \to (-2)^2 > 1$成立，这对应于以上真值表的第三行。
+    
+设$p$和$q$为两个命题，则$p\leftrightarrow q$表示“$p$等价于$q$”。  
+
+  \begin{tabular}{cc|c}
+    p& q& p $\leftrightarrow$ q\\
+    \hline
+    T&T&T\\
+    T&F&F\\
+    F&T&F\\
+    F&F&T\\
+  \end{tabular}
+
+  \section{命题公式及真值}
+  \begin{Def}
+    \begin{enumerate}
+      \item 任意一个表示命题的符号为命题公式（这样的命题公式又称为原子公式）；
+      \item 如果$A,B$是命题公式，则$(\lnot A),(A\land B),(A\lor B),(A\to B),(A\leftrightarrow B)$是命题公式；
+      \item 有限次使用（1）与（2）复合所得到的结果都是命题公式。
+    \end{enumerate}
+  \end{Def}
+\begin{Example}
+  $((\lnot p)\lor q)$，$(\lnot (p\lor q))$，$((p\lor q)\to (r\land s))$都是命题公式。
+\end{Example}
+
+最外层的括号可以省略；
+
+五个逻辑联结词优先级从高到低依次为$\lnot, (\land, \lor), \to, \leftrightarrow$；
+
+$\land, \lor$左结合。
+\begin{Example}
+  $((\lnot p)\lor q)$，$(\lnot (p\lor q))$，$((p\lor q)\to (r\land s))$可以简写为$\lnot p\lor q$，$\lnot (p\lor q)$，$p\lor q\to r\land s$。
+\end{Example}
+  \begin{Def}
+    设$A(p_1,p_2,\cdots,p_n)$为一个含有$n$个命题变元$p_1,p_2,\cdots, p_n$的命题公式，$\alpha:\{p_1,p_2,\cdots, p_n\}\to \{T,F\}$称为一个真值指派。$\forall i, 1\leq i \leq n$，当$p_i$的真值为$\alpha(p_i)$时，如果公式$A$的真值为$T$，记为$\alpha(A)=T$；如果公式$A$的真值为$F$，记为$\alpha(A)=F$。
+  \end{Def}
+\begin{Example}
+  设$\alpha(p)=T,\alpha(q)=F$，则$\alpha(\lnot p \lor q)=F$；设$\alpha(p)=T, \alpha(q)=T, \alpha(\lnot p \lor q)=T$。
+\end{Example}
+  \begin{Def}
+    如果公式$A$对任一真值指派其真值均为真，则称之为重言式（永真式）。
+  \end{Def}
+  \begin{Example}
+    $A\to(B\to A)$，$(A\to(B\to C))\to((A\to B)\to (A\to C))$，$(\lnot A\to \lnot B)\to (B \to A)$
+都是重言式。
+  \end{Example}
+  \begin{Def}
+    如果公式$A$对任一真值指派其真值均为假，则称之为永假式。
+  \end{Def}
+  \begin{Example}
+    $P\land \lnot P$为永假式。
+  \end{Example}
+  \begin{Def}
+    如果公式$A$存在一个真值指派使其真值为真，则称之为可满足式。
+  \end{Def}
+  \begin{Example}
+    $A\to (B\to C)$，$A\lor B$都是可满足式。
+  \end{Example}
+\section{逻辑蕴含与逻辑等价}
+\begin{Def}
+设$A,B$为任意两个公式，对任意的指派$\alpha$，如果$\alpha(A)=T$，那么$\alpha(B)=T$，则称$A$逻辑蕴含$B$，记为$A\Rightarrow B$。
+设$\Gamma=\{A_1,A_2,\cdots,A_n\}$为一个公式集，$B$为任意一个公式，对任意的指派$\alpha$，如果$\forall i, 1\leq i \leq n, \alpha(A_i)=T$，那么$\alpha(B)=T$，则称$\Gamma$逻辑蕴含$B$，记为$\Gamma \Rightarrow B$。
+\end{Def}
+\begin{Example}
+  判定下列逻辑蕴含是否成立。
+  \begin{enumerate}
+    \item $\lnot A\Rightarrow A\to B$
+    \item $\Gamma \Rightarrow A\to C$，其中公式集$\Gamma=\{A\to (B\to C), B\}$
+  \end{enumerate}
+ 
+    (1)成立。
+    \begin{proof}[解法一]$\quad$
+
+    \begin{tabular}{cc|cc}
+      $A$& $B$&$\lnot A$&$A\to B$\\
+      \hline
+      T&T&F&T\\
+      T&F&F&F\\
+      F&T&T&T\\
+      F&F&T&T\\      
+    \end{tabular}
+
+    从以上真值表可以看出使得$\lnot A$为真的指派也使得$A\to B$为真。
+  \end{proof}
+
+  \begin{proof}[解法二]
+    对任意的指派$\alpha$，如果$\alpha(\lnot A)=T$，则$\alpha(A)=F$，此时必有$\alpha(A\to B)=T$。
+  \end{proof}
+   
+    (2)成立。
+  \begin{proof}[解法一]
+    使得$\Gamma$中的每个公式为真的指派分别为
+
+    $\alpha_1(B)=T, \alpha_1(A)=F, \alpha_1(C)=T$，此时$\alpha_1(A\to C)=T$
+
+    $\alpha_2(B)=T, \alpha_2(A)=F, \alpha_2(C)=F$，此时$\alpha_2(A\to C)=T$
+
+    $\alpha_3(B)=T, \alpha_3(A)=T, \alpha_3(C)=T$，此时$\alpha_3(A\to C)=T$
+
+    故$\Gamma \Rightarrow A\to C$成立。
+  \end{proof}
+\begin{proof}[解法二]
+    对任意的指派$\alpha$，如果$\alpha(A\to C)=F$，则$\alpha(A)=T$，$\alpha(C)=F$，此时如果$\alpha(B)=T$，则$\alpha(A\to(B\to C))=F$。于是，对任意的指派$\alpha$，如果$\alpha(A\to(B\to C))=T$，$\alpha(B)=T$，必有$\alpha(A\to C)=T$，从而$\Gamma\Rightarrow A\to C$成立。
+\end{proof}   
+
+\end{Example}
+\begin{Def}
+  设$A,B$为任意两个公式，如果$A\Rightarrow B$并且$B\Rightarrow A$，则称$A$与$B$逻辑等价，记为$A\Leftrightarrow B$。
+\end{Def}
+
+  
+$p\land (q\lor r)$与$(p\land q)\lor (p \land r)$逻辑等价。
+
+    \begin{tabular}{ccc|cc}
+    $p$& $q$& $r$& $p\land (q\lor r)$&$(p\land q)\lor (p \land r)$\\
+    \hline
+   T& T&T&T&T\\
+    T&T&F&T&T\\
+    T&F&T&T&T\\
+     T& F&F&F&F\\
+    F&T&T&F&F\\
+    F&T&F&F&F\\
+   F& F&T&F&F\\
+    F&  F&F&F&F\\      
+  \end{tabular}
+
+  
+
+  $p\lor (q\land r)$与$(p\lor q)\land (p \lor r)$逻辑等价。
+
+      \begin{tabular}{ccc|cc}
+    $p$& $q$& $r$&$p\lor (q\land r)$ &$(p\lor q)\land (p \lor r)$\\
+    \hline
+    T&T&T&T&T\\
+    T&T&F&T&T\\
+    T&F&T&T&T\\
+     T& F&F&T&T\\
+    F&T&T&T&T\\
+    F&T&F&F&F\\
+    F&F&T&F&F\\
+     F&F&F&F&F\\
+  \end{tabular}
+
+  $p \lor (p\land q)$与$p$逻辑等价。 
+
+  $p \land (p\lor q)$与$p$逻辑等价。
+
+  $\lnot (p\land q)$与$\lnot p \lor \lnot q$逻辑等价。
+
+      \begin{tabular}{cc|cc}
+    $p$& $q$&$\lnot (p\land q)$ &$\lnot p \lor \lnot q$\\
+    \hline
+    T&T&F&F\\
+    T&F&T&T\\
+    F&T&T&T\\
+      F&F&T&T\\      
+  \end{tabular}
+
+   
+
+  $\lnot (p \lor q)$与$\lnot p \land \lnot q$逻辑等价。
+  
+      \begin{tabular}{cc|cc}
+    $p$& $q$&$\lnot (p \lor q)$&$\lnot p \land \lnot q$\\
+    \hline
+    T&T&F&F\\
+    T&F&F&F\\
+    F&T&F&F\\
+    F&F&T&T\\      
+  \end{tabular}
+
+  $p \to q$与$\lnot p \lor q$逻辑等价。
+  
+      \begin{tabular}{cc|cc}
+    $p$& $q$&$p \to q$&$\lnot p \lor q$\\
+    \hline
+    T&T&T&T\\
+    T&F&F&F\\
+    F&T&T&T\\
+    F&F&T&T\\      
+  \end{tabular}
+  
+  \begin{Thm}
+“如果$p$成立，那么q成立”等价于“$p$不成立或者$q$成立”。
+  \end{Thm}
+  \begin{proof}[证明]$\quad$
+
+
+    $\Rightarrow$如果$p$成立，那么$q$成立，此时“$p$不成立或者$q$成立”成立；如果$p$不成立，此时亦有“$p$不成立或者$q$成立”成立。
+
+$\Leftarrow$如果$p$成立，此时$p$不成立不可能，从而$q$成立。
+  \end{proof}
+
+  
+
+  $p\leftrightarrow q$与$(p\to q) \land (q \to p)$逻辑等价。
+
+  \begin{tabular}{cc|cc}
+    $p$& $q$&$p \leftrightarrow q$&$(p\to q) \land (q \to p)$\\
+    \hline
+    T&T&T&T\\
+    T&F&F&F\\
+    F&T&F&F\\
+    F&F&T&T\\      
+  \end{tabular}
+  
+  代入原理：设$A$为含命题变元$p$的重言式，将$A$中$p$的所有出现均代换为命题公式$B$，所得到的公式仍为重言式。
+
+
+  \begin{Example}
+    $p\to (q\to p)$为重言式，将其中命题变元$p$的所有出现均用公式$r\lor s$代换所得到的公式$(r\lor s)\to (q\to (r\lor s))$仍为重言式。
+  \end{Example}
+  替换原理：设$C$为命题公式$A$中的子命题公式，$C\Leftrightarrow D$，将$C$用$D$替换（未必对所有的子公式$C$均作替换）后得到公式$B$，则$A\Leftrightarrow B$。
+
+  \begin{Example}
+    由于$P\to Q \Leftrightarrow \lnot P \lor Q$，
+    \begin{align*}
+      &(P\to Q)\land ((R\to (P\to Q))\lor(\lnot S \land (P\to Q)))\\
+      \Leftrightarrow&(\lnot P \lor Q)\land ((R\to (P\to Q))\lor(\lnot S \land (\lnot P\lor Q)))
+    \end{align*}
+
+  \end{Example}
+
+  课后作业题：
+  \begin{Exercise}
+    判定下列逻辑蕴含和逻辑等价是否成立，其中$A,B,C,D$为任意公式。
+    \begin{enumerate}
+      \item $A\Rightarrow  B\to A$
+      \item $A\to (B\to C)\Rightarrow (A\to B)\to (A\to C)$
+      \item $\lnot A\to \lnot B\Leftrightarrow B\to A$
+      \item $A\to (B\to C)\Leftrightarrow (A\land B)\to C$
+      \item $(A\lor B)\to C\Leftrightarrow (A\to C)\land (B\to C)$
+      \item $\lnot A\lor B,A\to (B\land C),D\to B\Rightarrow \lnot B\to C$   
+    \end{enumerate}
+  \end{Exercise}
+  % 我们还可以利用真值表检验$(p\to q) \land (p\to \lnot q) \to \lnot p$是永真的。
+  
+  %     \begin{tabular}{cc|cc}
+  %   $p$& $q$&$(p\to q) \land (p\to \lnot q) \to \lnot p$\\
+  %   \hline
+  %   T&T&T\\
+  %   T&F&T\\
+  %   F&T&T\\
+  %   F&F&T\\      
+  %     \end{tabular}
+
+  %     假设我约定"$\to$"的真值表如下：
+
+  %   \begin{tabular}{cc|c}
+  %   p& q& p $\to$ q\\
+  %   \hline
+  %   T&T&T\\
+  %   T&F&F\\
+  %   F&T&F\\
+  %   F&F&T\\
+  %   \end{tabular}\hspace{0.87cm}
+
+  %   我们会发现复合命题$(p\to q) \land (p\to \lnot q) \to \lnot p$不是永真的，这将与我们关于“蕴含”的思维不相符。
+
+  %   同时我们还会发现$p \to q$和$q\to p$在逻辑上是等价的。
+
+  %   \begin{tabular}{cc|cc}
+  %   p& q& p $\to$ q&q $\to$ p\\
+  %   \hline
+  %   T&T&T&T\\
+  %   T&F&F&F\\
+  %   F&T&F&F\\
+  %   F&F&T&T\\
+  %   \end{tabular}\hspace{0.87cm}
+
+  %   这也与我们的思维习惯不相符。
+
+    
+
+  
+  % 有些逻辑术语从外文翻译成中文时产生了不同的称谓，在本门课程中关于逻辑术语我们做如下的约定：
+
+
+  % The negation of a proposition $P$: $\lnot P$
+
+  % 命题$P$的否定：$\lnot P$
+
+  % The converse of $P\to Q$: $Q \to P$
+
+  % 命题$P\to Q$的逆命题：$Q\to P$
+
+
+
+  % The inverse of $P\to Q$: $\lnot P \to \lnot Q$
+  
+  % 在较深入的探讨数理逻辑的教材中，该概念用的很少，因此我们不给出具体的翻译称谓，在需要表达该概念时明确说明为$\lnot P \to \lnot Q$即可。
+
+  
+  % The contrapositive of $P\to Q$: $\lnot Q \to \lnot P$
+
+  % 命题$P\to Q$的逆否命题：$\lnot Q \to \lnot P$
+
+  % 需要特别说明的是，命题$P\to Q$的否定为$\lnot (P \to Q)$，而不是$P \to \lnot Q$。 
+
+  
+  
+
+  
+\end{CJK}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
