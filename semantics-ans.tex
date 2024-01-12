@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第七讲 一阶谓词形式系统的语义}
+  \author{陈建文}
+  \maketitle
+
+ 
+课后作业题
+\begin{Exercise}证明：
+  \begin{enumerate}
+    \item $P(v)\nvDash \forall v P(v)$
+    \begin{proof}[证明]
+      只需给出结构$U$和指派$s$使得$\vDash_U P(v)[s]$，但是$\nvDash_U\forall vP(v)[s]$。
+结构$U$和指派$s$构造如下：$D=\{1,2\}$，$I(P)=\bar{P}$，$\bar{P}(1)=T,\bar{P}(2)=F, U=(D,I), s(v)=1$。
+    \end{proof}
+    \item $\nvDash P(v)\to \forall vP(v)$
+    \begin{proof}[证明]
+      只需给出结构$U$和指派$s$使得$\nvDash_UP(v)\to \forall vP(v)[s]$。
+结构$U$和指派$s$构造如下：$D=\{1,2\}$，$I(P)=\bar{P}$，$\bar{P}(1)=T,\bar{P}(2)=F, U=(D,I), s(v)=1$。
+    \end{proof}
+    \item $\vDash \exists v(P(v)\to \forall v P(v))$
+    \begin{proof}[证明]
+      对任意的结构$U=(D,I)$和指派$s$，设$I(P)=\bar{P}$，如果存在$d\in D$使得$\bar{P}(d)=F$，此时$\vDash_U\exists v(P(v)\to \forall v P(v))[s]$；如果对任意的$d\in D$，$\bar{P}(d)=T$，此时亦有$\vDash_U\exists v(P(v)\to \forall v P(v))[s]$。
+    \end{proof}
+    \item $\lnot P(v)\to \forall P(v)$是可满足的。（设$A$为任意一个谓词公式，如果存在结构$U$和指派$s$，使得$\vDash_UA[s]$，则称$A$为可满足的。）
+    \begin{proof}[证明]
+      只需给出结构$U$和指派$s$使得$\vDash_U\lnot P(v)\to \forall P(v)[s]$。
+结构$U$和指派$s$构造如下：$D=\{1,2\}$，$I(P)=\bar{P}$，$\bar{P}(1)=T,\bar{P}(2)=F, U=(D,I), s(v)=1$。
+    \end{proof}
+
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+  给出下列公式为真的解释和指派。
+
+  \begin{enumerate}
+    \item $\forall x(P(x)\to Q(x))$
+    \begin{proof}[解]
+      设$D=\{1\},I(P)=\bar{P},\bar{P}(1)=T,I(Q)=\bar{Q}, \bar{Q}(1)=T,U=(D,I)$，指派$s$任意，则$\vDash_U\forall x(P(x)\to Q(x))[s]$。
+    \end{proof}
+    \item $\exists x(F(x)\lor G(x))$
+    \begin{proof}[解]
+      设$D=\{1\},I(F)=\bar{F},\bar{F}(1)=T,I(G)=\bar{G}, \bar{G}(1)=T,U=(D,I)$，指派$s$任意，则$\vDash_U\exists x(F(x)\lor G(x))[s]$。
+    \end{proof}
+    \item $\forall x(F(x)\land G(x))$
+    \begin{proof}[解]
+      设$D=\{1\},I(F)=\bar{F},\bar{F}(1)=T,I(G)=\bar{G}, \bar{G}(1)=T,U=(D,I)$，指派$s$任意，则$\vDash_U\forall x(F(x)\land G(x))[s]$。
+    \end{proof}
+  \end{enumerate}
+\end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

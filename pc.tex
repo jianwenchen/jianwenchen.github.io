@@ -16,6 +16,7 @@
 \newtheorem{Exercise}{练习}
 
 \newtheorem*{Example}{例}
+\newtheorem*{thm}{定理}
 \setlist[enumerate,1]{label=(\arabic*)}
 
 \begin{document}
@@ -28,48 +29,51 @@
 
   PC:Propositional Calculus
 
-  \begin{enumerate}
-    \item 字符集
+    1. 字符集
     \begin{enumerate}
-      \item 原子变元符：$p_1,p_2,\cdots,p_n,\cdots$
+      \item 表示命题的符号：$p_1,p_2,\cdots,p_n,\cdots$
       \item 联结词完备集：$\{\lnot, \to\}$
       \item 辅助符号：$()$
     \end{enumerate}
-    \item 形成规则：由原子变元符及联结词形成命题公式的规则
-
+   
+    2. 命题公式：
     \begin{enumerate}
-      \item 原子变元符是命题公式；
+      \item 任意一个表示命题的符号为命题公式；
       \item 若A，B是命题公式，则$(\lnot A), (A\to B)$是命题公式；
       \item 有限次使用（1）与（2）所得到的结果均是命题公式。
     \end{enumerate}
 
-    \item 公理  
+    3. 公理  
   
-    $A1:A\to(B\to A)$
+    $A_1:A\to(B\to A)$
 
-    $A2:(A\to(B\to C))\to((A\to B)\to (A\to C))$
+    $A_2:(A\to(B\to C))\to((A\to B)\to (A\to C))$
 
-    $A3:(\lnot A\to \lnot B)\to (B \to A)$
+    $A_3:(\lnot A\to \lnot B)\to (B \to A)$
 
-    \item 推理规则 
+    4. 推理规则 
     
     $r_{mp}:A,A\to B, B$
 
-    \item 定理推导
+    5. 定理推导
     
 
     证明：称下列公式序列为公式$A$在$PC$中的一个证明：
 
     \[A_1,A_2,\cdots,A_m(=A)\]
 
-    其中$A_i(i=1,2,\cdots,m)$或为$PC$的公理，或为$A_j(j<i)$，或为$A_j,A_k(j,k<i)$使用$r_{mp}$导出的，而$A_m$即为公式$A$。
+    其中$A_i(i=1,2,\cdots,m)$或为$PC$的公理，或为$A_j(j<i)$，或为$A_j,A_k(j,k<i)$使用$r_{mp}$导出的公式。
 
 
     定理：如果公式$A$在$PC$中有一个证明序列，则称$A$为$PC$的定理，记为$\vdash_{PC}A$,简记为$\vdash A$。
 
-  \end{enumerate}
 
-  
+    演绎：设$\Gamma$为$PC$中若干公式构成的公式集，称下列公式序列为公式$A$以$\Gamma$为前提的演绎：
+    \[A_1,A_2,\cdots, A_m(=A)\]
+    其中$A_i(i=1,2,\cdots,m)$或为$PC$的公理，或为$\Gamma$中的成员，或为$A_j(j<i)$，或为$A_j$，$A_k(j,k<i)$使用$r_{mp}$导出的公式。
+
+
+  如果$\Gamma=\{B\}$，则$\Gamma\vdash A$简记为$B\vdash A$，表示公式$A$可由前提$B$在$PC$中演绎出来。如果此时还有$A\vdash B$，则称公式$A$和$B$演绎等价，记为$A\vdash \dashv B$。
   \begin{Thm}$\vdash A\to A$\end{Thm}
   \begin{proof}[证明]$\quad$
 
@@ -78,28 +82,28 @@
       \item $A\to ((B\to A) \to A) \quad\quad A_1$
       \item $(A\to (B\to A)) \to (A\to A) \quad\quad (1)(2)r_{mp}$
       \item $A\to (B\to A) \quad\quad A_1$
-      \item $A\to A \quad\quad (3)(4)r_mp$  
+      \item $A\to A \quad\quad (3)(4)r_{mp}$  
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}若$\Gamma\vdash P$，则$\Gamma\vdash A\to P$。\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item $P \quad\quad$ 定理
+      \item $P \quad\quad$ 
       \item $P\to (A\to P) \quad\quad A_1$
       \item $A\to P \quad\quad (1)(2)r_{mp}$
     \end{enumerate}
   \end{proof}
 
-  \begin{Thm}若$\vdash A\to B$，$\vdash B\to C$，则$\vdash A\to C$\end{Thm}
+  \begin{Thm}若$\Gamma\vdash A\to B$，$\Gamma \vdash B\to C$，则$\Gamma\vdash A\to C$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item $B \to C$
-      \item $A\to (B\to C)$
-      \item $(A\to (B\to C)) \to ((A\to B)\to (A\to C))\quad \quad A_2$
-      \item $(A\to B)\to (A\to C) \quad\quad(2)(3)r_{mp}$
-      \item $A\to B$
-      \item $A\to C \quad\quad(4)(5)r_{mp}$
+      \item $\Gamma\vdash B \to C\qquad$已知条件
+      \item $\Gamma\vdash A\to (B\to C)\qquad$定理
+      \item $\Gamma\vdash (A\to (B\to C)) \to ((A\to B)\to (A\to C))\quad \quad A_2$
+      \item $\Gamma \vdash(A\to B)\to (A\to C) \quad\quad(2)(3)r_{mp}$
+      \item $\Gamma \vdash A\to B\qquad$已知条件
+      \item $\Gamma \vdash A\to C \quad\quad(4)(5)r_{mp}$
     \end{enumerate}
   \end{proof}
 
@@ -109,20 +113,21 @@
     \begin{enumerate}
       \item $ \lnot A \to (\lnot B \to \lnot A) \quad\quad A_1$ 
       \item $ (\lnot B \to \lnot A)\to (A\to B)\quad\quad A_3$
-      \item  $\lnot A \to (A\to B)$ 
+      \item  $\lnot A \to (A\to B)\qquad$定理 
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\lnot \lnot A\vdash A$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item $\lnot \lnot \lnot \lnot A \to \lnot \lnot A$
+      \item $\lnot \lnot A\qquad$（前提）
+      \item $\lnot \lnot A\to (\lnot \lnot \lnot \lnot A \to \lnot \lnot A)\qquad A_1$
+      \item $\lnot \lnot \lnot \lnot A \to \lnot \lnot A\qquad (1)(2)r_{mp}$
       \item $(\lnot \lnot \lnot \lnot A \to \lnot \lnot A) \to ( \lnot A \to \lnot \lnot \lnot A) \quad \quad A_3$
-      \item $ \lnot A \to \lnot \lnot \lnot A \quad\quad (1)(2)r_{mp}$
+      \item $ \lnot A \to \lnot \lnot \lnot A \quad\quad (3)(4)r_{mp}$
       \item  $( \lnot A \to \lnot \lnot \lnot A)\to (\lnot \lnot A \to A) \quad \quad A_3$
-      \item $\lnot \lnot A \to A \quad\quad (3)(4)r_{mp}$
-      \item $\lnot \lnot A$
-      \item $A$
+      \item $\lnot \lnot A \to A \quad\quad (5)(6)r_{mp}$
+      \item $A\qquad(1)(7)r_{mp}$
     \end{enumerate}
   \end{proof}
 
@@ -131,17 +136,17 @@
     \begin{enumerate}
       \item $(A\to (B\to C)) \to ((A\to B)\to (A\to C)) \quad\quad A_2$
       \item $(B\to C) \to (A\to (B\to C)) \quad\quad A_1$
-      \item $(B\to C)\to ((A\to B)\to (A\to C))$
+      \item $(B\to C)\to ((A\to B)\to (A\to C))\qquad (1)(2)\text{定理}$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash (A\to B) \to ((B\to C)\to (A\to C))$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item  $(B\to C)\to ((A\to B)\to (A\to C))$
+      \item  $(B\to C)\to ((A\to B)\to (A\to C))\qquad \text{定理}$
       \item $((B\to C)\to (A\to B))\to ((B\to C)\to (A\to C))\quad\quad (1)A_2 r_{mp}$
       \item $(A\to B) \to ((B\to C)\to (A\to B)) A_1$
-      \item $(A\to B) \to ((B\to C)\to (A\to C)) \quad\quad(2)(3)\text{传递}$
+      \item $(A\to B) \to ((B\to C)\to (A\to C)) \quad\quad(2)(3)\text{定理}$
     \end{enumerate}
   \end{proof}
 
@@ -150,81 +155,350 @@
     \begin{enumerate}
       \item $(A\to(B\to C))\to ((A\to B)\to (A\to C))\quad\quad A_2$
       \item $B\to (A\to B) \quad\quad A_1$
-      \item $(B\to (A\to B)) \to (((A\to B)\to (A\to C))\to (B\to (A\to C)))$
+      \item $(B\to (A\to B)) \to (((A\to B)\to (A\to C))\to (B\to (A\to C)))\qquad\text{定理}$
       \item $((A\to B)\to (A\to C))\to (B\to (A\to C))\quad\quad (2)(3)r_{mp}$
-      \item $(A\to(B\to C))\to (B\to (A\to C))\quad\quad (1)(4)\text{传递}$
+      \item $(A\to(B\to C))\to (B\to (A\to C))\quad\quad (1)(4)\text{定理}$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash(\lnot A\to A)\to A$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $\lnot A \to (A \to \lnot(\lnot A\to A))\qquad$定理
+      \item $(\lnot A\to A)\to (\lnot A \to \lnot(\lnot A\to A))\qquad (1)A_2r_{mp}$
+      \item $(\lnot A \to \lnot(\lnot A\to A))\to ((\lnot A\to A)\to A)\qquad A_3$
+      \item  $(\lnot A\to A)\to ((\lnot A\to A)\to A)\qquad (2)(3)$定理
+      \item $((\lnot A\to A)\to (\lnot A\to A))\to ((\lnot A\to A)\to A)\qquad (4)A_2r_{mp}$
+      \item $(\lnot A\to A)\to (\lnot A\to A)\qquad$定理
+      \item $(\lnot A\to A)\to A\qquad (5)(6)r_{mp}$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash \lnot\lnot A\to A$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(\lnot A\to A)\to A\qquad$定理
+      \item $(\lnot \lnot A)\to ((\lnot A\to A)\to A)\qquad(1)$定理
+      \item $(\lnot \lnot A\to (\lnot A\to A))\to (\lnot \lnot A\to A)\qquad (2)A_2r_{mp}$
+      \item $\lnot \lnot A\to (\lnot A\to A)\qquad$定理
+      \item $\lnot\lnot A\to A\qquad (3)(4)r_{mp}$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash A\to \lnot\lnot A$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(\lnot\lnot\lnot A \to \lnot A)\to (A\to \lnot\lnot A)\qquad A_3$
+      \item $\lnot\lnot\lnot A \to \lnot A\qquad$定理
+      \item $A\to \lnot\lnot A\qquad (1)(2)r_{mp}$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash (A\to \lnot B)\to (B\to \lnot A)$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(\lnot \lnot A \to A)\to ((A\to \lnot B)\to (\lnot\lnot A\to \lnot B))$
+      \item $\lnot \lnot A \to A$
+      \item $(A\to \lnot B)\to (\lnot\lnot A\to \lnot B) (1)(2)r_{mp}$
+      \item $(\lnot\lnot A\to \lnot B)\to (B\to \lnot A)\qquad A_3$
+      \item $(A\to \lnot B)\to (B\to \lnot A)$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash (A\to B)\to (\lnot B\to \lnot A)$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(B\to \lnot\lnot B)\to ((A\to B)\to (A\to \lnot\lnot B))$
+      \item $B\to \lnot\lnot B$
+      \item $(A\to B)\to (A\to \lnot\lnot B)\qquad (1)(2)r_{mp}$
+      \item $(A\to \lnot\lnot B)\to (\lnot B\to \lnot A)$
+      \item $(A\to B)\to (\lnot B\to \lnot A)$
     \end{enumerate}
   \end{proof}
 
   \begin{Thm}$\vdash (\lnot A \to B)\to (\lnot B\to A)$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(B\to \lnot\lnot B)\to ((\lnot A\to B)\to (\lnot A\to \lnot\lnot B))$
+      \item $B\to \lnot\lnot B$
+      \item $(\lnot A\to B)\to (\lnot A\to \lnot\lnot B) (1)(2)r_{mp}$
+      \item $(\lnot A\to \lnot\lnot B)\to (\lnot B\to A)\qquad A_3$
+      \item $(\lnot A \to B)\to (\lnot B\to A)$
     \end{enumerate}
   \end{proof}
 
+  \begin{thm}
+    设$A$，$B$为命题公式，且满足$\vdash A\to B$，$\vdash B\to A$，公式$D$是将公式$C$中$A$的某次出现替换为公式$B$所得到的公式，则$\vdash C\to D$，$\vdash D\to C$。
+  \end{thm}
+  \begin{proof}[证明]
+    根据定义，每个命题公式都有一个形成规则，例如公式$\lnot(A\to B)$可以如下形成：
+    \begin{enumerate}
+      \item A是命题公式；
+      \item B是命题公式；
+      \item $(A\to B)$是命题公式；
+      \item $(\lnot(A\to B))$是命题公式。
+    \end{enumerate}
+    这里我们称$\lnot(A\to B)$可以由$4$步形成。
+
+    以下对命题公式$C$形成的步数$n$归纳证明结论成立。
+
+    当$n=1$时，此时$C=A$，$D=B$，由$\vdash A\to B$，$\vdash B\to A$知$\vdash C\to D$，$\vdash D\to C$。
+
+    假设当$n<k$时结论成立，往证当$n=k$时结论也成立。
+
+    如果$C=\lnot C_1$，此时如果$C=A$，则$D=B$，由$\vdash A\to B$，$\vdash B\to A$知$\vdash C\to D$，$\vdash D\to C$。如果$C\neq A$，假设$C_1$中对应$A$的出现替换为$B$后所得到的公式为$D_1$，则$D=\lnot D_1$。
+由归纳假设$\vdash C_1\to D_1, \vdash D_1\to C_1$。
+从以下证明序列知
+\begin{enumerate}
+  \item $C_1\to D_1$
+  \item $D_1\to C_1$
+  \item $(C_1\to D_1) \to (\lnot D_1\to \lnot C_1)\qquad$定理
+  \item $\lnot D_1\to \lnot C_1\qquad (1)(3)r_{mp}$
+  \item $(D_1\to C_1) \to (\lnot C_1\to \lnot D_1)\qquad$定理
+  \item $\lnot C_1\to \lnot D_1\qquad (2)(5)r_{mp}$
+\end{enumerate}
+$\vdash C\to D$，$\vdash D\to C$。
+
+如果$C=C_1\to C_2$，此时如果$C=A$，则$D=B$，由$\vdash A\to B$，$\vdash B\to A$知$\vdash C\to D$，$\vdash D\to C$。如果$C\neq A$，假设$C_1$中对应$A$的出现替换为$B$后所得到的公式为$D_1$，则$D=D_1\to D_2$，这里$D_2=C_2$。由归纳假设，$\vdash C_1\to D_1, \vdash D_1\to C_1$，同时$\vdash C_2\to D_2, \vdash D_2\to C_2$也成立。同理，假设$C_2$中对应$A$的出现替换为$B$后所得到的公式为$D_2$，则$D=D_1\to D_2$，这里$D_1=C_1$。此时亦有$\vdash C_1\to D_1, \vdash D_1\to C_1$，$\vdash C_2\to D_2, \vdash D_2\to C_2$。
+从以下证明序列知
+
+\begin{enumerate}
+  \item $D_1\to C_1$
+  \item $(D_1\to C_1)\to ((C_1\to C_2)\to (D_1\to C_2))\qquad$定理
+  \item $(C_1\to C_2)\to (D_1\to C_2)\qquad (1)(2)r_{mp}$
+  \item $C_2\to D_2$
+  \item $(C_2\to D_2)\to ((D_1\to C_2)\to (D_1\to D_2))\qquad$定理
+  \item $(D_1\to C_2)\to (D_1\to D_2)\qquad (4)(5)r_{mp}$
+  \item $(C_1\to C_2)\to (D_1\to D_2)\qquad $定理
+\end{enumerate}
+$\vdash C\to D$，同理可证$\vdash D\to C$。
+  \end{proof}
   \begin{Thm}$\vdash (A\to C)\to ((B\to C)\to ((\lnot A\to B)\to C))$\end{Thm}
   \begin{proof}[证明]$\quad$
     \begin{enumerate}
-      \item 
+      \item $(\lnot A\to B)\to (\lnot A\to B)\qquad$定理
+      \item $((\lnot A\to B)\to (\lnot A\to B))\to (\lnot A\to ((\lnot A\to B)\to B))\qquad$定理
+      \item $\lnot A\to ((\lnot A\to B)\to B)\qquad (1)(2)r_{mp}$
+      \item $\lnot A\to (\lnot B\to \lnot(\lnot A\to B))\qquad (3)\text{定理}r_{mp}$
+      \item $\lnot C\to (\lnot A\to (\lnot B\to \lnot(\lnot A\to B)))\qquad$定理
+      \item $(\lnot C\to \lnot A)\to(\lnot C\to  (\lnot B\to \lnot(\lnot A\to B)))\qquad(5)A_2r_{mp}$
+      \item $(\lnot C\to  (\lnot B\to \lnot(\lnot A\to B)))\to ((\lnot C\to \lnot B)\to (\lnot C \to \lnot (\lnot A\to B)))\qquad A_2$
+      \item $(\lnot C\to \lnot A)\to((\lnot C\to \lnot B)\to (\lnot C \to \lnot (\lnot A\to B)))\qquad$定理
+      \item $(A\to C)\to ((B\to C)\to ((\lnot A\to B)\to C))\qquad (8)\text{定理}r_{mp}$
     \end{enumerate}
   \end{proof}
+\begin{thm}设$\Gamma$为任意公式的集合，$A$，$B$为任意两个公式，则$\Gamma,A\vdash B$当且仅当$\Gamma \vdash A\to B$。
+\end{thm}
+\begin{proof}[证明]充分性：由$\Gamma\vdash A\to B$知从前提集$\Gamma$出发，在$PC$中能够得到公式$A\to B$的一个演绎序列，即$A_1,A_2,\cdots, A_n(=A\to B)$，则从$\Gamma\cup \{A\}$出发，可以得到如下的演绎序列：$A_1,A_2,\cdots,A_n(=A\to B), A, B$，即第$n+2$步的结论可由已知的第$n$步的结论$A\to B$加上第$n+1$步的已知前提条件$A$通过$r_{mp}$所得，即$\Gamma,A\vdash B$。
 
-  \begin{Thm}$\vdash$\end{Thm}
-  \begin{proof}[证明]$\quad$
-    \begin{enumerate}
-      \item 
-    \end{enumerate}
-  \end{proof}
+  必要性：由$\Gamma,A\vdash B$知从前提集$\Gamma\cup \{A\}$出发，在$PC$中能够得到公式$B$的一个演绎序列，即$B_1,B_2,\cdots,B_k(=B)$，下面通过数学归纳法来证明$\Gamma\vdash A\to B$，施归纳于此演绎序列的长度$k$：
 
-  \begin{Thm}$\vdash$\end{Thm}
-  \begin{proof}[证明]$\quad$
-    \begin{enumerate}
-      \item 
-    \end{enumerate}
-  \end{proof}
+  （1）当$k=1$时，根据演绎的定义知此时$B$或者为公理，或者$B\in \Gamma\cup\{A\}$。
+  如果$B$为公理，则从前提集$\Gamma$出发存在如下的演绎序列：
 
-  \begin{Thm}$\vdash$\end{Thm}
-  \begin{proof}[证明]$\quad$
-    \begin{enumerate}
-      \item 
-    \end{enumerate}
-  \end{proof}
+  $B(\text{公理}),B\to(A\to B)(\text{公理}),A\to B(r_{mp})$
+
+  即$\Gamma\vdash A\to B$；
+
+  如果$B\in \Gamma$，则从前提集$\Gamma$出发存在如下的演绎序列：
+
+  $B(\text{前提}),B\to(A\to B)(\text{公理}),A\to B(r_{mp})$
+
+  即$\Gamma\vdash A\to B$；
+
+  如果$B\in \{A\}$,则$B=A$，此时$A\to B$即为$A\to A$，而$A\to A$为$PC$中已证的定理，从而$\Gamma\vdash A\to A$。
+
+  （2）假设当$k<n$时结论成立，即对上述演绎序列中的公式$B_i(i<n)$,均有$\Gamma\vdash A\to B_i$。则当$k=n$时，$B_k=B_n=B$或为公理，或者$B\in \Gamma\cup \{A\}$，或由$B_i,B_j(i,j<n)$通过$r_{mp}$所得。如果此时$B_k=B_n=B$为公理，或者$B\in \Gamma\cup\{A\}$，则讨论情况同$(1)$；如果$B$由$B_i$，$B_j(i,j<n)$通过$r_{mp}$导出，则不妨设$B_j=B_i\to B$，根据归纳假设，
+  \[\Gamma\vdash A\to B_i, \Gamma\vdash A\to B_j\]
+  即
+  \[\Gamma\vdash A\to B_i, \Gamma\vdash A\to (B_i\to B)\]
+  又
+  \[(A\to(B_i\to B))\to ((A\to B_i)\to (A\to B))\]
+
+  所以
+  \[\Gamma\vdash (A\to B_i)\to(A\to B)\]
+  从而
+  \[\Gamma\vdash A\to B\]
+\end{proof}
+\begin{Example}
+  利用演绎定理证明
+
+  \[\vdash (A\to (B\to C))\to ((C\to D)\to (A\to (B\to D)))\]
+\end{Example}
+\begin{proof}[证明]
+根据演绎定理只需证：
+
+$A\to (B\to C)\vdash (C\to D)\to (A\to (B\to D))$
+
+只需证：
+
+$A\to (B\to C),(C\to D)\vdash (A\to (B\to D))$
+
+只需证：
+
+$A\to (B\to C),(C\to D), A\vdash (B\to D)$
+
+只需证：
+
+$A\to (B\to C),(C\to D), A, B\vdash D$
+
+\begin{enumerate}
+  \item $A\qquad$前提
+  \item $A\to (B\to C)\qquad$前提
+  \item $B\to C\qquad (1)(2)r_{mp}$
+  \item $B\qquad$前提
+  \item $C\qquad(3)(4)r_{mp}$
+  \item $C\to D$前提
+  \item $D\qquad(5)(6)r_{mp}$
+\end{enumerate}
+\end{proof}
+\begin{Example}
+  利用演绎定理证明
+
+  \[\vdash ((A\to B)\to (A\to C))\to (A\to (B\to C))\]
+\end{Example}
+\begin{proof}[证明]
+
+  根据演绎定理只需证：
+  
+  $(A\to B)\to (A\to C)\vdash (A\to (B\to C))$
+
+  只需证：
+
+  $(A\to B)\to (A\to C), A\vdash (B\to C)$
+
+  只需证：
+
+  $(A\to B)\to (A\to C), A, B\vdash C$
+
+  \begin{enumerate}
+    \item $B\qquad$前提
+    \item $B\to (A\to B)\qquad A_1$
+    \item $A\to B\qquad (1)(2)r_{mp}$
+    \item $(A\to B)\to (A\to C)\qquad$前提
+    \item $A\to C\qquad (3)(4)r_{mp}$
+    \item $A\qquad$前提
+    \item $C\qquad(5)(6)r_{mp}$
+  \end{enumerate}
+\end{proof}
+  
+
+
+\begin{Example}
+  利用演绎定理证明
+
+  \[\vdash (A\to C)\to ((B\to C)\to ((\lnot A\to B)\to C))\]
+\end{Example}
+
+\begin{proof}[证明]
+根据演绎定理只需证：
+
+$A\to C\vdash ((B\to C)\to ((\lnot A\to B)\to C))$
+
+只需证：
+
+$A\to C, B\to C\vdash ((\lnot A\to B)\to C)$
+
+只需证：
+
+$A\to C, B\to C, \lnot A\to B\vdash C$
+
+\begin{enumerate}
+  \item $\lnot A\to B\qquad$前提
+  \item $B\to C\qquad$前提
+  \item $\lnot A\to C\qquad$定理
+  \item $(\lnot A\to C)\to (\lnot C\to A)\qquad$定理
+  \item $\lnot C\to A\qquad(3)(4)r_{mp}$
+  \item $A\to C\qquad$前提
+  \item $\lnot C\to C(5)(6)$前提
+  \item $(\lnot C\to C)\to C$
+  \item $C\qquad (7)(8)r_{mp}$
+\end{enumerate}
+\end{proof}
+课后作业题
+
+  \begin{Exercise}
+    在$PC$中证明下列事实：
+  \end{Exercise}
+
+$1.\vdash (A\to(A\to B))\to (A\to B)$
+
+
+
+
+$2.\lnot A\vdash A\to B$
+
+
+
+$3.A\to B, \lnot(B\to C)\to \lnot A\vdash A\to C$
+
+
+
+$4.\vdash (A\to (B\to C))\to ((A\to (D\to B))\to (A\to (D\to C)))$
+
+
+
+$5.\vdash (A\to (B\to C))\to ((C\to D)\to (A\to (B\to D)))$
+
+
+$6.\vdash ((A\to B)\to C)\to (B\to C)$
+
+
+$7.\vdash ((A\to B)\to (B\to A))\to (B\to A)$
+
+
+$8.\vdash A\to ((A\to B)\to (C\to B))$
+
+$9.\vdash ((A\to B)\to A)\to A$
+
+
+
+$10.\vdash ((A\to B)\to C)\to ((C\to A)\to A)$
+
+
+
+$11.\vdash ((A\to B)\to C)\to ((A\to C)\to C)$
+
+
+$12.\vdash (((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
+
+$13.\vdash (A\to C)\to ((B\to C)\to (((A\to B)\to B)\to C))$
+
+$14.\vdash (A\to C)\to ((B\to C)\to (((B\to A)\to A)\to C))$
+\begin{Exercise}
+  利用演绎定理在$PC$中证明：
+\end{Exercise}
+
+$1.\vdash (B\to A)\to (\lnot A\to \lnot B)$
+
+$2.\vdash (A\to B)\to ((B\to C)\to (A\to C))$
+
+$3.\vdash ((A\to B)\to A)\to A$
+
+$4.\vdash \lnot (A\to B)\to (B\to A)$
+
+
+
+\begin{Exercise}
+  将$PC$中公理$A_3$改为$(\lnot A\to \lnot B)\to ((\lnot A\to B)\to A)$，记所得系统为$PC'$。证明：
+\begin{enumerate}
+  \item $\vdash_{PC} (\lnot A\to \lnot B)\to ((\lnot A\to B)\to A)$
+  \item $\vdash_{PC'}(\lnot A\to \lnot B)\to (B\to A)$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+  在$PC$中证明：
+
+  （1）如果$\vdash A\to (B\to C),\vdash B$，则$\vdash A\to C$
+
+  （2）如果$\Gamma, \lnot A\vdash B, \Gamma, \lnot A\vdash \lnot B$，则$\Gamma\vdash A$
+\end{Exercise}
+
+\begin{Exercise}
+  证明$(\lnot A\to B)\to (A\to \lnot B)$不是$PC$的定理。
+\end{Exercise}
+
 \end{CJK*}
 \end{document}
 

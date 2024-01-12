@@ -10,17 +10,18 @@
 \usepackage{tikz}
 \usepackage{mathrsfs}
 \usepackage{indentfirst}
+\usepackage{enumitem}
 
 \newtheorem{Def}{定义}
 \newtheorem{Thm}{定理}
 \newtheorem{Exercise}{练习}
 
 \newtheorem*{Example}{例}
-
+\setlist[enumerate,1]{label=(\arabic*)}
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{命题逻辑演算形式系统}
+  \title{第五讲命题逻辑演算形式系统}
   \author{陈建文}
   \maketitle
 
@@ -32,26 +33,40 @@
 
   $1.\vdash (A\to(A\to B))\to (A\to B)$
 
+
 \begin{proof}[证明]$\quad$
+
+  方法一：
+
+  \begin{enumerate}
+    \item $(A\to B)\to (A\to B)\qquad$定理
+    \item $((A\to B)\to (A\to B))\to (A\to ((A\to B)\to B))\qquad$定理
+    \item $(A\to ((A\to B)\to B)\qquad(1)(2)r_{mp}$
+    \item $(A\to(A\to B))\to (A\to B)\qquad(3)A_2r_{mp}$
+  \end{enumerate}
   
-  $(1)(A\to(A\to B))\to ((A\to A)\to (A\to B))$ 公理2
 
-  $(2)((A\to(A\to B))\to ((A\to A)\to (A\to B)))\to ((A\to A) \to ((A\to (A\to B))\to (A\to B))$
+  方法二：
 
-  $(3)(A\to A) \to ((A\to (A\to B))\to (A\to B))(1)(2)r_{mp}$
-
-  $(4)A\to A$
-
-  $(5)(A\to(A\to B))\to (A\to B) (3)(4)r_{mp}$
-
-
+  \begin{enumerate}
+    \item $(A\to(A\to B))\to ((A\to A)\to (A\to B))$ 公理2
+    \item  $((A\to(A\to B))\to ((A\to A)\to (A\to B)))\to ((A\to A) \to ((A\to (A\to B))\to (A\to B))$
+    \item $(A\to A) \to ((A\to (A\to B))\to (A\to B))(1)(2)r_{mp}$
+    \item $A\to A$
+    \item $(A\to(A\to B))\to (A\to B) (3)(4)r_{mp}$
+  \end{enumerate}
 \end{proof}
 
 
 $2.\lnot A\vdash A\to B$
 
 \begin{proof}[证明]$\quad$
-  
+ 
+  \begin{enumerate}
+    \item $\lnot A\to (A\to B)\qquad $（定理）
+    \item $\lnot A\qquad$前提
+    \item $A\to B\qquad r_{mp}$
+  \end{enumerate}
 
 
 
@@ -60,7 +75,14 @@ $2.\lnot A\vdash A\to B$
 $3.A\to B, \lnot(B\to C)\to \lnot A\vdash A\to C$
 
 \begin{proof}[证明]$\quad$
-  
+\begin{enumerate}
+  \item $\lnot(B\to C)\to \lnot A\qquad$前提
+  \item $(\lnot(B\to C)\to \lnot A)\to (A\to (B\to C))\qquad$定理
+  \item $A\to (B\to C)\qquad (1)(2)r_{mp}$
+  \item $(A\to B)\to (A\to C)\qquad(3)A_2r_{mp}$
+  \item $A\to B\qquad$前提
+  \item $A\to C\qquad(4)(5)r_{mp}$
+\end{enumerate}  
 
 
 
@@ -69,169 +91,369 @@ $3.A\to B, \lnot(B\to C)\to \lnot A\vdash A\to C$
 $4.\vdash (A\to (B\to C))\to ((A\to (D\to B))\to (A\to (D\to C)))$
 
 \begin{proof}[证明]$\quad$
- 
-
-
+ \begin{enumerate}
+  \item $(B\to C)\to ((D\to B)\to (D\to C))\qquad$定理
+  \item $((B\to C)\to ((D\to B)\to (D\to C))\to ((A\to (B\to C))\to (A\to ((D\to B)\to (D\to C)))))\qquad$定理
+  \item $(A\to (B\to C))\to (A\to ((D\to B)\to (D\to C))))\qquad(1)(2)r_{mp}$
+  \item $(A\to ((D\to B)\to (D\to C)))\to ((A\to (D\to B))\to (A\to (D\to C)))\qquad A_2$
+  \item $(A\to (B\to C))\to ((A\to (D\to B))\to (A\to (D\to C)))\qquad(3)(4)r_{mp}$
+ \end{enumerate}
 \end{proof}
 
 $5.\vdash (A\to (B\to C))\to ((C\to D)\to (A\to (B\to D)))$
 
 \begin{proof}[证明]$\quad$
-  
- 
-
-
+\begin{enumerate}
+  \item $(C\to D)\to ((B\to C)\to (B\to D))\qquad$定理
+  \item $((B\to C)\to (B\to D))\to ((A\to (B\to C))\to (A\to (B\to D)))$定理
+  \item $(C\to D)\to((A\to (B\to C))\to (A\to (B\to D)))\qquad(1)(2)$定理
+  \item $((C\to D)\to((A\to (B\to C))\to (A\to (B\to D))))\to((A\to (B\to C))\to((C\to D)\to (A\to (B\to D))))\qquad$定理
+  \item $(A\to (B\to C))\to ((C\to D)\to (A\to (B\to D)))\qquad(3)(4)r_{mp}$
+\end{enumerate} 
 \end{proof}
-$6.\vdash (A\to (B\to C))\to (B\to C)$
+$6.\vdash ((A\to B)\to C)\to (B\to C)$
 
 \begin{proof}[证明]$\quad$
-  
+\begin{enumerate}
+  \item $B\to (A\to B)\qquad A_1$
+  \item $(B\to (A\to B))\to (((A\to B)\to C)\to (B\to C))\qquad$定理
+  \item $((A\to B)\to C)\to (B\to C)\qquad (1)(2)r_{mp}$
+\end{enumerate}  
   
 
 \end{proof}
 $7.\vdash ((A\to B)\to (B\to A))\to (B\to A)$
 
 \begin{proof}[证明]$\quad$
-
-$(1)(B\to (B\to A))\to (B\to A)\quad\quad$第1小题
-
- $(2)B\to (A\to B)$
- 
- $(3)(B\to (A\to B))\to (((A\to B)\to(B\to A))\to(B\to (B\to A)))$
-
-$(4)((A\to B)\to(B\to A))\to(B\to (B\to A))\qquad (2)(3)r_{mp}$
-
-$(5)((A\to B)\to (B\to A))\to (B\to A) \qquad (4)(1)\text{传递}$
+\begin{enumerate}
+  \item $(B\to (B\to A))\to (B\to A)\quad\quad$第1小题
+  \item $B\to (A\to B)\qquad$定理
+  \item $(B\to (A\to B))\to (((A\to B)\to(B\to A))\to(B\to (B\to A)))\qquad$定理
+  \item $((A\to B)\to(B\to A))\to(B\to (B\to A))\qquad (2)(3)r_{mp}$
+  \item $((A\to B)\to (B\to A))\to (B\to A) \qquad (1)(4)\text{定理}$
+\end{enumerate}
 \end{proof}
 $8.\vdash A\to ((A\to B)\to (C\to B))$
-
 \begin{proof}[证明]$\quad$
-  
-  
-
-
+ \begin{enumerate}
+  \item $A\to (C\to A)\qquad A_1$
+  \item $(C\to A)\to ((A\to B)\to (C\to B))\qquad$定理
+  \item $A\to ((A\to B)\to (C\to B))\qquad$定理
+ \end{enumerate} 
 \end{proof}
 $9.\vdash ((A\to B)\to A)\to A$
 
 \begin{proof}[证明]$\quad$
-
-  $(1) (\lnot A\to (A\to B))\to (((A\to B)\to A)\to (\lnot A\to A))$
-
-  $(2) \lnot A\to (A\to B)$
-
-  $(3) ((A\to B)\to A)\to (\lnot A\to A)$
-
-  $(4) (\lnot A\to A) \to A$
-
-  $(5) ((A\to B)\to A)\to A$
-
+  \begin{enumerate}
+    \item $(\lnot A\to (A\to B))\to (((A\to B)\to A)\to (\lnot A\to A))$定理
+    \item $\lnot A\to (A\to B)$定理
+    \item $((A\to B)\to A)\to (\lnot A\to A)\qquad(1)(2)r_{mp}$
+    \item $(\lnot A\to A) \to A\qquad$定理
+    \item $((A\to B)\to A)\to A\qquad(3)(4)$定理
+  \end{enumerate}
 \end{proof}
 
 $10.((A\to B)\to C)\to ((C\to A)\to A)$
 
 \begin{proof}[证明]$\quad$
 
-  $(1)((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A))$
-
-  $(2)((A\to B)\to A)\to A$
-
-  $(3)(((A\to B)\to A)\to A)\to (((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A))$
-
-$(4)((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)(2)(3)r_{mp}$
-
-$(5)(((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A)))\to ((((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)) \to (((A\to B)\to C)\to ((C\to A)\to A)))$
-
-$(6)(((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)) \to (((A\to B)\to C)\to ((C\to A)\to A))(1)(5)r_{mp}$
-
-$(7)((A\to B)\to C)\to ((C\to A)\to A)(4)(6)r_{mp}$
+  \begin{enumerate}
+    \item $((A\to B)\to C)\to ((C\to A)\to ((A\to B)\to A))\qquad$定理
+    \item  $((A\to B)\to A)\to A\qquad$第9小题
+    \item  $(((A\to B)\to A)\to A)\to (((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A))\qquad$定理
+    \item $((C\to A)\to ((A\to B)\to A))\to ((C\to A)\to A)\qquad(2)(3)r_{mp}$
+    \item $((A\to B)\to C)\to ((C\to A)\to A)\qquad(1)(4)$定理
+  \end{enumerate}
 \end{proof}
 
 $11.((A\to B)\to C)\to ((A\to C)\to C)$
 \begin{proof}[证明]$\quad$
 
-  $(1)(\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C))$
+  \begin{enumerate}
+    \item $\lnot C\to (C\to B)\qquad$定理
+    \item $(C\to B)\to ((A\to C)\to (A\to B))$定理
+    \item $\lnot C\to((A\to C)\to (A\to B))(1)(2)$定理
+    \item $\lnot C\to(\lnot (A\to B)\to \lnot (A\to C) )\qquad$定理
+    \item  $(\lnot C\to\lnot (A\to B))\to( \lnot C\to \lnot (A\to C) )\qquad(4)A_2r_{mp}$
+    \item $((A\to B)\to C)\to ((A\to C)\to C)\qquad$定理
+  \end{enumerate}
 
-  $(2)((\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C)))\to ((C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C)))$
+  % $(1)(\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C))$
 
-  $(3)(C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C))(1)(2)r_{mp}$
+  % $(2)((\lnot A\to C)\to ((C\to C)\to ((A\to C)\to C)))\to ((C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C)))$
 
-  $(4)C\to C$
+  % $(3)(C\to C)\to ((\lnot A\to C)\to ((A\to C)\to C))(1)(2)r_{mp}$
 
-  $(5)(\lnot A\to C)\to ((A\to C)\to C)(3)(4)r_{mp}$
+  % $(4)C\to C$
 
-  $(6)(\lnot A\to (A\to B))\to (((A\to B)\to C)\to (\lnot A\to C))$
+  % $(5)(\lnot A\to C)\to ((A\to C)\to C)(3)(4)r_{mp}$
 
-  $(7)\lnot A\to (A\to B)$
+  % $(6)(\lnot A\to (A\to B))\to (((A\to B)\to C)\to (\lnot A\to C))$
 
-  $(8)((A\to B)\to C)\to (\lnot A\to C)(6)(7)r_{mp}$
+  % $(7)\lnot A\to (A\to B)$
 
-  $(9)(((A\to B)\to C)\to (\lnot A\to C))\to (((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C)) )$
+  % $(8)((A\to B)\to C)\to (\lnot A\to C)(6)(7)r_{mp}$
 
-  $(10)((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C))(8)(9)r_{mp}$
+  % $(9)(((A\to B)\to C)\to (\lnot A\to C))\to (((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C)) )$
 
-  $(11)((A\to B)\to C)\to ((A\to C)\to C)(5)(10)r_{mp}$
+  % $(10)((\lnot A\to C)\to ((A\to C)\to C))\to(((A\to B)\to C)\to ((A\to C)\to C))(8)(9)r_{mp}$
+
+  % $(11)((A\to B)\to C)\to ((A\to C)\to C)(5)(10)r_{mp}$
 
 \end{proof}
 
 $12.\vdash (((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
+$\qquad$
 
-\begin{proof}[证明]$\quad$
+\begin{proof}[证明]
 
-  $(1)\lnot B\to (B\to C)$
+  $\quad$
 
-  $(2)B\to (\lnot B\to C)$
+  \begin{enumerate}
+    \item $\lnot (A\to B)\to ((A\to B)\to C)\qquad$定理
+    \item $(\lnot (A\to B)\to ((A\to B)\to C))\to (\lnot ((A\to B)\to C)\to (A\to B))\qquad$定理
+    \item $\lnot ((A\to B)\to C)\to (A\to B)\qquad(1)(2)r_{mp}$
+    \item $\lnot D\to (\lnot ((A\to B)\to C)\to (A\to B))\qquad(3)$定理
+    \item $\lnot D\to (\lnot ((A\to B)\to C)\to (\lnot B\to \lnot A))\qquad(3)$
+    \item $(\lnot D\to \lnot ((A\to B)\to C))\to (\lnot D\to (\lnot B\to \lnot A))\qquad (4)A_2r_{mp}$
+    \item $(\lnot D\to (\lnot B\to \lnot A))\to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))\qquad A_2$
+    \item $(\lnot D\to \lnot((A\to B)\to C)) \to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))\qquad(6)(7)$定理
+    \item $(((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))\qquad (8)$定理
+  \end{enumerate}
+\end{proof}
 
-  $(3)A\to (B\to (\lnot B\to C))$
+% \begin{proof}[证明]$\quad$
 
-  $(4)(A\to B)\to (A\to (\lnot B\to C))$
+%   $(1)\lnot B\to (B\to C)$
 
-  $(5)A\to ((A\to B)\to (\lnot B\to C))$
+%   $(2)B\to (\lnot B\to C)$
 
-  $(6)((A\to B)\to (\lnot B\to C))\to (\lnot B\to ((A\to B)\to C))$
+%   $(3)A\to (B\to (\lnot B\to C))$
 
-  $(7)A\to (\lnot B\to ((A\to B)\to C))$
+%   $(4)(A\to B)\to (A\to (\lnot B\to C))$
 
-  $(8)\lnot B\to (A\to ((A\to B)\to C))$
+%   $(5)A\to ((A\to B)\to (\lnot B\to C))$
 
-  $(9)(A\to ((A\to B)\to C))\to (\lnot((A\to B)\to C)\to \lnot A)$
+%   $(6)((A\to B)\to (\lnot B\to C))\to (\lnot B\to ((A\to B)\to C))$
 
-  $(10)\lnot B\to (\lnot((A\to B)\to C)\to \lnot A)$
+%   $(7)A\to (\lnot B\to ((A\to B)\to C))$
 
-  $(11)\lnot((A\to B)\to C) \to (\lnot B\to \lnot A)$
+%   $(8)\lnot B\to (A\to ((A\to B)\to C))$
+
+%   $(9)(A\to ((A\to B)\to C))\to (\lnot((A\to B)\to C)\to \lnot A)$
+
+%   $(10)\lnot B\to (\lnot((A\to B)\to C)\to \lnot A)$
+
+%   $(11)\lnot((A\to B)\to C) \to (\lnot B\to \lnot A)$
 
 
-  $(12)(\lnot D\to \lnot((A\to B)\to C)) \to(\lnot D\to  (\lnot B\to \lnot A))$
+%   $(12)(\lnot D\to \lnot((A\to B)\to C)) \to(\lnot D\to  (\lnot B\to \lnot A))$
 
-  $(13)(\lnot D\to  (\lnot B\to \lnot A))\to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
+%   $(13)(\lnot D\to  (\lnot B\to \lnot A))\to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
 
-  $(14)(\lnot D\to \lnot((A\to B)\to C)) \to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
+%   $(14)(\lnot D\to \lnot((A\to B)\to C)) \to ((\lnot D\to \lnot B)\to (\lnot D\to \lnot A))$
 
-  $(15)(((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
+%   $(15)(((A\to B)\to C)\to D)\to((B\to D)\to (A\to D))$
+% \end{proof}
+$13.\vdash (A\to C)\to ((B\to C)\to (((A\to B)\to B)\to C))$
+
+\begin{proof}[证明]
+$\quad$
+
+  \begin{enumerate}
+    \item $\lnot A\to (A\to B)\qquad$定理
+    \item $((A\to B)\to B)\to ((A\to B)\to B)\qquad$定理
+    \item $(((A\to B)\to B)\to ((A\to B)\to B))\to ((A\to B)\to (((A\to B)\to B)\to B))\qquad$定理
+    \item $(A\to B)\to (((A\to B)\to B)\to B)\qquad(2)(3)r_{mp}$
+    \item $(((A\to B)\to B)\to B)\to (\lnot B\to (\lnot ((A\to B)\to B))\qquad$定理
+    \item $(A\to B)\to (\lnot B\to (\lnot ((A\to B)\to B))\qquad(4)(5)$定理
+    \item $\lnot A\to (\lnot B\to (\lnot ((A\to B)\to B))\qquad(1)(6)$定理
+    \item $(\lnot A\to (\lnot B\to (\lnot ((A\to B)\to B)))\to ((\lnot C\to \lnot A)\to (\lnot C\to (\lnot B \to \lnot ((A\to B)\to B))))\qquad$定理
+    \item $(\lnot C\to \lnot A)\to (\lnot C\to (\lnot B \to \lnot ((A\to B)\to B)))\qquad(7)(8)r_{mp}$
+    \item $(\lnot C\to (\lnot B \to \lnot ((A\to B)\to B)))\to ((\lnot C\to \lnot B)\to (\lnot C\to\lnot ((A\to B)\to B)))\qquad$定理
+    \item $(\lnot C\to \lnot A)\to ((\lnot C\to \lnot B)\to (\lnot C\to\lnot ((A\to B)\to B)))\qquad (9)(10)r_{mp}$
+    \item $(A\to C)\to ((B\to C)\to (((A\to B)\to B)\to C))\qquad (11)$定理
+  \end{enumerate}
+\end{proof}
+
+$14.\vdash (A\to C)\to ((B\to C)\to (((B\to A)\to A)\to C))$
+
+\begin{proof}[证明]
+  $\qquad$
+
+  \begin{enumerate}
+    \item $(B\to C)\to ((A\to C)\to (((B\to A)\to A)\to C))\qquad$第13小题
+    \item $((B\to C)\to ((A\to C)\to (((B\to A)\to A)\to C)))\to ((A\to C)\to ((B\to C)\to (((B\to A)\to A)\to C)))\qquad$定理
+    \item $(A\to C)\to ((B\to C)\to (((B\to A)\to A)\to C))\qquad(1)(2)r_{mp}$
+  \end{enumerate}
+
 \end{proof}
 \begin{Exercise}
   利用演绎定理在$PC$中证明：
 \end{Exercise}
 
-$1.\vdash ((A\to B)\to A)\to A$
+$1.\vdash (B\to A)\to (\lnot A\to \lnot B)$
+\begin{proof}[证明]
+  根据演绎定理只需证：
+  
+  $(B\to A)\vdash \lnot A\to \lnot B$
+
+  只需证：
+
+  $(B\to A), \lnot A\vdash\lnot B$
+
+
+
+\begin{enumerate}
+  \item $(B\to \lnot\lnot A)\to (\lnot A\to \lnot B)\qquad$定理
+  \item $A\to \lnot\lnot A\qquad$定理
+  \item $B\to A\qquad$前提
+  \item $B\to \lnot\lnot A\qquad$定理
+  \item $\lnot A\to \lnot B\qquad(1)(4)r_{mp}$
+  \item $\lnot A\qquad$前提
+  \item $\lnot B\qquad (5)(6)r_{mp}$
+\end{enumerate}
+\end{proof}
+$2.\vdash (A\to B)\to ((B\to C)\to (A\to C))$
+\begin{proof}[证明]
+  根据演绎定理只需证：
+  
+  $A\to B\vdash ((B\to C)\to (A\to C))$
+
+  只需证：
+
+  $A\to B, B\to C\vdash (A\to C)$
+
+  只需证：
+
+  $A\to B, B\to C, A\vdash C$
+
+  \begin{enumerate}
+    \item $A\qquad$前提
+    \item $A\to B\qquad$前提
+    \item $B\qquad(1)(2)r_{mp}$
+    \item $B\to C\qquad$前提
+    \item $C\qquad(3)(4)r_{mp}$
+  \end{enumerate}
+
+\end{proof}
+
+
+$3.\vdash ((A\to B)\to A)\to A$
 
 \begin{proof}[证明]
-  只需证$(A\to B)\to A\vdash A$。
+  根据演绎定理只需证$(A\to B)\to A\vdash A$。
 
-  $(1)(A\to B)\to A$前提
-
-  $(2)\lnot A\to (A\to B)$
-
-  $(3)((A\to B)\to A)\to ((\lnot A\to (A\to B))\to (\lnot A\to A))$
-
-  $(4)(\lnot A\to (A\to B))\to (\lnot A\to A)(1)(3)r_{mp}$
-
-  $(5)\lnot A\to A(2)(4)r_{mp}$
-
-  $(6)(\lnot A\to A)\to A$
-
-  $(7)A (5)(6)r_{mp}$
+\begin{enumerate}
+  \item $(A\to B)\to A\qquad$前提
+  \item $\lnot A\to (A\to B)\qquad$定理
+  \item $\lnot A\to A\qquad$定理
+  \item $(\lnot A\to A)\to A\qquad$定理
+  \item $A\qquad(3)(4)r_{mp}\qquad$
+\end{enumerate}
+\end{proof}
 
 
+$4.\vdash \lnot (A\to B)\to (B\to A)$
+
+根据演绎定理只需证：$\lnot (A\to B)\vdash (B\to A)$
+
+只需证：$\lnot (A\to B), B\vdash A$
+
+
+\begin{enumerate}
+  \item $(\lnot A\to (A\to B))\to (\lnot (A\to B)\to A)\qquad$定理
+  \item $\lnot A\to (A\to B)\qquad$定理
+  \item $\lnot(A\to B)\to A\qquad(1)(2)r_{mp}$
+  \item $\lnot(A\to B)\qquad$前提
+  \item $A\qquad(3)(4)r_{mp}$
+\end{enumerate}
+
+\begin{Exercise}
+  将$PC$中公理$A_3$改为$(\lnot A\to \lnot B)\to ((\lnot A\to B)\to A)$，记所得系统为$PC'$。证明：
+\begin{enumerate}
+  \item $\vdash_{PC} (\lnot A\to \lnot B)\to ((\lnot A\to B)\to A)$
+  \item $\vdash_{PC'}(\lnot A\to \lnot B)\to (B\to A)$
+\end{enumerate}
+\end{Exercise}
+（1）\begin{proof}[证明]
+  根据演绎定理只需证：$(\lnot A\to \lnot B)\vdash((\lnot A\to B)\to A)$
+
+  只需证$\lnot A\to \lnot B,\lnot A\to B\vdash A$
+
+  \begin{enumerate}
+    \item $\lnot A\to \lnot B\qquad$ （前提）
+    \item $(\lnot A\to \lnot B)\to (B\to A)\qquad A_3$
+    \item $B\to A\qquad (1)(2)r_{mp}$
+    \item $\lnot A\to B\qquad$ （前提）
+    \item $\lnot A\to A$
+    \item $(\lnot A\to A)\to A$
+    \item $A\qquad (5)(6)r_{mp}$
+  \end{enumerate}
+\end{proof}
+（2）
+可以证明演绎定理在$PC'$中也成立，根据演绎定理，只需证
+
+$\lnot A\to \lnot B\vdash B\to A$，
+
+只需证$\lnot A\to \lnot B, B\vdash A$：
+\begin{proof}[证明]
+
+  $\quad$
+
+  \begin{enumerate}
+    \item $\lnot A\to \lnot B\qquad$（前提）
+    \item $(\lnot A\to \lnot B)\to ((\lnot A\to B)\to A)\qquad A_3$
+    \item $(\lnot A\to B)\to A\qquad (1)(2)r_{mp}$
+    \item $B\to (\lnot A \to B)\qquad A_1$
+    \item $B\qquad$（前提）
+    \item $\lnot A \to B\qquad (4)(5)r_{mp}$
+    \item $A\qquad (3)(6)r_{mp}$
+  \end{enumerate}
+\end{proof}
+\begin{Exercise}
+  在$PC$中证明：
+
+  1.如果$\vdash A\to (B\to C),\vdash B$，则$\vdash A\to C$
+
+  \begin{proof}[证明]
+    $\quad$
+    \begin{enumerate}
+      \item $A\to (B\to C)\qquad$已证
+      \item $(A\to B)\to (A\to C)\qquad (1)A_2r_{mp}$
+      \item $B\qquad$已证
+      \item $B\to (A\to B)\qquad A_1$
+      \item $A\to B\qquad (3)(4)r_{mp}$
+      \item $A\to C\qquad(2)(5)r_{mp}$
+    \end{enumerate}
+  \end{proof}
+
+2.如果$\Gamma, \lnot A\vdash B, \Gamma, \lnot A\vdash \lnot B$，则$\Gamma\vdash A$
+
+\begin{proof}[证明]
+  $\qquad$
+\begin{enumerate}
+  \item $\Gamma, \lnot A\vdash B\qquad$已知条件
+  \item $\Gamma\vdash \lnot A\to B\qquad (1)$演绎定理
+  \item $\Gamma, \lnot A\vdash \lnot B\qquad$已知条件
+  \item $\Gamma\vdash \lnot A\to \lnot B\qquad(3)$演绎定理
+  \item  $\Gamma\vdash (\lnot A\to \lnot B)\to (B\to A)\qquad A_3$
+  \item $\Gamma\vdash B\to A\qquad(4)(5)r_{mp}$
+  \item $\Gamma\vdash \lnot A\to A\qquad(2)(6)$定理
+  \item $\Gamma\vdash (\lnot A\to A)\to A\qquad$定理
+  \item $\Gamma \vdash A\qquad (7)(8)r_{mp}$
+\end{enumerate}
+\end{proof}
+
+\end{Exercise}
+
+
+
+\begin{Exercise}
+  证明$(\lnot A\to B)\to (A\to \lnot B)$不是$PC$的定理。
+\end{Exercise}
+\begin{proof}[证明]
+  当$\alpha(A)=T,\alpha(B)=T$时，$\alpha((\lnot A\to B)\to (A\to \lnot B))=F$，因此$(\lnot A\to B)\to (A\to \lnot B)$不是重言式，故不是$PC$的定理。
 \end{proof}
 \end{CJK*}
 \end{document}

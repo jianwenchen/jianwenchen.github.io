@@ -1,0 +1,409 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第四讲 自然演绎推理系统}
+  \author{陈建文}
+  \maketitle
+  % \tableofcontents
+  \section{自然演绎推理系统（ND）的组成}
+
+  ND:Natural Deduction
+
+  
+    1. 字符集
+
+    \begin{enumerate}
+      \item 表示命题的符号：$p_1,p_2,\cdots,p_n,\cdots$
+      \item 完备的联结词集合：$\{\lnot, \land, \lor, \to, \leftrightarrow \}$
+      \item 辅助符号：$()$
+    \end{enumerate}
+
+    2. 命题公式：
+
+    \begin{enumerate}
+      \item 任意一个表示命题的符号为命题公式；
+      \item 如果A，B是命题公式，则$(\lnot A), (A\land B), (A\lor B), (A\to B), (A\leftrightarrow B)$是命题公式；
+      \item 有限次使用（1）与（2）所得到的结果均是命题公式。
+    \end{enumerate}
+
+    3. 公理  
+  
+    $\Gamma,A\vdash  A$，其中$\Gamma$为公式集，$\Gamma\cup \{A\}$简记为$\Gamma,A$
+
+
+
+     4. 推理规则 
+    
+    (1)假设引入规则(假设+)
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma\vdash B}{\Gamma,A\vdash B}$}
+
+    $\quad$
+
+    (2)假设消除规则(假设-)
+
+    $\quad$
+
+    {\LARGE $\frac{\Gamma,A\vdash B;\Gamma,\lnot A\vdash B}{\Gamma\vdash B}$}
+
+    $\quad$
+
+    (3)$\lor$引入规则 $(\lor +)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma \vdash A}{\Gamma\vdash A\lor B},\frac{\Gamma \vdash A}{\Gamma \vdash B\lor A}$
+    }
+
+    $\quad$
+
+    (4)$\lor$消除规则 $(\lor -)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma,A \vdash C; \Gamma, B \vdash C; \Gamma \vdash A\lor B}{\Gamma \vdash C}$
+    }
+
+    $\quad$
+
+    (5)$\land$引入规则 $(\land +)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma \vdash A;\Gamma \vdash B}{\Gamma \vdash A\land B}$
+    }
+
+    $\quad$
+
+    (6)$\land$消除规则 $(\land -)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma \vdash A\land B}{\Gamma \vdash A},\frac{\Gamma \vdash A\land B}{\Gamma \vdash B}$
+    }
+
+    $\quad$
+    
+    (7)$\to$引入规则 $(\to +)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma,A\vdash B}{\Gamma \vdash A\to B}$
+    }
+
+    $\quad$
+
+    (8)$\to$消除规则 $(\to -)$
+
+    $\quad$
+
+    {\LARGE$\frac{\Gamma \vdash A; \Gamma \vdash A\to B}{\Gamma\vdash B}$
+    }
+
+    $\quad$
+    
+    
+    (9)$\lnot$引入规则 $(\lnot +)$
+
+    $\quad$
+    
+    {\LARGE$\frac{\Gamma, A\vdash B; \Gamma, A\vdash \lnot B}{\Gamma \vdash \lnot A}$
+    }
+
+    $\quad$
+    
+    (10)$\lnot$消除规则 $(\lnot -)$
+
+    $\quad$
+    
+    {\LARGE$\frac{\Gamma \vdash A; \Gamma \vdash \lnot A}{\Gamma \vdash B}$
+    }
+
+    $\quad$
+    
+    (11)$\lnot\lnot$引入规则 $(\lnot\lnot +)$
+
+    $\quad$
+   
+    {\LARGE$\frac{\Gamma\vdash A}{\Gamma\vdash\lnot\lnot A}$
+    }
+
+    $\quad$
+    
+    (12)$\lnot\lnot$消除规则 $(\lnot\lnot -)$
+
+    $\quad$
+   
+    {\LARGE$\frac{\Gamma\vdash\lnot\lnot A}{\Gamma\vdash A}$
+    }
+
+    $\quad$
+
+    (13)$\leftrightarrow$引入规则 $(\leftrightarrow +)$
+
+    $\quad$
+   
+    {\LARGE$\frac{\Gamma \vdash A\to B; \Gamma \vdash B\to A}{\Gamma \vdash A\leftrightarrow B}$
+    }
+
+    $\quad$
+   
+    (14)$\leftrightarrow$消除规则 $(\leftrightarrow -)$
+
+    $\quad$
+    
+    {\LARGE$\frac{\Gamma \vdash A\leftrightarrow B}{\Gamma \vdash A\to B; \Gamma \vdash B\to A}$
+    }
+
+    $\quad$
+    
+    5. 定理推导
+    
+
+    演绎：在$ND$中，以下序列称为$\Gamma\vdash_{ND}A$中的一个证明（以下省去$ND$）：
+
+    \[\Gamma_1\vdash A_1,\Gamma_2\vdash A_2,\cdots,\Gamma_m\vdash A_m(=\Gamma\vdash A)\]
+
+    其中$\Gamma_i\vdash A_i(i=1,2,\cdots,m)$或为$ND$的公理，或为$\Gamma_j\vdash A_j(j<i)$，或为$\Gamma_{j_1}\vdash A_{j_1},\Gamma_{j_2}\vdash A_{j_2},\cdots, \Gamma_{j_k}\vdash A_{j_k}(j_1,j_2,\cdots, j_k<i)$使用推理规则导出的。
+
+
+    如果$\Gamma=\{A\}$，则$\Gamma\vdash B$简记为$A\vdash B$；
+    如果$\Gamma=\phi$，此时$\Gamma\vdash A$即为$\vdash A$，则称$A$为$ND$的定理。
+
+
+  
+  \begin{Thm}$\vdash A\lor \lnot A$\end{Thm}
+  \begin{proof}[证明]$\quad$
+
+    \begin{enumerate}
+      \item $A\vdash A\qquad$ （公理）
+      \item $A\vdash A\lor \lnot A\qquad(1)(\lor +)$ 
+      \item $\lnot A\vdash \lnot A\qquad$ （公理）
+      \item $\lnot A\vdash A\lor \lnot A\qquad(3)(\lor +)$ 
+      \item $\vdash A\lor \lnot A \quad\quad (2)(4)$（假设-）  
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\lnot (A\lor B)\leftrightarrow \lnot A \land \lnot B$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ \lnot (A\lor B), A\vdash A\qquad$ （公理） 
+      \item $ \lnot (A\lor B), A\vdash A\lor B\qquad(1)(\lor +)$
+      \item $ \lnot (A\lor B), A\vdash \lnot (A\lor B)\qquad$ （公理）
+      \item $ \lnot (A\lor B) \vdash \lnot A\qquad(2)(3)(\lnot +)$
+      \item $ \lnot (A\lor B), B\vdash B\qquad$ （公理） 
+      \item $ \lnot (A\lor B), B\vdash A\lor B\qquad(5)(\lor +)$
+      \item $ \lnot (A\lor B), B\vdash \lnot (A\lor B)\qquad$ （公理）
+      \item $ \lnot (A\lor B) \vdash \lnot B\qquad(6)(7)(\lnot +)$
+      \item $ \lnot (A\lor B)\vdash \lnot A \land \lnot B\qquad (4)(8)(\land +)$
+      \item $ \vdash \lnot (A\lor B)\to \lnot A \land \lnot B\qquad (9)(\to +)$
+      \item $ \lnot A\land \lnot B, A\lor B\vdash \lnot A \land \lnot B\qquad$ （公理） 
+      \item $ \lnot A\land \lnot B, A\lor B\vdash \lnot A \qquad(11)(\land -)$
+      \item $ \lnot A\land \lnot B, A\lor B\vdash \lnot B \qquad(11)(\land -)$
+      \item $ \lnot A\land \lnot B, A\lor B, A\vdash A\qquad$（公理）
+      \item $ \lnot A\land \lnot B, A\lor B, B\vdash B\qquad$ （公理）
+      \item $ \lnot A\land \lnot B, A\lor B, B\vdash \lnot B\qquad(13)(\text{假设} +)$
+      \item $ \lnot A\land \lnot B, A\lor B, B\vdash A\qquad(15)(16)(\lnot -)$
+      \item $ \lnot A\land \lnot B, A\lor B\vdash A\lor B\qquad$ （公理）
+      \item $ \lnot A\land \lnot B, A\lor B\vdash A\qquad(14)(17)(18)(\lor -)$
+      \item $ \lnot A\land \lnot B\vdash \lnot(A\lor B)\qquad(12)(19)(\lnot +)\qquad$
+      \item $ \vdash\lnot A\land \lnot B\to \lnot(A\lor B)\qquad(20)(\to +)$
+      \item $ \vdash\lnot (A\lor B)\leftrightarrow \lnot A \land \lnot B\qquad(10)(21)(\leftrightarrow +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$\lnot (A\land B)\leftrightarrow \lnot A \lor \lnot B$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ \lnot (A\land B), \lnot A \vdash \lnot A\qquad$（公理） 
+      \item $ \lnot (A\land B), \lnot A \vdash \lnot A\lor \lnot B\qquad(1)(\lor +)$
+      \item $ \lnot (A\land B), A, B \vdash A\qquad$（公理）
+      \item $ \lnot (A\land B), A, B \vdash B\qquad$（公理）
+      \item $ \lnot (A\land B), A, B \vdash A\land B\qquad(\land +)$
+      \item $ \lnot (A\land B), A, B \vdash \lnot(A\land B)\qquad$（公理）
+      \item $ \lnot (A\land B), A \vdash \lnot B\qquad(5)(6)(\lnot +)$ 
+      \item $ \lnot (A\land B), A \vdash \lnot A\lor \lnot B\qquad(8)(\lor +)$
+      \item $ \lnot (A\land B) \vdash \lnot A\lor \lnot B\qquad(2)(8)$（假设-）
+      \item $ \vdash\lnot (A\land B) \to \lnot A\lor \lnot B\qquad(9)(\to +)$
+      \item $ \lnot A \lor \lnot B, A\land B \vdash A\land B\qquad$（公理）
+      \item $ \lnot A \lor \lnot B, A\land B \vdash A\qquad (11) (\land -)$
+      \item $ \lnot A \lor \lnot B, A\land B \vdash B\qquad (12) (\land -)$
+      \item $ \lnot A \lor \lnot B, A\land B \vdash \lnot A \lor \lnot B\qquad $（公理）
+      \item $ \lnot A \lor \lnot B, A\land B, \lnot A \vdash \lnot A\qquad$（公理）
+      \item $ \lnot A \lor \lnot B, A\land B, \lnot B \vdash \lnot B\qquad$（公理）
+      \item $ \lnot A \lor \lnot B, A\land B, \lnot B \vdash  B\qquad$(13)(假设+)
+      \item $ \lnot A \lor \lnot B, A\land B, \lnot B \vdash \lnot A\qquad(\lnot -)$
+      \item $ \lnot A \lor \lnot B, A\land B \vdash \lnot A\qquad (14)(15)(18)(\lor -)$ 
+      \item $ \lnot A \lor \lnot B \vdash  \lnot(A\land B)\qquad(12)(19)(\lnot +)$
+      \item $ \vdash\lnot A \lor \lnot B \to \lnot(A\land B)\qquad(20)(\to +)$
+      \item $ \vdash\lnot A \lor \lnot B \leftrightarrow \lnot(A\land B)\qquad(10)(21)(\leftrightarrow +)$  
+    \end{enumerate}
+  \end{proof}
+\begin{Def}
+  设$A$和$B$为任意两个命题公式，如果$A\vdash B$并且$B\vdash A$，则称$A$与$B$演绎等价，记为$A\vdash \dashv B$。
+\end{Def}
+  \begin{Thm}$\lnot A\to B\vdash \dashv A\lor B$\end{Thm}
+  \begin{proof}[证明]$\quad$
+
+    先证明$\lnot A\to B\vdash A\lor B$：
+    \begin{enumerate}
+      \item $ \lnot A\to B, A\vdash A\qquad $（公理） 
+      \item $ \lnot A\to B, A\vdash A\lor B\qquad (1)(\lor +)$
+      \item $ \lnot A\to B, \lnot A\vdash \lnot A\qquad $（公理）
+      \item $ \lnot A\to B, \lnot A\vdash \lnot A\to B\qquad $（公理）
+      \item $ \lnot A\to B, \lnot A\vdash B\qquad (3)(4)(\to -)$
+      \item  $ \lnot A\to B, \lnot A\vdash A \lor B\qquad (5)(\lor +)$
+      \item $ \lnot A\to B\vdash A \lor B\qquad (2)(6)$（假设-） 
+    \end{enumerate}
+    再证明$A\lor B\vdash \lnot A\to B$：
+    \begin{enumerate}
+      \item $ A\lor B, \lnot A, A\vdash\lnot A\qquad $ （公理）
+      \item $ A\lor B, \lnot A, A\vdash A\qquad $ （公理）
+      \item$ A\lor B, \lnot A, A\vdash B\qquad (1)(2)(\lnot -)$ 
+      \item $ A\lor B, \lnot A, B\vdash B\qquad $ （公理）
+      \item $ A\lor B, \lnot A\vdash A\lor B\qquad $ （公理）
+      \item $ A\lor B, \lnot A\vdash B\qquad (3)(4)(5)(\lor -)$ 
+      \item $ A\lor B \vdash \lnot A\to B\qquad (6)(\to +)$  
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$A\to B\vdash \dashv \lnot A\lor B$\end{Thm}
+  \begin{proof}[证明]$\quad$
+
+    先证明$A\to B\vdash\lnot A\lor B$:
+    \begin{enumerate}
+      \item $ A\to B, A\vdash A\qquad $（公理） 
+      \item $ A\to B, A\vdash A\to B\qquad $（公理）
+      \item $ A\to B, A\vdash B\qquad (1)(2)(\to -)$
+      \item $ A\to B, A\vdash \lnot A\lor B\qquad(3)(\lor +)$
+      \item $ A\to B, \lnot A\vdash \lnot A\qquad$（公理）
+      \item $ A\to B, \lnot A\vdash \lnot A\lor B\qquad(5)(\lor +)$
+      \item $ A\to B\vdash\lnot A\lor B\qquad(4)(6)$(假设-) 
+    \end{enumerate}
+    再证明$\lnot A\lor B\vdash A\to B$: 
+    \begin{enumerate}
+      \item $ \lnot A\lor B, A,\lnot A\vdash \lnot A\qquad $（公理）
+      \item $ \lnot A\lor B, A,\lnot A\vdash A\qquad $（公理）
+      \item $ \lnot A\lor B, A,\lnot A\vdash B\qquad (1)(2)(\lnot -)$
+      \item $ \lnot A\lor B, A,B\vdash B\qquad$（公理）
+      \item $ \lnot A\lor B, A\vdash \lnot A\lor B\qquad$ （公理）
+      \item $ \lnot A\lor B, A\vdash B\qquad(3)(4)(5)(\lor -)$
+      \item $ \lnot A\lor B\vdash A\to B\qquad(6)(\to +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$(A\land (B\lor C))\leftrightarrow ((A\land B) \lor (A\land C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ A\land (B\lor C)\vdash A\land (B\lor C)\qquad $(公理) 
+      \item $ A\land (B\lor C)\vdash A\qquad (1)(\land -)$
+      \item $ A\land (B\lor C)\vdash B\lor C\qquad (1)(\land -)$
+      \item $ A\land (B\lor C),B\vdash B\qquad$(公理)
+      \item $ A\land (B\lor C),B\vdash A\qquad(2)$（假设+）
+      \item $ A\land (B\lor C),B\vdash A\land B\qquad(4)(5)(\land +)$
+      \item $ A\land (B\lor C),B\vdash (A\land B) \lor (A\land C)\qquad (6)(\lor +)$ 
+      \item $ A\land (B\lor C),C\vdash C\qquad$(公理)
+      \item $ A\land (B\lor C),C\vdash A\qquad(2)$（假设+）
+      \item $ A\land (B\lor C),C\vdash A\land C\qquad(8)(9)(\land +)$
+      \item $ A\land (B\lor C),C\vdash (A\land B) \lor (A\land C)\qquad (10)(\lor +)$ 
+      \item $ A\land (B\lor C)\vdash (A\land B) \lor (A\land C) \qquad(3)(7)(11)(\lor -)$
+      \item $\vdash A\land (B\lor C)\to (A\land B) \lor (A\land C)  \qquad(12)(\to +)$
+      \item $(A\land B) \lor (A\land C), A\land B \vdash A\land B\qquad$（公理）
+      \item $(A\land B) \lor (A\land C), A\land B \vdash A \qquad (14)(\land -)$
+      \item $(A\land B) \lor (A\land C), A\land B \vdash B \qquad (14)(\land -) $
+      \item $(A\land B) \lor (A\land C), A\land B \vdash B\lor C \qquad (16)(\lor +)  $ 
+      \item $(A\land B) \lor (A\land C), A\land B \vdash A\land(B\lor C) \qquad (15)(17)(\land +)$
+      \item $(A\land B) \lor (A\land C), A\land C \vdash A\land C\qquad$（公理）
+      \item $(A\land B) \lor (A\land C), A\land C \vdash A \qquad (19)(\land -)$
+      \item $(A\land B) \lor (A\land C), A\land C \vdash C \qquad (21)(\land -) $
+      \item $(A\land B) \lor (A\land C), A\land C \vdash B\lor C \qquad (21)(\lor +)  $ 
+      \item $(A\land B) \lor (A\land C), A\land C \vdash A\land(B\lor C) \qquad (20)(22)(\land +)$
+      \item $(A\land B) \lor (A\land C)\vdash(A\land B) \lor (A\land C)  \qquad$（公理）
+      \item $ (A\land B) \lor (A\land C)\vdash A\land(B\lor C)(18)(23)(24)(\lor -)\qquad$
+      \item $\vdash (A\land B) \lor (A\land C)\to A\land(B\lor C)\qquad(25)(\to +)$
+      \item $\vdash (A\land (B\lor C))\leftrightarrow ((A\land B) \lor (A\land C))\qquad(13)(26)(\leftrightarrow +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Thm}$A\to (B\to A)$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ A,B \vdash A\qquad$（公理） 
+      \item $ A\vdash B\to A\qquad (1)(\to +)$
+      \item $ \vdash A\to (B\to A)\qquad (2)(\to +)$
+    \end{enumerate}
+  \end{proof}
+  \begin{Thm}$(A\to (B\to C))\to ((A\to B)\to (A\to C))$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ A\to (B\to C), A\to B, A\vdash A\qquad$（公理） 
+      \item $ A\to (B\to C), A\to B, A\vdash A\to (B\to C)\qquad$（公理） 
+      \item $ A\to (B\to C), A\to B, A\vdash B\to C\qquad(1)(2)(\to -)$
+      \item $ A\to (B\to C), A\to B, A\vdash A\to B\qquad$（公理）
+      \item $ A\to (B\to C), A\to B, A\vdash B\qquad(1)(4)(\to -)$
+      \item $ A\to (B\to C), A\to B, A\vdash C\qquad(3)(5)(\to -)$
+      \item $ A\to (B\to C), A\to B\vdash A\to C\qquad(6)(\to +)$ 
+      \item $  A\to (B\to C)\vdash(A\to B)\to(A\to C)\qquad(7)(\to +)$
+      \item $ \vdash (A\to (B\to C))\to ((A\to B)\to (A\to C))\qquad(8)(\to +)$
+    \end{enumerate}
+  \end{proof}
+  \begin{Thm}$(\lnot A\to \lnot B)\to (B\to A)$\end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $\lnot A\to \lnot B, B, \lnot A \vdash \lnot A \qquad$ （公理）
+      \item $ \lnot A\to \lnot B, B, \lnot A \vdash \lnot A\to \lnot B\qquad$（公理）
+      \item $ \lnot A\to \lnot B, B, \lnot A \vdash \lnot B\qquad (1)(2)(\to -)$
+      \item $ \lnot A\to \lnot B, B, \lnot A \vdash B\qquad$（公理）
+      \item $ \lnot A\to \lnot B, B\vdash \lnot\lnot A\qquad (3)(4)(\lnot +)$
+      \item $ \lnot A\to \lnot B, B\vdash A\qquad (5)(\lnot\lnot -)$
+      \item $ \lnot A\to \lnot B\vdash B\to A\qquad (6)(\to +)$ 
+      \item $ \vdash (\lnot A\to \lnot B)\to (B\to A)\qquad (7)(\to +)$
+    \end{enumerate}
+  \end{proof}
+
+  课后作业题
+
+  在$ND$中证明：
+
+  \begin{enumerate}
+    \item $\vdash (\lnot A\to A)\to A$
+    \item $\vdash (A\to (B\to C))\leftrightarrow ((A\land B)\to C)$
+    \item $\vdash ((A\lor B)\to C)\leftrightarrow((A\to C)\land (B\to C))$
+    \item $A\to B, \lnot(B\to C)\to \lnot A\vdash A\to C$
+    \item $\vdash \lnot (A\to B)\leftrightarrow (A\land \lnot B)$
+    \item $\vdash ((A\lor B)\land (\lnot B\lor C))\to (A\lor C)$
+    \item $\vdash (A\land B)\leftrightarrow (A\land (\lnot A\lor B))$
+    \item $\vdash ((A\leftrightarrow B)\leftrightarrow A)\leftrightarrow B$
+  \end{enumerate}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

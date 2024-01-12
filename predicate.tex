@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第六讲 一阶谓词逻辑演算基本概念}
+  \author{陈建文}
+  \maketitle
+
+  \begin{Example}$\quad$
+
+    \begin{enumerate}
+      \item 所有的人都是要死的；
+      \item 苏格拉底是人；
+      \item 所以苏格拉底是要死的。
+    \end{enumerate}
+
+    谓词$M(x):x$是人
+
+    谓词$D(x):x$是要死的
+
+    个体常元$a$表示“苏格拉底”
+
+    谓词：表示研究对象的性质或研究对象之间关系的词称为谓词。
+
+    \begin{enumerate}
+      \item $\forall x(M(x)\to D(x))$
+      \item $M(a)\to D(a)$
+      \item $M(a)$
+      \item $D(a)$
+    \end{enumerate}
+  \end{Example}
+  \begin{Example}
+    $(G,\circ, e)$称为一个群，如果
+    \begin{enumerate}
+      \item $\forall x\forall y\forall z (x\circ y)\circ z=x\circ(y\circ z);$
+      \item $\forall x e\circ x = x;$
+      \item $\forall x \exists y y\circ x=e.$
+    \end{enumerate}
+  \end{Example}
+  
+  字符集：
+    \begin{enumerate}
+      \item 表示个体变元的符号：$v_1,v_2,\cdots,v_n,\cdots$
+      \item 完备的联结词集合：$\{\lnot, \land, \lor, \to, \leftrightarrow \}$
+      \item 量词：$\forall,\exists$
+      \item 辅助符号：$()$
+      \item 表示谓词的符号：$P,Q,\cdots$
+      \item 表示函词的符号：$f,g,\cdots$
+      \item 表示个体常元的符号：$a,b,c,\cdots$
+    \end{enumerate}
+
+
+  \begin{Def}$\quad$
+    \begin{enumerate}
+      \item 个体常元和个体变元都是项；
+      \item 如果$f$为一个$n$元函词，$t_1,t_2,\cdots,t_n$是项，则$f(t_1,t_2,\cdots,t_n)$也是项；
+      \item 由（1）（2）有限次复合所产生的结果都是项。
+    \end{enumerate}
+  \end{Def}
+  \begin{Def}$\quad$
+    \begin{enumerate}
+      \item 设$t_1,t_2,\cdots,t_n$为$n$个项，$P$为任意一个$n$元谓词符号，则$P(t_1,t_2,\cdots,t_n)$为合式公式（这样的合式公式又称为原子谓词公式）；
+      \item 如果$A,B$为合式公式，则$(\lnot A),(A\land B),(A\lor B),(A\to B),(A\leftrightarrow B)$为合式公式；
+      \item 如果$A$为合式公式，$x$为任意一个变量，则$\forall xA$和$\exists xA$为合式公式；    
+      \item 有限次使用（1），（2）和（3）复合所得到的结果都是合式公式。
+    \end{enumerate}
+  \end{Def}
+  合式公式简称公式。
+
+  \begin{Example}
+    $\forall xP(x)\to P(x)$和$\forall y\forall xP(x)$都是公式。
+  \end{Example}
+  \begin{Def}$\quad$
+  \begin{enumerate}
+    \item 受量词约束的变元称为约束变元；
+    \item 不受量词约束的变元称为自由变元。
+  \end{enumerate}
+\end{Def}
+
+\begin{Example}
+  在公式$\forall xP(x)\to P(x)$中，$\forall xP(x)$中的$x$是约束变元，$\to$之后的$P(x)$中的$x$为自由变元。
+\end{Example}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第九讲 一阶谓词演算形式系统}
+  \author{陈建文}
+  \maketitle
+一阶语言
+
+    1. 字符集
+    \begin{enumerate}
+      \item 表示个体变元的符号：$v_1,v_2,\cdots,v_n,\cdots$
+      \item 完备的联结词集合：$\{\lnot, \to\}$
+      \item 量词：$\forall$
+      \item 辅助符号：$()$
+      \item 表示谓词的符号：$P,Q,\cdots$
+      \item 表示函词的符号：$f,g,\cdots$
+      \item 表示个体常元的符号：$a,b,c,\cdots$
+    \end{enumerate}
+
+    2. 公式：
+
+      \begin{enumerate}
+        \item 设$t_1,t_2,\cdots,t_n$为$n$个项，$P$为任意一个$n$元谓词符号，则$P(t_1,t_2,\cdots,t_n)$为合式公式；
+        \item 如果$A,B$为合式公式，则$(\lnot A),(A\to B)$为合式公式；
+        \item 如果$A$为合式公式，$x$为任意一个变量，则$\forall xA$为合式公式；     
+        \item 有限次使用（1），（2）和（3）复合所得到的结果都是合式公式。
+      \end{enumerate}
+
+    合式公式简称公式。
+
+    3. 公理  
+  
+    $A_1:A\to(B\to A)$
+
+    $A_2:(A\to(B\to C))\to((A\to B)\to (A\to C))$
+
+    $A_3:(\lnot A\to \lnot B)\to (B \to A)$
+
+    $A_4:\forall v A\to A^v_t$(项$t$对$v$可代入)
+
+    $A_5:\forall v(A\to B)\to (\forall A\to \forall B)$
+
+    $A_6:A\to\forall v A$($v$在$A$中无自由出现)
+
+    4. 推理规则 
+    
+    $r_{mp}:A,A\to B, B$
+
+    5. 定理推导
+    
+
+    证明：称下列公式序列为谓词公式$A$在$FC$中的一个证明：
+
+    \[A_1,A_2,\cdots,A_m(=A)\]
+
+    其中$A_i(i=1,2,\cdots,m)$或为$FC$的公理，或为$A_j(j<i)$，或为$A_j,A_k(j,k<i)$使用$r_{mp}$导出的谓词公式。
+
+
+    定理：如果谓词公式$A$在$PC$中有一个证明序列，则称$A$为$PC$的定理，记为$\vdash_{PC}A$,简记为$\vdash A$。
+
+
+  \begin{Thm}$\forall xP(x)\vdash \forall yP(y)$
+  \end{Thm}
+  \begin{proof}[证明]$\quad$
+    \begin{enumerate}
+      \item $ \forall x P(x)\vdash \forall xP(x) \quad\quad $（前提）
+      \item $ \forall x P(x)\vdash \forall xP(x)\to \forall y\forall xP(x) \quad\quad (A_6)$
+      \item $ \forall x P(x)\vdash \forall y\forall xP(x) \quad\quad (1)(2)r_{mp}$ 
+      \item $ \forall x P(x)\vdash \forall y(\forall xP(x)\to P(y))\quad\quad (A_4)$
+      \item  $\forall x P(x)\vdash \forall y(\forall xP(x)\to P(y))\to (\forall y\forall xP(x)\to \forall yP(y))(A_5)$
+      \item  $\forall x P(x)\vdash \forall y\forall xP(x)\to \forall yP(y)\quad\quad(4)(5)r_{mp}$
+      \item $\forall xP(x)\vdash \forall yP(y)\quad (3)(6)r_{mp}$
+    \end{enumerate}
+  \end{proof}
+  
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

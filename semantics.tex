@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第七讲 一阶谓词形式系统的语义}
+  \author{陈建文}
+  \maketitle
+
+  \begin{Example}$\quad$
+
+    \begin{enumerate}
+      \item $\forall x(M(x)\to D(x))$
+      \item $M(a)\to D(a)$
+      \item $M(a)$
+      \item $D(a)$
+    \end{enumerate}
+
+
+    谓词$M(x):x$是人
+
+    谓词$D(x):x$是要死的
+
+    个体常元$a$表示“苏格拉底”
+
+    % \begin{enumerate}
+    %   \item 所有的人都是要死的；
+    %   \item 苏格拉底是人；
+    %   \item 所以苏格拉底是要死的。
+    % \end{enumerate}
+
+    谓词$M(x):x$是有两个角相等的三角形
+
+    谓词$D(x):x$是等腰三角形
+
+    个体常元$a$表示一个具体的三角形
+    
+
+    
+  \end{Example}
+  \begin{Example}
+    $(G,\circ, e)$称为一个群，如果
+    \begin{enumerate}
+      \item $\forall x\forall y\forall z (x\circ y)\circ z=x\circ(y\circ z);$
+      \item $\forall x e\circ x = x;$
+      \item $\forall x \exists y y\circ x=e.$
+    \end{enumerate}
+
+    $(R,+,0)$为一个群
+
+    $(Z_n,+,[0])$为一个群，这里$Z_n=\{[0],[1],\cdots,[n-1]\}$
+  \end{Example}
+  
+\begin{Def}
+  设$\Sigma$为一个符号集，$D$为任意一个非空集合，称为论域；I为一个定义在由$\Sigma$中的常量符号、函词符号和谓词符号所构成的集合上的一个映射，
+  称为一个解释，
+  \begin{enumerate}
+    \item 对任意一个常元$a$，$I(a)$为论域$D$中的一个个体，简记为$\bar{a}$；
+    \item 对任意一个$n$元函词$f$，$I(f)$为$D$上的一个$n$元函数，简记为$\bar{f}$；
+    \item 对任意一个$n$元谓词$P$，$I(P)$为$D$上的一个$n$元关系，简记为$\bar{P}$。
+  \end{enumerate}
+  $(D,I)$称为一个结构。
+\end{Def}
+\begin{Def}
+  映射$s:\{v_1,v_2,\cdots\}\to D$称为一个指派，对任意一个变元$v_i$，$s(v_i)\in D$为$v_i$在指派$s$下的值。
+\end{Def}
+\begin{Def}
+  指派$s$可以扩展为从项集合到论域的映射$\bar{s}$：对任意的项$t$，
+
+  \begin{equation*}
+    \bar{s}(t)=\begin{cases}
+      s(v)&\text{当}t\text{为变元}$v$\text{时}\\
+      \bar{a}&\text{当}t\text{为常元}$a$\text{时}\\
+      \bar{f}(\bar{s}(t_1),\bar{s}(t_2),\cdots,\bar{s}(t_n))&\text{当}t\text{为}n\text{元函词}$f$\text{时}
+    \end{cases}
+  \end{equation*}
+\end{Def}
+  \begin{Example}
+  在结构$(R,I)$中，设$I(\circ)=+,I(e)=0$，则结构$(R,I)$又可以简记为$(R,+,0)$。设$s(x)=1,s(y)=2,s(z)=3$，则$\bar{s}(x)=1,\bar{s}(e)=0,\bar{s}(e\circ x)=\bar{s}(e)+\bar{s}(x)=0+1=1,\bar{s}(x\circ y)=\bar{s}(x)+\bar{s}(y)=1+2=3$，$\bar{s}((x\circ y)\circ z)=\bar{s}(x\circ y)+\bar{s}(z)=3+3=6$。  
+  \end{Example}
+\begin{Def}
+  公式$A$在结构$U=(D,I)$和指派$s$下的取值为真记为$\vDash_UA[s]$，定义如下：
+  \begin{enumerate}
+    \item 当$A$为原子公式$P(t_1,t_2,\cdots,t_n)$时，$\vDash_UA[s]$ iff $(\bar{s}(t_1),\bar{s}(t_2),\cdots,\bar{s}(t_n))\in \bar{P}$；
+    \item 当$A$为公式$\lnot B$时，$\vDash_UA[s]$ iff $\nvDash_UB[s]$；
+    \item 当$A$为公式$B\land C$时，$\vDash_UA[s]$ iff $\vDash_UB[s]$并且$\vDash_UC[s]$；
+    \item 当$A$为公式$B\lor C$时，$\vDash_UA[s]$ iff $\vDash_UB[s]$或者$\vDash_UC[s]$；
+    \item 当$A$为公式$B\to C$时，$\vDash_UA[s]$ iff 如果$\vDash_UB[s]$，那么$\vDash_UC[s]$；
+    \item 当$A$为公式$B\leftrightarrow C$时，$\vDash_UA[s]$ iff 如果$\vDash_UB[s]$，那么$\vDash_UC[s]$，并且如果$\vDash_UC[s]$，那么$\vDash_UB[s]$；
+    \item 当$A$为公式$\forall vB$时，$\vDash_UA[s]$ iff 对任意的$d\in D$，$\vDash_UB[s(v|d)]$，这里$s(v|d)$表示除了对变元$v$用指定元素$d$赋值外，对其他变元的赋值与$s$相同的指派；
+    \item 当$A$为公式$\exists vB$时，$\vDash_UA[s]$ iff 存在$d\in D$使得$\vDash_UB[s(v|d)]$。
+  \end{enumerate}
+
+  $\vDash_UA$表示在结构$U$中，对任意的指派$s$，公式$A$均为真。
+
+  $\vDash A$表示公式$A$在任意结构和任意指派下均为真。
+
+  \begin{Example}
+    $\vDash \forall x_1 \forall x_2(\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))\leftrightarrow \forall x_1\forall x_2 ((f(x_1)=f(x_2))\to (x_1=x_2))$
+  \end{Example}
+\end{Def}
+  % \begin{Example}
+  %   设论域$D$为自然数集$N$，一元函数$\bar{f}(x)=x+1$，二元谓词$\bar{P}(x,y)$为$x\leq y$，常元$\bar{a}=0$，则有如下结论：
+  %   \begin{enumerate}
+  %     \item 当公式$A=P(a,f(x))$时，则$\vDash_UA$；
+  %     \item 当公式$A=P(f(x),a)$时，则$\nvDash_UA$；
+  %     \item 当公式$A=\forall xP(a,x)$时，则$\vDash_UA$；
+  %     \item 当公式$A=\forall x\exists yP(f(x),y)$时，则$\vDash_UA$；
+  %     \item 当公式$A=\exists yP(f(y),y)$时，则$\nvDash_UA$；
+  %   \end{enumerate}
+  % \end{Example}
+\begin{Def}
+  设$\Gamma$为任意一个公式集，$B$为任意一个公式，如果对任意的使得$\Gamma$中每个公式均为真的结构$U$和指派$s$，$B$也为真，则称$\Gamma$逻辑蕴含$B$，记为$\Gamma \vDash B$。如果$\Gamma=\{A\}$，则$\Gamma \vDash B$简记为$A\vDash B$，称为$A$逻辑蕴含$B$，即对任意的结构$U$和任意的指派$s$，如果$\vDash_UA[s]$，则$\vDash_UB[s]$。对任意的两个公式$A$和$B$，如果$A\vDash B$并且$B\vDash A$，则称$A$与$B$逻辑等价。
+\end{Def}
+\begin{Example}
+  $\forall x_1 \forall x_2(\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))\vDash \forall x_1\forall x_2 ((f(x_1)=f(x_2))\to (x_1=x_2))$
+
+  $\forall x_1\forall x_2 ((f(x_1)=f(x_2))\to (x_1=x_2))\vDash \forall x_1 \forall x_2(\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))$
+\end{Example}
+课后作业题
+\begin{Exercise}证明：
+  \begin{enumerate}
+    \item $P(v)\nvDash \forall v P(v)$
+    \item $\nvDash P(v)\to \forall vP(v)$
+    \item $\vDash \exists v(P(v)\to \forall v P(v))$
+    \item $\lnot P(v)\to \forall P(v)$是可满足的。（设$A$为任意一个谓词公式，如果存在结构$U$和指派$s$，使得$\vDash_UA[s]$，则称$A$为可满足的。）
+  \end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}
+  给出下列公式为真的解释和指派。
+
+  \begin{enumerate}
+    \item $\forall x(P(x)\to Q(x))$
+    \item $\exists x(F(x)\lor G(x))$
+    \item $\forall x(F(x)\land G(x))$
+  \end{enumerate}
+\end{Exercise}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

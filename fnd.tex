@@ -1,0 +1,430 @@
+\documentclass{article}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xCJKnumb}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem*{thm}{定理}
+\newtheorem{Exercise}{练习}
+
+\newtheorem*{Example}{例}
+\setlist[enumerate,1]{label=(\arabic*)}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+  \title{第八讲 FND谓词演算系统}
+  \author{陈建文}
+  \maketitle
+
+  谓词演算自然推理系统FND(First order Natural Deduction)在命题演算自然推理系统的基础上添加了下列规则：
+  
+  1.$\forall$引入规则 $\qquad(\forall +)$
+
+  $\quad$
+
+  {\Large$\frac{\Gamma \vdash A}{\Gamma \vdash \forall v A}$}，$v$在$\Gamma$中无自由出现。
+
+$\quad$
+
+  2.$\forall$消除规则 $\qquad(\forall -)$
+
+  $\quad$
+
+  {\Large$\frac{\Gamma \vdash \forall v A}{\Gamma \vdash A_t^v}$}，项$t$对变元$v$可代入。
+ 
+  $\quad$
+
+  3.$\exists$引入规则 $\qquad(\exists +)$
+
+  $\quad$
+
+  {\Large$\frac{\Gamma \vdash A_t^v}{\Gamma \vdash \exists v A}$}，项$t$对变元$v$可代入。
+  
+  $\quad$
+
+  4.$\exists$消除规则 $\qquad(\exists -)$
+
+  $\quad$
+
+  {\Large$\frac{\Gamma \vdash \exists vA; \Gamma, A_c^v\vdash B}{\Gamma \vdash B}$}，其中常元$c$在$\Gamma$及公式$A$，$B$中均无出现。
+ 
+  $\quad$
+
+  演绎：在$FND$中，以下序列称为$\Gamma\vdash_{FND}A$中的一个证明（以下省去$FND$）：
+
+  \[\Gamma_1\vdash A_1,\Gamma_2\vdash A_2,\cdots,\Gamma_m\vdash A_m(=\Gamma\vdash A)\]
+
+  其中$\Gamma_i\vdash A_i(i=1,2,\cdots,m)$或为$FND$的公理，或为$\Gamma_j\vdash A_j(j<i)$，或为$\Gamma_{j_1}\vdash A_{j_1},\Gamma_{j_2}\vdash A_{j_2},\cdots, \Gamma_{j_k}\vdash A_{j_k}(j_1,j_2,\cdots, j_k<i)$使用推理规则导出的。
+
+
+  如果$\Gamma=\{A\}$，则$\Gamma\vdash B$简记为$A\vdash B$；
+  如果$\Gamma=\phi$，此时$\Gamma\vdash A$即为$\vdash A$，则称$A$为$FND$的定理。
+
+以上在$FND$中关于演绎的定义与$ND$中的定义是相同的，但是其中的所涉及的公式指的是谓词公式。
+
+
+  \begin{Example}
+    \begin{flalign*}
+      &\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+      \vdash &\forall x_1 \forall x_2 (f(x_1)=f(x_2)\to x_1=x_2)&
+    \end{flalign*}
+  \end{Example}
+
+  \begin{proof}[证明]
+      \begin{flalign*}
+        (1)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))\qquad\text{公理}&\\
+        (2)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &\forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))\qquad (1)(\forall -)&\\
+        (3)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2))\qquad(2)(\forall -)&\\
+        (4)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &(\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))\to (f(x_1)=f(x_2)\to x_1=x_2)&\\
+        (5)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &f(x_1)=f(x_2)\to x_1=x_2\qquad (3)(4)(\to -)&\\
+        (6)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &\forall x_2(f(x_1)=f(x_2)\to x_1=x_2)\qquad (5)(\forall +)&\\
+        (7)&\forall x_1 \forall x_2 (\lnot(x_1=x_2)\to \lnot (f(x_1)=f(x_2)))&\\
+        \vdash &\forall x_1\forall x_2(f(x_1)=f(x_2)\to x_1=x_2)\qquad (6)(\forall +)&\\
+      \end{flalign*}
+
+  \end{proof}
+
+  \begin{Example}
+      $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash \forall x_1 \forall x_2 (B\to A)$
+  \end{Example}
+
+  \begin{proof}[证明]
+    $\quad$
+
+    \begin{enumerate}
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash \forall x_1 \forall x_2 (\lnot A\to \lnot B)\qquad\text{公理}$ 
+      \item  $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash \forall x_2 (\lnot A\to \lnot B)\qquad (1)(\forall -)$
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash (\lnot A\to \lnot B)\qquad (2)(\forall -)$
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash (\lnot A\to \lnot B)\to (B\to A)$
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash B\to A\qquad (3)(4)(\to -)$
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash \forall x_2(B\to A)\qquad (5)(\forall +)$
+      \item $\forall x_1 \forall x_2 (\lnot A\to \lnot B)\vdash \forall x_1\forall x_2(B\to A)\qquad (6)(\forall +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Example}
+    $\vdash \forall v(A\to B)\to (\forall v A\to \forall v B)$
+  \end{Example}
+  \begin{proof}[证明]
+
+    $\qquad$
+
+    \begin{enumerate}
+      \item $\forall v(A\to B),\forall v A\vdash \forall v A \qquad \text{公理}$
+      \item  $\forall v(A\to B),\forall v A\vdash A \qquad (1)(\forall -)$
+      \item  $\forall v(A\to B),\forall v A\vdash \forall v (A\to B) \qquad \text{公理}$
+      \item  $\forall v(A\to B),\forall v A\vdash A\to B \qquad (3)(\forall -)$
+      \item  $\forall v(A\to B),\forall v A\vdash B \qquad (2)(4)(\to -)$
+      \item $\forall v(A\to B),\forall v A\vdash \forall v B \qquad (5)(\forall +)$
+      \item $\forall v(A\to B)\vdash \forall v A \to \forall v B \qquad (6)(\to +)$
+      \item $\vdash \forall v(A\to B)\to (\forall v A\to \forall v B)\qquad (7)(\to +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Example}
+    $\vdash \exists vA\to \lnot \forall v\lnot A$
+  \end{Example}
+  \begin{proof}[证明]
+
+    $\qquad$
+
+    \begin{enumerate}
+      \item $\exists vA \vdash \exists v A\qquad \text{公理}$
+      \item $\exists v A, A_c^v, \forall v \lnot A \vdash \forall v \lnot A\qquad \text{公理}$
+      \item $\exists v A, A_c^v, \forall v \lnot A \vdash \lnot A_c^v\qquad (\forall -)$
+      \item $\exists v A, A_c^v, \forall v \lnot A \vdash A_c^v\qquad \text{公理}$
+      \item $\exists v A, A_c^v\vdash \lnot \forall v \lnot A\qquad (3)(4)(\lnot +)$
+      \item $\exists v A\vdash \lnot \forall v \lnot A\qquad (1)(5)(\exists -)$
+      \item $\vdash \exists vA\to \lnot \forall v\lnot A (6)(\to +)$
+    \end{enumerate}
+  \end{proof}
+  \begin{Example}
+    $\vdash \lnot \forall v\lnot A\to \exists vA$
+  \end{Example}
+  \begin{proof}[证明]
+
+    $\qquad$
+
+    \begin{enumerate}
+      \item $A\vdash A\qquad$（公理）
+      \item $A\vdash \exists v A\qquad(1)(\exists +)$
+      \item $A, \lnot \exists v A\vdash \exists v A\qquad(2)(\text{假设}+)$
+      \item $A, \lnot \exists v A\vdash \lnot \exists v A\qquad$（公理）
+      \item $\lnot \exists v A\vdash \lnot A\qquad(2)(3)(\lnot +)$
+      \item $\lnot \exists v A\vdash \forall v\lnot A\qquad(5)(\forall +)$
+      \item $\lnot \exists v A, \lnot \forall v\lnot A\vdash \forall v\lnot A\qquad(6)(\text{假设} +)$
+      \item $\lnot \exists v A, \lnot \forall v\lnot A\vdash \lnot \forall v\lnot A\qquad(7)(\text{假设} +)$
+      \item $ \lnot \forall v\lnot A\vdash \lnot \lnot \exists v A\qquad(8)(\text{假设} +)$
+      \item $ \lnot \forall v\lnot A\vdash \exists v A\qquad(10)(\lnot\lnot -)$
+    \end{enumerate}
+  \end{proof}
+  \begin{Def}
+    代入：对公式$A$中的自由变元$v$的所有自由出现都换为项$t$，记为$A_t^v$。如果$A$中没有$v$出现，则$A_t^v=A$。
+  \end{Def}
+
+  \begin{Def}
+    可代入：设$v$为谓词公式$A$中的自由变元，$t$为一个项，在$A$中将$v$替换为$t$之后，$t$中每个变元没有变成约束变元，则称项$t$对$v$是可代入的。
+  \end{Def}
+
+
+  \begin{Example}
+    $\forall x \exists y y>x \vdash \exists y y > x$，但是$ \forall x \exists y y>x \nvdash  \exists y y > y$。
+  \end{Example}
+
+  \begin{Example}
+    $x>1\vdash x>1$，但是$x>1\nvdash \forall x x>1$。
+  \end{Example}
+
+  \begin{Example}
+
+    $\quad$
+
+    \begin{enumerate}
+      \item $x=c,y>x\vdash y>x$
+      \item $x=c, y>x \vdash \exists y y >x$
+      \item $x=c, y>x, c>x\vdash x>x$
+      \item $x=c, y>x \vdash x>x$
+    \end{enumerate}
+    由于$c$在$x=c$中出现，以上演绎过程是错误的。
+  \end{Example}
+
+  \begin{Example}
+    $\quad$
+
+    \begin{enumerate}
+      \item $x>c\vdash x>c$
+      \item $x>c\vdash \exists x x>c$
+      \item $x>c, c>c\vdash c>c$
+      \item $x>c, c>c \vdash \exists y y>y$
+      \item $x>c\vdash \exists y y>y$
+    \end{enumerate}
+    由于$c$在$x>c$中出现，以上演绎过程是错误的。
+  \end{Example}
+
+  \begin{Example}
+
+    $\quad$
+
+    \begin{enumerate}
+      \item $x>c\vdash x>c$
+      \item $x>c\vdash \exists x x>c$
+      \item $x>c, d>c \vdash d>c$
+      \item $x>c\vdash d>c$
+    \end{enumerate}
+    由于$d$在$d>c$中出现，以上演绎过程是错误的。
+  \end{Example}
+
+  \begin{Example}
+    $\forall v(A\land B)\vdash \dashv  \forall v A\land \forall v B$
+  \end{Example}
+  \begin{proof}[证明]
+    先证$\forall v(A\land B)\vdash  \forall v A\land \forall v B$：
+
+    \begin{enumerate}
+      \item $\forall v(A\land B)\vdash \forall v(A\land B)\qquad \text{公理}$
+      \item $\forall v(A\land B)\vdash A\land B\qquad (1)(\forall -)$
+      \item $\forall v(A\land B)\vdash A\qquad (2)(\land -)$
+      \item $\forall v(A\land B)\vdash \forall A\qquad (3)(\forall +)$
+      \item $\forall v(A\land B)\vdash B\qquad (2)(\land -)$
+      \item $\forall v(A\land B)\vdash \forall B\qquad (5)(\forall +)$
+      \item $\forall v(A\land B)\vdash  \forall v A\land \forall v B \qquad (4)(6)(\land +)$
+    \end{enumerate}
+
+    再证$\forall v A\land \forall v B\vdash  \forall v(A\land B)$：
+
+    \begin{enumerate}
+      \item $\forall v A\land \forall v B\vdash\forall v A\land \forall v B \qquad \text{公理}$
+      \item $\forall v A\land \forall v B\vdash\forall v A \qquad (1)(\land -)$
+      \item $\forall v A\land \forall v B\vdash A \qquad (2)(\forall -)$
+      \item $\forall v A\land \forall v B\vdash\forall v B \qquad (1)(\land -)$
+      \item $\forall v A\land \forall v B\vdash B \qquad (4)(\forall -)$
+      \item $\forall v A\land \forall v B\vdash A \land B \qquad (3)(5)(\land +)$
+      \item $\forall v A\land \forall v B\vdash \forall(A \land B) \qquad (6)(\forall +)$
+    \end{enumerate}
+  \end{proof}
+
+  \begin{Example}
+    $\exists v(A\lor B)\vdash \dashv  \exists v A\lor \exists v B$
+  \end{Example}
+  \begin{proof}[证明]
+
+    先证$\exists v(A\lor B)\vdash \exists v A\lor \exists v B$：
+
+    \begin{enumerate}
+      \item $\exists v(A\lor B)\vdash \exists v (A\lor B)\qquad \text{公理}$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v\vdash A_c^v\lor B_c^v\qquad \text{公理}$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, A_c^v\vdash A_c^v\qquad \text{公理}$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, A_c^v\vdash \exists v A\qquad (3)(\exists +)$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, A_c^v\vdash \exists v A \lor \exists v B\qquad (4)(\lor +)$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, B_c^v\vdash B_c^v\qquad \text{公理}$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, B_c^v\vdash \exists v B\qquad (6)(\exists +)$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v, B_c^v\vdash \exists v A \lor \exists v B\qquad (7)(\lor +)$
+      \item $\exists v(A\lor B),A_c^v\lor B_c^v\vdash \exists v A \lor \exists v B\qquad (7)(\lor -)$
+      \item $\exists v(A\lor B)\vdash \exists v A \lor \exists v B\qquad (1)(9)(\exists -)$
+    \end{enumerate}
+
+    再证$\exists v A\lor \exists v B\vdash \exists v(A\lor B)$：
+
+    \begin{enumerate}
+      \item $\exists v A\lor \exists v B\vdash \exists v A\lor \exists v B \qquad \text{公理}$
+      \item $\exists v A\lor \exists v B, \exists v A\vdash \exists v A \qquad \text{公理}$
+      \item $\exists v A\lor \exists v B, \exists v A, A_c^v\vdash A_c^v \qquad \text{公理}$
+      \item  $\exists v A\lor \exists v B, \exists v A, A_c^v\vdash A_c^v \lor B_c^v\qquad (3)(\lor +)$
+      \item  $\exists v A\lor \exists v B, \exists v A, A_c^v\vdash \exists v(A\lor B)\qquad (4)(\exists +)$
+      \item $\exists v A\lor \exists v B, \exists v A\vdash \exists v(A\lor B)\qquad (2)(6)(\exists -)$
+      \item $\exists v A\lor \exists v B, \exists v B\vdash \exists v B \qquad \text{公理}$
+      \item $\exists v A\lor \exists v B, \exists v B, B_c^v\vdash B_c^v \qquad \text{公理}$
+      \item  $\exists v A\lor \exists v B, \exists v B, B_c^v\vdash A_c^v \lor B_c^v\qquad (8)(\lor +)$
+      \item  $\exists v A\lor \exists v B, \exists v B, B_c^v\vdash \exists v(A\lor B)\qquad (9)(\exists +)$
+      \item $\exists v A\lor \exists v B, \exists v B\vdash \exists v(A\lor B)\qquad (7)(10)(\exists -)$
+      \item $\exists v A\lor \exists v B\vdash \exists v(A\lor B)\qquad (1)(6)(11)(\lor -)$
+    \end{enumerate}   
+  \end{proof}
+
+
+
+  \begin{Thm}
+    设$G$为一个群，则$\forall x,y\in G$，如果$yx=e$，则$xy=e$。
+  \end{Thm}
+  \begin{proof}[证明]
+    在\[yx=e\]的
+    两边同时右乘以$y$得
+    \[(yx)y=ey\]
+    从而
+    \[y(xy)=y\]
+    在$G$中存在$z$使得$zy=e$，于是
+    \[z(y(xy))=zy\]
+    从而
+    \[(zy)(xy)=zy\]
+    所以
+    \[xy=e\]
+  \end{proof}
+
+$\Sigma=\{...,=\}$
+
+$=$自反性：
+
+$t=t,t$为任意一个项。
+
+$=$可代入性：
+
+{\Large$\frac{\Gamma \vdash  A_t^v}{\Gamma,t=t' \vdash A_{t'}^v}$}，项$t$和$t'$对$v$可代入。
+
+\begin{Thm}[$=$对称性]
+  如果$\Gamma\vdash t_1=t_2$，那么$\Gamma\vdash t_2=t_1$。
+\end{Thm}
+\begin{proof}[证明]
+$\qquad$
+
+\begin{enumerate}
+  \item $\Gamma\vdash t_1=t_1\qquad$ （公理）
+  \item $\Gamma, t_1=t_2\vdash t_2=t_1\qquad(1)=$可代入性
+  \item $\Gamma\vdash (t_1=t_2)\to (t_2=t_1)\qquad(2)(\to +)$
+  \item $\Gamma\vdash t_1=t_2\qquad$已知条件
+  \item $\Gamma\vdash t_2=t_1\qquad(3)(4)(\to-)$
+\end{enumerate}
+\end{proof}
+
+\begin{Thm}[$=$传递性]
+  如果$\Gamma\vdash t_1=t_2,\Gamma\vdash t_2=t_3$，那么$\Gamma\vdash t_1=t_3$。
+\end{Thm}
+\begin{proof}[证明]
+  $\qquad$
+  \begin{enumerate}
+    \item $\Gamma\vdash t_1=t2\qquad$已知条件
+    \item $\Gamma, t_2=t_3\vdash t_1=t_3\qquad(1)=$可代入性
+    \item $\Gamma\vdash (t_2=t_3)\to (t_1=t_3)\qquad(2)(\to +)$
+    \item $\Gamma\vdash t_2=t_3\qquad$已知条件
+    \item $\Gamma\vdash t_1=t_3\qquad(3)(4)(\to-)$
+  \end{enumerate}
+\end{proof}
+\begin{thm}
+  $\vdash \forall x \forall y (yx=e\to xy=e)$
+\end{thm}
+\begin{proof}[证明]$\qquad$  
+\begin{enumerate}
+  \item $\Gamma, yx=e \vdash yx = e\qquad$（公理）
+  \item $\Gamma, yx=e \vdash (yx)y=(yx)y\qquad(=$对称性)
+  \item $\Gamma, yx=e \vdash (yx)y = ey\qquad(2)(=$可代入性)
+  \item $\Gamma, yx=e \vdash \forall x\forall y\forall z (xy)z=x(yz)\qquad$（公理）
+  \item $\Gamma, yx=e \vdash \forall y\forall z (uy)z=u(yz)\qquad(4)(\forall -)$
+  \item $\Gamma, yx=e \vdash \forall z (uv)z=u(vz)\qquad(5)(\forall -)$
+  \item $\Gamma, yx=e \vdash (uv)w=u(vw)\qquad(6)(\forall -)$
+  \item $\Gamma, yx=e \vdash \forall w((uv)w=u(vw))\qquad(7)(\forall +)$
+  \item $\Gamma, yx=e \vdash \forall v\forall w((uv)w=u(vw))\qquad(8)(\forall +)$
+  \item $\Gamma, yx=e \vdash \forall u\forall v\forall w((uv)w=u(vw))\qquad(9)(\forall +)$
+  \item $\Gamma, yx=e \vdash \forall v\forall w((yv)w=y(vw))\qquad(10)(\forall -)$
+  \item $\Gamma, yx=e \vdash \forall w((yx)w=y(xw))\qquad(11)(\forall -)$
+  \item $\Gamma, yx=e \vdash (yx)y=y(xy)\qquad(12)(\forall -)$
+  \item $\Gamma, yx=e \vdash y(xy)=(yx)y\qquad(13)(=$对称性)
+  \item $\Gamma, yx=e \vdash y(xy)=ey\qquad(3)(14)=$传递性
+  \item $\Gamma, yx=e \vdash \forall x (ex = x)\qquad$（公理）
+  \item $\Gamma, yx=e \vdash ey = y \qquad (16)(\forall -)$
+  \item $\Gamma, yx=e \vdash y(xy) = y \qquad (15)(17)=$传递性
+  \item $\Gamma, yx=e \vdash \forall x \exists y yx=e\qquad$（公理）
+  \item $\Gamma, yx=e \vdash \exists y yt=e\qquad (19)(\forall -)$
+  \item $\Gamma, yx=e, ct=e \vdash ct=e\qquad$公理
+  \item $\Gamma, yx=e \vdash \exists z zt=e\qquad (21)(\exists +)$
+  \item $\Gamma, yx=e \vdash \forall t\exists z zt=e\qquad (22)(\forall +)$
+  \item $\Gamma, yx=e \vdash \exists z zy=e\qquad (23)(\forall +)$
+  \item $\Gamma, yx=e, dy=e \vdash dy=e\qquad$（公理）
+  \item $\Gamma, yx=e, dy=e \vdash d(y(xy))=d(y(xy))\qquad$（公理）
+  \item $\Gamma, yx=e, dy=e, y(xy)=y \vdash d(y(xy))=dy\qquad(26)(=$可代入性)
+  \item $\Gamma, yx=e, dy=e\vdash y(xy)=y\to d(y(xy))=dy\qquad(27)(\to -)$
+  \item $\Gamma, yx=e, dy=e \vdash y(xy) = y \qquad (18)(\text{假设}+)$
+  \item $\Gamma, yx=e, dy=e \vdash (d(y(xy))=dy\qquad(28)(29)(\to -)$
+  \item $\Gamma, yx=e, dy=e \vdash (dy)(xy)=dy\qquad$
+  \item $\Gamma, yx=e, dy=e \vdash e(xy)=e\qquad(31)=$可代入性
+  \item $\Gamma, yx=e \vdash e(xy)=e\qquad(24)(32)(\exists -)$
+  \item $\Gamma, yx=e\vdash \forall x (ex=x)\qquad$（公理）
+  \item $\Gamma, yx=e\vdash e(xy)=xy\qquad(34)(\forall -)$
+  \item $\Gamma, yx=e\vdash xy=e(xy)\qquad(35)(=$对称性)
+  \item $\Gamma, yx=e\vdash xy=e\qquad(33)(36)(=$传递性)
+  \item $\Gamma \vdash yx=e \to xy=e\qquad(37)(\to +)$
+  \item $\Gamma \vdash \forall y(yx=e \to xy=e)\qquad(38)(\forall +)$
+  \item $\Gamma \vdash \forall x\forall y(yx=e \to xy=e)\qquad(39)(\forall +)$
+\end{enumerate}  
+\end{proof}
+
+\begin{Example}
+$\vdash \exists v(P(v)\to \forall v P(v))$
+\end{Example}
+\begin{proof}[证明]
+  
+  
+  $\quad$
+
+\begin{enumerate}
+  \item $\forall v P(v)\vdash \forall v P(v)$
+  \item $\forall v P(v), P(v)\vdash \forall v P(v)$
+  \item $\forall v P(v) \vdash P(v) \to \forall v P(v)$
+  \item $\forall v P(v) \vdash \exists v (P(v) \to \forall v P(v))$
+  \item $\lnot \forall v P(v), $
+\end{enumerate}
+\end{proof}
+\end{CJK*}
+\end{document}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
