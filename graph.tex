@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -11,38 +11,33 @@
 \justifying\let\raggedright\justifying
 
 \usepackage{tikz}
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
 \newtheorem{thm}{Theorem}
-\newtheorem{Cor}{推论}[chapter]
-\newtheorem{Ax}{公理}[chapter]
+\newtheorem{Cor}{推论}
+\newtheorem{Ax}{公理}
 
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Exercise}{练习}
 
-\newtheorem{Example}{例}[chapter]
+\newtheorem{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第六章 图的基本概念}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
-
-  \setcounter{chapter}{5}
-  \chapter{图的基本概念}
 设$V$为一个集合，$V$的一切二元子集之集合记为$\mathcal{P}_2(V)$，即
 \begin{equation*}
   \mathcal{P}_2(V) = \{A|A \subseteq V \text{且} |A| = 2\}\text{。}
 \end{equation*}
 \begin{Def}
-  设$V$为一个非空有限集合，$E \subseteq \mathcal{P}_2(V)$，二元组$G = (V, E)$称为一个无向图。$V$中的元素称为无向图$G$的顶点，$V$为顶点集；$E$中的元素称为无向图$G$的边，$E$为边集。无向图简称图。如果$|V|=p$，$|E|=q$，则称$G$为一个$(p,q)$图，即$G$是一个具有$p$个顶点$q$条边的图。
+  设$V$为一个非空有限集合，$E \subseteq \mathcal{P}_2(V)$，二元组$G = (V, E)$称为一个无向图。$V$中的元素称为无向图$G$的顶点，$V$为顶点集；$E$中的元素称为无向图$G$的边，$E$为边集。无向图简称图。如果$|V|=p$，$|E|=q$，则称$G$为一个$(p,q)$图，即$G$为一个具有$p$个顶点$q$条边的图。
 \end{Def}
       \centering
     \begin{tikzpicture}[auto,
@@ -90,7 +85,7 @@
        在任一图中，度为奇数的顶点的数目必为偶数。
   \end{Thm}
  \begin{Def}
-    图$G$称为$r$度正则图，如果$G$的每个顶点的度都等于$r$。３度正则图也叫三次图。
+    图$G$称为$r$度正则图，如果$G$的每个顶点的度都等于$r$。３度正则图也称为三次图。
     一个具有$p$个顶点的$p-1$度正则图称为包含$p$个顶点的完全图，记为$K_p$。
   \end{Def}
   \begin{Def}
@@ -136,7 +131,7 @@
     \end{minipage}
 
   \begin{Def}
-    设$G=(V,E)$为一个图，如果$F\subseteq E$，则称$G$的子图$H=(V,F)$ 为$G$的一个生成子图。
+    设$G=(V,E)$为一个图，如果$F\subseteq E$，则称$G$的子图$H=(V,F)$为$G$的一个生成子图。
   \end{Def}
   \begin{minipage}[c]{0.4\textwidth}
     \centering
@@ -179,7 +174,7 @@
     \end{minipage}
 
   \begin{Def}
-    设图$G$的子图$H$具有某种性质，若$G$中不存在与$H$不同的具有此性质且包含$H$的子图，则称$H$是具有此性质的极大子图。
+    设图$G$的子图$H$具有某种性质，若$G$中不存在与$H$不同的具有此性质且包含$H$的子图，则称$H$为具有此性质的极大子图。
   \end{Def}
   \begin{Def}
     设$S$为图$G=(V,E)$的顶点集$V$的非空子集，则$G$的以$S$为顶点集的极大子图称为由$S$导出的子图，记为$\langle S \rangle$。
@@ -319,11 +314,21 @@
 $G$
 }
   \begin{Thm}
-    设$G=(V,E)$是一个图。在$V$上定义二元关系$\cong$如下：\[\forall u, v \in V, u
+    设$G=(V,E)$为一个图。在$V$上定义二元关系$\cong$如下：\[\forall u, v \in V, u
       \cong v\text{当且仅当}u\text{与}v\text{间有一条路，}\]则$\cong$为$V$上的等价关系，$G$的支就是关于$\cong$的每个等价类的导出子图。
   \end{Thm}
+  \begin{Exercise}
+    设图$G$的顶点$u$与$v$之间有一条通道，那么$u$与$v$之间有一条路。
+  \end{Exercise}
+  \begin{proof}[证明]\justifying\let\raggedright\justifying
+  用数学归纳法证明，施归纳于顶点$u$与$v$之间通道的长$l$。
+  
+  （１）当$l=0$时，顶点$u$与$v$之间有一条长为$0$的通道，此时$u=v$，显然$u$与$v$之间有一条路。
+  
+  （２）假设当$l=k$时结论成立，往证当$l=k+1$时结论也成立。设顶点$u$与$v$之间有一条长为$k+1$的通道$L$，进一步设$L$上顶点$v$之前的顶点为$w$，则顶点$u$与顶点$w$之间有一条长为$k$的通道。由归纳假设，$u$与$w$之间有一条路$P$，此时如果$v$不在路$P$中出现，则路$P$之后接顶点$v$就构成了$u$与$v$之间的一条路；如果$v$在路$P$中出现，此时路$P$上从$u$到$v$之间的顶点和边的序列就构成了$u$与$v$之间的一条路。
+  \end{proof}
   \begin{Def}
-    设$G=(V,E)$是一个图，图$G^c=(V, \mathcal{P}_2(V)\setminus E)$称为$G$的补图。如果$G$与$G^c$同构，则称$G$是自补图。
+    设$G=(V,E)$为一个图，图$G^c=(V, \mathcal{P}_2(V)\setminus E)$称为$G$的补图。如果$G$与$G^c$同构，则称$G$为自补图。
   \end{Def}
   \begin{minipage}{0.49\linewidth}
     \centering
@@ -359,14 +364,12 @@ $G$
   \begin{proof}[证明]
     设图$G$的顶点集为$V=\{v_1,v_2,v_3,v_4,v_5,v_6\}$,考虑顶点$v_1$。
     \begin{itemize}
-    \item 存在三个顶点，其中的每个顶点都与顶点$v_1$相邻接。不失一般性，不妨设这
-      个三个顶点为$v_2,v_3,v_4$。
+    \item 存在三个顶点，其中的每个顶点都与顶点$v_1$相邻接。不失一般性，不妨设这三个顶点为$v_2,v_3,v_4$。
       \begin{itemize}
       \item[-] 在顶点$v_2,v_3,v_4$中，存在两个顶点相邻接，此时$G$中存在三角形。
       \item[-] 在顶点$v_2,v_3,v_4$中，任意两个顶点都不邻接，此时$G^c$中存在三角形。
       \end{itemize}
-    \item 存在三个顶点，其中的每个顶点都与顶点$v_1$不邻接。不失一般性，不妨设这
-      个三个顶点为$v_2,v_3,v_4$。
+    \item 存在三个顶点，其中的每个顶点都与顶点$v_1$不邻接。不失一般性，不妨设这三个顶点为$v_2,v_3,v_4$。
       \begin{itemize}
       \item[-] 在顶点$v_2,v_3,v_4$中，存在两个顶点不邻接，此时$G^c$中存在三角形。
       \item[-] 在顶点$v_2,v_3,v_4$中，任意两个顶点互相邻接，此时$G$中存在三角形。
@@ -376,14 +379,14 @@ $G$
   \end{proof}
   \begin{Def}
     对任意的正整数$m$，$n$，$m \geq 2$，$n \geq 2$，求一个最小的正整数$r(m,n)$，
-    使得任何有$r(m,n)$个顶点的图$G$中一定含有一个$K_m$或者图$G^c$中一定含有一个$K_n$，这里的数$r(m,n)$称为拉姆齐数。
+    使得任意有$r(m,n)$个顶点的图$G$中一定含有一个$K_m$或者图$G^c$中一定含有一个$K_n$，这里的数$r(m,n)$称为拉姆齐数。
   \end{Def}
   \begin{Def}
     设$G=(V,E)$为一个图,如果$G$的顶点集$V$有一个二划分$\{V_1,V_2\}$，
-    使得$G$的任一条边的两个端点一个在$V_1$中，另一个在$V_2$中，则称$G$为偶图。如果$\forall u \in V_1, v \in V_2$均有$uv \in E$，则称$G$为完全偶图，记为$K_{m,n}$，其中$|V_1|=m,|V_2|=n$。
+    使得$G$的任意一条边的两个端点一个在$V_1$中，另一个在$V_2$中，则称$G$为偶图。如果$\forall u \in V_1, \forall v \in V_2$均有$uv \in E$，则称$G$为完全偶图，记为$K_{m,n}$，其中$|V_1|=m,|V_2|=n$。
   \end{Def}
     \begin{Def}
-    设$G=(V,E)$是一个图，$u$和$v$是$G$的顶点。联结$u$和$v$的最短路的长称为$u$与$v$之间的距离，并记为$d(u,v)$。如果$u$与$v$间在$G$中没有路，则定义$d(u,v)=\infty$。
+    设$G=(V,E)$为一个图，$u$和$v$为$G$的两个顶点。联结$u$和$v$的最短路的长称为$u$与$v$之间的距离，并记为$d(u,v)$。如果$u$与$v$间在$G$中没有路，则定义$d(u,v)=\infty$。
   \end{Def}
 
    \begin{Thm}
@@ -472,8 +475,7 @@ $G$
       首先，假设图$G$为欧拉图，往证$G$为连通的且每个顶点的度为偶数。
 
   由图$G$为欧拉图知$G$中有一条包含所有边和所有顶点的闭迹$T:v_0,x_1,v_1,\ldots,
-  x_n,v_n$，其中$v_n=v_0$。显
-  然$G$是连通的。顶点$v_0$在$T$中的第一次出现与一条边相关联，最后一次出现与一
+  x_n,v_n$，其中$v_n=v_0$。显然$G$为连通的。顶点$v_0$在$T$中的第一次出现与一条边相关联，最后一次出现与一
   条边相关联，其余的每次出现均与两条边相关联，因此其度为偶数。除$v_0$之外的其他
   顶点在$T$中的每次出现均与两条边相关联，因此其度也为偶数。
 

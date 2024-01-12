@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -15,27 +15,25 @@
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Cor}{推论}[chapter]
-\newtheorem{Ax}{公理}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Ax}{公理}
 
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Exercise}{练习}
 
-\newtheorem{Example}{例}[chapter]
+\newtheorem{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第十章有向图}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
 
 
-  \setcounter{chapter}{9}
-  \chapter{有向图}
   \begin{Def}
     设$V$为一个有穷非空集合，$A \subseteq V\times V \setminus \{(v,v)|v \in V\}$，二元组$D=(V,A)$称为一个{\bfseries 有向图}。$V$称为有向图$D$的{\bfseries 顶点集}，$V$中的元素称为$D$的{\bfseries 顶点}。
     $A$称为$D$的{\bfseries 弧集}或{\bfseries 有向边集}，$A$中的元素称为$D$的{\bfseries 弧}或{\bfseries 有向边}。如果$x = (u,v) \in A$，则$u$称为弧$x$的{\bfseries 起点}，$v$称为弧$x$的{\bfseries 终点}。
@@ -488,10 +486,18 @@
     二元有序树简称{\bfseries 二元树}。
   \end{Def}
 
+  \begin{Exercise}
+    证明：有向图$D$是单向连通的当且仅当$D$中有一条有向生成通道。
+  \end{Exercise}
+  \begin{proof}[证明]
+    如果有向图$D$中有一条有向生成通道，显然$D$是单向连通的。
+  
+    设有向图$D$是单向连通的，往证$D$有一条有向生成通道。用反证法，假设$D$中不含有向生成通道。设$W:v_1v_2\ldots v_k$为$D$中一条包含顶点数最多的有向通道，则存在顶点$v$，顶点$v$不是$W$中的顶点。由$D$为单向连通的知，要么从顶点$v$到顶点$v_1$可达，要么从顶点$v_1$到顶点$v$可达。如果从顶点$v$到顶点$v_1$可达，那么从顶点$v$到顶点$v_1$的路后接$W$构成了$D$中一条包含顶点数比$W$更多的通道，与$W$为$D$中的一条包含顶点数最多的有向通道矛盾。因此，从顶点$v_1$到顶点$v$是可达的。同理，从顶点$v$到顶点$v_k$是可达的。对每个顶点$v_i$，$2\leq i \leq k-1$，要么从顶点$v_i$到顶点$v$可达，要么从顶点$v$到顶点$v_i$可达。设$v_j$为$W$上第一个从顶点$v$到其可达的顶点，则从顶点$v_{j-1}$到顶点$v$是可达的，于是沿着$W$从顶点$v_1$到顶点$v_{j-1}$，经过从顶点$v_{j-1}$到顶点$v$的一条有向路，再经过从顶点$v$到顶点$v_j$的一条有向路，最后沿着$W$从顶点$v_j$到达顶点$v_k$，构成了$D$中一条包含顶点数比$W$更多的有向通道，与$W$为$D$中包含顶点数最多的有向通道矛盾。
+  \end{proof}
+  
 
 
 
-\chapter{}
 
 \end{CJK*}
 \end{document}

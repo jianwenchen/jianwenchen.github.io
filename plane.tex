@@ -1,4 +1,4 @@
-\documentclass{book}[oneside]
+\documentclass{article}
 \usepackage{CJKutf8}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -10,32 +10,29 @@
 
 
 \usepackage{tikz}
-\titleformat{\chapter}{\centering\Huge\bfseries}{第\, \xCJKnumber{\thechapter}\,
-    章}{1em}{}
+
   % \renewcommand{\chaptermark}[1]{\markboth{第 \thechapter 章}{}}
 \usepackage{mathrsfs}
 
-\newtheorem{Def}{定义}[chapter]
-\newtheorem{Thm}{定理}[chapter]
-\newtheorem{Cor}{推论}[chapter]
-\newtheorem{Ax}{公理}[chapter]
+\newtheorem{Def}{定义}
+\newtheorem{Thm}{定理}
+\newtheorem{Cor}{推论}
+\newtheorem{Ax}{公理}
 
-\newtheorem{Exercise}{练习}[chapter]
+\newtheorem{Exercise}{练习}
 
 
-\newtheorem{Example}{例}[chapter]
+\newtheorem{Example}{例}
 
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
-  \title{离散数学讲义}
+  \title{第九章平面图和图的着色}
   \author{陈建文}
   \maketitle
   % \tableofcontents
   
 
-  \setcounter{chapter}{8}
-  \chapter{平面图和图的着色}
   \begin{Def}
     图$G$称为被嵌入平（曲）面$S$内，如果$G$的图解已画在$S$上，而且任意两条边均不相交（除可能在端点相交外）。
 已嵌入平面内的图称为{\bfseries 平面图}。如果一个图可以嵌入平面，则称此图为{\bfseries 可平面的}。
@@ -381,7 +378,48 @@
   \begin{Thm}
     每个平面图为$4-$可着色的。
   \end{Thm}
+  \begin{Exercise}
+    设$G$为一个有$p$个顶点的平面图，$p\geq 4$。证明：$G$中有$4$个度不超过$5$的顶点。
+     \end{Exercise}
+     \begin{proof}[证明]
+       如果$G$中有度小于$3$的顶点$v$，则$v$在$G-v$的一个面内，在这个面内至少有$3$个顶点，于是可以连接顶点$v$与这$3$个顶点中的某些顶点使得$\deg v\geq 3$。如果此时得到的新图中有$4$个不超过$5$的顶点，则原图中也一定有$4$个不超过$5$的顶点。以下不妨设$G$中每个顶点的度都大于等于$3$，用反证法证明结论成立。假设$G$中度不超过$5$的顶点的个数小于等于$3$，$G$中有$q$条边，则$2q\geq 3 * 3 + 6(p-3)=6p-9$，这与$q\leq 3p-6$矛盾。
+     \end{proof}
+  \begin{Exercise}设$G$为一个$(p,q)$图，证明：$\chi(G) \geq p^2/(p^2-2q)$
+  \end{Exercise}
+  \begin{proof}[证明]  设图$G$的色数$\chi(G)=n$，则$G$可以用$n$种颜色进行顶点着色使得相邻的顶点着不同的颜色。设着不同颜色的顶点的个数分别为$p_1,p_2,\ldots,p_n$，则
+    \[p_1+p_2+\ldots +p_n = p_1 \cdot 1 + p_2\cdot 1 + \ldots + p_n\cdot 1 \leq \sqrt{p_1^2 + p_2^2 + \ldots + p_n^2} \cdot \sqrt{n}\]
+    于是
+    \[\sqrt{n} \geq \frac{p_1+p_2+\ldots + p_n}{\sqrt{p_1^2 + p_2^2 + \ldots + p_n^2}}\]
+    从而
+    \begin{equation}
+      \label{eq:1}
+    n \geq \frac{p^2}{p_1^2 + p_2^2 + \ldots + p_n^2}    
+    \end{equation}
+    再由
+    \[(p_1+p_2+\ldots + p_n)^2 = p_1^2 + p_2^2 + \ldots + p_n^2 + 2\sum_{1\leq i<j\leq n}p_ip_j\]
+    知
+    \[p_1^2 + p_2^2 + \ldots + p_n^2=p^2-2\sum_{1\leq i<j\leq n}p_ip_j\leq p^2-2q\]
+    结合\eqref{eq:1}式知
+    \[n \geq p^2/(p^2-2q)\]
+    结论得证。
+  \end{proof}
+  \begin{Exercise}
+    证明：如果图$G$的任意两个奇数长的圈都有一个公共顶点，则$\chi (G) \leq 5$。
+  \end{Exercise}
+  \begin{proof}[证明]
+    用反证法，假设$\chi(G)=n$, $n \geq 6$。对图$G$的顶点用$n$种颜色进行着色，使得任意两个相邻的顶点着不同的颜色。
+  
+    设$V_1$，$V_2$，$V_3$为其中着3种不同颜色的顶点集合，$V_4$，$V_5$，$V_6$为其中着另外3种不同颜色的顶点集合。则由$V_1\cup V_2\cup V_3$导出的子图$G_1$不是2-可着色的，从而$G_1$中存在一个奇数长的圈$C_1$;同理，由$V_3\cup V_4\cup V_6$导出的子图$G_2$中存在一个奇数长的圈$C_2$。$C_1$和$C_2$没有公共顶点，矛盾。
+  \end{proof}
+  \begin{Exercise}
+    证明：每个哈密顿可平面图都是$4$-面可着色的。
+    \end{Exercise}
+    \begin{proof}[证明]
+    将圈内的每个面内画一个顶点，两邻的面对应的顶点之间连接一条边，所得到的图连通无圈，所以是树。树是2可着色的，从而哈密顿圈内部是2-面可着色的。
+    同理，哈密顿圈外部是2-面可着色的。因此，整个哈密顿可平面图是$4$-面可着色的。
+    \end{proof}
 
+    
 \chapter{}
 
 \end{CJK*}
